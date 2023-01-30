@@ -63,7 +63,11 @@ export default function Home() {
 
         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
 
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru here</a>
+
         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+       
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
