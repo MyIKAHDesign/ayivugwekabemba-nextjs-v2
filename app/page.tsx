@@ -22,7 +22,7 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. I use so many technologies and I am constantly learning new things.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                My mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
+                The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
                 That's why my main websites are in Kifuliiru. Interested in visiting them? Links are here bellow. Thank you!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
