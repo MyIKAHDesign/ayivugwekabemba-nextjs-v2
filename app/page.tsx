@@ -23,8 +23,8 @@ export default function Home() {
                I use so many technologies and I am constantly learning new things.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                There is one of the languages with a limitied quantity of resources online. It's called <span>Kifuliiru</span>. I'm doing everything I can to reduce that gap.
-                That's why my main website is in Kifuliiru. Interested in visitiing it? Click the button bellow. Thank you!
+                There is one of the languages with a limitied quantity of resources online. It's called <span className="text-red">Kifuliiru</span>. I'm doing everything I can to reduce that gap.
+                That's why my main websites are in Kifuliiru. Interested in visiting them? Click the button bellow. Thank you!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a href="https://ayivugwe.editorx.io/ayivugwekabemba" target="_blank" className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">More about me</a>
