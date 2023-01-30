@@ -22,7 +22,7 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-gray-600">Hello. Thank you for visiting my website. As you are already here, I want to tell you that this website is real and it pertains to me (Ayivugwe Kabemba).
                I use so many technologies and I am constantly learning new things.
               </p>
-              <p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
                 My main goal is for my living, my family and most importantly, there is one of the languages with a limitied quantity of resources online. That language is called <span>Kifuliiru</span>. I am doing everything I can to reduce that gap.
                 That's why my main website is in Kifuliiru. Interested in visitiing it? Click the button bellow. Thank you!
               </p>
