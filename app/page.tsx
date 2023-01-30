@@ -51,13 +51,14 @@ export default function Home() {
         </button>
       </div>
       <div className="hidden lg:flex lg:gap-x-12">
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Product</a>
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Home</a>
 
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Features</a>
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</a>
 
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</a>
 
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Company</a>
+        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</a>
+        
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
