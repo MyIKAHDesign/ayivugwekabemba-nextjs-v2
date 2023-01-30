@@ -19,12 +19,11 @@ export default function Home() {
             </div>
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Ayivugwe Kabemba</h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. As you are already here, I want to tell you that this website is real and it pertains to me (Ayivugwe Kabemba).
-               I use so many technologies and I am constantly learning new things.
+              <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. I use so many technologies and I am constantly learning new things.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                There is one of the languages with a limitied quantity of resources online. It's called <span className="text-red">Kifuliiru</span>. I'm doing everything I can to reduce that gap.
-                That's why my main websites are in Kifuliiru. Interested in visiting them? Click the button bellow. Thank you!
+                My mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
+                That's why my main websites are in Kifuliiru. Interested in visiting them? Links are here bellow. Thank you!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a href="https://ayivugwe.editorx.io/ayivugwekabemba" target="_blank" className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">More about me</a>
