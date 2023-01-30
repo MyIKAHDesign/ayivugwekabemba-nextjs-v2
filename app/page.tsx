@@ -53,20 +53,20 @@ export default function Home() {
           <div className="hidden lg:flex lg:gap-x-12">
             <a href="/" className="text-sm font-semibold leading-6 text-gray-900">Home</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</a>
+            <a href="/kifuliiru" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</a>
+            <a href="/ibufuliiru" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</a>
+            <a href="/bafuliiru" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">My projects</a>
+            <a href="/projects" className="text-sm font-semibold leading-6 text-gray-900">My projects</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
+            <a href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru here</a>
+            <a href="" className="text-sm font-semibold leading-6 text-gray-900">Work with me</a>
 
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+            <a href="https://ayivugwe.editorx.io/ayivugwekabemba/blog" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
+            <a href="https://ayivugwe.editorx.io/ayivugwekabemba/contact" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
 
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
