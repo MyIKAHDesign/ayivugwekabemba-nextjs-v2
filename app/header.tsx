@@ -57,7 +57,7 @@ export default function Header(){
 
             <a href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
 
-            <a href="" className="text-sm font-semibold leading-6 text-gray-900">Work with me</a>
+            <a href="/work-with-me" className="text-sm font-semibold leading-6 text-gray-900">Work with me</a>
 
             <a href="https://ayivugwe.editorx.io/ayivugwekabemba/blog" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
             <a href="https://ayivugwe.editorx.io/ayivugwekabemba/contact" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
