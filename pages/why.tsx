@@ -1,7 +1,10 @@
+import { Inter } from "@next/font/google";
+import styles from "./page.module.css";
+
 export default function Reason() {
   return (
     <div className="isolate bg-white">
-      {/* <Header/> */}
+   
       <main>
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
