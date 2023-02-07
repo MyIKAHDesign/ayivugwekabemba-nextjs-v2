@@ -11,17 +11,17 @@ export default function Home() {
       {/* <Header/> */}
       <main>
         <div className="relative px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
-          </div>
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
+            <div className="text-center">
+              <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
+            </div>
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 This website is under construction. <a href="/" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
               </div>
             </div>
             <div className="text-center">
-             <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. Note that this is not all what I have to show you. Continue reading to know more. I love building websites when it's possible to me.  
+              <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. Note that this is not all what I have to show you. Continue reading to know more. I love building websites when it's possible to me.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
