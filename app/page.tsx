@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <div className="relative px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
           </div>
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -21,7 +21,7 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome</h3>
+              <h4 className="text-xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome</h4>
               <p className="mt-6 text-lg leading-8 text-gray-600">Thank you for visiting my website. I love building websites when it's possible to me.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
