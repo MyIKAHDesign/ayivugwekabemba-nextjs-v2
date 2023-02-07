@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
-            <div className="text-center">
+            <div className="hidden sm:mb-8 sm:flex sm:justify-center text-center">
               <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
             </div>
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
