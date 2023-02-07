@@ -35,10 +35,15 @@ export default function Home() {
           </div>
 
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
-           
+            <blockquote>
+              <p class="text-lg font-medium">
+                “The reason why I am building so many websites is my mother language is called Kifuliiru. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
+                That's why my main websites are in Kifuliiru. Interested in visiting them? Links are here bellow. Thank you!”
+              </p>
+            </blockquote>
 
           </div>
-         {/*  <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+          {/*  <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
               <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/ayivugwe.png" alt="" width="384" height="512" />
               <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
                 <blockquote>
