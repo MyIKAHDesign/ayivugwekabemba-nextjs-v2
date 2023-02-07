@@ -21,7 +21,7 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center">
-             <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. I love building websites when it's possible to me.
+             <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. Continue reading to know more. I love building websites when it's possible to me. Note that this is not all what I have to show you. 
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
