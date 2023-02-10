@@ -15,6 +15,7 @@ export default function Home() {
             <div className="sm:mb-8 sm:flex sm:justify-center text-center">
               <h1 className="text-4xl text-sm font-bold tracking-tight text-gray-900 sm:text-4xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
             </div>
+            
             <div className="sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 This website is under construction. <a href="/" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
