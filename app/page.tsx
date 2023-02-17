@@ -10,7 +10,7 @@ export default function Home() {
     <div className="isolate bg-white">
       {/* <Header/> */}
       <main>
-        <div className="relative px-6 lg:px-8">
+        <div className="relative px-3 lg:px-3">
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
             <div className="sm:mb-8 sm:flex sm:justify-center text-center">
               <h1 className="text-4xl text-sm font-bold tracking-tight text-gray-900 sm:text-4xl"> <a href="/"> Ayivugwe Kabemba </a></h1>
