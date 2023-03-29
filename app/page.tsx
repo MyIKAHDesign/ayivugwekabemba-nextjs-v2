@@ -36,14 +36,6 @@ export default function Home() {
           </div>
 
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
-           <p>
-            The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
-            The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
-            The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
-           </p>
-          </div>
-
-          <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
            <p>Continue reading...</p>
           </div>
           
