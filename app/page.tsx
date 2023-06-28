@@ -25,12 +25,12 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-gray-600">Welcome. Thank you for visiting my website. Note that this is not all what I have to show you. Continue reading to know more. I love building websites when it's possible to me.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                The reason why I am building so many websites is my mother language is called <span className="text-red">Kifuliiru</span>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
+                The reason why I am building so many websites is my mother language is called <b><i></i><span className="text-red">Kifuliiru</span></i></b>. It's one of the laguages with limited resources online. I'm doing everything I can to reduce that gap.
                 That's why my main websites are in Kifuliiru. Interested in visiting them? Links are here bellow. Thank you!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a href="https://ayivugwe.editorx.io/ayivugwekabemba" target="_blank" className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">More about me</a>
-                <a href="https://ibufuliiru.editorx.io/ibufuliiru" target="_blank" className="text-base font-semibold leading-7 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+                <a href="https://ayivugwe.editorx.io/ayivugwekabemba" target="_blank" className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">My Kifuliiru website</a>
+                <a href="https://ikahdesign.editorx.io/ikah" target="_blank" className="text-base font-semibold leading-7 text-gray-900">My design agency<span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
