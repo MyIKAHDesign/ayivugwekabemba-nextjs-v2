@@ -18,7 +18,7 @@ export default function Home() {
             
             <div className="sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                This website is under construction. <a href="/" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                This website is under construction. Read more about me here <a href="https://read.cv/ayivugwekabemba" className="font-semibold text-indigo-600" target="_blank"><span className="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
               </div>
             </div>
             <div className="text-center">
@@ -34,11 +34,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
-           <p>Continue reading...</p>
-          </div>
-          
         </div>
       </main>
     </div>
