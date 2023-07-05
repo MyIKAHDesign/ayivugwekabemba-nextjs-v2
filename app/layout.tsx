@@ -12,7 +12,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head >
-        <link rel='icon' href='/Ayiv.png'/>
+        <link rel='icon' href='/ayiv.ico'/>
       </head>
       <body>{children}</body>
     </html>
