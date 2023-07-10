@@ -1,5 +1,6 @@
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Header(){
     return (
@@ -48,35 +49,32 @@ export default function Header(){
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            <a href="/" className="text-sm font-semibold leading-6 text-gray-900">Home</a>
+            <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">Home</Link>
 
-            <a href="/kifuliiru" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</a>
+            <Link href="/kifuliiru" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</Link>
 
-            <a href="/ibufuliiru" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</a>
+            <Link href="/ibufuliiru" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</Link>
 
-            <a href="/bafuliiru" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</a>
+            <Link href="/bafuliiru" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</Link>
 
-            <a href="/projects" className="text-sm font-semibold leading-6 text-gray-900">My projects</a>
+            <Link href="/projects" className="text-sm font-semibold leading-6 text-gray-900">My projects</Link>
 
-            <a href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
+            <Link href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</Link>
 
           
-            <a href="https://ayivugwe.editorx.io/ayivugwekabemba/blog" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
-            <a href="https://ayivugwe.editorx.io/ayivugwekabemba/contact" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+            <Link href="https://ayivugwe.editorx.io/ayivugwekabemba/blog" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
+            <Link href="https://ayivugwe.editorx.io/ayivugwekabemba/contact" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Contact</Link>
 
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-          </div>
+         
         </nav>
         {/* <!-- Mobile menu, show/hide based on menu open state. --> */}
         <div role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Ayivugwe Kabemba</span>
-                <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-              </a>
+              </Link>
               <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
                 <span className="sr-only">Close menu</span>
                 {/*  <!-- Heroicon name: outline/x-mark --> */}
@@ -88,27 +86,25 @@ export default function Header(){
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  <a href="/" className="text-sm font-semibold leading-6 text-gray-900">Home</a>
+                  <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">Home</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Ibufuliiru</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Bafuliiru</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">My projects</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">My projects</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">About me</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">About me</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru here</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Kifuliiru here</Link>
 
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
+                  <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Contact me</Link>
 
                 </div>
-                <div className="py-6">
-                  <a href="#" className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">Log in</a>
-                </div>
+                
               </div>
             </div>
           </div>
