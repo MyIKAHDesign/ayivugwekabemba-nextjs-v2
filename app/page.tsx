@@ -12,11 +12,11 @@ export default function Home() {
     <div className="isolate bg-white">
       {/* <Header/> */}
       <main>
-        <div className="relative px-3 lg:px-3">
+        <div className="relative px-1 lg:px-1">
+          <div className="sm:mb-8 sm:flex sm:justify-center text-center">
+            <Header />
+          </div>
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
-            <div className="sm:mb-8 sm:flex sm:justify-center text-center">
-              <Header/>
-            </div>
             <div className="sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 Visit my projects here.{" "}
@@ -31,13 +31,12 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center">
-              
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Welcome. My name is Ayivugwe Kabemba. Thank you for visiting my website. This website is
-                under construction. As you are already here, let me tell you
-                that this website is real and it pertains to me (Ayivugwe
-                Kabemba). I use so many technologies and I am constantly
-                learning new things.
+                Welcome. My name is Ayivugwe Kabemba. Thank you for visiting my
+                website. This website is under construction. As you are already
+                here, let me tell you that this website is real and it pertains
+                to me (Ayivugwe Kabemba). I use so many technologies and I am
+                constantly learning new things.
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 My main goal is for my living, my family and most importantly,
