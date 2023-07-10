@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
 import Link from "next/link";
+import Header from "./header";
 // import Header from "./header";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,12 +15,8 @@ export default function Home() {
         <div className="relative px-3 lg:px-3">
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
             <div className="sm:mb-8 sm:flex sm:justify-center text-center">
-              <h1 className="text-4xl text-sm font-bold tracking-tight text-gray-900 sm:text-4xl">
-                {" "}
-                <a href="/"> Ayivugwe Kabemba </a>
-              </h1>
+              <Header/>
             </div>
-
             <div className="sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 Visit my projects here.{" "}
@@ -34,11 +31,9 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Welcome. My name is Ayivugwe Kabemba
-              </h1>
+              
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Welcome. Thank you for visiting my website. This website is
+                Welcome. My name is Ayivugwe Kabemba. Thank you for visiting my website. This website is
                 under construction. As you are already here, let me tell you
                 that this website is real and it pertains to me (Ayivugwe
                 Kabemba). I use so many technologies and I am constantly
