@@ -29,10 +29,10 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 My main goal is for my living, my family and most importantly, there is one of the languages with a limitied quantity of resources online. That language is called <span>Kifuliiru</span>. I am doing everything I can to reduce that gap. That is why my main website is in Kifuliiru. Thank you!
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
+             {/*  <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link href="https://ayivugwe.editorx.io/ayivugwekabemba" target="_blank" className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">My Kifuliiru website</Link>
                 <Link href="https://ikahdesign.editorx.io/ikah" target="_blank" className="text-base font-semibold leading-7 text-gray-900">My design agency<span aria-hidden="true">→</span></Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
