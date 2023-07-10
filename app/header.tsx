@@ -36,7 +36,6 @@ export default function Header(){
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Ayivugwe Kabemba</span>
-              <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -59,9 +58,7 @@ export default function Header(){
 
             <Link href="/projects" className="text-sm font-semibold leading-6 text-gray-900">My projects</Link>
 
-            <Link href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</Link>
-
-          
+            <Link href="/me" className="text-sm font-semibold leading-6 text-gray-900">About me</Link>          
             <Link href="https://ayivugwe.editorx.io/ayivugwekabemba/blog" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
             <Link href="https://ayivugwe.editorx.io/ayivugwekabemba/contact" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Contact</Link>
 
