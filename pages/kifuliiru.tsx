@@ -1,16 +1,15 @@
 
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
+import styles from "@app/page.module.css";
 import Link from "next/link";
-// import Header from "./header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Kifuliiru() {
   return (
     <div className="isolate bg-white">
-      {/* <Header/> */}
+      
       <main>
         <div className="relative px-1 lg:px-1">
           {/* <div className="sm:mb-8 sm:flex sm:justify-center text-center">
