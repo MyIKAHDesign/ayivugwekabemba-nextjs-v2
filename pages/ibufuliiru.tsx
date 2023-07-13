@@ -13,9 +13,9 @@ export default function Ibufuliiru() {
       {/* <Header/> */}
       <main>
         <div className="relative px-1 lg:px-1">
-          <div className="sm:mb-8 sm:flex sm:justify-center text-center">
+         {/*  <div className="sm:mb-8 sm:flex sm:justify-center text-center">
             <Header />
-          </div>
+          </div> */}
           <div className="mx-auto max-w-2xl py-16 sm:py-30 lg:py-30">
             <div className="sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
