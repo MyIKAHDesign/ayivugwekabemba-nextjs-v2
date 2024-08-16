@@ -14,29 +14,6 @@ export default function Home() {
               Welcome. I&lsquo;m Ayivugwe Kabemba Mukome.
             </p>
           </a>
-
-          <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-            <p
-              className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-             
-              rel="noopener noreferrer"
-              style={{ fontSize: '18px' }} // Adjust font size as needed
-            >
-              Visit my Kifuliiru website
-            </p>
-          </div>
-
-          <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-            <a
-              className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-              href="https://ayivugwe.editorx.io/ayivugwekabemba/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: '16px' }} // Adjust font size as needed
-            >
-              Visit my Kifuliiru website
-            </a>
-          </div>
         </div>
 
         <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
@@ -50,6 +27,27 @@ export default function Home() {
             priority
           />
         </div>
+
+        <h2 className={`mb-3 text-2xl font-semibold`}>
+          Welcome to my website. My name is Ayivugwe Kabemba Mukome
+        </h2>
+        <p className={`mb-3 text-sm font-mono`}>
+          I’m Ayivugwe Kabemba Mukome, a software developer and Project Manager
+          with a solid foundation in computer science. Originally from Congo
+          Kinshasa, I spent time in Burundi before moving to the US in September
+          2023. My career has spanned roles in DevOps and as a field associate
+          at Walmart, where I’ve been recognized for my commitment and hard
+          work. I’m passionate about learning and hold certifications in Google
+          Project Management and digital journalism. I’m currently involved in
+          several projects, including developing a Kifuliiru language course,
+          creating a Kifuliiru dictionary, and working on a security system idea
+          I’ve had since 2014. With strong programming skills in Python and
+          Java, I’m focused on becoming an expert in these areas. My future
+          goals include deepening my knowledge in Machine Learning, Data
+          Science, and DevOps, as well as pursuing the CompTIA A+ certification.
+          I’m fluent in Kiswahili and Swahili, and I’m working on improving my
+          English to enhance my professional opportunities.
+        </p>
 
         <h2 className={`mb-3 text-2xl font-semibold`}>Check my projects</h2>
 
@@ -130,13 +128,14 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2 className={`mb-3 text-2xl font-semibold`}>
-              Imyazi mu Kifuliiru {" "}
+              Imyazi mu Kifuliiru{" "}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
             <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-              This is a media agency in Kifuliiru. I created it for the purpose of creating much digital content.
+              This is a media agency in Kifuliiru. I created it for the purpose
+              of creating much digital content.
             </p>
           </a>
 
@@ -147,14 +146,14 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2 className={`mb-3 text-2xl font-semibold`}>
-              Radio Ibufuliiru {" "}
+              Radio Ibufuliiru{" "}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
             <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-              This is my other media agency in Kifuliiru that I created. It&lsquo;s still
-              under development.
+              This is my other media agency in Kifuliiru that I created.
+              It&lsquo;s still under development.
             </p>
           </a>
         </div>
