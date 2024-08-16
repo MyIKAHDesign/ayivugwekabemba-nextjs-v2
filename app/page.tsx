@@ -28,26 +28,29 @@ export default function Home() {
           />
         </div>
 
-        <h2 className={`mb-3 text-2xl font-semibold`}>
-          Welcome to my website. My name is Ayivugwe Kabemba Mukome
-        </h2>
-        <p className={`mb-3 text-sm font-mono`}>
-          I’m Ayivugwe Kabemba Mukome, a software developer and Project Manager
-          with a solid foundation in computer science. Originally from Congo
-          Kinshasa, I spent time in Burundi before moving to the US in September
-          2023. My career has spanned roles in DevOps and as a field associate
-          at Walmart, where I’ve been recognized for my commitment and hard
-          work. I’m passionate about learning and hold certifications in Google
-          Project Management and digital journalism. I’m currently involved in
-          several projects, including developing a Kifuliiru language course,
-          creating a Kifuliiru dictionary, and working on a security system idea
-          I’ve had since 2014. With strong programming skills in Python and
-          Java, I’m focused on becoming an expert in these areas. My future
-          goals include deepening my knowledge in Machine Learning, Data
-          Science, and DevOps, as well as pursuing the CompTIA A+ certification.
-          I’m fluent in Kiswahili and Swahili, and I’m working on improving my
-          English to enhance my professional opportunities.
-        </p>
+        <div className="">
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Welcome to my website. My name is Ayivugwe Kabemba Mukome
+          </h2>
+          <p className={`mb-3 text-sm font-mono`}>
+            I’m Ayivugwe Kabemba Mukome, a software developer and Project
+            Manager with a solid foundation in computer science. Originally from
+            Congo Kinshasa, I spent time in Burundi before moving to the US in
+            September 2023. My career has spanned roles in DevOps and as a field
+            associate at Walmart, where I’ve been recognized for my commitment
+            and hard work. I’m passionate about learning and hold certifications
+            in Google Project Management and digital journalism. I’m currently
+            involved in several projects, including developing a Kifuliiru
+            language course, creating a Kifuliiru dictionary, and working on a
+            security system idea I’ve had since 2014. With strong programming
+            skills in Python and Java, I’m focused on becoming an expert in
+            these areas. My future goals include deepening my knowledge in
+            Machine Learning, Data Science, and DevOps, as well as pursuing the
+            CompTIA A+ certification. I’m fluent in Kiswahili and Swahili, and
+            I’m working on improving my English to enhance my professional
+            opportunities.
+          </p>
+        </div>
 
         <h2 className={`mb-3 text-2xl font-semibold`}>Check my projects</h2>
 
