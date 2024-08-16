@@ -28,7 +28,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="">
+        <div className="p-24">
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Welcome to my website. My name is Ayivugwe Kabemba Mukome
           </h2>
