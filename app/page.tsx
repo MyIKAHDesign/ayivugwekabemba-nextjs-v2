@@ -26,9 +26,9 @@ export default function Home() {
           </div>
           <div className="md:w-2/3 md:pl-8">
             <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome</h1>
+           <p className="text-lg mb-4">Project Manager, Software Developer & Kifuliiru Language Advocate</p>
             <p className="text-lg mb-4">
-            Welcome to my portfolio! I am Ayivugwe Kabemba Mukome, a dynamic Project Manager and Software Developer with a passion for creating impactful solutions. With a strong background in computer science and extensive experience in both DevOps and multimedia projects, I blend technical expertise with strategic project management to deliver exceptional results. My journey, from my roots in Congo to my current role in the US, reflects my commitment to innovation, continuous learning, and empowering communities through technology.
-
+            I am a Google-certified Project Manager and Software Developer, passionate about creating innovative solutions. As a dedicated advocate for the Kifuliiru language, I strive to empower communities through technology and cultural preservation.
 
             </p>
             <p className="text-lg">
