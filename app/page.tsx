@@ -17,8 +17,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#141619] to-[#0A21C0] text-[#B3B4BD]">
-      <div className="container mx-auto px-4 py-8">
+    <main className="min-h-screen bg-gradient-to-br from-[#141619] to-[#0A21C0] text-[#B3B4BD] flex items-center justify-center">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         {/* Floating background elements */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#050A44] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
