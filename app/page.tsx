@@ -68,14 +68,12 @@ export default function Home() {
                 <div key={index} className="bg-[#141619] rounded-lg shadow-md p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#B3B4BD]">{project.title}</h3>
                   <p className="text-[#B3B4BD] mb-4">{project.description}</p>
-                  <a
-                    href={project.url}
-                    className="inline-block bg-[#0A21C0] text-white px-4 py-2 rounded hover:bg-[#050A44] transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => window.open(project.url, '_blank', 'noopener,noreferrer')}
+                    className="bg-[#0A21C0] text-white px-4 py-2 rounded hover:bg-[#050A44] transition-colors"
                   >
                     Visit Project
-                  </a>
+                  </button>
                 </div>
               ))}
             </div>
