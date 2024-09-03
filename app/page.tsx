@@ -55,27 +55,27 @@ export default function Home() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">Learn more about me and my projects</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">My Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-            { title: "Ayivugwe Kabemba website", url: "https://ayivugwe.editorx.io/ayivugwekabemba/", description: "My main website in Kifuliiru, the language I love the most." },
-            { title: "IKAH Design", url: "https://ikahdesign.editorx.io/ikah", description: "My Design Agency" },
-            { title: "Ibufuliiru", url: "https://ibufuliiru.editorx.io/ibufuliiru", description: "My main project currently." },
-            { title: "Kifuliiru", url: "https://ibufuliiru.editorx.io/kifuliiru", description: "My project about the Kifuliiru language." },
-            { title: "Imyazi mu Kifuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "A media agency in Kifuliiru for creating digital content." },
-            { title: "Radio Ibufuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "Another media agency in Kifuliiru (under development)." },
-          ].map((project, index) => (
-            <a
-              key={index}
-              href={project.url}
-              className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
-            </a>
-          ))}
+              {[
+                { title: "Ayivugwe Kabemba website", url: "https://ayivugwe.editorx.io/ayivugwekabemba/", description: "My main website in Kifuliiru, the language I love the most." },
+                { title: "IKAH Design", url: "https://ikahdesign.editorx.io/ikah", description: "My Design Agency" },
+                { title: "Ibufuliiru", url: "https://ibufuliiru.editorx.io/ibufuliiru", description: "My main project currently." },
+                { title: "Kifuliiru", url: "https://ibufuliiru.editorx.io/kifuliiru", description: "My project about the Kifuliiru language." },
+                { title: "Imyazi mu Kifuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "A media agency in Kifuliiru for creating digital content." },
+                { title: "Radio Ibufuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "Another media agency in Kifuliiru (under development)." },
+              ].map((project, index) => (
+                <a
+                  key={index}
+                  href={project.url}
+                  className="block p-6 bg-white hover:bg-[#0A21C0] hover:text-white rounded-lg shadow-md hover:shadow-lg transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h3 className="text-xl font-semibold mb-2 text-[#141619]">{project.title}</h3>
+                  <p className="text-[#2C2E3A]">{project.description}</p>
+                </a>
+              ))}
             </div>
           </section>
 
