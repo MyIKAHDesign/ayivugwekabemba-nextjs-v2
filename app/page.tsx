@@ -5,34 +5,32 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check system preference
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     setDarkMode(mediaQuery.matches);
 
-    const handler = () => setDarkMode(mediaQuery.matches);
-    mediaQuery.addListener(handler);
-    return () => mediaQuery.removeListener(handler);
+    const handler = (e: MediaQueryListEvent) => setDarkMode(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-8 md:p-24 relative overflow-hidden ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
-      {/* Background animation */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-600 opacity-10 animate-pulse"></div>
-        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+    <main className={`flex min-h-screen flex-col items-center justify-between p-8 md:p-24 relative overflow-hidden ${darkMode ? 'bg-[#141619] text-[#B3B4BD]' : 'bg-[#B3B4BD] text-[#141619]'}`}>
+      {/* Floating background elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#050A44] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#0A21C0] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-[#2C2E3A] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-4xl">
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Ayivugwe Kabemba Mukome</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">Software Developer & Project Manager</p>
+          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#050A44] to-[#0A21C0]">Ayivugwe Kabemba Mukome</h1>
+          <p className="text-xl text-[#2C2E3A] dark:text-[#B3B4BD]">Software Developer & Project Manager</p>
         </header>
 
         <section className="mb-12">
           <Image
-            className="mx-auto rounded-full shadow-lg border-4 border-purple-500"
+            className="mx-auto rounded-full shadow-lg border-4 border-[#0A21C0]"
             src="/ayiv.ico"
             alt="Ayivugwe Kabemba Mukome"
             width={180}
@@ -42,8 +40,8 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-4 text-purple-500">About Me</h2>
-          <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed`}>
+          <h2 className="text-3xl font-semibold mb-4 text-[#0A21C0]">About Me</h2>
+          <p className={`${darkMode ? 'text-[#B3B4BD]' : 'text-[#141619]'} leading-relaxed`}>
             I&apos;m a software developer and Project Manager with a solid foundation in computer science. 
             Originally from Congo Kinshasa, I spent time in Burundi before moving to the US in September 2023. 
             My career has spanned roles in DevOps and as a field associate at Walmart, where I&apos;ve been recognized 
@@ -53,7 +51,7 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6 text-purple-500">My Projects</h2>
+          <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">My Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { title: "Ayivugwe Kabemba website", url: "https://ayivugwe.editorx.io/ayivugwekabemba/", description: "My main website in Kifuliiru, the language I love the most." },
@@ -66,18 +64,18 @@ export default function Home() {
               <a
                 key={index}
                 href={project.url}
-                className={`block p-6 ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} rounded-lg shadow-md hover:shadow-lg transition-all`}
+                className={`block p-6 ${darkMode ? 'bg-[#2C2E3A] hover:bg-[#050A44]' : 'bg-[#B3B4BD] hover:bg-[#0A21C0] hover:text-white'} rounded-lg shadow-md hover:shadow-lg transition-all`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3 className="text-xl font-semibold mb-2 text-purple-500">{project.title}</h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{project.description}</p>
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <p className={`${darkMode ? 'text-[#B3B4BD]' : 'text-[#141619]'}`}>{project.description}</p>
               </a>
             ))}
           </div>
         </section>
 
-        <footer className="text-center text-gray-500">
+        <footer className="text-center text-[#2C2E3A] dark:text-[#B3B4BD]">
           <p>&copy; 2024 Ayivugwe Kabemba Mukome. All rights reserved.</p>
         </footer>
       </div>
