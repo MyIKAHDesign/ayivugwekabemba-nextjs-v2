@@ -12,7 +12,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FFF0B3] text-[#141619] p-8">
+    <main className="min-h-screen bg-[#DAE858] text-[#141619] p-8">
       <div className="max-w-4xl mx-auto">
         <section className="mb-12 flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 mb-6 md:mb-0">
