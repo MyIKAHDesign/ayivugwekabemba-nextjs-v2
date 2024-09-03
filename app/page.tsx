@@ -17,16 +17,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br to-[#FFD700] text-[#B3B4BD] flex items-center justify-center">
+    <main className="min-h-screen bg-[#FFD700] text-[#141619] flex items-center justify-center">
       <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
-        {/* Floating background elements */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#050A44] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#0A21C0] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-[#2C2E3A] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-4000"></div>
-        </div>
-
         <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+          {/* Floating background elements */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#050A44] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+            <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-[#0A21C0] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-2000"></div>
+            <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-[#2C2E3A] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-4000"></div>
+          </div>
+
           <header className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#050A44] to-[#0A21C0]">Ayivugwe Kabemba Mukome</h1>
             <p className="text-xl text-[#2C2E3A] dark:text-[#B3B4BD]">Software Developer & Project Manager</p>
