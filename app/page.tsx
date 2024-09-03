@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FFD700] text-[#141619] flex items-center justify-center">
+    <main className="min-h-screen bg-[#FFF0B3] text-[#141619] flex items-center justify-center">
       <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
           {/* Floating background elements */}
