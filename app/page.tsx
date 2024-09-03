@@ -40,12 +40,15 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-8">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="mb-4">{project.description}</p>
+            <div 
+              key={index} 
+              className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-[#F0F4C3]"
+            >
+              <h3 className="text-xl font-semibold mb-2 text-[#0A21C0]">{project.title}</h3>
+              <p className="mb-4 text-[#141619]">{project.description}</p>
               <Link 
                 href={project.url}
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="inline-block px-4 py-2 bg-[#0A21C0] text-white rounded hover:bg-[#050A44] transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
