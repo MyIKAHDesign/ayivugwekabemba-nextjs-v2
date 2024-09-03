@@ -18,17 +18,18 @@ export default function Home() {
           <div className="md:w-1/3 mb-6 md:mb-0">
             <Image
               src="/ayiv.ico" // Replace with your actual image path
-              alt="Ayivugwe Kabemba Mukome"
+              alt="Ayivugwe Kabemba Mukome - Google Certified Professional Project Manager & Software Developer & DevOps"
               width={200}
               height={200}
               className="rounded-full"
             />
           </div>
           <div className="md:w-2/3 md:pl-8">
-            <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome</h1>
+            <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome - Google Certified Professional Project Manager & Software Developer  & DevOps</h1>
             <p className="text-lg mb-4">
-              Welcome to my portfolio! I&apos;m a passionate developer with a focus on [your specialties].
-              I love creating projects that [your goals or interests].
+            Welcome to my portfolio! I am Ayivugwe Kabemba Mukome, a dynamic Project Manager and Software Developer with a passion for creating impactful solutions. With a strong background in computer science and extensive experience in both DevOps and multimedia projects, I blend technical expertise with strategic project management to deliver exceptional results. My journey, from my roots in Congo to my current role in the US, reflects my commitment to innovation, continuous learning, and empowering communities through technology.
+
+
             </p>
             <p className="text-lg">
               Feel free to explore my projects below and get in touch if you&apos;d like to collaborate!
