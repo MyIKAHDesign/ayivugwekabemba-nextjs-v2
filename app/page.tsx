@@ -65,16 +65,18 @@ export default function Home() {
                 { title: "Imyazi mu Kifuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "A media agency in Kifuliiru for creating digital content." },
                 { title: "Radio Ibufuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "Another media agency in Kifuliiru (under development)." },
               ].map((project, index) => (
-                <a
-                  key={index}
-                  href={project.url}
-                  className="block p-6 bg-[#141619] hover:bg-[#0A21C0] text-[#B3B4BD] hover:text-white rounded-lg shadow-md hover:shadow-lg transition-all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p>{project.description}</p>
-                </a>
+                <div key={index} className="bg-[#141619] rounded-lg shadow-md p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-[#B3B4BD]">{project.title}</h3>
+                  <p className="text-[#B3B4BD] mb-4">{project.description}</p>
+                  <a
+                    href={project.url}
+                    className="inline-block bg-[#0A21C0] text-white px-4 py-2 rounded hover:bg-[#050A44] transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Project
+                  </a>
+                </div>
               ))}
             </div>
           </section>
