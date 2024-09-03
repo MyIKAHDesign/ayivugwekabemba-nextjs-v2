@@ -14,6 +14,21 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F5F7F8] text-[#141619] p-8">
       <div className="max-w-4xl mx-auto">
+        <nav className="mb-8">
+          <ul className="flex space-x-4">
+            <li>
+              <Link href="/" className="text-[#0A21C0] hover:underline">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-[#0A21C0] hover:underline">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <section className="mb-12 flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 mb-6 md:mb-0">
             <Image
