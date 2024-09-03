@@ -17,21 +17,21 @@ export default function Home() {
         <section className="mb-12 flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 mb-6 md:mb-0">
             <Image
-              src="/your-image.jpg" // Replace with your actual image path
-              alt="Your Name"
+              src="/ayiv.ico" // Replace with your actual image path
+              alt="Ayivugwe Kabemba Mukome"
               width={200}
               height={200}
               className="rounded-full"
             />
           </div>
           <div className="md:w-2/3 md:pl-8">
-            <h1 className="text-4xl font-bold mb-4">Your Name</h1>
+            <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome</h1>
             <p className="text-lg mb-4">
-              Welcome to my portfolio! I'm a passionate developer with a focus on [your specialties].
+              Welcome to my portfolio! I&apos;m a passionate developer with a focus on [your specialties].
               I love creating projects that [your goals or interests].
             </p>
             <p className="text-lg">
-              Feel free to explore my projects below and get in touch if you'd like to collaborate!
+              Feel free to explore my projects below and get in touch if you&apos;d like to collaborate!
             </p>
           </div>
         </section>
