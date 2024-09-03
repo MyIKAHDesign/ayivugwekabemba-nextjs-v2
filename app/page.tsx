@@ -22,10 +22,10 @@ export default function Home() {
       <section className="w-full max-w-4xl mb-12">
         <h2 className="text-2xl font-semibold mb-4">About Me</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          I'm a software developer and Project Manager with a solid foundation in computer science. 
+          I&apos;m a software developer and Project Manager with a solid foundation in computer science. 
           Originally from Congo Kinshasa, I spent time in Burundi before moving to the US in September 2023. 
-          My career has spanned roles in DevOps and as a field associate at Walmart, where I've been recognized 
-          for my commitment and hard work. I'm passionate about learning and hold certifications in Google 
+          My career has spanned roles in DevOps and as a field associate at Walmart, where I&apos;ve been recognized 
+          for my commitment and hard work. I&apos;m passionate about learning and hold certifications in Google 
           Project Management and digital journalism.
         </p>
       </section>
