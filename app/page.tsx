@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -13,11 +14,33 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FFF0B3] text-[#141619] p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">My Projects</h1>
+        <section className="mb-12 flex flex-col md:flex-row items-center">
+          <div className="md:w-1/3 mb-6 md:mb-0">
+            <Image
+              src="/your-image.jpg" // Replace with your actual image path
+              alt="Your Name"
+              width={200}
+              height={200}
+              className="rounded-full"
+            />
+          </div>
+          <div className="md:w-2/3 md:pl-8">
+            <h1 className="text-4xl font-bold mb-4">Your Name</h1>
+            <p className="text-lg mb-4">
+              Welcome to my portfolio! I'm a passionate developer with a focus on [your specialties].
+              I love creating projects that [your goals or interests].
+            </p>
+            <p className="text-lg">
+              Feel free to explore my projects below and get in touch if you'd like to collaborate!
+            </p>
+          </div>
+        </section>
+
+        <h2 className="text-3xl font-bold mb-8">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="mb-4">{project.description}</p>
               <Link 
                 href={project.url}
