@@ -2,28 +2,27 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24 bg-gradient-to-b from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
-      <div className="absolute inset-0 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg"></div>
-      <div className="relative z-10 w-full max-w-4xl">
-        <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">Ayivugwe Kabemba Mukome</h1>
-          <p className="text-2xl text-white drop-shadow-md">Software Developer & Project Manager</p>
+    <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24 bg-gradient-to-b from-gray-900 to-black text-white">
+      <div className="w-full max-w-4xl">
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Ayivugwe Kabemba Mukome</h1>
+          <p className="text-xl text-gray-400">Software Developer & Project Manager</p>
         </header>
 
-        <section className="mb-12">
+        <section className="mb-16">
           <Image
-            className="mx-auto rounded-full shadow-lg border-4 border-white"
+            className="mx-auto rounded-full shadow-lg border-2 border-purple-500"
             src="/ayiv.ico"
             alt="Ayivugwe Kabemba Mukome"
-            width={200}
-            height={200}
+            width={180}
+            height={180}
             priority
           />
         </section>
 
-        <section className="mb-12 bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-lg p-6 shadow-xl">
-          <h2 className="text-3xl font-semibold mb-4 text-white">About Me</h2>
-          <p className="text-white leading-relaxed">
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-4 text-purple-400">About Me</h2>
+          <p className="text-gray-300 leading-relaxed">
             I&apos;m a software developer and Project Manager with a solid foundation in computer science. 
             Originally from Congo Kinshasa, I spent time in Burundi before moving to the US in September 2023. 
             My career has spanned roles in DevOps and as a field associate at Walmart, where I&apos;ve been recognized 
@@ -32,9 +31,9 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-4 text-white drop-shadow-md">My Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-6 text-purple-400">My Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { title: "Ayivugwe Kabemba website", url: "https://ayivugwe.editorx.io/ayivugwekabemba/", description: "My main website in Kifuliiru, the language I love the most." },
               { title: "IKAH Design", url: "https://ikahdesign.editorx.io/ikah", description: "My Design Agency" },
@@ -46,18 +45,18 @@ export default function Home() {
               <a
                 key={index}
                 href={project.url}
-                className="block p-6 bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-lg shadow-xl hover:shadow-2xl transition-shadow"
+                className="block p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all hover:bg-gray-700"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
-                <p className="text-gray-200">{project.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-blue-400">{project.title}</h3>
+                <p className="text-gray-400">{project.description}</p>
               </a>
             ))}
           </div>
         </section>
 
-        <footer className="text-center text-white">
+        <footer className="text-center text-gray-500">
           <p>&copy; 2024 Ayivugwe Kabemba Mukome. All rights reserved.</p>
         </footer>
       </div>
