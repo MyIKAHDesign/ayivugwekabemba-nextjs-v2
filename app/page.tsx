@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#141619] via-[#0A21C0] to-[#FFD700] text-[#B3B4BD] flex items-center justify-center">
+    <main className="min-h-screen bg-gradient-to-br to-[#FFD700] text-[#B3B4BD] flex items-center justify-center">
       <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         {/* Floating background elements */}
         <div className="absolute inset-0 z-0 overflow-hidden">
