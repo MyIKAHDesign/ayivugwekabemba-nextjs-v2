@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#141619] to-[#0A21C0] text-[#B3B4BD] flex items-center justify-center">
+    <main className="min-h-screen bg-gradient-to-br from-[#141619] via-[#0A21C0] to-[#FFD700] text-[#B3B4BD] flex items-center justify-center">
       <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         {/* Floating background elements */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -26,7 +26,7 @@ export default function Home() {
           <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-[#2C2E3A] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-4000"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-4xl">
+        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
           <header className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#050A44] to-[#0A21C0]">Ayivugwe Kabemba Mukome</h1>
             <p className="text-xl text-[#2C2E3A] dark:text-[#B3B4BD]">Software Developer & Project Manager</p>
