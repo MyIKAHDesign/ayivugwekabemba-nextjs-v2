@@ -55,7 +55,7 @@ export default function Home() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">My Projects</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">Learn more about me and my projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
             { title: "Ayivugwe Kabemba website", url: "https://ayivugwe.editorx.io/ayivugwekabemba/", description: "My main website in Kifuliiru, the language I love the most." },
