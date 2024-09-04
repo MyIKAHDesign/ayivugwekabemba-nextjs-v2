@@ -10,17 +10,18 @@ export default function Contact() {
     message: ''
   });
   const [status, setStatus] = useState('');
+  const [captchaVerified, setCaptchaVerified] = useState(false); // Added state for captcha verification
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleCaptchaVerify = () => {
+    setCaptchaVerified(true); // Set captcha as verified
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!captchaVerified) { // Check if captcha is verified
+      setStatus('Please verify the captcha before submitting.');
+      return;
+    }
     setStatus('Sending...');
 
     try {
@@ -98,7 +99,10 @@ export default function Contact() {
             rows={4}
           ></textarea>
         </div>
-        <div className="h-captcha" data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0"></div>
+        <div className="h-captcha" 
+             data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0" 
+             data-callback={handleCaptchaVerify} // Added callback for captcha verification
+        ></div>
         <button type="submit" className="bg-[#0A21C0] text-white px-4 py-2 rounded hover:bg-[#050A44]">
           Send Message
         </button>
