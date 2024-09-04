@@ -96,6 +96,11 @@ export default function Contact() {
           &larr; Back to Home
         </Link>
       </div>
+      <div className="h-captcha" data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0"></div>
+      <script src="https://hcaptcha.com/1/api.js" async defer></script>
     </div>
   );
 }
+
+
+
