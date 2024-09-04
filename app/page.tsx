@@ -1,9 +1,25 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4">Welcome to Ayivugwe Kabemba Mukome</h1>
-      <p className="text-lg mb-4">Project Manager, Software Developer & Kifuliiru Language Advocate</p>
-      
+      <section className="mb-12 flex flex-col md:flex-row items-center">
+        <div className="md:w-1/3 mb-6 md:mb-0">
+          <Image
+            src="/ayiv.ico" // Ensure this path is correct
+            alt="Ayivugwe Kabemba Mukome"
+            width={200}
+            height={200}
+            className="rounded-full"
+          />
+        </div>
+        <div className="md:w-2/3 md:pl-8">
+          <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome</h1>
+          <p className="text-base italic text-gray-600 mb-4">Project Manager, Software Developer & Kifuliiru Language Advocate</p>
+        </div>
+      </section>
+
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-6 text-[#0A21C0]">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
