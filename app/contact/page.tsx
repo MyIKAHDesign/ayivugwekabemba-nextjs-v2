@@ -104,11 +104,7 @@ export default function Contact() {
         </button>
       </form>
       {status && <p className="mt-4 text-center">{status}</p>}
-      <div className="mt-8">
-        <Link href="/" className="text-[#0A21C0] hover:underline">
-          &larr; Back to Home
-        </Link>
-      </div>
+      
     </div>
   );
 }
