@@ -17,6 +17,7 @@ export default function Home() {
         <div className="md:w-2/3 md:pl-8">
           <h1 className="text-4xl font-bold mb-4">Ayivugwe Kabemba Mukome</h1>
           <p className="text-base italic text-gray-600 mb-4">Project Manager, Software Developer & Kifuliiru Language Advocate</p>
+          <p className="text-base italic text-gray-600 mb-4">I am a Google-certified Project Manager and Software Developer, passionate about creating innovative solutions. As a dedicated advocate for the Kifuliiru language, I strive to empower communities through technology and cultural preservation.</p>
         </div>
       </section>
 
