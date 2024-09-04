@@ -15,7 +15,7 @@ export default function Resume() {
 
   return (
     <>
-      <Header /> {/* Add the Header component here */}
+      
       <div className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8">My Resume</h1>
         <div id="resume-content">
