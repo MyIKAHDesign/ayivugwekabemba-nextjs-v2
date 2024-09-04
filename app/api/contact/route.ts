@@ -28,6 +28,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
-    return NextResponse.json({ error: 'Failed to send email', details: error.message }, { status: 500 });
+    if (error instanceof Error) {
+      return NextResponse.json({ error: 'Failed to send email', details: error.message }, { status: 500 });
+    } else {
+      return NextResponse.json({ error: 'Failed to send email', details: 'An unknown error occurred' }, { status: 500 });
+    }
   }
 }
