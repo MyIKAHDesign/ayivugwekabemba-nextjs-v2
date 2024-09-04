@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Contact() {
@@ -46,6 +46,18 @@ export default function Contact() {
     }
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://hcaptcha.com/1/api.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script); // Clean up the script on unmount
+    };
+  }, []);
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">Contact Me</h1>
@@ -87,7 +99,6 @@ export default function Contact() {
           ></textarea>
         </div>
         <div className="h-captcha" data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0"></div>
-        <script src="https://hcaptcha.com/1/api.js" async defer></script>
         <button type="submit" className="bg-[#0A21C0] text-white px-4 py-2 rounded hover:bg-[#050A44]">
           Send Message
         </button>
