@@ -1,8 +1,7 @@
 "use client";
 
-import Link from 'next/link';
 import { jsPDF } from "jspdf"; 
-import styles from './Resume.module.css'; // Adjust the path as necessary
+import styles from './global.module.css'; // Adjust the path as necessary
 
 export default function Resume() {
   const handleDownload = () => {
