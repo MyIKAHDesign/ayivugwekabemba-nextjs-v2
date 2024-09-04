@@ -1,7 +1,5 @@
 "use client";
-
-import { jsPDF } from "jspdf"; 
-import styles from './global.module.css'; // Adjust the path as necessary
+ // Adjust the path as necessary
 
 export default function Resume() {
   const handleDownload = () => {
