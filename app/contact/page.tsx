@@ -9,6 +9,7 @@ export default function Contact() {
     email: '',
     message: ''
   });
+  const [status, setStatus] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,12 +19,29 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -86,11 +104,7 @@ export default function Contact() {
             Send Message
           </button>
         </form>
-        <div className="mt-8">
-          <Link href="/" className="text-[#0A21C0] hover:underline">
-            &larr; Back to Home
-          </Link>
-        </div>
+        {status && <p className="mt-4 text-center">{status}</p>}
       </div>
     </main>
   );
