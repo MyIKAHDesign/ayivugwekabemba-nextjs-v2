@@ -24,7 +24,7 @@ export default function Contact() {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('/api/contact', {  // Updated API route
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,11 +32,14 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus('Failed to send message. Please try again.');
+        console.error('Server responded with an error:', data.error, data.details);
+        setStatus(`Failed to send message: ${data.error}. ${data.details || ''}`);
       }
     } catch (error) {
       console.error('Error:', error);
