@@ -53,7 +53,7 @@ export default function Resume() {
           <h4>Software Developer & Project Manager</h4>
           <p>ASYST RESOURCES LTD | [Location] | [Month/Year] – [Month/Year]</p>
           <ul>
-            <li>Led the development of the &apos;Ibufuliiru&apos; project, focusing on preserving and promoting the Kifuliiru language</li>
+            <li>Led the development of the Ibufuliiru project, focusing on preserving and promoting the Kifuliiru language</li>
             <li>Coordinated cross-functional teams, including remote teams in Congo, to produce educational materials and digital content</li>
             <li>Developed and maintained web and mobile applications, integrating technologies like Firebase, React, and Flutter</li>
           </ul>
