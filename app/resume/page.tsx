@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { jsPDF } from "jspdf"; // Add this import at the top
-import Header from './components/Header'; // Adjust the path as necessary
+import Header from '../components/Header'; // Adjust the path as necessary
 
 export default function Resume() {
   const handleDownload = () => {
