@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p>&copy; 2023 Ayivugwe Kabemba Mukome. All rights reserved.</p>
+            <p>&copy; 2024 Ayivugwe Kabemba Mukome. All rights reserved.</p>
           </div>
           <nav>
             <ul className="flex space-x-4">

@@ -32,7 +32,7 @@ export default function Home() {
             { title: "Imyazi mu Kifuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "A media agency in Kifuliiru for creating digital content." },
             { title: "Radio Ibufuliiru", url: "https://ibufuliiru.editorx.io/imyazi", description: "Another media agency in Kifuliiru (under development)." },
           ].map((project, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-[#F0F4C3]">
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-[#feffed]">
               <h3 className="text-xl font-semibold mb-2 text-[#0A21C0]">{project.title}</h3>
               <p className="mb-4 text-[#141619]">{project.description}</p>
               <a 
