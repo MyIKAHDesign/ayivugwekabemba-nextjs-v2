@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import Link from 'next/link';
 
 export default function Contact() {
@@ -14,6 +14,14 @@ export default function Contact() {
 
   const handleCaptchaVerify = () => {
     setCaptchaVerified(true); // Set captcha as verified
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const { name, value } = event.target; // Destructure name and value from the event target
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value, // Update the specific field in formData
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,7 +78,7 @@ export default function Contact() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleChange} // Updated to use handleChange
             required
             className="w-full p-2 border rounded"
           />
@@ -82,7 +90,7 @@ export default function Contact() {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleChange} // Updated to use handleChange
             required
             className="w-full p-2 border rounded"
           />
@@ -93,7 +101,7 @@ export default function Contact() {
             id="message"
             name="message"
             value={formData.message}
-            onChange={handleChange}
+            onChange={handleChange} // Updated to use handleChange
             required
             className="w-full p-2 border rounded"
             rows={4}
