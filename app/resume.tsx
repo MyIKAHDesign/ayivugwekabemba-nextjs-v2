@@ -38,7 +38,7 @@ export default function Resume() {
           </ul>
 
           <h3>Education</h3>
-          <p>Bachelor's Degree in Computer Science</p>
+          <p>Bachelors Degree in Computer Science</p>
           <p>[University Name] | [Year of Graduation]</p>
           <p>Focus on software development, networking, and operating systems</p>
 
