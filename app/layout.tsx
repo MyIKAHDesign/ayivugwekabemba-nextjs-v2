@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-blue-50`}> {/* Change the background color here */}
+      <body className={`${inter.className} bg-gray-100`}> {/* Solid background color without gradient */}
         <div className="flex flex-col min-h-screen">
           <Header /> {/* Include the Header here */}
           <main className="flex-grow">
