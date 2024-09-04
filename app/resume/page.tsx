@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { jsPDF } from "jspdf"; // Add this import at the top
-import Header from '../components/Header'; // Adjust the path as necessary
+import { jsPDF } from "jspdf"; 
+import styles from './Resume.module.css'; // Adjust the path as necessary
 
 export default function Resume() {
   const handleDownload = () => {
@@ -14,8 +14,7 @@ export default function Resume() {
   };
 
   return (
-    <>
-      
+    <div className={styles.container}>
       <div className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8">My Resume</h1>
         <div id="resume-content">
@@ -119,6 +118,6 @@ export default function Resume() {
         </div>
         
       </div>
-    </>
+    </div>
   );
 }
