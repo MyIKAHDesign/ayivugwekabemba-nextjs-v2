@@ -28,7 +28,22 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-[#F5F7F8] text-[#141619] p-8">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
+        <nav className="mb-8">
+          <ul className="flex space-x-4">
+            <li>
+              <Link href="/" className="text-[#0A21C0] hover:underline">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-[#0A21C0] hover:underline">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <h1 className="text-4xl font-bold mb-8">Contact Me</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
