@@ -81,7 +81,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit Project
+                Visit It
               </a>
             </div>
           ))}
