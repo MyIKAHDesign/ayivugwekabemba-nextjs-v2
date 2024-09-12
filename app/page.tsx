@@ -56,6 +56,11 @@ export default function Home() {
               description: "My project about the Kifuliiru language.",
             },
             {
+              title: "Kifuliiru.net",
+              url: "https://kifuliiru.net",
+              description: "A Kifuliiru language learning website.",
+            },
+            {
               title: "Imyazi mu Kifuliiru",
               url: "https://imyazi.substack.com/",
               description:
