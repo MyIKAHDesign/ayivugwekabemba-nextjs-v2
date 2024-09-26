@@ -13,7 +13,7 @@ export default function Header() {
             height={50} // Adjust size as needed
             className="rounded-full mr-2" // Add margin for spacing
           />
-          <h1 className="text-white text-2xl font-bold">AYIVUGWE KABEMBA MUKOME</h1> {/* Your name added here */}
+          <h1 className="text-white text-2xl font-bold">AYIVUGWE</h1> {/* Your name added here */}
         </div>
         <ul className="flex space-x-4">
           <li>
