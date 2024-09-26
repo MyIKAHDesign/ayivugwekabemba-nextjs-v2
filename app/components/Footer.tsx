@@ -11,18 +11,23 @@ export default function Footer() {
           <nav>
             <ul className="flex space-x-4">
               <li>
-                <Link href="/" className="relative text-white transition-colors duration-300 hover:text-yellow-300 group">
+                <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
                   Home
-                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-yellow-300 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-yellow-300 group">
+                <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
                   Contact
-                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-yellow-300 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 </Link>
               </li>
-             
+              <li>
+                <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
+                  About Me
+                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </Link>
+              </li>
               {/* Add more links as needed */}
             </ul>
           </nav>
