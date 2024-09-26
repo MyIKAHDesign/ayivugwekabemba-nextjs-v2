@@ -30,7 +30,12 @@ export default function Header() {
               <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           </li>
-          {/* Add more links as needed */}
+          <li>
+            <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
+              About Me
+              <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

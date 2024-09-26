@@ -28,7 +28,6 @@ export default function Footer() {
                   <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 </Link>
               </li>
-              {/* Add more links as needed */}
             </ul>
           </nav>
         </div>
