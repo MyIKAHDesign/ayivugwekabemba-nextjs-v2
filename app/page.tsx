@@ -25,6 +25,15 @@ export default function Home() {
             advocate for the Kifuliiru language, I strive to empower communities
             through technology and cultural preservation.
           </p>
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold mb-2">Connect with me:</h2>
+            <div className="flex space-x-4">
+              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">Twitter</a>
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">LinkedIn</a>
+              <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">GitHub</a>
+              {/* Add more social media links as needed */}
+            </div>
+          </div>
         </div>
       </section>
 
