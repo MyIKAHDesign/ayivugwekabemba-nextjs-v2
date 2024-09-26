@@ -7,7 +7,7 @@ export default function About() {
         <div className="md:w-1/3 mb-6 md:mb-0">
           <Image
             src="/ayiv.ico" // Ensure this path is correct
-            alt="Ayivugwe Kabemba Mukome"
+            alt="Ayivugwe"
             width={200}
             height={200}
             className="rounded-full"
