@@ -64,7 +64,7 @@ export default function About() {
             ensuring they stay informed in a rapidly evolving environment. -
             **Kifuliiru Language Advocacy**: I am actively working on developing
             a Large Language Model (LLM) for the Kifuliiru language, with plans
-            to pursue a Master's degree in Data Science to enhance my skills in
+            to pursue a Masters degree in Data Science to enhance my skills in
             this area. #### Skills and Expertise - **Programming Languages**:
             Proficient in Python and Java, with a strong understanding of web
             development frameworks and tools. - **Project Management**:
