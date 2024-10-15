@@ -48,7 +48,9 @@ export default function About() {
             the importance of community and innovation.
           </p>
           
-          <h2>Professional Background </h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Professional Background 
+          </h2>
           <p className="text-base text-gray-600 mb-4">
             With a degree in Computer Science and
             extensive experience in software development, I have transitioned
@@ -59,7 +61,9 @@ export default function About() {
             effective management practices to drive successful project outcomes.
           </p>
 
-          <h2>Key Projects Ibufuliiru:</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Key Projects Ibufuliiru:
+          </h2>
           <p className="text-base text-gray-600 mb-4">
             This is my main project aimed at promoting
             the Kifuliiru language and culture. Under this initiative, I have
@@ -71,7 +75,9 @@ export default function About() {
             dedicated to sharing news and culture in Kifuliiru.
           </p>
 
-          <h2>Biza: </h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Biza: 
+          </h2>
           <p className="text-base text-gray-600 mb-4">
             A mobile app and web portal designed to notify users about
             business updates and changes, ensuring they stay informed in a
@@ -81,7 +87,9 @@ export default function About() {
             Science to enhance my skills in this area.
           </p>
 
-          <h2>Skills and Expertise Programming Languages:</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Skills and Expertise Programming Languages:
+          </h2>
           <p className="text-base text-gray-600 mb-4">
             Proficient in Python and Java, with a strong understanding of web development frameworks and
             tools. Project Management: Experienced in Agile methodologies,
@@ -91,7 +99,9 @@ export default function About() {
             particularly in the Kifuliiru language.
           </p>
 
-          <h2>Community Engagement</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Community Engagement
+          </h2>
           <p className="text-base text-gray-600 mb-4">
              I believe in the power of education and
             community involvement. I am creating a documentation-like website to
@@ -99,13 +109,15 @@ export default function About() {
             app that serves both normal users and validated contributors.
           </p>
 
-          <h2>Connect with Me </h2>
+          <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+            Connect with Me 
+          </h2>
           <p className="text-base text-gray-600 mb-4">
             I am always eager to collaborate and share ideas.
             Feel free to reach out through my social media channels or contact me
             directly through this website. Let us work together to make a
             difference!
-            <Link href='../contact/pages.tsx' >Contact me here</Link>
+            <Link href='../contact' >Contact me here</Link>
           </p>
         </div>
       </section>
