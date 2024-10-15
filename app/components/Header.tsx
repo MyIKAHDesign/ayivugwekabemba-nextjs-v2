@@ -11,6 +11,10 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false); // Close the menu
+  };
+
   return (
     <header className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-md">
       <nav className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -33,19 +37,19 @@ export default function Header() {
         </div>
         <ul className={`flex-col md:flex md:flex-row md:space-x-4 absolute md:static w-full md:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'top-16' : 'top-[-200px]'} ${isOpen ? 'bg-gradient-to-r from-blue-500 to-purple-600' : ''}`}>
           <li>
-            <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
+            <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
               Home
               <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
+            <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
               Contact
               <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           </li>
           <li>
-            <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
+            <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
               About Me
               <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
@@ -57,13 +61,13 @@ export default function Header() {
         <div className="absolute left-0 top-16 w-full bg-gradient-to-r from-blue-500 to-purple-600 p-4 md:hidden">
           <ul className="flex flex-col space-y-2">
             <li>
-              <Link href="/" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]">Home</Link>
+              <Link href="/" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>Home</Link>
             </li>
             <li>
-              <Link href="/contact" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]">Contact</Link>
+              <Link href="/contact" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>Contact</Link>
             </li>
             <li>
-              <Link href="/about" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]">About Me</Link>
+              <Link href="/about" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>About Me</Link>
             </li>
           </ul>
         </div>
