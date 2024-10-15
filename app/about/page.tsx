@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -47,8 +48,9 @@ export default function About() {
             the importance of community and innovation.
           </p>
           
+          <h2>Professional Background </h2>
           <p className="text-base text-gray-600 mb-4">
-            Professional Background With a degree in Computer Science and
+            With a degree in Computer Science and
             extensive experience in software development, I have transitioned
             into roles that combine my technical skills with project management.
             I am currently pursuing a Google Project Management Professional
@@ -57,8 +59,9 @@ export default function About() {
             effective management practices to drive successful project outcomes.
           </p>
 
+          <h2>Key Projects Ibufuliiru:</h2>
           <p className="text-base text-gray-600 mb-4">
-            Key Projects Ibufuliiru: This is my main project aimed at promoting
+            This is my main project aimed at promoting
             the Kifuliiru language and culture. Under this initiative, I have
             launched several sub-projects, including: Imyazi mu Kifuliiru:
             Educational resources for language learning. Fuliiru Press and
@@ -68,8 +71,9 @@ export default function About() {
             dedicated to sharing news and culture in Kifuliiru.
           </p>
 
+          <h2>Biza: </h2>
           <p className="text-base text-gray-600 mb-4">
-            Biza: A mobile app and web portal designed to notify users about
+            A mobile app and web portal designed to notify users about
             business updates and changes, ensuring they stay informed in a
             rapidly evolving environment. Kifuliiru Language Advocacy: I am
             actively working on developing a Large Language Model (LLM) for the
@@ -77,9 +81,9 @@ export default function About() {
             Science to enhance my skills in this area.
           </p>
 
+          <h2>Skills and Expertise Programming Languages:</h2>
           <p className="text-base text-gray-600 mb-4">
-            Skills and Expertise Programming Languages: Proficient in Python and
-            Java, with a strong understanding of web development frameworks and
+            Proficient in Python and Java, with a strong understanding of web development frameworks and
             tools. Project Management: Experienced in Agile methodologies,
             including Scrum and Kanban, facilitating efficient team collaboration
             and project delivery. Multimedia Creation: Utilizing various
@@ -87,18 +91,21 @@ export default function About() {
             particularly in the Kifuliiru language.
           </p>
 
+          <h2>Community Engagement</h2>
           <p className="text-base text-gray-600 mb-4">
-            Community Engagement I believe in the power of education and
+             I believe in the power of education and
             community involvement. I am creating a documentation-like website to
             help individuals learn to count in Kifuliiru, alongside a dictionary
             app that serves both normal users and validated contributors.
           </p>
 
+          <h2>Connect with Me </h2>
           <p className="text-base text-gray-600 mb-4">
-            Connect with Me I am always eager to collaborate and share ideas.
+            I am always eager to collaborate and share ideas.
             Feel free to reach out through my social media channels or contact me
             directly through this website. Let us work together to make a
             difference!
+            <Link href='../contact/pages.tsx' >Contact me here</Link>
           </p>
         </div>
       </section>
