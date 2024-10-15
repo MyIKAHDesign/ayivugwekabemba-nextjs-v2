@@ -21,7 +21,7 @@ export default function Header() {
               height={50}
               className="rounded-full mr-2"
             />
-            <h1 className="text-white text-2xl font-bold">AYIVUGWE</h1>
+            <h2 className="text-white text-2xl font-bold">AYIVUGWE</h2>
           </Link>
         </div>
         <div className="md:hidden">
