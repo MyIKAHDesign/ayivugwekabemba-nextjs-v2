@@ -1,23 +1,35 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image'; 
+import { useState } from 'react';
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-md">
       <nav className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" className="flex items-center"> {/* Wrap in Link for navigation */}
+          <Link href="/" className="flex items-center">
             <Image
-              src="/ayiv.ico" // Ensure this path is correct
+              src="/ayiv.ico"
               alt="Logo"
-              width={50} // Adjust size as needed
-              height={50} // Adjust size as needed
-              className="rounded-full mr-2" // Add margin for spacing
+              width={50}
+              height={50}
+              className="rounded-full mr-2"
             />
-            <h1 className="text-white text-2xl font-bold">AYIVUGWE</h1> {/* Your name added here */}
+            <h1 className="text-white text-2xl font-bold">AYIVUGWE</h1>
           </Link>
         </div>
-        <ul className="flex space-x-4">
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-white focus:outline-none">
+            {isOpen ? '✖' : '☰'}
+          </button>
+        </div>
+        <ul className={`flex-col md:flex md:flex-row md:space-x-4 absolute md:static bg-gradient-to-r from-blue-500 to-purple-600 w-full md:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'top-16' : 'top-[-200px]'}`}>
           <li>
             <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
               Home
