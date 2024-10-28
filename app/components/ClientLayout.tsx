@@ -23,7 +23,7 @@ const Header = () => {
             href="#"
             className="text-xl font-bold text-blue-600 dark:text-blue-400"
           >
-            John Doe
+            Ayivugwe Kabemba
           </a>
 
           {/* Desktop Navigation */}
@@ -76,7 +76,7 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="text-center">
         <p className="text-slate-600 dark:text-slate-300">
-          © {new Date().getFullYear()} John Doe. All rights reserved.
+          © {new Date().getFullYear()} Ayivugwe Kabemba. All rights reserved.
         </p>
       </div>
     </div>
