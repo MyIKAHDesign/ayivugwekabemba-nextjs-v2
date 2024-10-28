@@ -3,17 +3,6 @@
 import React, { useState } from "react";
 import { Filter, Search } from "lucide-react";
 
-// Define Image component
-const Image = ({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) => <img src={src} alt={alt} className={className} />;
-
 interface Skill {
   name: string;
   icon: string;
@@ -24,7 +13,7 @@ interface Skill {
 const SkillCard = ({ skill }: { skill: Skill }) => (
   <div className="group relative flex flex-col items-center p-4 rounded-xl bg-white dark:bg-slate-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
     <div className="w-16 h-16 rounded-lg bg-slate-50 dark:bg-slate-600 p-3 mb-4 group-hover:scale-110 transition-transform duration-300">
-      <Image
+      <img
         src="/api/placeholder/64/64"
         alt={`${skill.name} icon`}
         className="w-full h-full object-contain"
