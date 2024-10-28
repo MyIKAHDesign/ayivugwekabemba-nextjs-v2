@@ -1,5 +1,4 @@
-// components/ProjectsSection.tsx
-("use client");
+"use client";
 
 import React from "react";
 import ProjectCard from "./ProjectCard";

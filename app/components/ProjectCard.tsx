@@ -1,5 +1,4 @@
-// components/ProjectCard.tsx
-("use client");
+"use client";
 
 import React from "react";
 import { ArrowUpRight, LucideIcon } from "lucide-react";
