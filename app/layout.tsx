@@ -1,15 +1,29 @@
-// app/layout.tsx
-import { ClientLayout } from "./components/ClientLayout";
+import type { Metadata } from "next";
+import { Inter, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import { Inter } from "next/font/google";
 
-// Initialize Inter font
-const inter = Inter({ subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+});
 
-export const metadata = {
-  title: "John Doe | Full Stack Developer",
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: "Ayivugwe Kabemba Mukome - Project Manager & Software Developer",
   description:
-    "Portfolio showcasing my work and experience as a Full Stack Developer",
+    "Project Manager, Software Developer & Kifuliiru Language Advocate",
+  keywords: [
+    "Project Manager",
+    "Software Developer",
+    "Kifuliiru",
+    "Language Advocate",
+  ],
 };
 
 export default function RootLayout({
@@ -18,10 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+    <html lang="en" className={`${instrumentSans.variable} ${inter.variable}`}>
+      <body className="min-h-screen bg-slate-50 antialiased">{children}</body>
     </html>
   );
 }

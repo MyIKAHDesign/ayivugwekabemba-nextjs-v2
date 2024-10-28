@@ -4,12 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
-interface NavbarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
