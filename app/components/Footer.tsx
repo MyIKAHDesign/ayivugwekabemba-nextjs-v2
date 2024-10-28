@@ -1,37 +1,89 @@
-import Link from 'next/link';
+// components/Footer.tsx
+import { Github, Linkedin, Mail } from "lucide-react";
+import { NAV_ITEMS } from "../constants/navigation";
 
-export default function Footer() {
+// components/Footer.tsx
+interface FooterProps {
+  scrollToSection: (href: string) => void;
+}
+
+export const Footer = ({ scrollToSection }: FooterProps) => {
   return (
-    <footer className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-6 mt-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-lg font-semibold">&copy; 2024 Ayivugwe Kabemba Mukome. All rights reserved.</p>
+    <footer className="mt-20 bg-slate-100 dark:bg-slate-800">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-lg font-bold mb-4 font-instrument">
+              Ayivugwe Kabemba
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300">
+              Full Stack Developer specializing in Java and Python development
+            </p>
           </div>
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
-                  Home
-                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
-                  Contact
-                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group">
-                  About Me
-                  <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                </Link>
-              </li>
+
+          <div>
+            <h3 className="text-lg font-bold mb-4 font-instrument">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.label}>
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-slate-600 dark:text-slate-300 hover:text-slate-900 
+                      dark:hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
-          </nav>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold mb-4 font-instrument">Connect</h3>
+            <div className="flex space-x-4">
+              <a
+                href="https://github.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 
+                  dark:hover:text-white"
+                aria-label="GitHub Profile"
+              >
+                <Github size={24} />
+              </a>
+              <a
+                href="https://linkedin.com/in/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 
+                  dark:hover:text-white"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="mailto:your@email.com"
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 
+                  dark:hover:text-white"
+                aria-label="Email Contact"
+              >
+                <Mail size={24} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 
+          text-center text-slate-600 dark:text-slate-300"
+        >
+          <p>
+            © {new Date().getFullYear()} Ayivugwe Kabemba. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};
