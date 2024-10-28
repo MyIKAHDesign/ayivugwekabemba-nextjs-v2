@@ -117,8 +117,8 @@ export default function About() {
             Feel free to reach out through my social media channels or contact me
             directly through this website. Let us work together to make a
             difference!
-            <Link href='../contact' >Contact me here</Link>
           </p>
+          <Link href='../contact' >Contact me here</Link>
         </div>
       </section>
     </main>
