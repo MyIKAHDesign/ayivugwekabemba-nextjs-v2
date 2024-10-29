@@ -55,7 +55,7 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-4 h-full flex items-center">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link
@@ -88,11 +88,6 @@ const Header = () => {
                   }`}
                 >
                   {link.name}
-                  <span
-                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
-                      darkMode ? "bg-slate-200" : "bg-slate-900"
-                    } hover:scale-x-100 active:scale-x-100`}
-                  ></span>
                 </Link>
               ) : (
                 <button
@@ -105,11 +100,6 @@ const Header = () => {
                   }`}
                 >
                   {link.name}
-                  <span
-                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
-                      darkMode ? "bg-slate-200" : "bg-slate-900"
-                    } hover:scale-x-100 active:scale-x-100`}
-                  ></span>
                 </button>
               )
             )}
@@ -185,11 +175,6 @@ const Header = () => {
                   }`}
                 >
                   {link.name}
-                  <span
-                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
-                      darkMode ? "bg-slate-200" : "bg-slate-900"
-                    } hover:scale-x-100 active:scale-x-100`}
-                  ></span>
                 </Link>
               ) : (
                 <button
@@ -202,11 +187,6 @@ const Header = () => {
                   }`}
                 >
                   {link.name}
-                  <span
-                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
-                      darkMode ? "bg-slate-200" : "bg-slate-900"
-                    } hover:scale-x-100 active:scale-x-100`}
-                  ></span>
                 </button>
               )
             )}
