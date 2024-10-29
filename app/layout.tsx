@@ -77,6 +77,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
               : "bg-transparent"
           }`}
         >
+          <title>Ayivugwe Kabemba </title>;
           <nav className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <button
