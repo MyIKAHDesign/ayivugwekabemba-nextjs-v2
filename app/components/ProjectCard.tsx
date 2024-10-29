@@ -17,7 +17,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   icon: Icon,
 }) => {
   return (
-    <div className="group relative bg-white rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100">
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative bg-white rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100"
+    >
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
 
       <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
@@ -41,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

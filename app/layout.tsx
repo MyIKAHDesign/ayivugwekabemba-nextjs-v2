@@ -39,7 +39,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     { name: "Projects", href: "/#projects" },
     { name: "Experience", href: "/#experience" },
     { name: "Skills", href: "/#skills" },
-    { name: "About me", href: "/#timeline-section" },
+    { name: "About me", href: "/#about-me" },
     { name: "Contact", href: "/contact" },
   ];
 
