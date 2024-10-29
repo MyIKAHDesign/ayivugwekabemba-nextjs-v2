@@ -1,77 +1,174 @@
-"use client"; // Mark the component as a client component
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image'; // Import Image component
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { Menu, Moon, Sun } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false); // State to manage mobile menu
+interface NavLink {
+  name: string;
+  href: string;
+}
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+const Header = () => {
+  const { darkMode, setDarkMode } = useTheme();
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const closeMenu = () => {
-    setIsOpen(false); // Close the menu
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks: NavLink[] = [
+    { name: "Home", href: "/#home" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Skills", href: "/#skills" },
+    { name: "About me", href: "/#about-me" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const handleNavigation = (href: string): void => {
+    if (href.startsWith("/#")) {
+      const element = document.querySelector(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = href;
+    }
+    setIsMenuOpen(false);
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-md">
-      <nav className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center"> {/* Wrap in Link for navigation */}
-            <Image
-              src="/ayiv.ico" // Ensure this path is correct
-              alt="Logo"
-              width={50} // Adjust size as needed
-              height={50} // Adjust size as needed
-              className="rounded-full mr-2" // Add margin for spacing
-            />
-            <h1 className="text-white text-2xl font-bold">AYIVUGWE</h1> {/* Your name added here */}
-          </Link>
-        </div>
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
-            {isOpen ? '✖' : '☰'} {/* Hamburger icon */}
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-300 h-20
+        ${
+          darkMode
+            ? "bg-black/95 backdrop-blur-md border-b border-slate-900"
+            : isScrolled
+            ? "bg-white/80 backdrop-blur-md border-b border-slate-200"
+            : "bg-transparent"
+        }`}
+    >
+      <nav className="max-w-6xl mx-auto px-4 h-full flex items-center">
+        <div className="flex items-center justify-between w-full">
+          {/* Logo */}
+          <button
+            onClick={() => handleNavigation("/#home")}
+            className={`text-xl font-bold hover:opacity-80 transition-opacity
+              ${darkMode ? "text-slate-200" : "text-slate-900"}`}
+          >
+            Ayivugwe
           </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavigation(link.href)}
+                className={`transition-colors duration-300
+                  ${
+                    darkMode
+                      ? "text-slate-500 hover:text-slate-200"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+              >
+                {link.name}
+              </button>
+            ))}
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`p-2 rounded-full transition-colors duration-300
+                ${darkMode ? "hover:bg-slate-900/90" : "hover:bg-slate-100"}`}
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
+            >
+              {darkMode ? (
+                <Sun
+                  size={20}
+                  className="text-slate-500 hover:text-slate-200"
+                />
+              ) : (
+                <Moon size={20} className="text-slate-600" />
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`p-2 rounded-full transition-colors duration-300
+                ${darkMode ? "hover:bg-slate-900/90" : "hover:bg-slate-100"}`}
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
+            >
+              {darkMode ? (
+                <Sun
+                  size={20}
+                  className="text-slate-500 hover:text-slate-200"
+                />
+              ) : (
+                <Moon size={20} className="text-slate-600" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`p-2 rounded-full transition-colors duration-300
+                ${
+                  darkMode
+                    ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
+                    : "text-slate-600 hover:bg-slate-100"
+                }`}
+              aria-label="Toggle menu"
+            >
+              <Menu size={20} />
+            </button>
+          </div>
         </div>
-        <ul className={`flex-col md:flex md:flex-row md:space-x-4 absolute md:static w-full md:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'top-16' : 'top-[-200px]'} ${isOpen ? 'bg-gradient-to-r from-blue-500 to-purple-600' : ''}`}>
-          <li>
-            <Link href="/" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
-              Home
-              <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
-              Contact
-              <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="relative text-white transition-colors duration-300 hover:text-[#F0F4C3] group" onClick={closeMenu}>
-              About Me
-              <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#F0F4C3] transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </Link>
-          </li>
-        </ul>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 
+            ${isMenuOpen ? "max-h-64" : "max-h-0"}
+            overflow-hidden
+            ${
+              darkMode
+                ? "bg-black/95 border-b border-slate-900"
+                : "bg-white/80 border-b border-slate-200"
+            }
+            backdrop-blur-md`}
+        >
+          <div className="px-4 py-2 space-y-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavigation(link.href)}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300
+                  ${
+                    darkMode
+                      ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                  }`}
+              >
+                {link.name}
+              </button>
+            ))}
+          </div>
+        </div>
       </nav>
-      {/* Drawer Menu for Small Screens */}
-      {isOpen && (
-        <div className="absolute left-0 top-16 w-full bg-gradient-to-r from-blue-500 to-purple-600 p-4 md:hidden">
-          <ul className="flex flex-col space-y-2">
-            <li>
-              <Link href="/" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>Home</Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>Contact</Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-white transition-colors duration-300 hover:text-[#F0F4C3]" onClick={closeMenu}>About Me</Link>
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
-}
+};
+
+export default Header;
