@@ -145,7 +145,7 @@ export default function Contact() {
           </div>
           <div
             className="h-captcha"
-            data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0"
+            data-sitekey="3a060bc2-9fd2-43fc-89e0-079875727eec"
             data-callback="handleCaptchaVerify"
           ></div>
           <button
