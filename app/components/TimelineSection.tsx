@@ -13,6 +13,30 @@ interface Experience {
 const TimelineSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const timelineElement = document.getElementById("timeline-section");
+    if (timelineElement) {
+      observer.observe(timelineElement);
+    }
+
+    return () => {
+      if (timelineElement) {
+        observer.unobserve(timelineElement);
+      }
+    };
+  }, []);
+
   const experiences: Experience[] = [
     {
       year: "2024",
@@ -51,30 +75,6 @@ const TimelineSection: React.FC = () => {
     },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const timelineElement = document.getElementById("timeline-section");
-    if (timelineElement) {
-      observer.observe(timelineElement);
-    }
-
-    return () => {
-      if (timelineElement) {
-        observer.unobserve(timelineElement);
-      }
-    };
-  }, []);
-
   return (
     <section
       className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
@@ -85,96 +85,27 @@ const TimelineSection: React.FC = () => {
           About Me
         </h2>
         <p className="text-lg text-slate-600">
-          A journey through professional development, cultural preservation, and
-          technological innovation
+          A journey through my professional development and achievements
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12">
         <div className="space-y-6">
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-montserrat text-xl font-semibold text-slate-900 mb-3">
-                  Welcome to my journey
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  I am Ayivugwe Kabemba Mukome, a Google-certified Project
-                  Manager and Software Developer with a passion for creating
-                  innovative solutions. Originally from Congo Kinshasa and
-                  having spent time as a refugee in Burundi, I have a unique
-                  perspective on the importance of community and innovation.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-montserrat text-xl font-semibold text-slate-900 mb-3">
-                  Professional Background
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  With a degree in Computer Science and extensive experience in
-                  software development, I have transitioned into roles that
-                  combine technical skills with project management. Currently
-                  pursuing a Google Project Management Professional Certificate
-                  while deepening my knowledge in Python and backend
-                  development.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-montserrat text-xl font-semibold text-slate-900 mb-3">
-                  Cultural Preservation
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  My passion extends to preserving and promoting the Kifuliiru
-                  language and culture through digital innovation. Currently
-                  developing a Large Language Model (LLM) for Kifuliiru and
-                  planning to pursue a Masters in Data Science to enhance these
-                  efforts.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h3 className="font-montserrat text-xl font-semibold text-slate-900 mb-4">
-              Key Projects
-            </h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-montserrat font-medium text-slate-900 mb-2">
-                  Ibufuliiru Initiative
-                </h4>
-                <p className="text-slate-600 leading-relaxed">
-                  A comprehensive project promoting Kifuliiru language and
-                  culture, including educational resources, digital publishing
-                  platforms, and a public dictionary.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-montserrat font-medium text-slate-900 mb-2">
-                  Biza Platform
-                </h4>
-                <p className="text-slate-600 leading-relaxed">
-                  A mobile app and web portal designed to notify users about
-                  business updates and changes, ensuring they stay informed in a
-                  rapidly evolving environment.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-montserrat font-medium text-slate-900 mb-2">
-                  Community Initiatives
-                </h4>
-                <p className="text-slate-600 leading-relaxed">
-                  Creating documentation and learning resources for Kifuliiru
-                  language, including a dictionary app supporting both users and
-                  contributors.
-                </p>
-              </div>
-            </div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <p className="text-slate-600 leading-relaxed">
+              I&apos;m a software professional with extensive experience in
+              development, DevOps, and project management. My journey spans from
+              enterprise software development to implementing Agile
+              methodologies and CI/CD practices. I have a proven track record of
+              improving system performance and delivering projects efficiently.
+            </p>
+            <p className="text-slate-600 leading-relaxed mt-4">
+              Currently gaining valuable experience in operations and logistics
+              while maintaining my passion for software development and process
+              improvement.
+            </p>
           </div>
         </div>
-
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div
