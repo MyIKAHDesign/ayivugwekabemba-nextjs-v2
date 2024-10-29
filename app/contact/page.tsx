@@ -14,6 +14,18 @@ export default function Contact() {
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const { darkMode } = useTheme();
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://hcaptcha.com/1/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleCaptchaVerify = () => {
     setCaptchaVerified(true);
   };
@@ -50,6 +62,7 @@ export default function Contact() {
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
+        setCaptchaVerified(false); // Reset captcha after successful submission
       } else {
         setStatus(
           `Failed to send message: ${data.error}. ${data.details || ""}`
@@ -61,18 +74,6 @@ export default function Contact() {
     }
   };
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://hcaptcha.com/1/api.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <section
       className={`relative min-h-screen font-montserrat py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
@@ -81,8 +82,9 @@ export default function Contact() {
     >
       <div className="max-w-6xl w-full">
         <h1
-          className={`text-4xl font-montserrat font-bold mb-8 transition-colors duration-300
-        ${darkMode ? "text-white" : "text-slate-900"}`}
+          className={`text-4xl font-montserrat font-bold mb-8 transition-colors duration-300 ${
+            darkMode ? "text-white" : "text-slate-900"
+          }`}
         >
           Contact Me
         </h1>
@@ -98,12 +100,11 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat
-            ${
-              darkMode
-                ? "bg-slate-800 text-white border-slate-700"
-                : "bg-white text-slate-900 border-slate-300"
-            }`}
+              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
+                darkMode
+                  ? "bg-slate-800 text-white border-slate-700"
+                  : "bg-white text-slate-900 border-slate-300"
+              }`}
             />
           </div>
           <div>
@@ -117,12 +118,11 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className={`w-full p-2 border rounded transition-colors duration-300
-            ${
-              darkMode
-                ? "bg-slate-800 text-white border-slate-700"
-                : "bg-white text-slate-900 border-slate-300"
-            }`}
+              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
+                darkMode
+                  ? "bg-slate-800 text-white border-slate-700"
+                  : "bg-white text-slate-900 border-slate-300"
+              }`}
             />
           </div>
           <div>
@@ -135,24 +135,24 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              className={`w-full p-2 border rounded transition-colors duration-300
-            ${
-              darkMode
-                ? "bg-slate-800 text-white border-slate-700"
-                : "bg-white text-slate-900 border-slate-300"
-            }`}
+              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
+                darkMode
+                  ? "bg-slate-800 text-white border-slate-700"
+                  : "bg-white text-slate-900 border-slate-300"
+              }`}
               rows={4}
             ></textarea>
           </div>
           <div
             className="h-captcha"
             data-sitekey="2ab2eacc-45b8-4410-94ce-977c2540e5d0"
-            data-callback={handleCaptchaVerify}
+            data-callback="handleCaptchaVerify"
           ></div>
           <button
             type="submit"
-            className={`bg-[#0A21C0] text-white px-4 py-2 rounded transition-colors duration-300 font-montserrat
-          ${darkMode ? "hover:bg-[#050A44]" : "hover:bg-blue-700"}`}
+            className={`bg-[#0A21C0] text-white px-4 py-2 rounded transition-colors duration-300 font-montserrat ${
+              darkMode ? "hover:bg-[#050A44]" : "hover:bg-blue-700"
+            }`}
           >
             Send Message
           </button>
