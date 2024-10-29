@@ -34,7 +34,7 @@ const Header = () => {
 
   const handleNavigation = (href: string): void => {
     if (href.startsWith("/#")) {
-      const targetId = href.slice(2); // Remove "/#"
+      const targetId = href.slice(2);
       const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -81,25 +81,35 @@ const Header = () => {
                   href={link.href}
                   scroll={true}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`transition-colors duration-300 ${
+                  className={`relative transition duration-300 transform hover:scale-105 active:scale-95 ${
                     darkMode
                       ? "text-slate-500 hover:text-slate-200"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   {link.name}
+                  <span
+                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
+                      darkMode ? "bg-slate-200" : "bg-slate-900"
+                    } hover:scale-x-100 active:scale-x-100`}
+                  ></span>
                 </Link>
               ) : (
                 <button
                   key={link.name}
                   onClick={() => handleNavigation(link.href)}
-                  className={`transition-colors duration-300 ${
+                  className={`relative transition duration-300 transform hover:scale-105 active:scale-95 ${
                     darkMode
                       ? "text-slate-500 hover:text-slate-200"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   {link.name}
+                  <span
+                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
+                      darkMode ? "bg-slate-200" : "bg-slate-900"
+                    } hover:scale-x-100 active:scale-x-100`}
+                  ></span>
                 </button>
               )
             )}
@@ -107,21 +117,16 @@ const Header = () => {
             {/* Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-full transition-colors duration-300 ${
-                darkMode ? "hover:bg-slate-900/90" : "hover:bg-slate-100"
+              className={`p-2 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-90 ${
+                darkMode
+                  ? "text-slate-200 hover:bg-slate-800"
+                  : "text-slate-900 hover:bg-slate-200"
               }`}
               aria-label={
                 darkMode ? "Switch to light mode" : "Switch to dark mode"
               }
             >
-              {darkMode ? (
-                <Sun
-                  size={20}
-                  className="text-slate-500 hover:text-slate-200"
-                />
-              ) : (
-                <Moon size={20} className="text-slate-600" />
-              )}
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
 
@@ -129,26 +134,21 @@ const Header = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-full transition-colors duration-300 ${
-                darkMode ? "hover:bg-slate-900/90" : "hover:bg-slate-100"
+              className={`p-2 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-90 ${
+                darkMode
+                  ? "text-slate-200 hover:bg-slate-800"
+                  : "text-slate-900 hover:bg-slate-200"
               }`}
               aria-label={
                 darkMode ? "Switch to light mode" : "Switch to dark mode"
               }
             >
-              {darkMode ? (
-                <Sun
-                  size={20}
-                  className="text-slate-500 hover:text-slate-200"
-                />
-              ) : (
-                <Moon size={20} className="text-slate-600" />
-              )}
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 rounded-full transition-colors duration-300 ${
+              className={`p-2 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-90 ${
                 darkMode
                   ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
                   : "text-slate-600 hover:bg-slate-100"
@@ -178,25 +178,35 @@ const Header = () => {
                   href={link.href}
                   scroll={true}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 ${
+                  className={`relative block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 transform hover:scale-105 active:scale-95 ${
                     darkMode
                       ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`}
                 >
                   {link.name}
+                  <span
+                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
+                      darkMode ? "bg-slate-200" : "bg-slate-900"
+                    } hover:scale-x-100 active:scale-x-100`}
+                  ></span>
                 </Link>
               ) : (
                 <button
                   key={link.name}
                   onClick={() => handleNavigation(link.href)}
-                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 ${
+                  className={`relative block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 transform hover:scale-105 active:scale-95 ${
                     darkMode
                       ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`}
                 >
                   {link.name}
+                  <span
+                    className={`absolute bottom-[-2px] left-0 h-[2px] w-full origin-left scale-x-0 transform transition-transform duration-300 ease-in-out ${
+                      darkMode ? "bg-slate-200" : "bg-slate-900"
+                    } hover:scale-x-100 active:scale-x-100`}
+                  ></span>
                 </button>
               )
             )}
