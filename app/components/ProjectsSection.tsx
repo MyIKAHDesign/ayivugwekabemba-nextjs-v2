@@ -17,42 +17,42 @@ const projects = [
     title: "Ibufuliiru",
     description:
       "My main project focusing on preserving and promoting Kifuliiru language and culture through digital innovation and community engagement.",
-    link: "#",
+    link: "https://ibufuliiru.wixstudio.io/ibufuliiru",
     icon: Rocket,
   },
   {
     title: "Kifuliiru",
     description:
       "A comprehensive platform dedicated to the documentation, teaching, and preservation of the Kifuliiru language for future generations.",
-    link: "#",
+    link: "https://ibufuliiru.wixstudio.io/kifuliiru",
     icon: Languages,
   },
   {
     title: "Kifuliiru.net",
     description:
       "Interactive learning platform offering structured courses, resources, and tools for mastering the Kifuliiru language.",
-    link: "#",
+    link: "#http://kifuliiru.net",
     icon: Globe2,
   },
   {
     title: "Imyazi mu Kifuliiru",
     description:
       "Digital media agency creating engaging content in Kifuliiru, from educational materials to cultural documentaries.",
-    link: "#",
+    link: "https://imyazi.substack.com/",
     icon: Newspaper,
   },
   {
     title: "Radio Ibufuliiru",
     description:
       "Community radio station broadcasting news, cultural programs, and educational content in the Kifuliiru language.",
-    link: "#",
+    link: "#https://radioibufuliiru.substack.com/",
     icon: Radio,
   },
   {
     title: "Digital Dictionary",
     description:
       "Comprehensive digital dictionary and language resource featuring Kifuliiru words, phrases, and cultural context.",
-    link: "#",
+    link: "https://ibufuliiru.wixstudio.io/kifuliiru/sobaanura",
     icon: BookOpen,
   },
 ];

@@ -1,15 +1,20 @@
 "use client";
 
+import React, { useState } from "react";
+import { Clock } from "lucide-react";
+
 interface Experience {
   company: string;
   position: string;
   location: string;
   period: string;
-  description: string;
+  description?: string;
   achievements: string[];
 }
 
-const ExperienceSection = () => {
+const ExperienceSection: React.FC = () => {
+  const [showTimeline, setShowTimeline] = useState<boolean>(false);
+
   const experiences: Experience[] = [
     {
       company: "Amazon Fulfillment Center",
@@ -17,11 +22,9 @@ const ExperienceSection = () => {
       location: "Spokane, WA",
       period: "Sep 2024 - Present",
       description:
-        "Efficiently manage the picking, packing, and shipping of customer orders in a fast-paced environment. Maintain quality standards and ensure timely deliveries while adhering to safety protocols and operational goals.",
+        "Efficiently manage the picking, packing, and shipping of customer orders.",
       achievements: [
-        "Pick, pack, and ship customer orders, ensuring timely delivery and compliance with quality standards",
-        "Collaborate with team members to meet daily performance goals and contribute to a smooth workflow",
-        "Improved order accuracy rates by maintaining attention to detail, leading to a higher customer satisfaction score",
+        "Timely delivery and quality assurance, achieving high customer satisfaction",
       ],
     },
     {
@@ -30,11 +33,9 @@ const ExperienceSection = () => {
       location: "Spokane Valley, WA",
       period: "Nov 2023 - Sep 2024",
       description:
-        "Responsible for inventory management, ensuring stock accuracy, and providing excellent customer service. Assisted in maintaining smooth store operations by restocking shelves and addressing customer inquiries.",
+        "Managed inventory and provided excellent customer service to enhance store operations.",
       achievements: [
-        "Handled inventory restocking and ensured accuracy in managing stock levels",
-        "Assisted customers with inquiries, improving their shopping experience",
-        "Implemented improvements in inventory management that reduced discrepancies by 10%",
+        "Improved inventory accuracy, reducing discrepancies by 10%",
       ],
     },
     {
@@ -43,12 +44,9 @@ const ExperienceSection = () => {
       location: "Bujumbura, Burundi",
       period: "Feb 2022 - Aug 2023",
       description:
-        "Implemented Agile methodologies, specifically Scrum and Kanban, to lead and manage projects effectively across cross-functional teams. Managed stakeholder communication and project tracking tools while maintaining timelines and budgets.",
+        "Led cross-functional teams and managed Agile project timelines and budgets.",
       achievements: [
-        "Led cross-functional teams through the project lifecycle, ensuring effective planning and execution",
-        "Managed tools like JIRA, Confluence, and Slack to enhance team coordination",
-        "Improved project timelines by 30% through streamlined communication",
-        "Maintained project budgets, achieving 20% cost savings across projects",
+        "Achieved 30% faster project delivery and 20% cost savings",
       ],
     },
     {
@@ -57,12 +55,9 @@ const ExperienceSection = () => {
       location: "Bujumbura, Burundi",
       period: "Feb 2022 - Aug 2023",
       description:
-        "Implemented CI/CD practices and managed cloud infrastructures on AWS and Heroku. Developed optimization processes using GitHub Actions and mentored team members in DevOps practices.",
+        "Implemented CI/CD practices and optimized cloud infrastructure.",
       achievements: [
-        "Implemented CI/CD pipelines using GitHub Actions for automated deployment",
-        "Managed cloud (AWS, Heroku) and on-premise infrastructure",
-        "Reduced deployment time by 40% through automated processes",
-        "Enhanced system reliability through optimized cloud infrastructure",
+        "Reduced deployment time by 40% and enhanced system reliability",
       ],
     },
     {
@@ -71,12 +66,9 @@ const ExperienceSection = () => {
       location: "Bujumbura, Burundi",
       period: "Jan 2017 - Feb 2022",
       description:
-        "Developed and maintained software solutions for government and financial systems, focusing on web-based applications using Java, RichFaces, and PrimeFaces.",
+        "Developed and maintained web applications for government and financial systems.",
       achievements: [
-        "Developed web applications using Java, RichFaces, and PrimeFaces",
-        "Conducted code reviews and debugging to enhance performance",
-        "Reduced system downtime by 30% through optimization",
-        "Contributed to Public Procurement and Internal Tax Software development",
+        "Reduced downtime by 30% and contributed to key public sector projects",
       ],
     },
   ];
@@ -86,7 +78,7 @@ const ExperienceSection = () => {
       className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
       id="experience"
     >
-      <div className="max-w-2xl mx-auto text-center mb-16">
+      <div className="max-w-2xl mx-auto text-center mb-8">
         <h2 className="font-montserrat text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
           Professional Experience
         </h2>
@@ -96,6 +88,18 @@ const ExperienceSection = () => {
         </p>
       </div>
 
+      {/* Icon button to display the timeline, aligned to the right */}
+      <div className="flex justify-end mb-8">
+        <button
+          className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all"
+          onClick={() => setShowTimeline(true)}
+          aria-label="Show Timeline"
+        >
+          <Clock className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Experience Cards */}
       <div className="space-y-8">
         {experiences.map((exp, index) => (
           <div
@@ -136,6 +140,65 @@ const ExperienceSection = () => {
           </div>
         ))}
       </div>
+
+      {/* Timeline Modal */}
+      {showTimeline && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          onClick={() => setShowTimeline(false)}
+        >
+          <div
+            className="bg-white max-w-7xl w-full h-[90vh] mx-4 p-6 rounded-lg shadow-lg overflow-y-scroll relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-4 right-4 text-gray-500"
+              onClick={() => setShowTimeline(false)}
+            >
+              &times;
+            </button>
+            <h3 className="text-2xl font-semibold text-center mb-6">
+              Professional Timeline
+            </h3>
+
+            {/* Animated Timeline with Circles and Connecting Lines */}
+            <div className="relative">
+              {experiences.map((exp, index) => (
+                <div
+                  key={index}
+                  className="relative flex gap-4 mb-8 opacity-100 translate-y-0 transition-opacity duration-500"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  {/* Circle and Connecting Line */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                    {index < experiences.length - 1 && (
+                      <div className="w-0.5 bg-blue-600 h-full mt-1" />
+                    )}
+                  </div>
+
+                  {/* Simplified Experience Content */}
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 w-full">
+                    <div className="flex items-center mb-2">
+                      <span className="text-sm font-medium text-slate-500">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <h4 className="font-montserrat text-lg font-semibold text-slate-900">
+                      {exp.company}
+                    </h4>
+                    <p className="text-slate-600 mt-2 leading-relaxed">
+                      {exp.achievements[0]}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
