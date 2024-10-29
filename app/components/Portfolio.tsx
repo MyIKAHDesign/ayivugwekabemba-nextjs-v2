@@ -6,6 +6,7 @@ import HeroSection from "./HeroSection";
 import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./Experience";
 import PortfolioContent from "./SkillsSection";
+import TimelineSection from "./TimelineSection";
 
 const Portfolio: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Portfolio: React.FC = () => {
       <ProjectsSection />
       <ExperienceSection />
       <PortfolioContent />
+      <TimelineSection />
     </div>
   );
 };
