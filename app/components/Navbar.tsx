@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10">
               <Image
-                src="/profile-pic.jpg"
+                src="/ayiv.ico"
                 alt="Ayivugwe logo"
                 fill
                 sizes="40px"
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                 priority
               />
             </div>
-            <span className="font-medium text-xl tracking-tight">AYIVUGWE</span>
+            <span className="font-medium text-xl tracking-tight">Ayivugwe</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

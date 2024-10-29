@@ -59,7 +59,7 @@ const projects = [
 
 const ProjectsSection: React.FC = () => {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
       <h2 className="text-3xl font-medium tracking-tight text-slate-900 mb-16 text-center">
         Featured Projects
       </h2>
