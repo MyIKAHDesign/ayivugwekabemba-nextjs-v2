@@ -1,5 +1,16 @@
+"use client";
+
+interface Experience {
+  company: string;
+  position: string;
+  location: string;
+  period: string;
+  description: string;
+  achievements: string[];
+}
+
 const ExperienceSection = () => {
-  const experiences = [
+  const experiences: Experience[] = [
     {
       company: "Amazon Fulfillment Center",
       position: "Fulfillment Center Associate",
@@ -71,59 +82,59 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6" id="experience">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-4">
+    <section
+      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      id="experience"
+    >
+      <div className="max-w-2xl mx-auto text-center mb-16">
+        <h2 className="font-montserrat text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
           Professional Experience
         </h2>
-        <p className="text-slate-600 mb-12 max-w-3xl">
+        <p className="text-lg text-slate-600">
           A demonstrated history of software development, project management,
           and operational excellence across various industries.
         </p>
+      </div>
 
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="relative bg-white rounded-xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-4 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-1">
-                    {exp.position}
-                  </h3>
-                  <div className="text-blue-600 font-medium mb-1">
-                    {exp.company}
-                  </div>
-                  <div className="text-sm text-slate-500 mb-4">
-                    {exp.location} • {exp.period}
-                  </div>
+      <div className="space-y-8">
+        {experiences.map((exp, index) => (
+          <div
+            key={index}
+            className="relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200"
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
+              <div className="flex-1">
+                <h3 className="font-montserrat text-xl font-semibold text-slate-900 mb-1">
+                  {exp.position}
+                </h3>
+                <div className="text-blue-600 font-medium mb-1">
+                  {exp.company}
+                </div>
+                <div className="text-sm text-slate-500 mb-4">
+                  {exp.location} • {exp.period}
                 </div>
               </div>
-
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                {exp.description}
-              </p>
-
-              <div>
-                <h4 className="text-sm font-medium text-slate-900 mb-3">
-                  Key Achievements
-                </h4>
-                <ul className="space-y-2">
-                  {exp.achievements.map((achievement, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-slate-600"
-                    >
-                      <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
-                      <span className="leading-relaxed">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
-          ))}
-        </div>
+
+            <p className="text-slate-600 mb-6 leading-relaxed">
+              {exp.description}
+            </p>
+
+            <div>
+              <h4 className="font-montserrat text-sm font-medium text-slate-900 mb-4">
+                Key Achievements
+              </h4>
+              <ul className="space-y-3">
+                {exp.achievements.map((achievement, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-600">
+                    <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
+                    <span className="leading-relaxed">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
