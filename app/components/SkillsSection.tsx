@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 import {
   Code2,
   GitBranch,
@@ -32,6 +33,7 @@ interface ExpandedSkills {
 
 const SkillsSection: React.FC = () => {
   const [expandedSkills, setExpandedSkills] = useState<ExpandedSkills>({});
+  const { darkMode } = useTheme();
 
   const skills: SkillGroup[] = [
     {
@@ -82,7 +84,8 @@ const SkillsSection: React.FC = () => {
           name: "Version Control",
           certifications: [],
           source: "work",
-          details: "Expert in Git and GitHub Actions for workflow automation",
+          details:
+            "Expert in Git & GitHub  |  Version Control • Pull Requests • CI/CD • Branching • Code Review • Git Flow",
         },
         {
           name: "Database Management",
@@ -164,101 +167,184 @@ const SkillsSection: React.FC = () => {
   };
 
   const getSourceIcon = (source: "work" | "education"): React.ReactNode => {
-    switch (source) {
-      case "work":
-        return <Building2 className="w-4 h-4 text-slate-600" />;
-      case "education":
-        return <GraduationCap className="w-4 h-4 text-slate-600" />;
-      default:
-        return null;
-    }
+    return source === "work" ? (
+      <Building2
+        className={`w-4 h-4 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+      />
+    ) : (
+      <GraduationCap
+        className={`w-4 h-4 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+      />
+    );
   };
 
   return (
     <section
-      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+        ${
+          darkMode
+            ? "bg-gradient-to-b from-slate-900 to-slate-800"
+            : "bg-gradient-to-b from-slate-50 to-white"
+        }`}
       id="skills"
     >
-      <div className="max-w-2xl mx-auto text-center mb-16">
-        <h2 className="font-montserrat text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
-          Technical Expertise
-        </h2>
-        <p className="text-lg text-slate-600">
-          Comprehensive skill set in software development, project management,
-          and technical tools
-        </p>
-      </div>
+      {/* Background Pattern */}
+      <div
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
+          ${
+            darkMode
+              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+          }`}
+      ></div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {skills.map((skillGroup, categoryIndex) => (
-          <div
-            key={skillGroup.category}
-            className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200"
+      <div className="relative max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <h2
+            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-white" : "text-slate-900"} 
+            transition-colors duration-300`}
           >
-            <div className="flex items-center mb-4">
-              {skillGroup.icon}
-              <h3 className="font-montserrat text-xl font-semibold ml-3 text-slate-900">
-                {skillGroup.category}
-              </h3>
-            </div>
-            <ul className="space-y-2">
-              {skillGroup.items.map((item, skillIndex) => {
-                const isExpanded =
-                  expandedSkills[`${categoryIndex}-${skillIndex}`];
-                return (
-                  <li key={item.name} className="text-slate-600">
-                    <button
-                      onClick={() => toggleSkill(categoryIndex, skillIndex)}
-                      className="w-full"
+            Technical Expertise
+          </h2>
+          <p
+            className={`text-lg sm:text-xl 
+            ${darkMode ? "text-slate-400" : "text-slate-600"} 
+            transition-colors duration-300 max-w-xl mx-auto`}
+          >
+            Comprehensive skill set in software development, project management,
+            and technical tools
+          </p>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {skills.map((skillGroup, categoryIndex) => (
+            <div
+              key={skillGroup.category}
+              className={`relative rounded-2xl p-6 transition-all duration-300 backdrop-blur-xl border
+                ${
+                  darkMode
+                    ? "bg-slate-800/80 hover:bg-slate-700/50 border-slate-700/50"
+                    : "bg-white/80 hover:bg-white border-slate-200/50"
+                }`}
+            >
+              <div className="flex items-center mb-4">
+                <div className={darkMode ? "text-slate-400" : "text-slate-600"}>
+                  {skillGroup.icon}
+                </div>
+                <h3
+                  className={`font-montserrat text-xl font-semibold ml-3
+                  ${darkMode ? "text-white" : "text-slate-900"}`}
+                >
+                  {skillGroup.category}
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                {skillGroup.items.map((item, skillIndex) => {
+                  const isExpanded =
+                    expandedSkills[`${categoryIndex}-${skillIndex}`];
+                  return (
+                    <li
+                      key={item.name}
+                      className={darkMode ? "text-slate-400" : "text-slate-600"}
                     >
-                      <div className="flex items-center justify-between hover:text-slate-800 transition-colors">
-                        <div className="flex items-center">
-                          {isExpanded ? (
-                            <ChevronDown className="w-4 h-4 mr-2" />
-                          ) : (
-                            <ChevronRight className="w-4 h-4 mr-2" />
-                          )}
-                          {item.name}
-                        </div>
-                      </div>
-                    </button>
-
-                    {isExpanded && (
-                      <div className="mt-2 ml-6 space-y-2 text-sm">
-                        <div className="flex items-center text-slate-600">
-                          {getSourceIcon(item.source)}
-                          <span className="ml-2">
-                            {item.source === "work"
-                              ? "Work Experience"
-                              : "Academic Background"}
-                          </span>
-                        </div>
-
-                        <p className="text-slate-600 leading-relaxed">
-                          {item.details}
-                        </p>
-
-                        {item.certifications.length > 0 && (
-                          <div className="space-y-1">
-                            <div className="flex items-center text-slate-600">
-                              <Award className="w-4 h-4 text-slate-600" />
-                              <span className="ml-2">Certifications:</span>
-                            </div>
-                            <ul className="ml-6 list-disc text-slate-600">
-                              {item.certifications.map((cert) => (
-                                <li key={cert}>{cert}</li>
-                              ))}
-                            </ul>
+                      <button
+                        onClick={() => toggleSkill(categoryIndex, skillIndex)}
+                        className="w-full"
+                      >
+                        <div
+                          className={`flex items-center justify-between transition-colors
+                          ${
+                            darkMode
+                              ? "hover:text-slate-200"
+                              : "hover:text-slate-800"
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            {isExpanded ? (
+                              <ChevronDown className="w-4 h-4 mr-2" />
+                            ) : (
+                              <ChevronRight className="w-4 h-4 mr-2" />
+                            )}
+                            {item.name}
                           </div>
-                        )}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+                        </div>
+                      </button>
+
+                      {isExpanded && (
+                        <div className="mt-2 ml-6 space-y-2 text-sm">
+                          <div
+                            className={`flex items-center 
+                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                          >
+                            {getSourceIcon(item.source)}
+                            <span className="ml-2">
+                              {item.source === "work"
+                                ? "Work Experience"
+                                : "Academic Background"}
+                            </span>
+                          </div>
+
+                          <p
+                            className={`leading-relaxed
+                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                          >
+                            {item.details}
+                          </p>
+
+                          {item.certifications.length > 0 && (
+                            <div className="space-y-1">
+                              <div
+                                className={`flex items-center
+                                ${
+                                  darkMode ? "text-slate-400" : "text-slate-600"
+                                }`}
+                              >
+                                <Award
+                                  className={`w-4 h-4
+                                  ${
+                                    darkMode
+                                      ? "text-slate-400"
+                                      : "text-slate-600"
+                                  }`}
+                                />
+                                <span className="ml-2">Certifications:</span>
+                              </div>
+                              <ul className="ml-6 list-disc">
+                                {item.certifications.map((cert) => (
+                                  <li
+                                    key={cert}
+                                    className={
+                                      darkMode
+                                        ? "text-slate-400"
+                                        : "text-slate-600"
+                                    }
+                                  >
+                                    {cert}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Gradient Decoration */}
+        <div
+          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
+          ${darkMode ? "via-slate-700" : "via-slate-200"} 
+          to-transparent`}
+        ></div>
       </div>
     </section>
   );

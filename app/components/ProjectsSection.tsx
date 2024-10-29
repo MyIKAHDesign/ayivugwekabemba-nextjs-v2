@@ -1,8 +1,8 @@
-// components/ProjectsSection.tsx
 "use client";
 
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import { useTheme } from "../context/ThemeContext";
 import {
   Globe2,
   Radio,
@@ -11,8 +11,16 @@ import {
   Languages,
   Rocket,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  link: string;
+  icon: LucideIcon;
+}
+
+const projects: Project[] = [
   {
     title: "Ibufuliiru",
     description:
@@ -58,21 +66,67 @@ const projects = [
 ];
 
 const ProjectsSection: React.FC = () => {
+  const { darkMode } = useTheme();
+
   return (
-    <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-medium tracking-tight text-slate-900 mb-16 text-center">
-        Featured Projects
-      </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, i) => (
-          <ProjectCard
-            key={i}
-            title={project.title}
-            description={project.description}
-            icon={project.icon}
-            link={project.link}
-          />
-        ))}
+    <section
+      id="projects"
+      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+        ${
+          darkMode
+            ? "bg-gradient-to-b from-slate-900 to-slate-800"
+            : "bg-gradient-to-b from-slate-50 to-white"
+        }`}
+    >
+      {/* Background Pattern */}
+      <div
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
+          ${
+            darkMode
+              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+          }`}
+      ></div>
+
+      <div className="relative max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <h2
+            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-white" : "text-slate-900"} 
+            transition-colors duration-300`}
+          >
+            Featured Projects
+          </h2>
+          <p
+            className={`text-lg sm:text-xl 
+            ${darkMode ? "text-slate-400" : "text-slate-600"} 
+            transition-colors duration-300 max-w-xl mx-auto`}
+          >
+            Innovative solutions for language and cultural preservation
+          </p>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={i}
+              title={project.title}
+              description={project.description}
+              icon={project.icon}
+              link={project.link}
+            />
+          ))}
+        </div>
+
+        {/* Bottom Gradient Decoration */}
+        <div
+          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
+          ${darkMode ? "via-slate-700" : "via-slate-200"} 
+          to-transparent`}
+        ></div>
       </div>
     </section>
   );
