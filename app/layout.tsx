@@ -1,7 +1,8 @@
 "use client";
+
+import "./globals.css";
 import React, { useState, useEffect, ReactNode } from "react";
 import { Menu, Moon, Sun, Github, Linkedin, Mail } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +14,6 @@ interface NavLink {
 }
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
-  const router = useRouter();
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -37,26 +37,26 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   const navLinks: NavLink[] = [
     { name: "Home", href: "/#home" },
     { name: "Projects", href: "/#projects" },
-    { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
+    { name: "Skills", href: "/#skills" },
     { name: "Contact", href: "/contact" },
   ];
 
   const handleNavigation = (href: string): void => {
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = href;
+    }
     setIsMenuOpen(false);
+  };
 
-    if (href === "/contact") {
-      router.push("/contact");
-      return;
-    }
-
-    if (href.startsWith("/#")) {
-      router.push("/");
-      setTimeout(() => {
-        const element = document.querySelector(href.substring(1));
-        element?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
+  const handleMailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.location.href = "/contact";
   };
 
   return (

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Code2,
   GitBranch,
-  Terminal,
   Briefcase,
-  Mail,
-  Send,
-  Clock,
-  BookOpen,
   ChevronRight,
   ChevronDown,
   Award,
@@ -15,7 +12,7 @@ import {
   Building2,
 } from "lucide-react";
 
-// Define interfaces for our data structures
+// Interfaces
 interface Skill {
   name: string;
   certifications: string[];
@@ -29,18 +26,10 @@ interface SkillGroup {
   icon: React.ReactNode;
 }
 
-interface Experience {
-  year: string;
-  title: string;
-  company: string;
-  description: string;
-}
-
 interface ExpandedSkills {
   [key: string]: boolean;
 }
 
-// Skills Section Component
 const SkillsSection: React.FC = () => {
   const [expandedSkills, setExpandedSkills] = useState<ExpandedSkills>({});
 
@@ -186,233 +175,93 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-16 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-slate-800 mb-8">
+    <section
+      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      id="skills"
+    >
+      <div className="max-w-2xl mx-auto text-center mb-16">
+        <h2 className="font-montserrat text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
           Technical Expertise
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {skills.map((skillGroup, categoryIndex) => (
-            <div
-              key={skillGroup.category}
-              className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center mb-4">
-                {skillGroup.icon}
-                <h3 className="text-xl font-semibold ml-3 text-slate-700">
-                  {skillGroup.category}
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                {skillGroup.items.map((item, skillIndex) => {
-                  const isExpanded =
-                    expandedSkills[`${categoryIndex}-${skillIndex}`];
-                  return (
-                    <li key={item.name} className="text-slate-600">
-                      <button
-                        onClick={() => toggleSkill(categoryIndex, skillIndex)}
-                        className="w-full"
-                      >
-                        <div className="flex items-center justify-between hover:text-slate-800 transition-colors">
-                          <div className="flex items-center">
-                            {isExpanded ? (
-                              <ChevronDown className="w-4 h-4 mr-2" />
-                            ) : (
-                              <ChevronRight className="w-4 h-4 mr-2" />
-                            )}
-                            {item.name}
-                          </div>
-                        </div>
-                      </button>
+        <p className="text-lg text-slate-600">
+          Comprehensive skill set in software development, project management,
+          and technical tools
+        </p>
+      </div>
 
-                      {isExpanded && (
-                        <div className="mt-2 ml-6 space-y-2 text-sm">
-                          <div className="flex items-center text-slate-600">
-                            {getSourceIcon(item.source)}
-                            <span className="ml-2">
-                              {item.source === "work"
-                                ? "Work Experience"
-                                : "Academic Background"}
-                            </span>
-                          </div>
-
-                          <p className="text-slate-600">{item.details}</p>
-
-                          {item.certifications.length > 0 && (
-                            <div className="space-y-1">
-                              <div className="flex items-center text-slate-600">
-                                <Award className="w-4 h-4 text-slate-600" />
-                                <span className="ml-2">Certifications:</span>
-                              </div>
-                              <ul className="ml-6 list-disc text-slate-600">
-                                {item.certifications.map((cert) => (
-                                  <li key={cert}>{cert}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+      <div className="grid md:grid-cols-3 gap-8">
+        {skills.map((skillGroup, categoryIndex) => (
+          <div
+            key={skillGroup.category}
+            className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200"
+          >
+            <div className="flex items-center mb-4">
+              {skillGroup.icon}
+              <h3 className="font-montserrat text-xl font-semibold ml-3 text-slate-900">
+                {skillGroup.category}
+              </h3>
             </div>
-          ))}
-        </div>
+            <ul className="space-y-2">
+              {skillGroup.items.map((item, skillIndex) => {
+                const isExpanded =
+                  expandedSkills[`${categoryIndex}-${skillIndex}`];
+                return (
+                  <li key={item.name} className="text-slate-600">
+                    <button
+                      onClick={() => toggleSkill(categoryIndex, skillIndex)}
+                      className="w-full"
+                    >
+                      <div className="flex items-center justify-between hover:text-slate-800 transition-colors">
+                        <div className="flex items-center">
+                          {isExpanded ? (
+                            <ChevronDown className="w-4 h-4 mr-2" />
+                          ) : (
+                            <ChevronRight className="w-4 h-4 mr-2" />
+                          )}
+                          {item.name}
+                        </div>
+                      </div>
+                    </button>
+
+                    {isExpanded && (
+                      <div className="mt-2 ml-6 space-y-2 text-sm">
+                        <div className="flex items-center text-slate-600">
+                          {getSourceIcon(item.source)}
+                          <span className="ml-2">
+                            {item.source === "work"
+                              ? "Work Experience"
+                              : "Academic Background"}
+                          </span>
+                        </div>
+
+                        <p className="text-slate-600 leading-relaxed">
+                          {item.details}
+                        </p>
+
+                        {item.certifications.length > 0 && (
+                          <div className="space-y-1">
+                            <div className="flex items-center text-slate-600">
+                              <Award className="w-4 h-4 text-slate-600" />
+                              <span className="ml-2">Certifications:</span>
+                            </div>
+                            <ul className="ml-6 list-disc text-slate-600">
+                              {item.certifications.map((cert) => (
+                                <li key={cert}>{cert}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-// Timeline Section Component
-const TimelineSection: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const timelineElement = document.getElementById("timeline-section");
-    if (timelineElement) {
-      observer.observe(timelineElement);
-    }
-
-    return () => {
-      if (timelineElement) {
-        observer.unobserve(timelineElement);
-      }
-    };
-  }, []);
-
-  const experiences: Experience[] = [
-    {
-      year: "2024",
-      title: "Fulfillment Center Associate",
-      company: "Amazon Fulfillment Center",
-      description:
-        "Managing picking, packing, and shipping of customer orders while maintaining quality standards and operational goals",
-    },
-    {
-      year: "2023",
-      title: "Field Associate",
-      company: "Walmart",
-      description:
-        "Managed inventory and improved stock accuracy while providing excellent customer service",
-    },
-    {
-      year: "2022-2023",
-      title: "Project Manager & DevOps Engineer",
-      company: "ASYST Resources LTD",
-      description:
-        "Led Agile projects and implemented CI/CD practices, achieving 30% faster project delivery and 40% reduced deployment time",
-    },
-    {
-      year: "2017-2022",
-      title: "Software Developer",
-      company: "ASYST Resources LTD",
-      description:
-        "Developed enterprise applications using Java, contributing to government and financial systems with 30% reduced downtime",
-    },
-    {
-      year: "2015",
-      title: "Bachelor's Degree - Computer Science",
-      company: "Université de Ngozi",
-      description:
-        "Completed computer science degree with focus on software development",
-    },
-  ];
-
-  return (
-    <section className="py-16" id="timeline-section">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-slate-800 mb-8">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-4">
-            <p className="text-slate-600 leading-relaxed">
-              I&apos;m a software professional with extensive experience in
-              development, DevOps, and project management. My journey spans from
-              enterprise software development to implementing Agile
-              methodologies and CI/CD practices. I have a proven track record of
-              improving system performance and delivering projects efficiently.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              Currently gaining valuable experience in operations and logistics
-              while maintaining my passion for software development and process
-              improvement.
-            </p>
-          </div>
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.year}
-                className="flex gap-4"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateX(0)" : "translateX(20px)",
-                  transition: `all 0.5s ease-out ${index * 0.2}s`,
-                }}
-              >
-                <div className="flex flex-col items-center">
-                  <div
-                    className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center"
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "scale(1)" : "scale(0)",
-                      transition: `all 0.5s ease-out ${index * 0.2}s`,
-                    }}
-                  >
-                    <Clock className="w-6 h-6 text-slate-600" />
-                  </div>
-                  <div
-                    className="h-full w-0.5 bg-slate-200 my-2"
-                    style={{
-                      height: "100%",
-                      transformOrigin: "top",
-                      transform: isVisible ? "scaleY(1)" : "scaleY(0)",
-                      transition: `transform 0.5s ease-out ${
-                        index * 0.2 + 0.2
-                      }s`,
-                    }}
-                  ></div>
-                </div>
-                <div
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateX(0)" : "translateX(20px)",
-                    transition: `all 0.5s ease-out ${index * 0.2 + 0.3}s`,
-                  }}
-                >
-                  <div className="text-sm text-slate-500">{exp.year}</div>
-                  <h3 className="font-semibold text-slate-800">{exp.title}</h3>
-                  <div className="text-slate-600">{exp.company}</div>
-                  <p className="text-slate-500 mt-1">{exp.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Main component that combines both sections
-const PortfolioContent: React.FC = () => {
-  return (
-    <div className="font-['Instrument Sans']">
-      <SkillsSection />
-      <TimelineSection />
-    </div>
-  );
-};
-
-export default PortfolioContent;
+export default SkillsSection;
