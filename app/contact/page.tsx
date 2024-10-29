@@ -4,6 +4,12 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { useTheme } from "../context/ThemeContext";
 import Link from "next/link";
 
+declare global {
+  interface Window {
+    handleCaptchaVerify: () => void;
+  }
+}
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,20 +21,10 @@ export default function Contact() {
   const { darkMode } = useTheme();
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://hcaptcha.com/1/api.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
+    window.handleCaptchaVerify = function handleCaptchaVerify() {
+      setCaptchaVerified(true);
     };
   }, []);
-
-  const handleCaptchaVerify = () => {
-    setCaptchaVerified(true);
-  };
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -62,7 +58,6 @@ export default function Contact() {
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
-        setCaptchaVerified(false); // Reset captcha after successful submission
       } else {
         setStatus(
           `Failed to send message: ${data.error}. ${data.details || ""}`
@@ -73,6 +68,18 @@ export default function Contact() {
       setStatus("An error occurred. Please try again.");
     }
   };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://hcaptcha.com/1/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <section
@@ -118,11 +125,12 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
-                darkMode
-                  ? "bg-slate-800 text-white border-slate-700"
-                  : "bg-white text-slate-900 border-slate-300"
-              }`}
+              className={`w-full p-2 border rounded transition-colors duration-300
+            ${
+              darkMode
+                ? "bg-slate-800 text-white border-slate-700"
+                : "bg-white text-slate-900 border-slate-300"
+            }`}
             />
           </div>
           <div>
@@ -145,7 +153,7 @@ export default function Contact() {
           </div>
           <div
             className="h-captcha"
-            data-sitekey="3a060bc2-9fd2-43fc-89e0-079875727eec"
+            data-sitekey="fa60f84c-aa6a-4316-bbd4-a9183c9201ba"
             data-callback="handleCaptchaVerify"
           ></div>
           <button
