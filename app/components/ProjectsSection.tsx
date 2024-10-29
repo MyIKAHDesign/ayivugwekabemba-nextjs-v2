@@ -31,7 +31,7 @@ const projects = [
     title: "Kifuliiru.net",
     description:
       "Interactive learning platform offering structured courses, resources, and tools for mastering the Kifuliiru language.",
-    link: "#http://kifuliiru.net",
+    link: "https://kifuliiru.net",
     icon: Globe2,
   },
   {
@@ -45,7 +45,7 @@ const projects = [
     title: "Radio Ibufuliiru",
     description:
       "Community radio station broadcasting news, cultural programs, and educational content in the Kifuliiru language.",
-    link: "#https://radioibufuliiru.substack.com/",
+    link: "https://radioibufuliiru.substack.com/",
     icon: Radio,
   },
   {
