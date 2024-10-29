@@ -1,9 +1,7 @@
 "use client";
-
-import "./globals.css";
-
 import React, { useState, useEffect, ReactNode } from "react";
 import { Menu, Moon, Sun, Github, Linkedin, Mail } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +13,7 @@ interface NavLink {
 }
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
+  const router = useRouter();
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -36,17 +35,28 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   }, [darkMode]);
 
   const navLinks: NavLink[] = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const scrollToSection = (href: string): void => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (href: string): void => {
     setIsMenuOpen(false);
+
+    if (href === "/contact") {
+      router.push("/contact");
+      return;
+    }
+
+    if (href.startsWith("/#")) {
+      router.push("/");
+      setTimeout(() => {
+        const element = document.querySelector(href.substring(1));
+        element?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   return (
@@ -68,16 +78,19 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
         >
           <nav className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <a href="#home" className="text-xl font-bold">
+              <button
+                onClick={() => handleNavigation("/#home")}
+                className="text-xl font-bold hover:opacity-80 transition-opacity"
+              >
                 Ayivugwe
-              </a>
+              </button>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
                 {navLinks.map((link) => (
                   <button
                     key={link.name}
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleNavigation(link.href)}
                     className={`transition-colors ${
                       darkMode ? "hover:text-white/80" : "hover:text-slate-600"
                     }`}
@@ -90,6 +103,9 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                   className={`p-2 rounded-full transition-colors ${
                     darkMode ? "hover:bg-slate-800/50" : "hover:bg-white/10"
                   }`}
+                  aria-label={
+                    darkMode ? "Switch to light mode" : "Switch to dark mode"
+                  }
                 >
                   {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
@@ -102,6 +118,9 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                   className={`p-2 rounded-full transition-colors ${
                     darkMode ? "hover:bg-slate-800/50" : "hover:bg-white/10"
                   }`}
+                  aria-label={
+                    darkMode ? "Switch to light mode" : "Switch to dark mode"
+                  }
                 >
                   {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
@@ -110,6 +129,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                   className={`p-2 rounded-full transition-colors ${
                     darkMode ? "hover:bg-slate-800/50" : "hover:bg-white/10"
                   }`}
+                  aria-label="Toggle menu"
                 >
                   <Menu size={20} />
                 </button>
@@ -126,7 +146,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                 {navLinks.map((link) => (
                   <button
                     key={link.name}
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleNavigation(link.href)}
                     className={`block w-full text-left px-4 py-2 rounded transition-colors ${
                       darkMode ? "hover:bg-slate-800/50" : "hover:bg-white/10"
                     }`}
@@ -148,7 +168,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-lg font-bold mb-4">Ayivugwe Kabemba</h3>
-                <p className="text-slate-600 dark:text-slate-300">
+                <p className="text-slate-400">
                   Full Stack Developer specializing in Java and Python
                   development
                 </p>
@@ -159,8 +179,8 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                   {navLinks.map((link) => (
                     <li key={link.name}>
                       <button
-                        onClick={() => scrollToSection(link.href)}
-                        className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                        onClick={() => handleNavigation(link.href)}
+                        className="text-slate-400 hover:text-white transition-colors"
                       >
                         {link.name}
                       </button>
@@ -173,26 +193,33 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/ayivugwe"
-                    className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                    aria-label="GitHub Profile"
                   >
                     <Github size={24} />
                   </a>
                   <a
                     href="https://linkedin.com/in/ayivugwekabemba"
-                    className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                    aria-label="LinkedIn Profile"
                   >
                     <Linkedin size={24} />
                   </a>
-                  <a
-                    href="../contact"
-                    className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  <button
+                    onClick={() => handleNavigation("/contact")}
+                    className="text-slate-400 hover:text-white transition-colors"
+                    aria-label="Contact Page"
                   >
                     <Mail size={24} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
-            <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 text-center text-slate-600 dark:text-slate-300">
+            <div className="mt-8 pt-8 border-t border-slate-700 text-center text-slate-400">
               <p>
                 © {new Date().getFullYear()} Ayivugwe Kabemba. All rights
                 reserved.

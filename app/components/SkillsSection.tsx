@@ -186,7 +186,7 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-slate-50">
+    <section id="skills" className="py-16 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-slate-800 mb-8">
           Technical Expertise

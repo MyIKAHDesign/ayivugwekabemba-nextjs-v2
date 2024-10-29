@@ -6,7 +6,7 @@ import { Github, Twitter, Linkedin } from "lucide-react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="home" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16 items-start min-h-[calc(100vh-8rem)]">
         <div className="order-2 md:order-1 h-full flex flex-col justify-center">
           <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 p-1">
