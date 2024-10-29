@@ -5,8 +5,8 @@ import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./Experience";
-import PortfolioContent from "./SkillsSection";
-import TimelineSection from "./TimelineSection";
+import AboutMe from "./AboutMe";
+import SkillsSection from "./SkillsSection";
 
 const Portfolio: React.FC = () => {
   return (
@@ -14,8 +14,8 @@ const Portfolio: React.FC = () => {
       <HeroSection />
       <ProjectsSection />
       <ExperienceSection />
-      <PortfolioContent />
-      <TimelineSection />
+      <SkillsSection />
+      <AboutMe />
     </div>
   );
 };
