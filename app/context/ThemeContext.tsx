@@ -1,4 +1,3 @@
-// app/context/ThemeContext.tsx
 "use client";
 
 import React, {
@@ -17,19 +16,25 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    // Initial check for stored dark mode preference
-    return localStorage.getItem("darkMode") === "true";
-  });
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
-    // Apply dark mode class to <html> and save preference
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
+    // Check if running in the browser before accessing localStorage
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("darkMode", "true");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("darkMode", "false");
+      }
     }
   }, [darkMode]);
 
