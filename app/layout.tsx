@@ -1,13 +1,19 @@
 // app/layout.tsx
-"use client";
 
 import { ThemeProvider } from "./context/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// Define Inter and Montserrat fonts with subsets and weights
+const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
+
+export const metadata = {
+  title: "Ayivugwe Kabemba Mukome",
+  description: "This is the personal website of Ayivugwe Kabemba Mukome",
+};
 
 export default function RootLayout({
   children,
@@ -15,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+    <html lang="en" className={`${inter.className} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>

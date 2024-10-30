@@ -96,11 +96,20 @@ const HeroSection: React.FC = () => {
               </h1>
               <p
                 className={`text-lg leading-relaxed font-medium transition-colors duration-300
-                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+    ${darkMode ? "text-slate-400" : "text-slate-600"}`}
               >
-                Project Manager, Software Developer & Kifuliiru Language
-                Advocate
+                <span
+                  className={`italic px-2 py-1 rounded-md ${
+                    darkMode
+                      ? "bg-blue-700/50 text-slate-100"
+                      : "bg-blue-100 text-blue-800"
+                  }`}
+                >
+                  Project Manager, Software Developer & Kifuliiru Language
+                  Advocate
+                </span>
               </p>
+
               <p
                 className={`leading-relaxed transition-colors duration-300
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
