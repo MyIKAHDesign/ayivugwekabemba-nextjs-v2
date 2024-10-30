@@ -1,4 +1,3 @@
-// app/context/ThemeContext.tsx
 "use client";
 
 import React, {
@@ -19,12 +18,23 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  // Apply dark mode class to html element
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    // Check if running in the browser before accessing localStorage
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("darkMode", "true");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("darkMode", "false");
+      }
     }
   }, [darkMode]);
 
