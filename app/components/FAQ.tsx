@@ -6,78 +6,79 @@ import { useTheme } from "../context/ThemeContext";
 // Define types for FAQ items
 interface FAQItem {
   question: string;
-  shortAnswer: string;
-  detailedAnswer: string;
+  answer: string;
 }
 
 const FAQ: React.FC = () => {
   const { darkMode } = useTheme();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const faqs: FAQItem[] = [
     {
       question: "Who am I?",
-      shortAnswer:
-        "I am Ayivugwe Kabemba Mukome, originally from Congo Kinshasa.",
-      detailedAnswer: `I am Ayivugwe Kabemba Mukome, originally from Congo Kinshasa. I am deeply connected to my roots and the Bafuliiru people, and I currently live in Spokane, Washington, in the United States. I'm a Christian, which forms an integral part of my identity and values. My journey has included significant challenges and growth, from living as a refugee in Burundi to transitioning into life and work in the US. Through these experiences, I have developed a strong commitment to my culture, heritage, and community.`,
+      answer:
+        "I am Ayivugwe Kabemba Mukome, originally from Congo Kinshasa. I am deeply connected to my roots and the Bafuliiru people. Currently, I reside in Spokane, Washington, where I’m building a life aligned with my Christian faith and personal values. My journey has included significant challenges and growth, from living as a refugee in Burundi to transitioning into life and work in the U.S. Through these experiences, I have developed a strong commitment to preserving my culture, heritage, and community connections.",
     },
     {
-      question: "Do I know English?",
-      shortAnswer: "Yes, I learned English in Africa.",
-      detailedAnswer: `I reached Level 6 in the English as a Second Language test, so I didn’t need to learn the basics when I moved to the US. This achievement highlights my proficiency in English and the foundation I built prior to my arrival.`,
+      question: "What is my level of English?",
+      answer:
+        "I have a strong foundation in English, encompassing speaking, writing, reading, and listening skills. I initially learned English in Africa, where I grew to love the language. Upon moving to the U.S., I took the ESL test and achieved Level 6, which means I didn’t need to learn the basics here. I am continuing to improve my English through daily interactions and conversations. I also attended Gonzaga University in Spokane for preparation in Academic English, which has further enhanced my skills.",
     },
     {
       question:
         "Does the content on this website reflect any reality, and is it true?",
-      shortAnswer: "Yes, it reflects who I am.",
-      detailedAnswer:
-        "I did my best to make it reflect my experiences, values, and journey as accurately as possible.",
+      answer:
+        "Yes, the content on this website accurately reflects who I am and my experiences. I have taken care to share my journey, values, and goals as transparently as possible, so that the information here gives an authentic representation of my life, beliefs, and aspirations.",
     },
     {
-      question: "What’s one question I asked ChatGPT?",
-      shortAnswer: "I asked ChatGPT to answer 'Who Am I?'",
-      detailedAnswer: `You are Ayivugwe Kabemba Mukome, a dedicated software developer and project manager, with a background in DevOps and field associate work at Walmart, now transitioning into roles aligned with your tech expertise. Originally from Congo Kinshasa, you have a deep-rooted connection to the Bafuliiru people and are fluent in Kiswahili and Kifuliiru... (continue full answer here).`,
+      question: "Am I a developer or a founder? A question I asked ChatGPT.",
+      answer:
+        "After many conversations with ChatGPT about my projects and ideas, I found myself questioning if I am simply a developer or something more—a founder. ChatGPT provided me with this answer: 'You are Ayivugwe Kabemba Mukome, a dedicated software developer and project manager, with a background in DevOps and a deep connection to your heritage and the Bafuliiru people. Your journey from Congo Kinshasa, combined with your work in software and language preservation, shows a commitment to both technical expertise and cultural advocacy. Through your projects, you’re not only a developer but also a founder building lasting digital resources for the Kifuliiru language and culture. Your work empowers your community, bridging technology with heritage and creating a sustainable impact.' This answer helped clarify my role as both a creator and an advocate, aligning my technical skills with my vision for cultural preservation.",
     },
     {
       question: "What inspired me to become a Kifuliiru language advocate?",
-      shortAnswer: "My heritage and love for the Kifuliiru culture.",
-      detailedAnswer: `Growing up in Congo, I saw the richness of the Kifuliiru culture and language. This inspired me to work on preserving and promoting our language through digital platforms and projects.`,
+      answer:
+        "My heritage and love for the Kifuliiru culture have been strong driving forces in my life. Growing up in Congo, I saw the richness of the Kifuliiru culture and language firsthand. This deep-rooted connection inspired me to focus on preserving and promoting our language through digital platforms and community-centered projects to keep our heritage alive for future generations.",
     },
     {
       question: "Do I have experience as an interpreter and translator?",
-      shortAnswer:
-        "Yes, I am experienced as both an interpreter and translator.",
-      detailedAnswer: `This experience has enhanced my understanding of languages and cultural nuances, allowing me to bridge communication gaps effectively.`,
+      answer:
+        "Yes, I am experienced as both an interpreter and translator. This role has enhanced my understanding of languages and cultural nuances, enabling me to effectively bridge communication gaps. My translation work spans various contexts, helping people connect, understand, and interact across languages.",
     },
     {
       question: "What kind of translation do I do?",
-      shortAnswer: "Church-related and daily life translations.",
-      detailedAnswer: `I provide translations for church and day-to-day life contexts, as well as assist with Kifuliiru translation into Kiswahili, French, and English.`,
+      answer:
+        "I provide translation for church-related events and daily life contexts. Additionally, I assist with translating Kifuliiru into Kiswahili, French, and English. This work allows me to support the linguistic needs of my community in diverse settings, from spiritual gatherings to everyday interactions.",
     },
     {
       question: "How do I approach community building?",
-      shortAnswer: "By creating inclusive, supportive spaces.",
-      detailedAnswer: `I believe in creating inclusive, supportive spaces where people can connect, share, and grow together. Through my work with the Kifuliiru project, I strive to empower individuals by providing resources and opportunities for engagement, fostering a community that values culture, language, and heritage.`,
+      answer:
+        "I believe in creating inclusive, supportive spaces where people can connect, share, and grow together. Through my work with the Kifuliiru project, I strive to empower individuals by providing resources, fostering engagement, and cultivating a community that respects and values our culture, language, and heritage. This approach enables a thriving network of people who are united by shared goals and mutual support.",
     },
     {
       question: "What is my ultimate goal for the Kifuliiru project?",
-      shortAnswer: "To create a sustainable digital presence for Kifuliiru.",
-      detailedAnswer: `My ultimate goal is to create a sustainable digital presence for the Kifuliiru language, preserving it for future generations while enabling people today to learn, engage, and contribute.`,
+      answer:
+        "My ultimate goal is to create a sustainable digital presence for the Kifuliiru language, ensuring it is preserved for future generations. This project enables people today to learn, engage, and contribute, helping to build a lasting resource that reflects our community’s identity, traditions, and language in the digital age.",
+    },
+    {
+      question: "What role does technology play in my work?",
+      answer:
+        "Technology is at the heart of my work, enabling me to create innovative solutions that bridge cultural heritage with modern digital tools. From developing platforms that preserve the Kifuliiru language to building apps and websites, technology allows me to share my culture globally and empower others to engage with it. I view technology not just as a tool but as a means of fostering connectivity, accessibility, and growth for my community and beyond.",
+    },
+    {
+      question: "What are my views on AI and its impact?",
+      answer:
+        "AI fascinates me for its potential to revolutionize communication, information sharing, and even cultural preservation. I see AI as a powerful tool for amplifying human capabilities and enhancing access to knowledge. For instance, AI-driven language models could support less common languages like Kifuliiru, making them accessible to a wider audience. However, I also believe in mindful development to ensure AI respects cultural diversity and supports ethical values.",
+    },
+    {
+      question: "How do I approach software development in my projects?",
+      answer:
+        "In software development, I focus on creating efficient, user-centered applications that prioritize accessibility and scalability. My approach is highly collaborative, often involving input from community members and technical experts to ensure the product aligns with user needs. I enjoy working with modern languages and frameworks, like Python, Java, and Flutter, that allow for flexible, robust development. I approach each project with the goal of building solutions that are not only functional but also meaningful and impactful.",
     },
   ];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index); // Toggle between open and closed
-  };
-
-  const handleLearnMore = (index: number) => {
-    setOpenIndex(index);
-    setIsModalOpen(true); // Open the modal
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   return (
@@ -124,47 +125,14 @@ const FAQ: React.FC = () => {
                       darkMode ? "text-slate-400" : "text-slate-600"
                     }`}
                   >
-                    {faq.shortAnswer}
+                    {faq.answer}
                   </p>
-                  <button
-                    onClick={() => handleLearnMore(index)}
-                    className="mt-4 text-sm font-semibold text-blue-600 hover:underline"
-                  >
-                    Learn More
-                  </button>
                 </div>
               )}
             </div>
           ))}
         </div>
       </div>
-
-      {/* Modal Dialog */}
-      {isModalOpen && openIndex !== null && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-          <div
-            className={`relative bg-white dark:bg-slate-800 max-w-lg w-full p-6 rounded-lg shadow-lg transition-all duration-300 ${
-              darkMode ? "text-slate-200" : "text-slate-800"
-            }`}
-          >
-            <h3 className="text-xl font-semibold mb-4">
-              {faqs[openIndex].question}
-            </h3>
-            <p className="leading-relaxed mb-4">
-              <strong>Short Answer:</strong> {faqs[openIndex].shortAnswer}
-            </p>
-            <p className="leading-relaxed mb-6">
-              <strong>Detailed Answer:</strong> {faqs[openIndex].detailedAnswer}
-            </p>
-            <button
-              onClick={closeModal}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
