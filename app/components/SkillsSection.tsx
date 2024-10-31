@@ -17,7 +17,11 @@ import {
 interface Skill {
   name: string;
   certifications: string[];
-  source: "work" | "education";
+  sourceDetails: {
+    type: "work" | "education" | "certification";
+    title: string;
+    description: string;
+  }[];
   details: string;
 }
 
@@ -40,88 +44,135 @@ const SkillsSection: React.FC = () => {
       category: "Technical",
       items: [
         {
+          name: "Python",
+          certifications: ["Meta Back-End Developer Professional Certificate"],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Work Experience",
+              description: "Used for backend development and data processing",
+            },
+            {
+              type: "certification",
+              title: "Certification",
+              description: "Meta Back-End Developer program certification",
+            },
+          ],
+          details: "Proficient in backend development with Python.",
+        },
+        {
           name: "Java",
-          certifications: ["Oracle Certified Professional Java SE Developer"],
-          source: "education",
-          details:
-            "Extensive experience in Java development, including enterprise applications",
-        },
-        {
-          name: "Spring Boot",
-          certifications: ["Spring Professional Certification"],
-          source: "work",
-          details:
-            "Built and maintained microservices-based applications using Spring Boot",
-        },
-        {
-          name: "RichFaces & PrimeFaces",
           certifications: [],
-          source: "work",
-          details: "Developed enterprise web interfaces using Java frameworks",
+          sourceDetails: [
+            {
+              type: "education",
+              title: "Academic Background",
+              description: "Studied Java during university",
+            },
+            {
+              type: "work",
+              title: "Work Experience",
+              description: "Developed enterprise-level applications",
+            },
+          ],
+          details: "Experienced in Java development.",
         },
         {
-          name: "Back-end Development",
-          certifications: [],
-          source: "work",
-          details:
-            "Designed and implemented scalable server-side applications and APIs",
+          name: "Django",
+          certifications: ["Meta Back-End Developer Professional Certificate"],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Built and maintained web applications using Django",
+            },
+          ],
+          details: "Experienced with scalable web applications in Django.",
         },
         {
-          name: "Cloud Services",
-          certifications: [],
-          source: "work",
-          details:
-            "Experience with AWS and Heroku for cloud infrastructure management",
+          name: "MySQL",
+          certifications: [
+            "Meta Back-End Developer Professional Certificate (Database Module)",
+          ],
+          sourceDetails: [
+            {
+              type: "education",
+              title: "Academic Background",
+              description: "Studied SQL databases in coursework",
+            },
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Worked extensively with MySQL in data management",
+            },
+          ],
+          details: "Experience with SQL and database management.",
         },
         {
-          name: "DevOps",
-          certifications: [],
-          source: "work",
-          details:
-            "Implemented CI/CD pipelines and automated deployment processes",
-        },
-        {
-          name: "Version Control",
-          certifications: [],
-          source: "work",
-          details:
-            "Expert in Git & GitHub  |  Version Control • Pull Requests • CI/CD • Branching • Code Review • Git Flow",
-        },
-        {
-          name: "Database Management",
-          certifications: [],
-          source: "work",
-          details: "Experience with SQL and database optimization",
+          name: "Git & GitHub",
+          certifications: ["Meta Back-End Developer Certificate"],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Used for version control and code management",
+            },
+          ],
+          details: "Experienced with Git and GitHub for version control.",
         },
       ],
       icon: <Code2 className="w-6 h-6" />,
     },
     {
-      category: "Management",
+      category: "Project Management",
       items: [
         {
           name: "Project Management",
-          certifications: [],
-          source: "work",
-          details: "Led cross-functional teams and managed enterprise projects",
+          certifications: [
+            "Google Project Management Professional Certificate",
+          ],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Led projects and managed cross-functional teams",
+            },
+            {
+              type: "certification",
+              title: "Certification",
+              description: "Google Project Management Professional Certificate",
+            },
+          ],
+          details: "Skilled in leading and managing projects effectively.",
         },
         {
           name: "Agile Methodologies",
-          certifications: [],
-          source: "work",
-          details: "Implemented Scrum and Kanban practices for team efficiency",
+          certifications: [
+            "Google Project Management Professional Certificate",
+          ],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Experience",
+              description: "Implemented Agile practices like Scrum and Kanban",
+            },
+          ],
+          details: "Experienced in Agile frameworks for team efficiency.",
         },
         {
-          name: "Team Leadership",
-          certifications: [],
-          source: "work",
-          details: "Managed development teams and mentored team members",
-        },
-        {
-          name: "Stakeholder Communication",
-          certifications: [],
-          source: "work",
-          details: "Effective communication and relationship management",
+          name: "Stakeholder Management",
+          certifications: [
+            "Google Project Management Professional Certificate",
+          ],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description:
+                "Managed stakeholder relationships effectively and efficiently",
+            },
+          ],
+          details: "Strong communication and relationship management skills.",
         },
       ],
       icon: <Briefcase className="w-6 h-6" />,
@@ -132,26 +183,50 @@ const SkillsSection: React.FC = () => {
         {
           name: "JIRA",
           certifications: [],
-          source: "work",
-          details: "Project tracking and agile workflow management",
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Used for project tracking and Agile workflows",
+            },
+          ],
+          details: "Proficient in JIRA for task and project management.",
         },
         {
           name: "Confluence",
           certifications: [],
-          source: "work",
-          details: "Documentation and knowledge management",
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Documentation and team knowledge management",
+            },
+          ],
+          details: "Skilled in using Confluence for team documentation.",
         },
         {
           name: "GitHub Actions",
           certifications: [],
-          source: "work",
-          details: "CI/CD pipeline implementation and automation",
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Configured CI/CD workflows using GitHub Actions",
+            },
+          ],
+          details: "Experience in CI/CD pipeline setup with GitHub Actions.",
         },
         {
-          name: "Development IDEs",
-          certifications: [],
-          source: "work",
-          details: "Proficient in various development environments",
+          name: "Slack",
+          certifications: ["Certification"],
+          sourceDetails: [
+            {
+              type: "work",
+              title: "Professional Development",
+              description: "Utilized for team communication and collaboration",
+            },
+          ],
+          details: "Proficient in team communication through Slack.",
         },
       ],
       icon: <GitBranch className="w-6 h-6" />,
@@ -166,78 +241,93 @@ const SkillsSection: React.FC = () => {
     }));
   };
 
-  const getSourceIcon = (source: "work" | "education"): React.ReactNode => {
-    return source === "work" ? (
-      <Building2
-        className={`w-4 h-4 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-      />
-    ) : (
-      <GraduationCap
-        className={`w-4 h-4 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-      />
-    );
+  const getSourceIcon = (
+    source: "work" | "education" | "certification"
+  ): React.ReactNode => {
+    switch (source) {
+      case "work":
+        return (
+          <Building2
+            className={`w-4 h-4 ${
+              darkMode ? "text-slate-400" : "text-slate-600"
+            }`}
+          />
+        );
+      case "education":
+        return (
+          <GraduationCap
+            className={`w-4 h-4 ${
+              darkMode ? "text-slate-400" : "text-slate-600"
+            }`}
+          />
+        );
+      case "certification":
+        return (
+          <Award
+            className={`w-4 h-4 ${
+              darkMode ? "text-slate-400" : "text-slate-600"
+            }`}
+          />
+        );
+      default:
+        return null;
+    }
   };
 
   return (
     <section
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
-        ${
-          darkMode
-            ? "bg-gradient-to-b from-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 to-white"
-        }`}
+      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+        darkMode
+          ? "bg-gradient-to-b from-slate-900 to-slate-800"
+          : "bg-gradient-to-b from-slate-50 to-white"
+      }`}
       id="skills"
     >
-      {/* Background Pattern */}
       <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
-          ${
-            darkMode
-              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
-              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
-          }`}
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+          darkMode
+            ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+            : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+        }`}
       ></div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-            ${darkMode ? "text-white" : "text-slate-900"} 
-            transition-colors duration-300`}
+            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ${
+              darkMode ? "text-white" : "text-slate-900"
+            }`}
           >
             Technical Expertise
           </h2>
           <p
-            className={`text-lg sm:text-xl 
-            ${darkMode ? "text-slate-400" : "text-slate-600"} 
-            transition-colors duration-300 max-w-xl mx-auto`}
+            className={`text-lg sm:text-xl ${
+              darkMode ? "text-slate-400" : "text-slate-600"
+            } max-w-xl mx-auto`}
           >
-            Comprehensive skill set in software development, project management,
-            and technical tools
+            Comprehensive skill set in software development and project
+            management.
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
-        {/* Skills Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {skills.map((skillGroup, categoryIndex) => (
             <div
               key={skillGroup.category}
-              className={`relative rounded-2xl p-6 transition-all duration-300 backdrop-blur-xl border
-                ${
-                  darkMode
-                    ? "bg-slate-800/80 hover:bg-slate-700/50 border-slate-700/50"
-                    : "bg-white/80 hover:bg-white border-slate-200/50"
-                }`}
+              className={`relative rounded-2xl p-6 transition-all duration-300 backdrop-blur-xl border ${
+                darkMode
+                  ? "bg-slate-800/80 hover:bg-slate-700/50 border-slate-700/50"
+                  : "bg-white/80 hover:bg-white border-slate-200/50"
+              }`}
             >
               <div className="flex items-center mb-4">
                 <div className={darkMode ? "text-slate-400" : "text-slate-600"}>
                   {skillGroup.icon}
                 </div>
                 <h3
-                  className={`font-montserrat text-xl font-semibold ml-3
-                  ${darkMode ? "text-white" : "text-slate-900"}`}
+                  className={`font-montserrat text-xl font-semibold ml-3 ${
+                    darkMode ? "text-white" : "text-slate-900"
+                  }`}
                 >
                   {skillGroup.category}
                 </h3>
@@ -256,8 +346,7 @@ const SkillsSection: React.FC = () => {
                         className="w-full"
                       >
                         <div
-                          className={`flex items-center justify-between transition-colors
-                          ${
+                          className={`flex items-center justify-between transition-colors ${
                             darkMode
                               ? "hover:text-slate-200"
                               : "hover:text-slate-800"
@@ -276,59 +365,24 @@ const SkillsSection: React.FC = () => {
 
                       {isExpanded && (
                         <div className="mt-2 ml-6 space-y-2 text-sm">
-                          <div
-                            className={`flex items-center 
-                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                          >
-                            {getSourceIcon(item.source)}
-                            <span className="ml-2">
-                              {item.source === "work"
-                                ? "Work Experience"
-                                : "Academic Background"}
-                            </span>
-                          </div>
-
+                          {item.sourceDetails.map((source) => (
+                            <div key={source.type} className="flex flex-col">
+                              <div className="flex items-center">
+                                {getSourceIcon(source.type)}
+                                <span className="ml-2 font-semibold">
+                                  {source.title}:
+                                </span>
+                              </div>
+                              <p className="ml-6">{source.description}</p>
+                            </div>
+                          ))}
                           <p
-                            className={`leading-relaxed
-                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                            className={`leading-relaxed ${
+                              darkMode ? "text-slate-400" : "text-slate-600"
+                            }`}
                           >
                             {item.details}
                           </p>
-
-                          {item.certifications.length > 0 && (
-                            <div className="space-y-1">
-                              <div
-                                className={`flex items-center
-                                ${
-                                  darkMode ? "text-slate-400" : "text-slate-600"
-                                }`}
-                              >
-                                <Award
-                                  className={`w-4 h-4
-                                  ${
-                                    darkMode
-                                      ? "text-slate-400"
-                                      : "text-slate-600"
-                                  }`}
-                                />
-                                <span className="ml-2">Certifications:</span>
-                              </div>
-                              <ul className="ml-6 list-disc">
-                                {item.certifications.map((cert) => (
-                                  <li
-                                    key={cert}
-                                    className={
-                                      darkMode
-                                        ? "text-slate-400"
-                                        : "text-slate-600"
-                                    }
-                                  >
-                                    {cert}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
                         </div>
                       )}
                     </li>
@@ -338,13 +392,6 @@ const SkillsSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottom Gradient Decoration */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-          ${darkMode ? "via-slate-700" : "via-slate-200"} 
-          to-transparent`}
-        ></div>
       </div>
     </section>
   );

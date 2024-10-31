@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { useTheme } from "../context/ThemeContext";
-import Link from "next/link";
 
 declare global {
   interface Window {
@@ -153,7 +152,7 @@ export default function Contact() {
           </div>
           <div
             className="h-captcha"
-            data-sitekey="fa60f84c-aa6a-4316-bbd4-a9183c9201ba"
+            data-sitekey={process.env.HCAPTCHA_SITE_KEY}
             data-callback="handleCaptchaVerify"
           ></div>
           <button
