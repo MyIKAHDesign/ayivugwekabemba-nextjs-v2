@@ -7,6 +7,7 @@ import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./Experience";
 import AboutMe from "./AboutMe";
 import SkillsSection from "./SkillsSection";
+import FAQ from "./FAQ";
 
 const Portfolio: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Portfolio: React.FC = () => {
       <ExperienceSection />
       <SkillsSection />
       <AboutMe />
+      <FAQ />
     </div>
   );
 };
