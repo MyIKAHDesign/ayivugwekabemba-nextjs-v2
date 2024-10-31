@@ -25,6 +25,11 @@ const FAQ: React.FC = () => {
         "I have a strong foundation in English, encompassing speaking, writing, reading, and listening skills. I initially learned English in Africa, where I grew to love the language. Upon moving to the U.S., I took the ESL test and achieved Level 6, which means I didn’t need to learn the basics here. I am continuing to improve my English through daily interactions and conversations. I also attended Gonzaga University in Spokane for preparation in Academic English, which has further enhanced my skills.",
     },
     {
+      question: "What other languages do I speak?",
+      answer:
+        "In addition to English, I am fluent in Kiswahili, Kifuliiru, and French. These languages connect me to my heritage and allow me to engage with a variety of communities, especially within the Bafuliiru culture. My multilingual skills help me connect across cultures and contribute effectively in diverse environments. I also took a class in Spanish, and while I understand some, I need to revise much of it due to lack of practice.",
+    },
+    {
       question:
         "Does the content on this website reflect any reality, and is it true?",
       answer:
