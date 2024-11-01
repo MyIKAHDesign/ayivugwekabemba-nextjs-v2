@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Clock } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 interface Experience {
@@ -10,10 +10,7 @@ interface Experience {
   location: string;
   period: string;
   description?: string;
-  achievements: string[];
 }
-
-// Rest of the interface and experiences data remains the same...
 
 const ExperienceSection: React.FC = () => {
   const [showTimeline, setShowTimeline] = useState<boolean>(false);
@@ -27,9 +24,6 @@ const ExperienceSection: React.FC = () => {
       period: "Sep 2024 - Present",
       description:
         "Played a key role in driving operational excellence within the warehouse environment.",
-      achievements: [
-        "Exceeded performance metrics for productivity, accuracy, and safety.",
-      ],
     },
     {
       company: "Walmart",
@@ -38,9 +32,6 @@ const ExperienceSection: React.FC = () => {
       period: "Nov 2023 - Sep 2024",
       description:
         "Managed inventory and provided excellent customer service to enhance store operations.",
-      achievements: [
-        "Improved inventory accuracy, reducing discrepancies by 10%",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -49,9 +40,6 @@ const ExperienceSection: React.FC = () => {
       period: "Feb 2022 - Aug 2023",
       description:
         "Led cross-functional teams and managed Agile project timelines and budgets.",
-      achievements: [
-        "Achieved 30% faster project delivery and 20% cost savings",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -60,9 +48,6 @@ const ExperienceSection: React.FC = () => {
       period: "Feb 2022 - Aug 2023",
       description:
         "Implemented CI/CD practices and optimized cloud infrastructure.",
-      achievements: [
-        "Reduced deployment time by 40% and enhanced system reliability",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -71,9 +56,6 @@ const ExperienceSection: React.FC = () => {
       period: "Jan 2017 - Feb 2022",
       description:
         "Developed and maintained web applications for government and financial systems.",
-      achievements: [
-        "Reduced downtime by 30% and contributed to key public sector projects",
-      ],
     },
   ];
 
@@ -98,17 +80,16 @@ const ExperienceSection: React.FC = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header section remains the same... */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Professional Experience
           </h2>
           <p
-            className={`text-lg sm:text-xl 
+            className={`text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
@@ -118,14 +99,14 @@ const ExperienceSection: React.FC = () => {
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
-        {/* Timeline button remains the same... */}
+        {/* Timeline button */}
         <div className="flex justify-end mb-8">
           <button
             className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all"
             onClick={() => setShowTimeline(true)}
             aria-label="Show Timeline"
           >
-            <Clock className="w-6 h-6" />
+            <Calendar className="w-6 h-6" />
           </button>
         </div>
 
@@ -141,7 +122,6 @@ const ExperienceSection: React.FC = () => {
                     : "bg-white border-gray-100"
                 }`}
             >
-              {/* Gradient Overlay - Changed from left to bottom animation */}
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                 ${
@@ -155,16 +135,16 @@ const ExperienceSection: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
                   <div className="flex-1">
                     <h3
-                      className={`font-montserrat text-xl font-semibold mb-1 transition-colors duration-500 group-hover:text-white
+                      className={`text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500 group-hover:text-white
                       ${darkMode ? "text-white" : "text-slate-900"}`}
                     >
                       {exp.position}
                     </h3>
-                    <div className="text-blue-500 font-medium mb-1 transition-colors duration-500 group-hover:text-blue-300">
+                    <div className="text-lg leading-relaxed text-blue-500 font-medium mb-1 transition-colors duration-500 group-hover:text-blue-300">
                       {exp.company}
                     </div>
                     <div
-                      className={`text-sm mb-4 transition-colors duration-500 group-hover:text-slate-200
+                      className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-500 group-hover:text-slate-200
                       ${darkMode ? "text-slate-400" : "text-slate-500"}`}
                     >
                       {exp.location} • {exp.period}
@@ -173,39 +153,17 @@ const ExperienceSection: React.FC = () => {
                 </div>
 
                 <p
-                  className={`mb-6 leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                  className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                   ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   {exp.description}
                 </p>
-
-                <div>
-                  <h4
-                    className={`font-montserrat text-sm font-medium mb-4 transition-colors duration-500 group-hover:text-white
-                    ${darkMode ? "text-white" : "text-slate-900"}`}
-                  >
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-3">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
-                        <span
-                          className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200
-                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                        >
-                          {achievement}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Timeline Modal with updated animation */}
+        {/* Timeline Modal */}
         {showTimeline && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
@@ -220,7 +178,6 @@ const ExperienceSection: React.FC = () => {
                 }`}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal content remains largely the same, but with updated animation */}
               <button
                 className={`absolute top-4 right-4 text-2xl font-bold
                   ${darkMode ? "text-slate-400" : "text-gray-500"}`}
@@ -229,7 +186,7 @@ const ExperienceSection: React.FC = () => {
                 &times;
               </button>
               <h3
-                className={`text-2xl font-semibold text-center mb-6
+                className={`text-xl leading-relaxed font-semibold text-center mb-6
                 ${darkMode ? "text-white" : "text-slate-900"}`}
               >
                 Professional Timeline
@@ -246,10 +203,9 @@ const ExperienceSection: React.FC = () => {
                       }s forwards`,
                     }}
                   >
-                    {/* Timeline content with bottom-up hover effect */}
                     <div className="flex flex-col items-center">
                       <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white">
-                        <Clock className="w-4 h-4" />
+                        <Calendar className="w-4 h-4" />
                       </div>
                       {index < experiences.length - 1 && (
                         <div className="w-0.5 bg-blue-600 h-full mt-1" />
@@ -276,23 +232,23 @@ const ExperienceSection: React.FC = () => {
                       <div className="relative p-4 z-10 transition-colors duration-500 group-hover:text-white">
                         <div className="flex items-center mb-2">
                           <span
-                            className={`text-sm font-medium transition-colors duration-500 group-hover:text-slate-200
+                            className={`text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-slate-200
                             ${darkMode ? "text-slate-400" : "text-slate-500"}`}
                           >
                             {exp.period}
                           </span>
                         </div>
                         <h4
-                          className={`font-montserrat text-lg font-semibold transition-colors duration-500 group-hover:text-white
+                          className={`text-xl leading-relaxed font-semibold transition-colors duration-500 group-hover:text-white
                           ${darkMode ? "text-white" : "text-slate-900"}`}
                         >
                           {exp.company}
                         </h4>
                         <p
-                          className={`mt-2 leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                          className={`text-lg leading-relaxed mt-2 transition-colors duration-500 group-hover:text-slate-200
                           ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                         >
-                          {exp.achievements[0]}
+                          {exp.description}
                         </p>
                       </div>
                     </div>

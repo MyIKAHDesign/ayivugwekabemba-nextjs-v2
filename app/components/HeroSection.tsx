@@ -72,11 +72,8 @@ const HeroSection: React.FC = () => {
                           ? "bg-slate-800 text-slate-400"
                           : "bg-slate-100 text-slate-600"
                       }`}
-                    style={{
-                      animationDelay: `${tag.delay * 1.2}s`,
-                    }}
+                    style={{ animationDelay: `${tag.delay * 1.2}s` }}
                   >
-                    {/* Continuous gradient animation */}
                     <div
                       className={`absolute inset-0 animate-gradient-shift
                         ${
@@ -84,11 +81,8 @@ const HeroSection: React.FC = () => {
                             ? "bg-gradient-to-r from-slate-800 via-blue-900/30 to-slate-800"
                             : "bg-gradient-to-r from-slate-100 via-blue-100/30 to-slate-100"
                         }`}
-                      style={{
-                        animationDelay: `${tag.delay * 1.2}s`,
-                      }}
+                      style={{ animationDelay: `${tag.delay * 1.2}s` }}
                     />
-                    {/* Hover gradient remains */}
                     <div
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
@@ -113,9 +107,9 @@ const HeroSection: React.FC = () => {
               >
                 Hi. I&apos;m Ayivugwe Kabemba Mukome
               </h1>
-              {/* Animated highlight text */}
+              {/* Animated highlight text - Updated to text-xl to match quotes section */}
               <div
-                className={`text-lg leading-relaxed font-medium transition-colors duration-300 animate-slide-up
+                className={`text-xl leading-relaxed font-medium transition-colors duration-300 animate-slide-up
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "200ms" }}
               >
@@ -127,7 +121,6 @@ const HeroSection: React.FC = () => {
                         : "bg-slate-100 text-slate-600"
                     }`}
                 >
-                  {/* Continuous gradient animation */}
                   <div
                     className={`absolute inset-0 animate-gradient-shift
                       ${
@@ -136,7 +129,6 @@ const HeroSection: React.FC = () => {
                           : "bg-gradient-to-r from-slate-100 via-blue-100/30 to-slate-100"
                       }`}
                   />
-                  {/* Hover gradient remains */}
                   <div
                     className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                       ${
@@ -150,9 +142,9 @@ const HeroSection: React.FC = () => {
                   </span>
                 </span>
               </div>
-              {/* Animated paragraphs */}
+              {/* Main paragraph - Updated to text-lg to match quotes section */}
               <p
-                className={`leading-relaxed transition-colors duration-300 animate-slide-up
+                className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "400ms" }}
               >
@@ -162,20 +154,12 @@ const HeroSection: React.FC = () => {
                 empowerment through Google-certified project management and
                 modern development practices.
               </p>
-              {/* Buttons with gradient animations */}
-              {/* Buttons with gradient animations */}
+
+              {/* Buttons section */}
               <div className="flex gap-4">
                 {[
-                  {
-                    text: "View Projects",
-                    href: "/#projects",
-                    primary: true,
-                  },
-                  {
-                    text: "Contact Me",
-                    href: "/contact",
-                    primary: false,
-                  },
+                  { text: "View Projects", href: "/#projects", primary: true },
+                  { text: "Contact Me", href: "/contact", primary: false },
                 ].map((button, index) => (
                   <button
                     key={button.text}
@@ -192,7 +176,6 @@ const HeroSection: React.FC = () => {
                       }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
-                    {/* Unified hover gradient for both buttons */}
                     <div
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
@@ -218,14 +201,14 @@ const HeroSection: React.FC = () => {
                   : "border-t border-slate-200"
               }`}
             >
+              {/* Updated to text-sm to match metadata text in quotes */}
               <h3
-                className={`font-montserrat text-sm font-medium mb-4 tracking-wider transition-colors duration-300
+                className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-300
                 ${darkMode ? "text-slate-500" : "text-slate-400"}`}
               >
                 CONNECT WITH ME
               </h3>
               <div className="flex gap-6">
-                {/* Social icons with hover effects */}
                 {[
                   {
                     Icon: Github,

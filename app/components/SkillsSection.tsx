@@ -13,14 +13,16 @@ import {
   Building2,
 } from "lucide-react";
 
+interface SourceDetail {
+  type: "work" | "education" | "certification";
+  title: string;
+  description: string;
+}
+
 interface Skill {
   name: string;
   certifications: string[];
-  sourceDetails: {
-    type: "work" | "education" | "certification";
-    title: string;
-    description: string;
-  }[];
+  sourceDetails: SourceDetail[];
   details: string;
 }
 
@@ -232,7 +234,7 @@ const SkillsSection: React.FC = () => {
     },
   ];
 
-  const toggleSkill = (categoryIndex: number, skillIndex: number): void => {
+  const toggleSkill = (categoryIndex: number, skillIndex: number) => {
     const key = `${categoryIndex}-${skillIndex}`;
     setExpandedSkills((prev) => ({
       ...prev,
@@ -240,14 +242,12 @@ const SkillsSection: React.FC = () => {
     }));
   };
 
-  const getSourceIcon = (
-    source: "work" | "education" | "certification"
-  ): React.ReactNode => {
-    switch (source) {
+  const getSourceIcon = (type: SourceDetail["type"]) => {
+    switch (type) {
       case "work":
         return (
           <Building2
-            className={`w-4 h-4 ${
+            className={`w-5 h-5 ${
               darkMode ? "text-slate-400" : "text-slate-600"
             }`}
           />
@@ -255,7 +255,7 @@ const SkillsSection: React.FC = () => {
       case "education":
         return (
           <GraduationCap
-            className={`w-4 h-4 ${
+            className={`w-5 h-5 ${
               darkMode ? "text-slate-400" : "text-slate-600"
             }`}
           />
@@ -263,19 +263,18 @@ const SkillsSection: React.FC = () => {
       case "certification":
         return (
           <Award
-            className={`w-4 h-4 ${
+            className={`w-5 h-5 ${
               darkMode ? "text-slate-400" : "text-slate-600"
             }`}
           />
         );
-      default:
-        return null;
     }
   };
 
   return (
     <section
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 
+      ${
         darkMode
           ? "bg-gradient-to-b from-slate-900 to-slate-800"
           : "bg-gradient-to-b from-slate-50 to-white"
@@ -283,26 +282,28 @@ const SkillsSection: React.FC = () => {
       id="skills"
     >
       <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
+        ${
           darkMode
             ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
             : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
         }`}
-      ></div>
+      />
 
       <div className="relative max-w-7xl mx-auto">
+        {/* Header section - Updated text sizes */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ${
-              darkMode ? "text-white" : "text-slate-900"
-            }`}
+            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-white" : "text-slate-900"}`}
           >
             Technical Expertise
           </h2>
+          {/* Updated to text-xl like featured text */}
           <p
-            className={`text-lg sm:text-xl ${
-              darkMode ? "text-slate-400" : "text-slate-600"
-            } max-w-xl mx-auto`}
+            className={`text-xl leading-relaxed 
+            ${darkMode ? "text-slate-400" : "text-slate-600"} 
+            max-w-xl mx-auto`}
           >
             Comprehensive skill set in software development and project
             management.
@@ -320,7 +321,6 @@ const SkillsSection: React.FC = () => {
                     : "bg-white border-gray-100"
                 }`}
             >
-              {/* Gradient Overlay */}
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                 ${
@@ -333,74 +333,73 @@ const SkillsSection: React.FC = () => {
               <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
                 <div className="flex items-center mb-4">
                   <div
-                    className={`transition-colors duration-500 group-hover:text-white ${
-                      darkMode ? "text-slate-400" : "text-slate-600"
-                    }`}
+                    className={`transition-colors duration-500 group-hover:text-white 
+                    ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                   >
                     {skillGroup.icon}
                   </div>
+                  {/* Category title - text-xl */}
                   <h3
-                    className={`font-montserrat text-xl font-semibold ml-3 transition-colors duration-500 group-hover:text-white ${
-                      darkMode ? "text-white" : "text-slate-900"
-                    }`}
+                    className={`text-xl leading-relaxed font-semibold ml-3 transition-colors duration-500 group-hover:text-white 
+                    ${darkMode ? "text-white" : "text-slate-900"}`}
                   >
                     {skillGroup.category}
                   </h3>
                 </div>
-                <ul className="space-y-2">
-                  {skillGroup.items.map((item, skillIndex) => {
-                    const isExpanded =
-                      expandedSkills[`${categoryIndex}-${skillIndex}`];
-                    return (
-                      <li
-                        key={item.name}
-                        className={`transition-colors duration-500 group-hover:text-slate-200 ${
-                          darkMode ? "text-slate-400" : "text-slate-600"
-                        }`}
-                      >
-                        <button
-                          onClick={() => toggleSkill(categoryIndex, skillIndex)}
-                          className="w-full text-left"
-                        >
-                          <div
-                            className={`flex items-center justify-between transition-colors duration-500 group-hover:text-white`}
-                          >
-                            <div className="flex items-center">
-                              {isExpanded ? (
-                                <ChevronDown className="w-4 h-4 mr-2" />
-                              ) : (
-                                <ChevronRight className="w-4 h-4 mr-2" />
-                              )}
-                              {item.name}
-                            </div>
-                          </div>
-                        </button>
 
-                        {isExpanded && (
-                          <div className="mt-2 ml-6 space-y-2 text-sm">
-                            {item.sourceDetails.map((source) => (
-                              <div key={source.type} className="flex flex-col">
-                                <div className="flex items-center">
-                                  {getSourceIcon(source.type)}
-                                  <span className="ml-2 font-semibold transition-colors duration-500 group-hover:text-white">
-                                    {source.title}:
-                                  </span>
-                                </div>
-                                <p className="ml-6 transition-colors duration-500 group-hover:text-slate-200">
-                                  {source.description}
-                                </p>
-                              </div>
-                            ))}
-                            <p
-                              className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200`}
-                            >
-                              {item.details}
-                            </p>
+                <ul className="space-y-3">
+                  {skillGroup.items.map((item, skillIndex) => (
+                    <li
+                      key={item.name}
+                      className={`transition-colors duration-500 group-hover:text-slate-200 
+                      ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                    >
+                      <button
+                        onClick={() => toggleSkill(categoryIndex, skillIndex)}
+                        className="w-full text-left"
+                      >
+                        <div className="flex items-center justify-between transition-colors duration-500 group-hover:text-white">
+                          <div className="flex items-center">
+                            {expandedSkills[
+                              `${categoryIndex}-${skillIndex}`
+                            ] ? (
+                              <ChevronDown className="w-4 h-4 mr-2" />
+                            ) : (
+                              <ChevronRight className="w-4 h-4 mr-2" />
+                            )}
+                            {/* Skill name - text-lg */}
+                            <span className="text-lg leading-relaxed">
+                              {item.name}
+                            </span>
                           </div>
-                        )}
-                      </li>
-                    );
-                  })}
+                        </div>
+                      </button>
+
+                      {expandedSkills[`${categoryIndex}-${skillIndex}`] && (
+                        <div className="mt-2 ml-6 space-y-2">
+                          {item.sourceDetails.map((source, sourceIndex) => (
+                            <div key={sourceIndex} className="flex flex-col">
+                              <div className="flex items-center">
+                                {getSourceIcon(source.type)}
+                                {/* Source title - text-sm uppercase like metadata */}
+                                <span className="ml-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white">
+                                  {source.title}:
+                                </span>
+                              </div>
+                              {/* Source description - text-lg */}
+                              <p className="ml-6 mt-1 text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200">
+                                {source.description}
+                              </p>
+                            </div>
+                          ))}
+                          {/* Details - text-lg */}
+                          <p className="text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200 ml-6">
+                            {item.details}
+                          </p>
+                        </div>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

@@ -52,20 +52,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               }`}
           />
         </div>
+        {/* Title - Using text-xl like the quotes */}
         <h3
-          className={`text-xl font-medium mb-3 transition-colors duration-500 group-hover:text-white
+          className={`text-xl leading-relaxed font-medium mb-3 transition-colors duration-500 group-hover:text-white
           ${darkMode ? "text-white" : "text-slate-900"}`}
         >
           {title}
         </h3>
+        {/* Description - Using text-lg like the main body text in quotes */}
         <p
-          className={`mb-6 transition-colors duration-500 group-hover:text-slate-200
+          className={`text-lg leading-relaxed mb-6 transition-colors duration-500 group-hover:text-slate-200
           ${darkMode ? "text-slate-400" : "text-gray-600"}`}
         >
           {description}
         </p>
+        {/* View Project link - Using text-sm like the metadata in quotes */}
         <div
-          className={`flex items-center gap-2 font-medium transition-colors duration-500 group-hover:text-white
+          className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white
           ${darkMode ? "text-slate-300" : "text-slate-900"}`}
         >
           View Project

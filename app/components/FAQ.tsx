@@ -88,14 +88,16 @@ const FAQ: React.FC = () => {
   return (
     <section
       id="faq"
-      className={`relative py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+      className={`relative py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 
+      ${
         darkMode
           ? "bg-gradient-to-b from-slate-900 to-slate-800"
           : "bg-gradient-to-b from-slate-50 to-white"
       }`}
     >
       <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
+        ${
           darkMode
             ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
             : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
@@ -103,10 +105,10 @@ const FAQ: React.FC = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto">
+        {/* Main heading - keeping text-4xl */}
         <h2
-          className={`text-4xl font-semibold tracking-tight mb-12 ${
-            darkMode ? "text-white" : "text-slate-900"
-          }`}
+          className={`text-4xl font-semibold tracking-tight mb-12 
+          ${darkMode ? "text-white" : "text-slate-900"}`}
         >
           Frequently Asked Questions
         </h2>
@@ -137,7 +139,11 @@ const FAQ: React.FC = () => {
                   onClick={() => toggleFAQ(index)}
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-medium">{faq.question}</h3>
+                    {/* Question text - Updated to text-xl like quotes */}
+                    <h3 className="text-xl leading-relaxed font-medium">
+                      {faq.question}
+                    </h3>
+                    {/* Toggle indicator */}
                     <span className="text-2xl transition-colors duration-500 group-hover:text-white">
                       {openIndex === index ? "-" : "+"}
                     </span>
@@ -145,8 +151,9 @@ const FAQ: React.FC = () => {
 
                   {openIndex === index && (
                     <div className="mt-4">
+                      {/* Answer text - Updated to text-lg like main body text */}
                       <p
-                        className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                        className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                           ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                       >
                         {faq.answer}
