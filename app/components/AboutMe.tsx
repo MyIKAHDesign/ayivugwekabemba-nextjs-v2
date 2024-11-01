@@ -4,14 +4,7 @@ import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import { Clock } from "lucide-react";
 
-interface Experience {
-  year: string;
-  title: string;
-  company: string;
-  description: string;
-}
-
-const TimelineSection: React.FC = () => {
+const AboutMe: React.FC = () => {
   const { darkMode } = useTheme();
 
   return (
@@ -26,7 +19,8 @@ const TimelineSection: React.FC = () => {
     >
       {/* Background Pattern */}
       <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
+        ${
           darkMode
             ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
             : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
@@ -38,15 +32,17 @@ const TimelineSection: React.FC = () => {
         {/* About Me Section */}
         <div className="pt-24">
           <div className="max-w-2xl mx-auto text-center mb-16">
+            {/* Main heading remains at text-4xl/5xl */}
             <h2
-              className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+              className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-white" : "text-slate-900"} 
               transition-colors duration-300`}
             >
               About Me
             </h2>
+            {/* Subtitle updated to text-xl like featured text */}
             <p
-              className={`text-lg sm:text-xl 
+              className={`text-xl leading-relaxed
               ${darkMode ? "text-slate-400" : "text-slate-600"} 
               transition-colors duration-300 max-w-xl mx-auto`}
             >
@@ -64,7 +60,7 @@ const TimelineSection: React.FC = () => {
                 : "bg-white border-gray-100"
             }`}
           >
-            <div className="relative p-8 space-y-8">
+            <div className="relative p-6 space-y-8">
               {/* About sections */}
               {[
                 {
@@ -123,14 +119,16 @@ const TimelineSection: React.FC = () => {
                   />
 
                   <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
+                    {/* Section titles updated to text-xl like quotes */}
                     <h3
-                      className={`text-xl font-semibold mb-4 transition-colors duration-500 group-hover:text-white
+                      className={`text-xl leading-relaxed font-semibold mb-4 transition-colors duration-500 group-hover:text-white
                         ${darkMode ? "text-white" : "text-slate-900"}`}
                     >
                       {section.title}
                     </h3>
+                    {/* Content paragraphs updated to text-lg like main body text */}
                     <p
-                      className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                      className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                         ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                     >
                       {section.content}
@@ -153,4 +151,4 @@ const TimelineSection: React.FC = () => {
   );
 };
 
-export default TimelineSection;
+export default AboutMe;
