@@ -88,13 +88,37 @@ const Header = () => {
                 href={link.href}
                 scroll={link.href.startsWith("/#")}
                 onClick={() => handleNavigation(link.href)}
-                className={`relative transition duration-300 transform hover:scale-105 active:scale-95 ${
-                  darkMode
-                    ? "text-slate-500 hover:text-slate-200"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
+                className="group relative py-2"
               >
-                {link.name}
+                <span
+                  className={`relative transition duration-300 transform hover:scale-105 active:scale-95 ${
+                    darkMode
+                      ? "text-slate-500 hover:text-slate-200"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  {link.name}
+                </span>
+                {/* Left side of the underline */}
+                <div className="absolute bottom-0 right-1/2 w-1/2 h-[2px] bg-blue-500 transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100">
+                  <div
+                    className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+                      darkMode
+                        ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+                        : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+                    }`}
+                  ></div>
+                </div>
+                {/* Right side of the underline */}
+                <div className="absolute bottom-0 left-1/2 w-1/2 h-[2px] bg-blue-500 transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100">
+                  <div
+                    className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+                      darkMode
+                        ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+                        : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+                    }`}
+                  ></div>
+                </div>
               </Link>
             ))}
             <DarkModeToggle />
@@ -127,13 +151,11 @@ const Header = () => {
             } backdrop-blur-md`}
           >
             <div className="px-4 py-2 space-y-1 pb-12">
-              {" "}
-              {/* Increased padding-bottom */}
               {navLinks.map((link, index) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavigation(link.href)}
-                  className={`relative block w-full text-left px-4 py-2 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95 ${
+                  className={`group relative block w-full text-left px-4 py-2 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95 ${
                     darkMode
                       ? "text-slate-500 hover:text-slate-200 hover:bg-slate-900/90"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"

@@ -1,4 +1,3 @@
-// app/components/Footer.tsx
 "use client";
 
 import React from "react";
@@ -7,6 +6,14 @@ import { useTheme } from "../context/ThemeContext";
 
 const Footer = () => {
   const { darkMode } = useTheme();
+
+  const handleNavigation = (href: string) => {
+    if (href.startsWith("/#")) {
+      const targetId = href.slice(2);
+      const element = document.getElementById(targetId);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <footer
@@ -45,21 +52,52 @@ const Footer = () => {
                 "Experience",
                 "Skills",
                 "About me",
+                "FAQ",
                 "Contact",
-              ].map((link) => (
-                <li key={link}>
-                  <a
-                    href={`/#${link.toLowerCase().replace(" ", "-")}`}
-                    className={`hover:underline ${
-                      darkMode
-                        ? "text-slate-400 hover:text-white"
-                        : "text-slate-600 hover:text-slate-900"
-                    }`}
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
+              ].map((link) => {
+                const href = `/#${link.toLowerCase().replace(" ", "-")}`;
+                return (
+                  <li key={link}>
+                    <a
+                      href={href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavigation(href);
+                      }}
+                      className="group relative inline-block py-1"
+                    >
+                      <span
+                        className={`relative transition duration-300 ${
+                          darkMode
+                            ? "text-slate-400 group-hover:text-white"
+                            : "text-slate-600 group-hover:text-slate-900"
+                        }`}
+                      >
+                        {link}
+                      </span>
+                      {/* Animated underline for hover */}
+                      <div className="absolute bottom-0 right-1/2 w-1/2 h-[2px] bg-blue-500 transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100">
+                        <div
+                          className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+                            darkMode
+                              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+                              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+                          }`}
+                        ></div>
+                      </div>
+                      <div className="absolute bottom-0 left-1/2 w-1/2 h-[2px] bg-blue-500 transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100">
+                        <div
+                          className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+                            darkMode
+                              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+                              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+                          }`}
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
