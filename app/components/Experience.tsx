@@ -24,9 +24,9 @@ const ExperienceSection: React.FC = () => {
       location: "Spokane, WA",
       period: "Sep 2024 - Present",
       description:
-        "Efficiently manage the picking, packing, and shipping of customer orders.",
+        "Played a key role in driving operational excellence within the warehouse environment.",
       achievements: [
-        "Timely delivery and quality assurance, achieving high customer satisfaction",
+        "Exceeded performance metrics for productivity, accuracy, and safety.",
       ],
     },
     {
