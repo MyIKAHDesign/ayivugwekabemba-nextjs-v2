@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Clock } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 interface Experience {
@@ -10,7 +10,6 @@ interface Experience {
   location: string;
   period: string;
   description?: string;
-  achievements: string[];
 }
 
 const ExperienceSection: React.FC = () => {
@@ -25,9 +24,6 @@ const ExperienceSection: React.FC = () => {
       period: "Sep 2024 - Present",
       description:
         "Played a key role in driving operational excellence within the warehouse environment.",
-      achievements: [
-        "Exceeded performance metrics for productivity, accuracy, and safety.",
-      ],
     },
     {
       company: "Walmart",
@@ -36,9 +32,6 @@ const ExperienceSection: React.FC = () => {
       period: "Nov 2023 - Sep 2024",
       description:
         "Managed inventory and provided excellent customer service to enhance store operations.",
-      achievements: [
-        "Improved inventory accuracy, reducing discrepancies by 10%",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -47,9 +40,6 @@ const ExperienceSection: React.FC = () => {
       period: "Feb 2022 - Aug 2023",
       description:
         "Led cross-functional teams and managed Agile project timelines and budgets.",
-      achievements: [
-        "Achieved 30% faster project delivery and 20% cost savings",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -58,9 +48,6 @@ const ExperienceSection: React.FC = () => {
       period: "Feb 2022 - Aug 2023",
       description:
         "Implemented CI/CD practices and optimized cloud infrastructure.",
-      achievements: [
-        "Reduced deployment time by 40% and enhanced system reliability",
-      ],
     },
     {
       company: "ASYST Resources LTD",
@@ -69,9 +56,6 @@ const ExperienceSection: React.FC = () => {
       period: "Jan 2017 - Feb 2022",
       description:
         "Developed and maintained web applications for government and financial systems.",
-      achievements: [
-        "Reduced downtime by 30% and contributed to key public sector projects",
-      ],
     },
   ];
 
@@ -96,7 +80,6 @@ const ExperienceSection: React.FC = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header section - Updated text sizes */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
             className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
@@ -105,7 +88,6 @@ const ExperienceSection: React.FC = () => {
           >
             Professional Experience
           </h2>
-          {/* Updated to text-xl like featured text in quotes */}
           <p
             className={`text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
@@ -124,7 +106,7 @@ const ExperienceSection: React.FC = () => {
             onClick={() => setShowTimeline(true)}
             aria-label="Show Timeline"
           >
-            <Clock className="w-6 h-6" />
+            <Calendar className="w-6 h-6" />
           </button>
         </div>
 
@@ -152,18 +134,15 @@ const ExperienceSection: React.FC = () => {
               <div className="relative p-6 sm:p-8 transition-colors duration-500 group-hover:text-white z-10">
                 <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
                   <div className="flex-1">
-                    {/* Position - text-xl like quotes */}
                     <h3
                       className={`text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500 group-hover:text-white
                       ${darkMode ? "text-white" : "text-slate-900"}`}
                     >
                       {exp.position}
                     </h3>
-                    {/* Company - text-lg like main body text */}
                     <div className="text-lg leading-relaxed text-blue-500 font-medium mb-1 transition-colors duration-500 group-hover:text-blue-300">
                       {exp.company}
                     </div>
-                    {/* Location and period - text-sm like metadata */}
                     <div
                       className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-500 group-hover:text-slate-200
                       ${darkMode ? "text-slate-400" : "text-slate-500"}`}
@@ -173,37 +152,12 @@ const ExperienceSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Description - text-lg like main body text */}
                 <p
-                  className={`text-lg leading-relaxed mb-6 transition-colors duration-500 group-hover:text-slate-200
+                  className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                   ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   {exp.description}
                 </p>
-
-                <div>
-                  {/* Achievements header - text-sm like metadata */}
-                  <h4
-                    className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-500 group-hover:text-white
-                    ${darkMode ? "text-white" : "text-slate-900"}`}
-                  >
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-3">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
-                        {/* Achievement text - text-lg like main body text */}
-                        <span
-                          className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
-                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                        >
-                          {achievement}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           ))}
@@ -231,7 +185,6 @@ const ExperienceSection: React.FC = () => {
               >
                 &times;
               </button>
-              {/* Modal title - text-xl */}
               <h3
                 className={`text-xl leading-relaxed font-semibold text-center mb-6
                 ${darkMode ? "text-white" : "text-slate-900"}`}
@@ -252,7 +205,7 @@ const ExperienceSection: React.FC = () => {
                   >
                     <div className="flex flex-col items-center">
                       <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white">
-                        <Clock className="w-4 h-4" />
+                        <Calendar className="w-4 h-4" />
                       </div>
                       {index < experiences.length - 1 && (
                         <div className="w-0.5 bg-blue-600 h-full mt-1" />
@@ -277,7 +230,6 @@ const ExperienceSection: React.FC = () => {
                       />
 
                       <div className="relative p-4 z-10 transition-colors duration-500 group-hover:text-white">
-                        {/* Period - text-sm like metadata */}
                         <div className="flex items-center mb-2">
                           <span
                             className={`text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-slate-200
@@ -286,19 +238,17 @@ const ExperienceSection: React.FC = () => {
                             {exp.period}
                           </span>
                         </div>
-                        {/* Company - text-xl */}
                         <h4
                           className={`text-xl leading-relaxed font-semibold transition-colors duration-500 group-hover:text-white
                           ${darkMode ? "text-white" : "text-slate-900"}`}
                         >
                           {exp.company}
                         </h4>
-                        {/* Achievement - text-lg */}
                         <p
                           className={`text-lg leading-relaxed mt-2 transition-colors duration-500 group-hover:text-slate-200
                           ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                         >
-                          {exp.achievements[0]}
+                          {exp.description}
                         </p>
                       </div>
                     </div>
