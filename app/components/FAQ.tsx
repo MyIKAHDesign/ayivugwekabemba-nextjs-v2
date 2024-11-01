@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 
-// Define types for FAQ items
 interface FAQItem {
   question: string;
   answer: string;
@@ -83,7 +82,7 @@ const FAQ: React.FC = () => {
   ];
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // Toggle between open and closed
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
@@ -95,6 +94,14 @@ const FAQ: React.FC = () => {
           : "bg-gradient-to-b from-slate-50 to-white"
       }`}
     >
+      <div
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
+          darkMode
+            ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+            : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+        }`}
+      ></div>
+
       <div className="relative max-w-7xl mx-auto">
         <h2
           className={`text-4xl font-semibold tracking-tight mb-12 ${
@@ -107,33 +114,47 @@ const FAQ: React.FC = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`p-6 rounded-lg shadow-lg transition-colors duration-300 ${
-                darkMode
-                  ? "bg-slate-800 text-slate-200"
-                  : "bg-white text-slate-800"
-              }`}
+              className={`group relative rounded-lg overflow-hidden border transition-all duration-500
+                ${
+                  darkMode
+                    ? "bg-slate-800 border-slate-700"
+                    : "bg-white border-gray-100"
+                }`}
             >
+              {/* Gradient Overlay */}
               <div
-                className="flex items-center justify-between cursor-pointer"
-                onClick={() => toggleFAQ(index)}
-              >
-                <h3 className="text-xl font-medium">{faq.question}</h3>
-                <span className="text-2xl">
-                  {openIndex === index ? "-" : "+"}
-                </span>
-              </div>
+                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
+                  ${
+                    darkMode
+                      ? "bg-gradient-to-t from-slate-800 to-slate-700"
+                      : "bg-gradient-to-t from-slate-900 to-slate-800"
+                  }`}
+              />
 
-              {openIndex === index && (
-                <div className="mt-2">
-                  <p
-                    className={`leading-relaxed ${
-                      darkMode ? "text-slate-400" : "text-slate-600"
-                    }`}
-                  >
-                    {faq.answer}
-                  </p>
+              <div className="relative z-10">
+                <div
+                  className="p-6 cursor-pointer transition-colors duration-500 group-hover:text-white"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-medium">{faq.question}</h3>
+                    <span className="text-2xl transition-colors duration-500 group-hover:text-white">
+                      {openIndex === index ? "-" : "+"}
+                    </span>
+                  </div>
+
+                  {openIndex === index && (
+                    <div className="mt-4">
+                      <p
+                        className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                      >
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

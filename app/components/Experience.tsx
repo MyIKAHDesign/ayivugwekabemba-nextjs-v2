@@ -13,6 +13,8 @@ interface Experience {
   achievements: string[];
 }
 
+// Rest of the interface and experiences data remains the same...
+
 const ExperienceSection: React.FC = () => {
   const [showTimeline, setShowTimeline] = useState<boolean>(false);
   const { darkMode } = useTheme();
@@ -96,6 +98,7 @@ const ExperienceSection: React.FC = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto">
+        {/* Header section remains the same... */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
             className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
@@ -115,7 +118,7 @@ const ExperienceSection: React.FC = () => {
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
-        {/* Icon button to display the timeline */}
+        {/* Timeline button remains the same... */}
         <div className="flex justify-end mb-8">
           <button
             className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all"
@@ -131,66 +134,78 @@ const ExperienceSection: React.FC = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl p-6 sm:p-8 transition-all duration-300 backdrop-blur-xl border
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border
                 ${
                   darkMode
-                    ? "bg-slate-800/80 hover:bg-slate-700/50 border-slate-700/50"
-                    : "bg-white/80 hover:bg-white border-slate-200/50"
+                    ? "bg-slate-800 border-slate-700"
+                    : "bg-white border-gray-100"
                 }`}
             >
-              <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
-                <div className="flex-1">
-                  <h3
-                    className={`font-montserrat text-xl font-semibold mb-1
-                    ${darkMode ? "text-white" : "text-slate-900"}`}
-                  >
-                    {exp.position}
-                  </h3>
-                  <div className="text-blue-500 font-medium mb-1">
-                    {exp.company}
-                  </div>
-                  <div
-                    className={`text-sm mb-4
-                    ${darkMode ? "text-slate-400" : "text-slate-500"}`}
-                  >
-                    {exp.location} • {exp.period}
+              {/* Gradient Overlay - Changed from left to bottom animation */}
+              <div
+                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                ${
+                  darkMode
+                    ? "bg-gradient-to-t from-slate-800 to-slate-700"
+                    : "bg-gradient-to-t from-slate-900 to-slate-800"
+                }`}
+              />
+
+              <div className="relative p-6 sm:p-8 transition-colors duration-500 group-hover:text-white z-10">
+                <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
+                  <div className="flex-1">
+                    <h3
+                      className={`font-montserrat text-xl font-semibold mb-1 transition-colors duration-500 group-hover:text-white
+                      ${darkMode ? "text-white" : "text-slate-900"}`}
+                    >
+                      {exp.position}
+                    </h3>
+                    <div className="text-blue-500 font-medium mb-1 transition-colors duration-500 group-hover:text-blue-300">
+                      {exp.company}
+                    </div>
+                    <div
+                      className={`text-sm mb-4 transition-colors duration-500 group-hover:text-slate-200
+                      ${darkMode ? "text-slate-400" : "text-slate-500"}`}
+                    >
+                      {exp.location} • {exp.period}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <p
-                className={`mb-6 leading-relaxed
-                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-              >
-                {exp.description}
-              </p>
-
-              <div>
-                <h4
-                  className={`font-montserrat text-sm font-medium mb-4
-                  ${darkMode ? "text-white" : "text-slate-900"}`}
+                <p
+                  className={`mb-6 leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                  ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
-                  Key Achievements
-                </h4>
-                <ul className="space-y-3">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
-                      <span
-                        className={`leading-relaxed
-                        ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                      >
-                        {achievement}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                  {exp.description}
+                </p>
+
+                <div>
+                  <h4
+                    className={`font-montserrat text-sm font-medium mb-4 transition-colors duration-500 group-hover:text-white
+                    ${darkMode ? "text-white" : "text-slate-900"}`}
+                  >
+                    Key Achievements
+                  </h4>
+                  <ul className="space-y-3">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 block w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
+                        <span
+                          className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                        >
+                          {achievement}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Timeline Modal */}
+        {/* Timeline Modal with updated animation */}
         {showTimeline && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
@@ -205,6 +220,7 @@ const ExperienceSection: React.FC = () => {
                 }`}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Modal content remains largely the same, but with updated animation */}
               <button
                 className={`absolute top-4 right-4 text-2xl font-bold
                   ${darkMode ? "text-slate-400" : "text-gray-500"}`}
@@ -219,15 +235,18 @@ const ExperienceSection: React.FC = () => {
                 Professional Timeline
               </h3>
 
-              {/* Animated Timeline */}
               <div className="relative">
                 {experiences.map((exp, index) => (
                   <div
                     key={index}
-                    className="relative flex gap-4 mb-8 opacity-100 translate-y-0 transition-opacity duration-500"
-                    style={{ animationDelay: `${index * 0.15}s` }}
+                    className="relative flex gap-4 mb-8 opacity-0 translate-y-full"
+                    style={{
+                      animation: `slideUp 0.5s ease-out ${
+                        index * 0.15
+                      }s forwards`,
+                    }}
                   >
-                    {/* Circle and Line */}
+                    {/* Timeline content with bottom-up hover effect */}
                     <div className="flex flex-col items-center">
                       <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white">
                         <Clock className="w-4 h-4" />
@@ -237,35 +256,45 @@ const ExperienceSection: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Experience Content */}
                     <div
-                      className={`p-4 rounded-xl w-full transition-all duration-300
+                      className={`group relative rounded-xl overflow-hidden w-full transition-all duration-300
                       ${
                         darkMode
                           ? "bg-slate-800 border-slate-700"
                           : "bg-white border-slate-200"
                       } border`}
                     >
-                      <div className="flex items-center mb-2">
-                        <span
-                          className={`text-sm font-medium
-                          ${darkMode ? "text-slate-400" : "text-slate-500"}`}
+                      <div
+                        className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                        ${
+                          darkMode
+                            ? "bg-gradient-to-t from-slate-800 to-slate-700"
+                            : "bg-gradient-to-t from-slate-900 to-slate-800"
+                        }`}
+                      />
+
+                      <div className="relative p-4 z-10 transition-colors duration-500 group-hover:text-white">
+                        <div className="flex items-center mb-2">
+                          <span
+                            className={`text-sm font-medium transition-colors duration-500 group-hover:text-slate-200
+                            ${darkMode ? "text-slate-400" : "text-slate-500"}`}
+                          >
+                            {exp.period}
+                          </span>
+                        </div>
+                        <h4
+                          className={`font-montserrat text-lg font-semibold transition-colors duration-500 group-hover:text-white
+                          ${darkMode ? "text-white" : "text-slate-900"}`}
                         >
-                          {exp.period}
-                        </span>
+                          {exp.company}
+                        </h4>
+                        <p
+                          className={`mt-2 leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                        >
+                          {exp.achievements[0]}
+                        </p>
                       </div>
-                      <h4
-                        className={`font-montserrat text-lg font-semibold
-                        ${darkMode ? "text-white" : "text-slate-900"}`}
-                      >
-                        {exp.company}
-                      </h4>
-                      <p
-                        className={`mt-2 leading-relaxed
-                        ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                      >
-                        {exp.achievements[0]}
-                      </p>
                     </div>
                   </div>
                 ))}
@@ -281,6 +310,19 @@ const ExperienceSection: React.FC = () => {
           to-transparent`}
         ></div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(100%);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };

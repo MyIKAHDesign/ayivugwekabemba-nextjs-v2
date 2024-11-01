@@ -13,7 +13,6 @@ import {
   Building2,
 } from "lucide-react";
 
-// Interfaces
 interface Skill {
   name: string;
   certifications: string[];
@@ -314,81 +313,96 @@ const SkillsSection: React.FC = () => {
           {skills.map((skillGroup, categoryIndex) => (
             <div
               key={skillGroup.category}
-              className={`relative rounded-2xl p-6 transition-all duration-300 backdrop-blur-xl border ${
-                darkMode
-                  ? "bg-slate-800/80 hover:bg-slate-700/50 border-slate-700/50"
-                  : "bg-white/80 hover:bg-white border-slate-200/50"
-              }`}
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-xl border
+                ${
+                  darkMode
+                    ? "bg-slate-800 border-slate-700"
+                    : "bg-white border-gray-100"
+                }`}
             >
-              <div className="flex items-center mb-4">
-                <div className={darkMode ? "text-slate-400" : "text-slate-600"}>
-                  {skillGroup.icon}
-                </div>
-                <h3
-                  className={`font-montserrat text-xl font-semibold ml-3 ${
-                    darkMode ? "text-white" : "text-slate-900"
-                  }`}
-                >
-                  {skillGroup.category}
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                {skillGroup.items.map((item, skillIndex) => {
-                  const isExpanded =
-                    expandedSkills[`${categoryIndex}-${skillIndex}`];
-                  return (
-                    <li
-                      key={item.name}
-                      className={darkMode ? "text-slate-400" : "text-slate-600"}
-                    >
-                      <button
-                        onClick={() => toggleSkill(categoryIndex, skillIndex)}
-                        className="w-full"
-                      >
-                        <div
-                          className={`flex items-center justify-between transition-colors ${
-                            darkMode
-                              ? "hover:text-slate-200"
-                              : "hover:text-slate-800"
-                          }`}
-                        >
-                          <div className="flex items-center">
-                            {isExpanded ? (
-                              <ChevronDown className="w-4 h-4 mr-2" />
-                            ) : (
-                              <ChevronRight className="w-4 h-4 mr-2" />
-                            )}
-                            {item.name}
-                          </div>
-                        </div>
-                      </button>
+              {/* Gradient Overlay */}
+              <div
+                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                ${
+                  darkMode
+                    ? "bg-gradient-to-t from-slate-800 to-slate-700"
+                    : "bg-gradient-to-t from-slate-900 to-slate-800"
+                }`}
+              />
 
-                      {isExpanded && (
-                        <div className="mt-2 ml-6 space-y-2 text-sm">
-                          {item.sourceDetails.map((source) => (
-                            <div key={source.type} className="flex flex-col">
-                              <div className="flex items-center">
-                                {getSourceIcon(source.type)}
-                                <span className="ml-2 font-semibold">
-                                  {source.title}:
-                                </span>
-                              </div>
-                              <p className="ml-6">{source.description}</p>
-                            </div>
-                          ))}
-                          <p
-                            className={`leading-relaxed ${
-                              darkMode ? "text-slate-400" : "text-slate-600"
-                            }`}
+              <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
+                <div className="flex items-center mb-4">
+                  <div
+                    className={`transition-colors duration-500 group-hover:text-white ${
+                      darkMode ? "text-slate-400" : "text-slate-600"
+                    }`}
+                  >
+                    {skillGroup.icon}
+                  </div>
+                  <h3
+                    className={`font-montserrat text-xl font-semibold ml-3 transition-colors duration-500 group-hover:text-white ${
+                      darkMode ? "text-white" : "text-slate-900"
+                    }`}
+                  >
+                    {skillGroup.category}
+                  </h3>
+                </div>
+                <ul className="space-y-2">
+                  {skillGroup.items.map((item, skillIndex) => {
+                    const isExpanded =
+                      expandedSkills[`${categoryIndex}-${skillIndex}`];
+                    return (
+                      <li
+                        key={item.name}
+                        className={`transition-colors duration-500 group-hover:text-slate-200 ${
+                          darkMode ? "text-slate-400" : "text-slate-600"
+                        }`}
+                      >
+                        <button
+                          onClick={() => toggleSkill(categoryIndex, skillIndex)}
+                          className="w-full text-left"
+                        >
+                          <div
+                            className={`flex items-center justify-between transition-colors duration-500 group-hover:text-white`}
                           >
-                            {item.details}
-                          </p>
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+                            <div className="flex items-center">
+                              {isExpanded ? (
+                                <ChevronDown className="w-4 h-4 mr-2" />
+                              ) : (
+                                <ChevronRight className="w-4 h-4 mr-2" />
+                              )}
+                              {item.name}
+                            </div>
+                          </div>
+                        </button>
+
+                        {isExpanded && (
+                          <div className="mt-2 ml-6 space-y-2 text-sm">
+                            {item.sourceDetails.map((source) => (
+                              <div key={source.type} className="flex flex-col">
+                                <div className="flex items-center">
+                                  {getSourceIcon(source.type)}
+                                  <span className="ml-2 font-semibold transition-colors duration-500 group-hover:text-white">
+                                    {source.title}:
+                                  </span>
+                                </div>
+                                <p className="ml-6 transition-colors duration-500 group-hover:text-slate-200">
+                                  {source.description}
+                                </p>
+                              </div>
+                            ))}
+                            <p
+                              className={`leading-relaxed transition-colors duration-500 group-hover:text-slate-200`}
+                            >
+                              {item.details}
+                            </p>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
