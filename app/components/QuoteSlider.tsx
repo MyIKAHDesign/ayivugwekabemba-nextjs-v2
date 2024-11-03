@@ -1,33 +1,8 @@
-// ThemeContext.tsx
-import React, { createContext, useContext, useState } from 'react';
 
-interface ThemeContextType {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType>({
-  darkMode: false,
-  toggleDarkMode: () => {},
-});
-
-export const useTheme = () => useContext(ThemeContext);
-
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
-  return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
-
-// QuoteSlider.tsx
-import React, { useState } from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 interface Quote {
   quote: string;
@@ -181,7 +156,7 @@ const allQuotes: Quote[] = [
   },
 ];
 
-const QuoteSlider: React.FC = () => {
+const QuoteSlider = () => {
   const { darkMode } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -201,18 +176,15 @@ const QuoteSlider: React.FC = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // Handle touch events for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (touchStart === null) return;
-
     const currentTouch = e.touches[0].clientX;
     const diff = touchStart - currentTouch;
-
-    if (Math.abs(diff) > 50) { // minimum swipe distance
+    if (Math.abs(diff) > 50) {
       if (diff > 0) {
         goToNext();
       } else {
@@ -222,12 +194,7 @@ const QuoteSlider: React.FC = () => {
     }
   };
 
-  const handleTouchEnd = () => {
-    setTouchStart(null);
-  };
-
-  // Handle keyboard navigation
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
         goToPrev();
@@ -248,14 +215,6 @@ const QuoteSlider: React.FC = () => {
           : "bg-gradient-to-b from-slate-50 to-white"
       }`}
     >
-      <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center ${
-          darkMode
-            ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
-            : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
-        }`}
-      />
-      
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16 relative">
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full overflow-hidden hover:scale-110 transition-transform duration-300">
@@ -287,7 +246,6 @@ const QuoteSlider: React.FC = () => {
               border min-h-[300px]`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
           >
             <div
               className={`absolute inset-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
