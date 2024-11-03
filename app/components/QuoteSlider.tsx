@@ -180,9 +180,10 @@ const QuoteSlider = () => {
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
-            My journey is guided by philosophies and ideas that drive me to
-            build meaningful solutions, reinforcing my belief that technology
-            can be a powerful force for positive change.
+            Before you explore other sections, would you take a moment to read
+            some quotes that inspire my journey? These ideas fuel my passion for
+            creating impactful solutions, grounded in the belief that technology
+            can drive meaningful change.
           </p>
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
