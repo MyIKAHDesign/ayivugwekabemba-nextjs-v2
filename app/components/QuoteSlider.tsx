@@ -9,176 +9,101 @@ interface Quote {
 }
 
 const allQuotes: Quote[] = [
-  // General Quotes on Language Preservation
+  // Future of Technology & AI-Human Collaboration
   {
-    quote:
-      "Language is the road map of a culture. It tells you where its people came from and where they are going.",
-    author: "Rita Mae Brown",
-    group: "General Quotes on Language Preservation",
-  },
-  {
-    quote: "A language is a dialect with an army and a navy.",
-    author: "Max Weinreich",
-    group: "General Quotes on Language Preservation",
-  },
-  {
-    quote: "When a language dies, a world view dies.",
-    author: "Edward Sapir",
-    group: "General Quotes on Language Preservation",
-  },
-  {
-    quote:
-      "Language is the blood of the soul into which thoughts run and out of which they grow.",
-    author: "Oliver Wendell Holmes Sr.",
-    group: "General Quotes on Language Preservation",
-  },
-  {
-    quote:
-      "Language is not just a tool of communication, it's the vessel of culture.",
+    quote: "AI is not replacing programmers, it's upgrading human capabilities.",
     author: "Anonymous",
-    group: "General Quotes on Language Preservation",
+    group: "Future of Technology",
+  },
+  {
+    quote: "The next programming language will be English.",
+    author: "Andrej Karpathy",
+    group: "Future of Technology",
+  },
+  {
+    quote: "AI is the amplifier, humans are the creators of meaning.",
+    author: "Anonymous",
+    group: "Future of Technology",
+  },
+  {
+    quote: "The future isn't AI vs humans, it's AI and humans.",
+    author: "Anonymous",
+    group: "Future of Technology",
+  },
+  {
+    quote: "Artificial Intelligence is about augmenting human intelligence, not replacing it.",
+    author: "Anonymous",
+    group: "Future of Technology",
+  },
+  {
+    quote: "Code is the poetry of logic, AI is becoming its translation tool.",
+    author: "Anonymous",
+    group: "Future of Technology",
+  },
+  {
+    quote: "Natural language is becoming the new command line interface.",
+    author: "Anonymous",
+    group: "Future of Technology",
+  },
+  {
+    quote: "In the AI era, creativity becomes our greatest technological advantage.",
+    author: "Anonymous",
+    group: "Future of Technology",
   },
 
-  // Technology and Language Preservation
+  // General Technology Innovation
   {
-    quote:
-      "Technology is a powerful tool to bridge the digital divide and preserve linguistic diversity.",
+    quote: "Innovation is not just about creating something new, it's about creating something meaningful.",
     author: "Anonymous",
-    group: "Technology and Language Preservation",
+    group: "Technology Innovation",
+  },
+  {
+    quote: "Technology is best when it brings people together.",
+    author: "Matt Mullenweg",
+    group: "Technology Innovation",
+  },
+  {
+    quote: "Any sufficiently advanced technology is indistinguishable from magic.",
+    author: "Arthur C. Clarke",
+    group: "Technology Innovation",
+  },
+
+  // Technology & Cultural Preservation
+  {
+    quote: "Technology is a powerful tool to bridge the digital divide and preserve linguistic diversity.",
+    author: "Anonymous",
+    group: "Technology and Cultural Preservation",
   },
   {
     quote: "In the digital age, language is not just spoken, it's clicked.",
     author: "Anonymous",
-    group: "Technology and Language Preservation",
+    group: "Technology and Cultural Preservation",
   },
   {
     quote: "Innovation is the key to revitalizing endangered languages.",
     author: "Anonymous",
-    group: "Technology and Language Preservation",
+    group: "Technology and Cultural Preservation",
   },
   {
-    quote:
-      "Let's use technology to amplify the voices of marginalized languages.",
+    quote: "Let's use technology to amplify the voices of marginalized languages.",
     author: "Anonymous",
-    group: "Technology and Language Preservation",
+    group: "Technology and Cultural Preservation",
   },
   {
-    quote:
-      "The internet can be a powerful tool for language preservation, but it's not a magic wand.",
-    author: "Anonymous",
-    group: "Technology and Language Preservation",
-  },
-
-  // Community and Language Preservation
-  {
-    quote:
-      "A language is a community's soul, and a community is a language's heart.",
-    author: "Anonymous",
-    group: "Community and Language Preservation",
+    quote: "Language is the road map of a culture. It tells you where its people came from and where they are going.",
+    author: "Rita Mae Brown",
+    group: "Technology and Cultural Preservation",
   },
   {
-    quote: "Together, we can weave a tapestry of language and culture.",
+    quote: "Digital preservation is not just about storing data, it's about keeping culture alive.",
     author: "Anonymous",
-    group: "Community and Language Preservation",
+    group: "Technology and Cultural Preservation",
   },
   {
-    quote: "Language preservation is a collective responsibility.",
+    quote: "In the digital era, every preserved language is a victory for humanity.",
     author: "Anonymous",
-    group: "Community and Language Preservation",
-  },
-  {
-    quote: "By strengthening our community, we strengthen our language.",
-    author: "Anonymous",
-    group: "Community and Language Preservation",
-  },
-  {
-    quote: "A strong community is the bedrock of language revitalization.",
-    author: "Anonymous",
-    group: "Community and Language Preservation",
-  },
-
-  // Commitment and Language Preservation
-  {
-    quote: "Commitment is the cornerstone of language revitalization.",
-    author: "Anonymous",
-    group: "Commitment and Language Preservation",
-  },
-  {
-    quote: "Let's pass on our linguistic heritage to future generations.",
-    author: "Anonymous",
-    group: "Commitment and Language Preservation",
-  },
-  {
-    quote:
-      "Every word spoken, every story shared, is a step towards language preservation.",
-    author: "Anonymous",
-    group: "Commitment and Language Preservation",
-  },
-  {
-    quote:
-      "Small steps, big impact: Every effort counts in language revitalization.",
-    author: "Anonymous",
-    group: "Commitment and Language Preservation",
-  },
-  {
-    quote: "Language preservation is a marathon, not a sprint.",
-    author: "Anonymous",
-    group: "Commitment and Language Preservation",
-  },
-
-  // Inspirational Quotes
-  {
-    quote: "Don't let a language die. Let it sing.",
-    author: "Anonymous",
-    group: "Inspirational Quotes",
-  },
-  {
-    quote: "In every language, there's a world waiting to be discovered.",
-    author: "Anonymous",
-    group: "Inspirational Quotes",
-  },
-  {
-    quote: "Language is the key to unlocking cultural heritage.",
-    author: "Anonymous",
-    group: "Inspirational Quotes",
-  },
-  {
-    quote: "Language is the mirror of the soul.",
-    author: "Anonymous",
-    group: "Inspirational Quotes",
-  },
-  {
-    quote: "Every language deserves to be heard.",
-    author: "Anonymous",
-    group: "Inspirational Quotes",
-  },
-
-  // The Power of Words
-  {
-    quote: "The power of words can shape the world.",
-    author: "Anonymous",
-    group: "The Power of Words",
-  },
-  {
-    quote: "Words have the power to inspire, to heal, and to destroy.",
-    author: "Anonymous",
-    group: "The Power of Words",
-  },
-  {
-    quote: "Words are the building blocks of thought.",
-    author: "Anonymous",
-    group: "The Power of Words",
-  },
-  {
-    quote: "The right word can change everything.",
-    author: "Anonymous",
-    group: "The Power of Words",
-  },
-  {
-    quote: "Let's use our words to preserve our languages.",
-    author: "Anonymous",
-    group: "The Power of Words",
-  },
+    group: "Technology and Cultural Preservation",
+  }
 ];
 
 const QuoteSlider = () => {
