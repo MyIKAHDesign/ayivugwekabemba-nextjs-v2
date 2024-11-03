@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
@@ -221,7 +221,7 @@ const QuoteSlider = () => {
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    
+
     if (isPlaying) {
       interval = setInterval(goToNext, 5000);
     }
@@ -235,38 +235,35 @@ const QuoteSlider = () => {
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
+      if (e.key === "ArrowLeft") {
         goToPrev();
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === "ArrowRight") {
         goToNext();
-      } else if (e.key === ' ') {
-        setIsPlaying(prev => !prev);
+      } else if (e.key === " ") {
+        setIsPlaying((prev) => !prev);
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
   return (
     <section className="relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]" />
-      
+
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full overflow-hidden hover:scale-110 transition-transform duration-300">
             <div className="absolute top-0 -left-24 w-48 h-full bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 animate-bounce transition-transform duration-1000 ease-in-out" />
           </div>
           <h2 className="text-4xl font-bold mb-6 text-slate-900">
-            Language Preservation Quotes
+            Thoughts That Drive Me
           </h2>
-          <p className="text-xl text-slate-700 mb-4">
-            Inspiring words that highlight the importance of preserving our
-            linguistic heritage and cultural diversity.
-          </p>
-          <p className="text-lg text-slate-600">
-            Take a moment to explore these quotes and discover the profound impact
-            of protecting linguistic diversity.
+          <p className="text-xl text-slate-700">
+            My journey is guided by philosophies and ideas that drive me to
+            build meaningful solutions, reinforcing my belief that technology
+            can be a powerful force for positive change.
           </p>
         </div>
 
@@ -306,7 +303,7 @@ const QuoteSlider = () => {
               <p className="relative text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white text-slate-900">
                 {allQuotes[currentIndex].quote}
               </p>
-              
+
               <div className="mt-8 space-y-1">
                 <p className="text-xl italic transition-colors duration-500 group-hover:text-white/80 text-slate-600">
                   — {allQuotes[currentIndex].author}
@@ -320,13 +317,17 @@ const QuoteSlider = () => {
 
           <div className="flex justify-center mt-8 gap-4 items-center">
             <button
-              onClick={() => setIsPlaying(prev => !prev)}
+              onClick={() => setIsPlaying((prev) => !prev)}
               className="p-2 rounded-full transition-all duration-300
                 bg-white hover:bg-slate-100 text-slate-900 shadow-lg hover:scale-110"
             >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              {isPlaying ? (
+                <Pause className="w-4 h-4" />
+              ) : (
+                <Play className="w-4 h-4" />
+              )}
             </button>
-            
+
             <div className="flex gap-2">
               {allQuotes.map((_, index) => (
                 <button
