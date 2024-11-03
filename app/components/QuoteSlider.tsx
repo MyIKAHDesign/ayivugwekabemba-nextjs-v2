@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -10,35 +10,6 @@ interface Quote {
 }
 
 const allQuotes: Quote[] = [
-  // Technology & Cultural Preservation
-  {
-    quote:
-      "Technology is a powerful tool to bridge the digital divide and preserve linguistic diversity.",
-    author: "Anonymous",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote: "In the digital age, language is not just spoken, it's clicked.",
-    author: "Anonymous",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote: "Innovation is the key to revitalizing endangered languages.",
-    author: "Anonymous",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote:
-      "Let's use technology to amplify the voices of marginalized languages.",
-    author: "Anonymous",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote:
-      "Language is the road map of a culture. It tells you where its people came from and where they are going.",
-    author: "Rita Mae Brown",
-    group: "Technology and Cultural Preservation",
-  },
   // Future of Technology & AI-Human Collaboration
   {
     quote:
@@ -77,6 +48,30 @@ const allQuotes: Quote[] = [
     author: "Anonymous",
     group: "Future of Technology",
   },
+  // Technology & Cultural Preservation
+  {
+    quote:
+      "Technology is a powerful tool to bridge the digital divide and preserve linguistic diversity.",
+    author: "Anonymous",
+    group: "Technology and Cultural Preservation",
+  },
+  {
+    quote: "In the digital age, language is not just spoken, it's clicked.",
+    author: "Anonymous",
+    group: "Technology and Cultural Preservation",
+  },
+  {
+    quote:
+      "Let's use technology to amplify the voices of marginalized languages.",
+    author: "Anonymous",
+    group: "Technology and Cultural Preservation",
+  },
+  {
+    quote:
+      "Language is the road map of a culture. It tells you where its people came from and where they are going.",
+    author: "Rita Mae Brown",
+    group: "Technology and Cultural Preservation",
+  },
 ];
 
 const QuoteSlider = () => {
@@ -86,37 +81,53 @@ const QuoteSlider = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const { darkMode } = useTheme();
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev === allQuotes.length - 1 ? 0 : prev + 1));
     setTimeout(() => setIsAnimating(false), 500);
-  };
+  }, [isAnimating]);
 
-  const goToPrev = () => {
+  const goToPrev = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev === 0 ? allQuotes.length - 1 : prev - 1));
     setTimeout(() => setIsAnimating(false), 500);
-  };
+  }, [isAnimating]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
-  };
+  }, []);
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (touchStart === null) return;
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchStart - currentTouch;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        goToNext();
-      } else {
-        goToPrev();
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStart === null) return;
+      const currentTouch = e.touches[0].clientX;
+      const diff = touchStart - currentTouch;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          goToNext();
+        } else {
+          goToPrev();
+        }
+        setTouchStart(null);
       }
-      setTouchStart(null);
-    }
-  };
+    },
+    [touchStart, goToNext, goToPrev]
+  );
+
+  const handleKeyPress = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        goToPrev();
+      } else if (e.key === "ArrowRight") {
+        goToNext();
+      } else if (e.key === " ") {
+        setIsPlaying((prev) => !prev);
+      }
+    },
+    [goToNext, goToPrev]
+  );
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -130,22 +141,12 @@ const QuoteSlider = () => {
         clearInterval(interval);
       }
     };
-  }, [isPlaying]);
+  }, [isPlaying, goToNext]);
 
   useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        goToPrev();
-      } else if (e.key === "ArrowRight") {
-        goToNext();
-      } else if (e.key === " ") {
-        setIsPlaying((prev) => !prev);
-      }
-    };
-
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, []);
+  }, [handleKeyPress]);
 
   return (
     <section
