@@ -1,14 +1,15 @@
 
+
 'use client'
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 interface Quote {
   quote: string;
   author: string;
   group: string;
 }
+
 
 const allQuotes: Quote[] = [
   // General Quotes on Language Preservation
@@ -155,11 +156,10 @@ const allQuotes: Quote[] = [
     group: "Inspirational Quotes",
   },
 ];
-
 const QuoteSlider = () => {
-  const { darkMode } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const goToNext = () => {
@@ -195,11 +195,27 @@ const QuoteSlider = () => {
   };
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
+    
+    if (isPlaying) {
+      interval = setInterval(goToNext, 5000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isPlaying]);
+
+  useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
         goToPrev();
       } else if (e.key === 'ArrowRight') {
         goToNext();
+      } else if (e.key === ' ') {
+        setIsPlaying(prev => !prev);
       }
     };
 
@@ -208,133 +224,85 @@ const QuoteSlider = () => {
   }, []);
 
   return (
-    <section
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
-        darkMode
-          ? "bg-gradient-to-b from-slate-900 to-slate-800"
-          : "bg-gradient-to-b from-slate-50 to-white"
-      }`}
-    >
-      <div className="relative max-w-7xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16 relative">
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full overflow-hidden hover:scale-110 transition-transform duration-300">
-            <div className="absolute top-0 -left-24 w-48 h-full bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 animate-bounce transition-transform duration-1000 ease-in-out" />
-          </div>
-          <h2
-            className={`text-4xl font-bold mb-4 ${
-              darkMode ? "text-white" : "text-slate-900"
-            }`}
-          >
-            Language Preservation Quotes
-          </h2>
-          <div
-            className={`space-y-4 ${
-              darkMode ? "text-white/80" : "text-slate-700"
-            }`}
-          >
-            <p className="text-xl">
-              Inspiring words that highlight the importance of preserving our
-              linguistic heritage and cultural diversity.
+    <div className="relative max-w-4xl mx-auto px-24"> {/* Increased padding for button space */}
+      {/* Navigation Buttons - Now outside with a larger gap */}
+      <button
+        onClick={goToPrev}
+        className="absolute left-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+          bg-white hover:bg-slate-100 text-slate-900 shadow-lg hover:scale-110 -translate-x-12"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+
+      <button
+        onClick={goToNext}
+        className="absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+          bg-white hover:bg-slate-100 text-slate-900 shadow-lg hover:scale-110 translate-x-12"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Main Slider Content */}
+      <div
+        className="group relative rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+          bg-white border-gray-100 border min-h-[300px]"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
+        <div
+          className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
+          bg-gradient-to-r from-slate-900 to-slate-800 opacity-0"
+        />
+
+        <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
+          <span className="absolute top-4 left-4 text-6xl leading-none font-serif text-slate-200 group-hover:text-slate-700">
+            &quot;
+          </span>
+
+          <p className="relative text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white text-slate-900">
+            {allQuotes[currentIndex].quote}
+          </p>
+          
+          <div className="mt-8 space-y-1">
+            <p className="text-xl italic transition-colors duration-500 group-hover:text-white/80 text-slate-600">
+              — {allQuotes[currentIndex].author}
+            </p>
+            <p className="text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60 text-slate-500">
+              {allQuotes[currentIndex].group}
             </p>
           </div>
         </div>
+      </div>
 
-        <div className="relative max-w-4xl mx-auto px-4">
-          <div
-            className={`group relative rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-              ${darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-gray-100"} 
-              border min-h-[300px]`}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-          >
-            <div
-              className={`absolute inset-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
-              ${darkMode ? "bg-gradient-to-r from-slate-800 to-slate-700" : "bg-gradient-to-r from-slate-900 to-slate-800"}
-              opacity-0`}
+      {/* Controls */}
+      <div className="flex justify-center mt-8 gap-4 items-center">
+        <button
+          onClick={() => setIsPlaying(prev => !prev)}
+          className="p-2 rounded-full transition-all duration-300
+            bg-white hover:bg-slate-100 text-slate-900 shadow-lg hover:scale-110"
+        >
+          {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+        </button>
+        
+        <div className="flex gap-2">
+          {allQuotes.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnimating) {
+                  setIsAnimating(true);
+                  setCurrentIndex(index);
+                  setTimeout(() => setIsAnimating(false), 500);
+                }
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 
+                ${index === currentIndex ? "bg-slate-900" : "bg-slate-300"} 
+                hover:scale-150`}
             />
-
-            <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
-              <span
-                className={`absolute top-4 left-4 text-6xl leading-none font-serif 
-                ${darkMode 
-                  ? "text-slate-700 group-hover:text-slate-600" 
-                  : "text-slate-200 group-hover:text-slate-700"}`}
-              >
-                &quot;
-              </span>
-
-              <p
-                className={`relative text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white
-                ${darkMode ? "text-white" : "text-slate-900"}`}
-              >
-                {allQuotes[currentIndex].quote}
-              </p>
-              
-              <div className="mt-8 space-y-1">
-                <p
-                  className={`text-xl italic transition-colors duration-500 group-hover:text-white/80
-                  ${darkMode ? "text-white/60" : "text-slate-600"}`}
-                >
-                  — {allQuotes[currentIndex].author}
-                </p>
-                <p
-                  className={`text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60
-                  ${darkMode ? "text-white/40" : "text-slate-500"}`}
-                >
-                  {allQuotes[currentIndex].group}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <button
-            onClick={goToPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-300
-              ${darkMode 
-                ? "bg-slate-700 hover:bg-slate-600 text-white" 
-                : "bg-white hover:bg-slate-100 text-slate-900"}
-              shadow-lg hover:scale-110`}
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          <button
-            onClick={goToNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-300
-              ${darkMode 
-                ? "bg-slate-700 hover:bg-slate-600 text-white" 
-                : "bg-white hover:bg-slate-100 text-slate-900"}
-              shadow-lg hover:scale-110`}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          <div className="flex justify-center mt-8 gap-2">
-            {allQuotes.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  if (!isAnimating) {
-                    setIsAnimating(true);
-                    setCurrentIndex(index);
-                    setTimeout(() => setIsAnimating(false), 500);
-                  }
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? darkMode
-                      ? "bg-white"
-                      : "bg-slate-900"
-                    : darkMode
-                    ? "bg-slate-600"
-                    : "bg-slate-300"
-                } hover:scale-150`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
