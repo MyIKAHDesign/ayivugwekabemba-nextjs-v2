@@ -31,11 +31,6 @@ const allQuotes: Quote[] = [
     group: "Future of Technology",
   },
   {
-    quote: "Artificial Intelligence is about augmenting human intelligence, not replacing it.",
-    author: "Anonymous",
-    group: "Future of Technology",
-  },
-  {
     quote: "Code is the poetry of logic, AI is becoming its translation tool.",
     author: "Anonymous",
     group: "Future of Technology",
@@ -49,23 +44,6 @@ const allQuotes: Quote[] = [
     quote: "In the AI era, creativity becomes our greatest technological advantage.",
     author: "Anonymous",
     group: "Future of Technology",
-  },
-
-  // General Technology Innovation
-  {
-    quote: "Innovation is not just about creating something new, it's about creating something meaningful.",
-    author: "Anonymous",
-    group: "Technology Innovation",
-  },
-  {
-    quote: "Technology is best when it brings people together.",
-    author: "Matt Mullenweg",
-    group: "Technology Innovation",
-  },
-  {
-    quote: "Any sufficiently advanced technology is indistinguishable from magic.",
-    author: "Arthur C. Clarke",
-    group: "Technology Innovation",
   },
 
   // Technology & Cultural Preservation
@@ -92,16 +70,6 @@ const allQuotes: Quote[] = [
   {
     quote: "Language is the road map of a culture. It tells you where its people came from and where they are going.",
     author: "Rita Mae Brown",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote: "Digital preservation is not just about storing data, it's about keeping culture alive.",
-    author: "Anonymous",
-    group: "Technology and Cultural Preservation",
-  },
-  {
-    quote: "In the digital era, every preserved language is a victory for humanity.",
-    author: "Anonymous",
     group: "Technology and Cultural Preservation",
   }
 ];
@@ -183,12 +151,11 @@ const QuoteSlider = () => {
             <div className="absolute top-0 -left-24 w-48 h-full bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 animate-bounce transition-transform duration-1000 ease-in-out" />
           </div>
           <h2 className="text-4xl font-bold mb-6 text-slate-900">
-            Thoughts That Drive Me
+            AI & Human Collaboration
           </h2>
           <p className="text-xl text-slate-700">
-            My journey is guided by philosophies and ideas that drive me to
-            build meaningful solutions, reinforcing my belief that technology
-            can be a powerful force for positive change.
+            Exploring the synergy between human creativity and artificial intelligence,
+            where technology amplifies our capabilities and preserves our cultural heritage.
           </p>
         </div>
 
@@ -217,7 +184,7 @@ const QuoteSlider = () => {
           >
             <div
               className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
-              bg-gradient-to-r from-slate-900 to-slate-800 opacity-0"
+              bg-gradient-to-t from-slate-900 to-slate-800 opacity-0"
             />
 
             <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
