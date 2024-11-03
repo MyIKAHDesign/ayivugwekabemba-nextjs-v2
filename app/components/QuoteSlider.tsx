@@ -151,11 +151,12 @@ const QuoteSlider = () => {
             <div className="absolute top-0 -left-24 w-48 h-full bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 animate-bounce transition-transform duration-1000 ease-in-out" />
           </div>
           <h2 className="text-4xl font-bold mb-6 text-slate-900">
-            AI & Human Collaboration
+            Thoughts That Drive Me
           </h2>
           <p className="text-xl text-slate-700">
-            Exploring the synergy between human creativity and artificial intelligence,
-            where technology amplifies our capabilities and preserves our cultural heritage.
+            My journey is guided by philosophies and ideas that drive me to
+            build meaningful solutions, reinforcing my belief that technology
+            can be a powerful force for positive change.
           </p>
         </div>
 
@@ -184,7 +185,7 @@ const QuoteSlider = () => {
           >
             <div
               className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
-              bg-gradient-to-t from-slate-900 to-slate-800 opacity-0"
+              bg-gradient-to-r from-slate-900 to-slate-800 opacity-0"
             />
 
             <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
