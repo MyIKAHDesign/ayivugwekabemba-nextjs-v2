@@ -10,45 +10,159 @@ interface Quote {
 }
 
 const allQuotes: Quote[] = [
-  // Future of Technology & AI-Human Collaboration
+  // Future of Technology
+  {
+    quote: "Technology is best when it brings people together.",
+    author: "Matt Mullenweg",
+    group: "Future of Technology",
+  },
   {
     quote:
-      "AI is not replacing programmers, it's upgrading human capabilities.",
-    author: "Anonymous",
+      "Innovation is the ability to see change as an opportunity, not a threat.",
+    author: "Steve Jobs",
     group: "Future of Technology",
   },
   {
-    quote: "The next programming language will be English.",
-    author: "Andrej Karpathy",
+    quote: "The science of today is the technology of tomorrow.",
+    author: "Edward Teller",
     group: "Future of Technology",
   },
   {
-    quote: "AI is the amplifier, humans are the creators of meaning.",
-    author: "Anonymous",
+    quote: "The only way to do great work is to love what you do.",
+    author: "Steve Jobs",
     group: "Future of Technology",
   },
   {
-    quote: "The future isn't AI vs humans, it's AI and humans.",
-    author: "Anonymous",
+    quote: "Technology is a useful servant but a dangerous master.",
+    author: "Christian Lous Lange",
     group: "Future of Technology",
   },
   {
-    quote: "Code is the poetry of logic, AI is becoming its translation tool.",
-    author: "Anonymous",
+    quote: "The real problem is not whether machines think but whether men do.",
+    author: "B. F. Skinner",
     group: "Future of Technology",
   },
   {
-    quote: "Natural language is becoming the new command line interface.",
-    author: "Anonymous",
+    quote:
+      "Success is a lousy teacher. It seduces smart people into thinking they can’t lose.",
+    author: "Bill Gates",
     group: "Future of Technology",
+  },
+  {
+    quote:
+      "The advance of technology is based on making it fit in so that you don't really even notice it.",
+    author: "Bill Gates",
+    group: "Future of Technology",
+  },
+  {
+    quote:
+      "Any sufficiently advanced technology is indistinguishable from magic.",
+    author: "Arthur C. Clarke",
+    group: "Future of Technology",
+  },
+  {
+    quote: "The best way to predict the future is to invent it.",
+    author: "Alan Kay",
+    group: "Future of Technology",
+  },
+
+  // Technology and Innovation
+  {
+    quote: "The great growling engine of change – technology.",
+    author: "Alvin Toffler",
+    group: "Technology and Innovation",
+  },
+  {
+    quote:
+      "Technology, like art, is a soaring exercise of the human imagination.",
+    author: "Daniel Bell",
+    group: "Technology and Innovation",
+  },
+  {
+    quote: "We're changing the world with technology.",
+    author: "Bill Gates",
+    group: "Technology and Innovation",
+  },
+  {
+    quote:
+      "A good scientist is a person with original ideas. A good engineer makes a design that works.",
+    author: "Freeman Dyson",
+    group: "Technology and Innovation",
+  },
+  {
+    quote:
+      "Computers themselves, and software yet to be developed, will revolutionize the way we learn.",
+    author: "Steve Jobs",
+    group: "Technology and Innovation",
+  },
+  {
+    quote: "Good ideas are always crazy until they’re not.",
+    author: "Larry Page",
+    group: "Technology and Innovation",
+  },
+  {
+    quote:
+      "The art challenges the technology, and the technology inspires the art.",
+    author: "John Lasseter",
+    group: "Technology and Innovation",
+  },
+  {
+    quote: "If you define the problem correctly, you almost have the solution.",
+    author: "Steve Jobs",
+    group: "Technology and Innovation",
+  },
+  {
+    quote:
+      "Sometimes when you innovate, you make mistakes. It is best to admit them quickly.",
+    author: "Steve Jobs",
+    group: "Technology and Innovation",
+  },
+
+  // Technology and Human Development
+  {
+    quote: "The human spirit must prevail over technology.",
+    author: "Albert Einstein",
+    group: "Technology and Human Development",
+  },
+  {
+    quote:
+      "You are not just here to fill space or be a background character in someone else’s movie.",
+    author: "Anonymous",
+    group: "Technology and Human Development",
+  },
+  {
+    quote: "AI is the new electricity.",
+    author: "Andrew Ng",
+    group: "Technology and Human Development",
+  },
+  {
+    quote: "The biggest risk is not taking any risk.",
+    author: "Mark Zuckerberg",
+    group: "Technology and Human Development",
+  },
+  {
+    quote: "Your most unhappy customers are your greatest source of learning.",
+    author: "Bill Gates",
+    group: "Technology and Human Development",
+  },
+  {
+    quote: "The more we automate, the more we have to trust.",
+    author: "Chris Skinner",
+    group: "Technology and Human Development",
   },
   {
     quote:
       "In the AI era, creativity becomes our greatest technological advantage.",
     author: "Anonymous",
-    group: "Future of Technology",
+    group: "Technology and Human Development",
   },
-  // Technology & Cultural Preservation
+  {
+    quote: "Natural language is becoming the new command line interface.",
+    author: "Anonymous",
+    group: "Technology and Human Development",
+  },
+
+  // Technology and Cultural Preservation
   {
     quote:
       "Technology is a powerful tool to bridge the digital divide and preserve linguistic diversity.",
@@ -71,6 +185,56 @@ const allQuotes: Quote[] = [
       "Language is the road map of a culture. It tells you where its people came from and where they are going.",
     author: "Rita Mae Brown",
     group: "Technology and Cultural Preservation",
+  },
+
+  // Visionaries of Technology
+  {
+    quote: "The next programming language will be English.",
+    author: "Andrej Karpathy",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote: "Code is the poetry of logic, AI is becoming its translation tool.",
+    author: "Anonymous",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote: "AI is the amplifier, humans are the creators of meaning.",
+    author: "Anonymous",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote: "The future isn't AI vs humans, it's AI and humans.",
+    author: "Anonymous",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote: "Our technology forces us to live mythically.",
+    author: "Marshall McLuhan",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote:
+      "The technology you use impresses no one. The experience you create with it is everything.",
+    author: "Sean Gerety",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote: "In technology, whatever can be done will be done.",
+    author: "Andy Grove",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote:
+      "Some people call this artificial intelligence, but the reality is this technology will enhance us.",
+    author: "Ginni Rometty",
+    group: "Visionaries of Technology",
+  },
+  {
+    quote:
+      "If it keeps up, man will atrophy all his limbs but the push-button finger.",
+    author: "Frank Lloyd Wright",
+    group: "Visionaries of Technology",
   },
 ];
 
