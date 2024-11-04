@@ -44,7 +44,7 @@ const allQuotes: Quote[] = [
   },
   {
     quote:
-      "Success is a lousy teacher. It seduces smart people into thinking they can’t lose.",
+      "Success is a lousy teacher. It seduces smart people into thinking they can't lose.",
     author: "Bill Gates",
     group: "Future of Technology",
   },
@@ -96,7 +96,7 @@ const allQuotes: Quote[] = [
     group: "Technology and Innovation",
   },
   {
-    quote: "Good ideas are always crazy until they’re not.",
+    quote: "Good ideas are always crazy until they're not.",
     author: "Larry Page",
     group: "Technology and Innovation",
   },
@@ -126,7 +126,7 @@ const allQuotes: Quote[] = [
   },
   {
     quote:
-      "You are not just here to fill space or be a background character in someone else’s movie.",
+      "You are not just here to fill space or be a background character in someone else's movie.",
     author: "Anonymous",
     group: "Technology and Human Development",
   },
@@ -238,11 +238,14 @@ const allQuotes: Quote[] = [
   },
 ];
 
+// ... Rest of the component remains the same ...
+
 const QuoteSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const { darkMode } = useTheme();
 
   const goToNext = useCallback(() => {
@@ -259,26 +262,33 @@ const QuoteSlider = () => {
     setTimeout(() => setIsAnimating(false), 500);
   }, [isAnimating]);
 
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+  // Improved touch handling
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
-  }, []);
+    setTouchEnd(null);
+  };
 
-  const handleTouchMove = useCallback(
-    (e: React.TouchEvent) => {
-      if (touchStart === null) return;
-      const currentTouch = e.touches[0].clientX;
-      const diff = touchStart - currentTouch;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          goToNext();
-        } else {
-          goToPrev();
-        }
-        setTouchStart(null);
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        goToNext();
+      } else {
+        goToPrev();
       }
-    },
-    [touchStart, goToNext, goToPrev]
-  );
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
@@ -295,16 +305,10 @@ const QuoteSlider = () => {
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
-
     if (isPlaying) {
       interval = setInterval(goToNext, 5000);
     }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
+    return () => clearInterval(interval);
   }, [isPlaying, goToNext]);
 
   useEffect(() => {
@@ -314,7 +318,7 @@ const QuoteSlider = () => {
 
   return (
     <section
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-900 to-slate-800"
@@ -332,32 +336,29 @@ const QuoteSlider = () => {
       />
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-8 sm:mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
-            Thoughts That Drive Me: Inspiring Philosophies in Technology and
-            Innovation
+            Thoughts That Drive Me
           </h2>
           <p
-            className={`text-xl leading-relaxed
+            className={`text-lg sm:text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
-            Before you explore other sections, would you please take a moment to
-            read some quotes that inspire my journey? These ideas fuel my
-            passion for creating impactful solutions, grounded in the belief
-            that technology can drive meaningful change.
+            Inspiring Philosophies in Technology and Innovation
           </p>
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-16">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-16">
+          {/* Navigation buttons - hidden on mobile, visible on desktop */}
           <button
             onClick={goToPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+            className={`hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
               ${
                 darkMode
                   ? "bg-slate-800 hover:bg-slate-700 text-white"
@@ -370,7 +371,7 @@ const QuoteSlider = () => {
 
           <button
             onClick={goToNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+            className={`hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
               ${
                 darkMode
                   ? "bg-slate-800 hover:bg-slate-700 text-white"
@@ -382,7 +383,7 @@ const QuoteSlider = () => {
           </button>
 
           <div
-            className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border min-h-[300px]
+            className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border min-h-[250px] sm:min-h-[300px]
               ${
                 darkMode
                   ? "bg-slate-800 border-slate-700"
@@ -390,6 +391,7 @@ const QuoteSlider = () => {
               }`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <div
               className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
@@ -400,9 +402,9 @@ const QuoteSlider = () => {
               }`}
             />
 
-            <div className="relative p-8 transition-colors duration-500 group-hover:text-white z-10">
+            <div className="relative p-4 sm:p-8 transition-colors duration-500 group-hover:text-white z-10">
               <span
-                className={`absolute top-4 left-4 text-6xl leading-none font-serif
+                className={`absolute top-4 left-4 text-4xl sm:text-6xl leading-none font-serif
                 ${darkMode ? "text-slate-700" : "text-slate-200"}
                 group-hover:text-slate-700`}
               >
@@ -410,21 +412,21 @@ const QuoteSlider = () => {
               </span>
 
               <p
-                className={`relative text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white
+                className={`relative text-lg sm:text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white
                 ${darkMode ? "text-white" : "text-slate-900"}`}
               >
                 {allQuotes[currentIndex].quote}
               </p>
 
-              <div className="mt-8 space-y-1">
+              <div className="mt-6 sm:mt-8 space-y-1">
                 <p
-                  className={`text-xl italic transition-colors duration-500 group-hover:text-white/80
+                  className={`text-base sm:text-xl italic transition-colors duration-500 group-hover:text-white/80
                   ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   — {allQuotes[currentIndex].author}
                 </p>
                 <p
-                  className={`text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60
+                  className={`text-xs sm:text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60
                   ${darkMode ? "text-slate-500" : "text-slate-500"}`}
                 >
                   {allQuotes[currentIndex].group}
@@ -433,7 +435,8 @@ const QuoteSlider = () => {
             </div>
           </div>
 
-          <div className="flex justify-center mt-8 gap-4 items-center">
+          {/* Controls */}
+          <div className="flex justify-center mt-6 sm:mt-8 gap-4 items-center">
             <button
               onClick={() => setIsPlaying((prev) => !prev)}
               className={`p-2 rounded-full transition-all duration-300 shadow-lg hover:scale-110
@@ -450,7 +453,8 @@ const QuoteSlider = () => {
               )}
             </button>
 
-            <div className="flex gap-2">
+            {/* Dot indicators - Scrollable container for mobile */}
+            <div className="flex gap-2 overflow-x-auto pb-2 max-w-[200px] sm:max-w-none">
               {allQuotes.map((_, index) => (
                 <button
                   key={index}
@@ -461,7 +465,7 @@ const QuoteSlider = () => {
                       setTimeout(() => setIsAnimating(false), 500);
                     }
                   }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-150
+                  className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-150 flex-shrink-0
                     ${
                       index === currentIndex
                         ? darkMode
@@ -482,7 +486,7 @@ const QuoteSlider = () => {
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
           ${darkMode ? "via-slate-700" : "via-slate-200"} 
           to-transparent`}
-        ></div>
+        />
       </div>
     </section>
   );
