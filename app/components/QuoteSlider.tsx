@@ -338,18 +338,22 @@ const QuoteSlider = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-8 sm:mb-16">
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 
+            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
-            Thoughts That Drive Me
+            Thoughts That Drive Me: Inspiring Philosophies in Technology and
+            Innovation
           </h2>
           <p
-            className={`text-lg sm:text-xl leading-relaxed
+            className={`text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
-            Inspiring Philosophies in Technology and Innovation
+            Before you explore other sections, would you please take a moment to
+            read some quotes that inspire my journey? These ideas fuel my
+            passion for creating impactful solutions, grounded in the belief
+            that technology can drive meaningful change.
           </p>
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
