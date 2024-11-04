@@ -338,7 +338,8 @@ const QuoteSlider = () => {
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
-            Thoughts That Drive Me
+            Thoughts That Drive Me: Inspiring Philosophies in Technology and
+            Innovation
           </h2>
           <p
             className={`text-xl leading-relaxed
