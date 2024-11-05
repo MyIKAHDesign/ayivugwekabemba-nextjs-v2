@@ -86,7 +86,7 @@ const ExperienceSection: React.FC = () => {
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
-            Professional Experience
+            Professional Experiences
           </h2>
           <p
             className={`text-xl leading-relaxed
