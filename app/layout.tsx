@@ -1,7 +1,7 @@
 // app/layout.tsx
 
 import { ThemeProvider } from "./context/ThemeContext";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";

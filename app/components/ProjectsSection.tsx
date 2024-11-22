@@ -22,6 +22,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Kifuliiru Dictionary Platform",
+    description:
+      "A digital platform preserving the Kifuliiru language through an interactive dictionary and cultural resources.",
+    link: "https://dictionary.kifuliiru.net/",
+    icon: Rocket,
+  },
+  {
     title: "Ibufuliiru",
     description:
       "My main project focusing on preserving and promoting Kifuliiru language and culture through digital innovation and community engagement.",
