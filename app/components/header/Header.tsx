@@ -57,7 +57,7 @@ const Header = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bannerMessages.length]);
 
   const handleNavigation = (href: string) => {
     if (href.startsWith("/#")) {
