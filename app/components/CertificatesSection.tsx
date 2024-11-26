@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play,
-  Maximize2,
-  Download,
-  X,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc =
-  "https://unpkg.com/pdfjs-dist@4.4.168/build/pdf.worker.min.js";
 
 interface Certificate {
   title: string;
   issuer: string;
   date: string;
   description: string;
-  pdfUrl: string;
+  image: string;
 }
 
 const CertificatesSection = () => {
@@ -32,52 +17,32 @@ const CertificatesSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [numPages, setNumPages] = useState<number>(1);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [pdfError, setPdfError] = useState<string | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const certificates: Certificate[] = [
     {
       title: "Project Management Professional",
       issuer: "Google",
-      date: "2023",
+      date: "2024",
       description:
         "Professional certification in Project Management methodologies and best practices",
-      pdfUrl: "/certificates/GooglePM.pdf",
+      image: "/certificates/GooglePM.jpg",
     },
-
+    {
+      title: "GitHub Foundations",
+      issuer: "GitHub",
+      date: "2024",
+      description:
+        "Professional certification in Project Management methodologies and best practices",
+      image: "/certificates/GitHubFoundations_Badge.jpg",
+    },
     {
       title: "Slack",
       issuer: "Coursera",
       date: "2024",
-      description: "Communications",
-      pdfUrl: "/certificates/Slack.pdf",
-    },
-    {
-      title: "GitHub Foundations Badge",
-      issuer: "GitHub",
-      date: "2024",
-      description: "Version Control",
-      pdfUrl: "/certificates/GitHubFoundations_Badge.pdf",
+      description: "Communication",
+      image: "/certificates/Slack.jpg",
     },
   ];
-
-  useEffect(() => {
-    const testPdfAccess = async () => {
-      try {
-        const response = await fetch(certificates[currentIndex].pdfUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-      } catch (error) {
-        console.error("PDF access error:", error);
-        setPdfError(`Unable to access PDF file: ${error.message}`);
-      }
-    };
-
-    testPdfAccess();
-  }, [currentIndex, certificates]);
 
   const goToNext = () => {
     if (isAnimating) return;
@@ -85,7 +50,6 @@ const CertificatesSection = () => {
     setCurrentIndex((prev) =>
       prev === certificates.length - 1 ? 0 : prev + 1
     );
-    setPageNumber(1); // Reset page number when changing certificates
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -95,14 +59,13 @@ const CertificatesSection = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? certificates.length - 1 : prev - 1
     );
-    setPageNumber(1); // Reset page number when changing certificates
     setTimeout(() => setIsAnimating(false), 500);
   };
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
-    if (isPlaying && !isFullscreen) {
+    if (isPlaying) {
       interval = setInterval(goToNext, 5000);
     }
 
@@ -111,7 +74,7 @@ const CertificatesSection = () => {
         clearInterval(interval);
       }
     };
-  }, [isPlaying, isFullscreen]);
+  }, [isPlaying]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
@@ -133,33 +96,6 @@ const CertificatesSection = () => {
       } else {
         goToPrev();
       }
-    }
-  };
-
-  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-    setNumPages(numPages);
-    setPdfError(null);
-  };
-
-  const onDocumentLoadError = (error: Error) => {
-    console.error("Error loading PDF:", error);
-    setPdfError("Error loading PDF: " + error.message);
-  };
-
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(certificates[currentIndex].pdfUrl);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${certificates[currentIndex].title}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Error downloading PDF:", error);
     }
   };
 
@@ -255,113 +191,13 @@ const CertificatesSection = () => {
             />
 
             <div className="relative p-6 sm:p-8 space-y-6">
-              {/* PDF Viewer */}
+              {/* Certificate Image */}
               <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700">
-                {pdfError ? (
-                  <div className="flex items-center justify-center h-full text-red-500">
-                    {pdfError}
-                  </div>
-                ) : (
-                  <div className="h-full">
-                    <Document
-                      file={certificates[currentIndex].pdfUrl}
-                      onLoadSuccess={onDocumentLoadSuccess}
-                      onLoadError={onDocumentLoadError}
-                      className="w-full h-full"
-                      loading={
-                        <div className="flex items-center justify-center h-full">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-                        </div>
-                      }
-                    >
-                      <Page
-                        pageNumber={pageNumber}
-                        width={
-                          isFullscreen ? window.innerWidth * 0.8 : undefined
-                        }
-                        height={
-                          isFullscreen ? window.innerHeight * 0.8 : undefined
-                        }
-                        className="w-full h-full"
-                        renderTextLayer={false}
-                        renderAnnotationLayer={false}
-                      />
-                    </Document>
-                  </div>
-                )}
-
-                {/* PDF Controls */}
-                <div className="absolute bottom-4 right-4 flex space-x-2">
-                  <button
-                    onClick={handleDownload}
-                    className={`p-2 rounded-full transition-all duration-300
-                      ${
-                        darkMode
-                          ? "bg-slate-700 hover:bg-slate-600"
-                          : "bg-white hover:bg-gray-100"
-                      }
-                      shadow-lg`}
-                    aria-label="Download PDF"
-                  >
-                    <Download className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => setIsFullscreen(!isFullscreen)}
-                    className={`p-2 rounded-full transition-all duration-300
-                      ${
-                        darkMode
-                          ? "bg-slate-700 hover:bg-slate-600"
-                          : "bg-white hover:bg-gray-100"
-                      }
-                      shadow-lg`}
-                    aria-label="Toggle fullscreen"
-                  >
-                    <Maximize2 className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Page Navigation */}
-                {numPages > 1 && (
-                  <div className="absolute bottom-4 left-4 flex space-x-2">
-                    <button
-                      onClick={() =>
-                        setPageNumber((prev) => Math.max(prev - 1, 1))
-                      }
-                      disabled={pageNumber <= 1}
-                      className={`p-2 rounded-full transition-all duration-300
-                        ${
-                          darkMode
-                            ? "bg-slate-700 hover:bg-slate-600"
-                            : "bg-white hover:bg-gray-100"
-                        }
-                        shadow-lg disabled:opacity-50`}
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <span
-                      className={`p-2 ${
-                        darkMode ? "text-white" : "text-black"
-                      }`}
-                    >
-                      {pageNumber} / {numPages}
-                    </span>
-                    <button
-                      onClick={() =>
-                        setPageNumber((prev) => Math.min(prev + 1, numPages))
-                      }
-                      disabled={pageNumber >= numPages}
-                      className={`p-2 rounded-full transition-all duration-300
-                        ${
-                          darkMode
-                            ? "bg-slate-700 hover:bg-slate-600"
-                            : "bg-white hover:bg-gray-100"
-                        }
-                        shadow-lg disabled:opacity-50`}
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                )}
+                <img
+                  src={certificates[currentIndex].image}
+                  alt={certificates[currentIndex].title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
 
               {/* Certificate Details */}
@@ -418,8 +254,6 @@ const CertificatesSection = () => {
             </button>
 
             {/* Dot indicators */}
-
-            {/* Dot indicators */}
             <div className="flex gap-2 overflow-x-auto pb-2">
               {certificates.map((_, index) => (
                 <button
@@ -428,7 +262,6 @@ const CertificatesSection = () => {
                     if (!isAnimating) {
                       setIsAnimating(true);
                       setCurrentIndex(index);
-                      setPageNumber(1);
                       setTimeout(() => setIsAnimating(false), 500);
                     }
                   }}
@@ -456,66 +289,6 @@ const CertificatesSection = () => {
           to-transparent`}
         />
       </div>
-
-      {/* Fullscreen PDF viewer */}
-      {isFullscreen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center">
-          <div className="relative w-full h-full max-w-7xl max-h-screen p-4">
-            <button
-              onClick={() => setIsFullscreen(false)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white text-black hover:bg-gray-200 transition-colors duration-300 z-10"
-              aria-label="Close fullscreen view"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <Document
-              file={certificates[currentIndex].pdfUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-              onLoadError={onDocumentLoadError}
-              className="w-full h-full flex items-center justify-center"
-            >
-              <Page
-                pageNumber={pageNumber}
-                width={window.innerWidth * 0.8}
-                height={window.innerHeight * 0.8}
-                renderTextLayer={false}
-                renderAnnotationLayer={false}
-              />
-            </Document>
-
-            {/* Fullscreen PDF Controls */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 bg-white rounded-full px-4 py-2 shadow-lg">
-              <button
-                onClick={() => setPageNumber((prev) => Math.max(prev - 1, 1))}
-                disabled={pageNumber <= 1}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300 disabled:opacity-50"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <span className="text-sm font-medium">
-                Page {pageNumber} of {numPages}
-              </span>
-              <button
-                onClick={() =>
-                  setPageNumber((prev) => Math.min(prev + 1, numPages))
-                }
-                disabled={pageNumber >= numPages}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300 disabled:opacity-50"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleDownload}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
-                aria-label="Download PDF"
-              >
-                <Download className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
