@@ -101,6 +101,7 @@ const CertificatesSection = () => {
 
   return (
     <section
+      id="certificates"
       className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
