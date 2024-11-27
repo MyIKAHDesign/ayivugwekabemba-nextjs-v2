@@ -29,6 +29,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           {/* <Analytics /> */}
+          <Analytics mode="production" />;
         </ThemeProvider>
       </body>
     </html>
