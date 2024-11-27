@@ -2,17 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Moon, Sun, X, Sparkles, Wrench, Rocket } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { Menu, Moon, Sun, X, Sparkles, Wrench, Rocket } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
 
 const Header = () => {
   const pathname = usePathname();
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, setDarkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [showBanner, setShowBanner] = useState(true);
   const [isEmojiAnimating, setIsEmojiAnimating] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   const bannerMessages = [
@@ -35,7 +36,6 @@ const Header = () => {
     { name: "Quotes", href: "/#quotes" },
     { name: "Projects", href: "/#projects" },
     { name: "Experiences", href: "/#experience" },
-    { name: "Certificates", href: "/#certificates" },
     { name: "Skills", href: "/#skills" },
     { name: "About me", href: "/#about-me" },
     { name: "FAQ", href: "/#faq" },
@@ -45,20 +45,22 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20);
 
-      // Update active section based on scroll position
-      const sections = navLinks
-        .map((link) => link.href.replace("/#", ""))
-        .filter((id) => document.getElementById(id));
+      // Only check sections if we're on the home page
+      if (pathname === "/") {
+        const sectionIds = navLinks
+          .map((link) => link.href.replace("/#", ""))
+          .filter((id) => id && document.getElementById(id));
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
+        for (const id of sectionIds) {
+          const element = document.getElementById(id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveSection(id);
+              break;
+            }
           }
         }
       }
@@ -66,13 +68,6 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    // Update active section based on pathname for non-home pages
-    if (pathname !== "/") {
-      setActiveSection(pathname.slice(1));
-    }
   }, [pathname]);
 
   useEffect(() => {
@@ -87,20 +82,25 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    // Set active section based on pathname for non-home pages
+    if (pathname !== "/") {
+      const section = pathname.slice(1);
+      setActiveSection(section);
+    }
+  }, [pathname]);
+
   const handleNavigation = (href: string) => {
     if (href.startsWith("/#")) {
-      const element = document.getElementById(href.slice(2));
+      const sectionId = href.slice(2);
+      const element = document.getElementById(sectionId);
       if (element) {
         const offset = showBanner ? 120 : 80;
-        window.scrollTo({
-          top: element.offsetTop - offset,
-          behavior: "smooth",
-        });
-        setActiveSection(href.slice(2));
+        element.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(sectionId);
       }
     } else {
       window.location.href = href;
-      setActiveSection(href.slice(1));
     }
     setIsMenuOpen(false);
   };
@@ -146,7 +146,7 @@ const Header = () => {
 
       <header
         className={`transition-all duration-300 ${
-          scrolled
+          isScrolled
             ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg"
             : "bg-white dark:bg-gray-900"
         }`}
