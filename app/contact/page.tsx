@@ -84,88 +84,133 @@ export default function Contact() {
   return (
     <section
       className={`relative min-h-screen font-montserrat py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
-        darkMode ? "bg-slate-900 text-white" : "bg-white text-slate-900"
+        darkMode
+          ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950 text-white"
+          : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white text-slate-900"
       }`}
     >
-      <div className="max-w-6xl w-full">
-        <h1
-          className={`text-4xl font-montserrat font-bold mb-8 transition-colors duration-300 ${
-            darkMode ? "text-white" : "text-slate-900"
-          }`}
+      {/* Added max width container */}
+      <div className="max-w-3xl w-full">
+        {/* Card Container */}
+        <div
+          className={`${
+            darkMode
+              ? "bg-slate-900/50 border border-slate-800"
+              : "bg-white/70 border border-orange-100"
+          } backdrop-blur-sm rounded-2xl shadow-lg p-8 transition-all duration-300`}
         >
-          Contact Me
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
-                darkMode
-                  ? "bg-slate-800 text-white border-slate-700"
-                  : "bg-white text-slate-900 border-slate-300"
-              }`}
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className={`w-full p-2 border rounded transition-colors duration-300
-            ${
-              darkMode
-                ? "bg-slate-800 text-white border-slate-700"
-                : "bg-white text-slate-900 border-slate-300"
-            }`}
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className={`w-full p-2 border rounded transition-colors duration-300 font-montserrat ${
-                darkMode
-                  ? "bg-slate-800 text-white border-slate-700"
-                  : "bg-white text-slate-900 border-slate-300"
-              }`}
-              rows={4}
-            ></textarea>
-          </div>
-          <div
-            className="h-captcha"
-            data-sitekey="fa60f84c-aa6a-4316-bbd4-a9183c9201ba"
-            data-callback="handleCaptchaVerify"
-          ></div>
-          <button
-            type="submit"
-            className={`bg-[#0A21C0] text-white px-4 py-2 rounded transition-colors duration-300 font-montserrat ${
-              darkMode ? "hover:bg-[#050A44]" : "hover:bg-blue-700"
+          <h1
+            className={`text-4xl font-montserrat font-bold mb-8 text-center transition-colors duration-300 ${
+              darkMode ? "text-white" : "text-orange-600"
             }`}
           >
-            Send Message
-          </button>
-        </form>
-        {status && <p className="mt-4 text-center">{status}</p>}
+            Contact Me
+          </h1>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className={`block mb-2 text-sm font-medium ${
+                  darkMode ? "text-slate-200" : "text-slate-700"
+                }`}
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                  darkMode
+                    ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
+                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                }`}
+                placeholder="Enter your name"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className={`block mb-2 text-sm font-medium ${
+                  darkMode ? "text-slate-200" : "text-slate-700"
+                }`}
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                  darkMode
+                    ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
+                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                }`}
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className={`block mb-2 text-sm font-medium ${
+                  darkMode ? "text-slate-200" : "text-slate-700"
+                }`}
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                  darkMode
+                    ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
+                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                }`}
+                rows={4}
+                placeholder="Enter your message"
+              ></textarea>
+            </div>
+
+            <div
+              className="h-captcha"
+              data-sitekey="fa60f84c-aa6a-4316-bbd4-a9183c9201ba"
+              data-callback="handleCaptchaVerify"
+            ></div>
+
+            <button
+              type="submit"
+              className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                darkMode
+                  ? "bg-slate-800 text-white hover:bg-slate-700 border border-slate-700"
+                  : "bg-orange-600 text-white hover:bg-orange-700"
+              }`}
+            >
+              Send Message
+            </button>
+          </form>
+
+          {status && (
+            <p
+              className={`mt-6 text-center text-sm ${
+                darkMode ? "text-slate-200" : "text-slate-700"
+              }`}
+            >
+              {status}
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );
