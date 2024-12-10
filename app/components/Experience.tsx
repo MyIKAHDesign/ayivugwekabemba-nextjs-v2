@@ -18,6 +18,14 @@ const ExperienceSection: React.FC = () => {
 
   const experiences: Experience[] = [
     {
+      company: "Kifuliiru Platform Project",
+      position: "Founder & CTO",
+      location: "Spokane, WA",
+      period: "January 2020 - Present",
+      description:
+        "Leading the development of a comprehensive digital platform dedicated to preserving and promoting the Kifuliiru language and Bafuliiru cultural heritage. Architecting and building key components including Radio Ibufuliiru, an interactive dictionary platform, and language learning tools using Next.js, TypeScript, and cloud technologies. Coordinating with community elders and cultural experts to digitize Kifuliiru words and phrases, while managing a team of volunteer contributors to ensure authentic content preservation.",
+    },
+    {
       company: "Amazon Fulfillment Center",
       position: "Fulfillment Center Associate",
       location: "Spokane, WA",
