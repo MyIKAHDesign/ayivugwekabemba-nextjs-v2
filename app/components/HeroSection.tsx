@@ -11,12 +11,12 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
-        ${
-          darkMode
-            ? "bg-gradient-to-b from-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 to-white"
-        }`}
+      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+       ${
+         darkMode
+           ? "bg-gradient-to-b from-slate-900 via-orange-950/20 to-slate-800"
+           : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+       }`}
     >
       {/* Background Pattern with subtle animation */}
       <div
@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
               ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
               : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
           }`}
-      ></div>
+      />
 
       <div className="relative max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start min-h-[calc(100vh-8rem)]">
@@ -41,17 +41,17 @@ const HeroSection: React.FC = () => {
                 } p-1`}
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-orange-500/20 to-orange-600/20 blur-xl" />
 
               {/* Image container with continuous subtle movement */}
-              <div className="relative w-full aspect-[4/3] animate-faster-float">
+              <div className="relative w-full aspect-[4/3] animate-faster-float hover:scale-105 transition-transform duration-500">
                 <Image
                   src="/ayiv-profile.jpg"
                   alt="Profile picture of Ayivugwe"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
-                  className="rounded-xl object-cover transform transition-transform duration-500"
+                  className="rounded-xl object-cover transform transition-transform duration-500 group-hover:scale-[1.01]"
                 />
               </div>
             </div>
@@ -66,7 +66,7 @@ const HeroSection: React.FC = () => {
                 ].map((tag, index) => (
                   <span
                     key={tag.text}
-                    className={`group relative px-4 py-2 rounded-full font-medium overflow-hidden animate-tag-float
+                    className={`group relative px-4 py-2 rounded-full font-medium overflow-hidden animate-tag-float hover:scale-105 transition-transform duration-300
                       ${
                         darkMode
                           ? "bg-slate-800 text-slate-400"
@@ -78,8 +78,8 @@ const HeroSection: React.FC = () => {
                       className={`absolute inset-0 animate-gradient-shift
                         ${
                           darkMode
-                            ? "bg-gradient-to-r from-slate-800 via-blue-900/30 to-slate-800"
-                            : "bg-gradient-to-r from-slate-100 via-blue-100/30 to-slate-100"
+                            ? "bg-gradient-to-r from-slate-800 via-orange-900/30 to-slate-800"
+                            : "bg-gradient-to-r from-slate-100 via-orange-100/30 to-slate-100"
                         }`}
                       style={{ animationDelay: `${tag.delay * 1.2}s` }}
                     />
@@ -87,11 +87,13 @@ const HeroSection: React.FC = () => {
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
                           darkMode
-                            ? "bg-gradient-to-t from-blue-900/50 to-slate-800/50"
-                            : "bg-gradient-to-t from-blue-100 to-slate-100/50"
+                            ? "bg-gradient-to-t from-orange-900/50 to-slate-800/50"
+                            : "bg-gradient-to-t from-orange-100 to-slate-100/50"
                         }`}
                     />
-                    <span className="relative z-10">{tag.text}</span>
+                    <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+                      {tag.text}
+                    </span>
                   </span>
                 ))}
               </div>
@@ -107,7 +109,7 @@ const HeroSection: React.FC = () => {
               >
                 Hi. I&apos;m Ayivugwe Kabemba Mukome
               </h1>
-              {/* Animated highlight text - Updated to text-xl to match quotes section */}
+
               <div
                 className={`text-xl leading-relaxed font-medium transition-colors duration-300 animate-slide-up
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
@@ -125,16 +127,16 @@ const HeroSection: React.FC = () => {
                     className={`absolute inset-0 animate-gradient-shift
                       ${
                         darkMode
-                          ? "bg-gradient-to-r from-slate-800 via-blue-900/30 to-slate-800"
-                          : "bg-gradient-to-r from-slate-100 via-blue-100/30 to-slate-100"
+                          ? "bg-gradient-to-r from-slate-800 via-orange-900/30 to-slate-800"
+                          : "bg-gradient-to-r from-slate-100 via-orange-100/30 to-slate-100"
                       }`}
                   />
                   <div
                     className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                       ${
                         darkMode
-                          ? "bg-gradient-to-t from-blue-900/50 to-slate-800/50"
-                          : "bg-gradient-to-t from-blue-100 to-slate-100/50"
+                          ? "bg-gradient-to-t from-orange-900/50 to-slate-800/50"
+                          : "bg-gradient-to-t from-orange-100 to-slate-100/50"
                       }`}
                   />
                   <span className="relative z-10">
@@ -142,7 +144,7 @@ const HeroSection: React.FC = () => {
                   </span>
                 </span>
               </div>
-              {/* Main paragraph - Updated to text-lg to match quotes section */}
+
               <p
                 className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
@@ -155,7 +157,7 @@ const HeroSection: React.FC = () => {
                 modern development practices.
               </p>
 
-              {/* Buttons section */}
+              {/* CTA Buttons */}
               <div className="flex gap-4">
                 {[
                   { text: "View Projects", href: "/#projects", primary: true },
@@ -164,15 +166,15 @@ const HeroSection: React.FC = () => {
                   <button
                     key={button.text}
                     onClick={() => (window.location.href = button.href)}
-                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse border-2
+                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2
                       ${
                         button.primary
                           ? darkMode
-                            ? "bg-slate-900 text-white border-slate-700"
-                            : "bg-slate-800 text-white border-slate-700"
+                            ? "bg-orange-600 text-white border-orange-500"
+                            : "bg-orange-600 text-white border-orange-500"
                           : darkMode
-                          ? "border-slate-700 text-slate-400"
-                          : "border-slate-900 text-slate-900"
+                          ? "border-orange-600 text-orange-400"
+                          : "border-orange-600 text-orange-600"
                       }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
@@ -180,8 +182,8 @@ const HeroSection: React.FC = () => {
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
                           darkMode
-                            ? "bg-gradient-to-t from-slate-700 to-slate-600"
-                            : "bg-gradient-to-t from-slate-800 to-slate-700"
+                            ? "bg-gradient-to-t from-orange-700 to-orange-600"
+                            : "bg-gradient-to-t from-orange-700 to-orange-600"
                         }`}
                     />
                     <span className="relative z-10 group-hover:text-white transition-colors duration-500">
@@ -190,60 +192,64 @@ const HeroSection: React.FC = () => {
                   </button>
                 ))}
               </div>
-            </div>
 
-            {/* Social links section */}
-            <div
-              className={`mt-12 pt-12 transition-colors duration-300
-              ${
-                darkMode
-                  ? "border-t border-slate-700"
-                  : "border-t border-slate-200"
-              }`}
-            >
-              {/* Updated to text-sm to match metadata text in quotes */}
-              <h3
-                className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-300
-                ${darkMode ? "text-slate-500" : "text-slate-400"}`}
+              {/* Social links section */}
+              <div
+                className={`mt-12 pt-12 transition-colors duration-300
+                ${
+                  darkMode
+                    ? "border-t border-slate-700"
+                    : "border-t border-slate-200"
+                }`}
               >
-                CONNECT WITH ME
-              </h3>
-              <div className="flex gap-6">
-                {[
-                  {
-                    Icon: Github,
-                    href: "https://github.com/Ayivugwe",
-                    label: "GitHub Profile",
-                  },
-                  {
-                    Icon: Twitter,
-                    href: "https://x.com/ayivugwekabemba",
-                    label: "Twitter Profile",
-                  },
-                  {
-                    Icon: Linkedin,
-                    href: "https://www.linkedin.com/in/ayivugwekabemba/",
-                    label: "LinkedIn Profile",
-                  },
-                ].map(({ Icon, href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    className={`group relative p-2 rounded-full overflow-hidden transition-all duration-300 hover:scale-110
-                      ${
-                        darkMode
-                          ? "text-slate-400 hover:text-white"
-                          : "text-slate-700 hover:text-slate-900"
-                      }`}
-                    aria-label={label}
-                  >
-                    <div
-                      className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
-                        ${darkMode ? "bg-slate-700/50" : "bg-slate-200/50"}`}
-                    />
-                    <Icon size={24} className="relative z-10" />
-                  </a>
-                ))}
+                <h3
+                  className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-300
+                  ${darkMode ? "text-slate-500" : "text-slate-400"}`}
+                >
+                  CONNECT WITH ME
+                </h3>
+                <div className="flex gap-6">
+                  {[
+                    {
+                      Icon: Github,
+                      href: "https://github.com/Ayivugwe",
+                      label: "GitHub Profile",
+                    },
+                    {
+                      Icon: Twitter,
+                      href: "https://x.com/ayivugwekabemba",
+                      label: "Twitter Profile",
+                    },
+                    {
+                      Icon: Linkedin,
+                      href: "https://www.linkedin.com/in/ayivugwekabemba/",
+                      label: "LinkedIn Profile",
+                    },
+                  ].map(({ Icon, href, label }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      className={`group relative p-2 rounded-full overflow-hidden transition-all duration-300 hover:scale-110
+                        ${
+                          darkMode
+                            ? "text-slate-400 hover:text-white"
+                            : "text-slate-700 hover:text-slate-900"
+                        }`}
+                      aria-label={label}
+                    >
+                      <div
+                        className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
+                          ${
+                            darkMode ? "bg-orange-600/50" : "bg-orange-200/50"
+                          }`}
+                      />
+                      <Icon
+                        size={24}
+                        className="relative z-10 transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
