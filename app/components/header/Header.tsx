@@ -3,7 +3,16 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Moon, Sun, X, Sparkles, Wrench, Rocket } from "lucide-react";
+import {
+  Menu,
+  Moon,
+  Sun,
+  X,
+  Sparkles,
+  Wrench,
+  Rocket,
+  MessageSquare,
+} from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 const Header = () => {
@@ -45,7 +54,6 @@ const Header = () => {
     { name: "About me", href: "/#about-me" },
     { name: "FAQ", href: "/#faq" },
     { name: "Videos", href: "/videos" },
-    { name: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -141,6 +149,7 @@ const Header = () => {
               <button
                 onClick={() => setShowBanner(false)}
                 className="ml-4 p-1 rounded-full hover:bg-amber-100 dark:hover:bg-gray-700 transition-all duration-300"
+                aria-label="Close banner"
               >
                 <X className="w-4 h-4 text-amber-600 dark:text-amber-200" />
               </button>
@@ -165,33 +174,50 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-amber-500 transition-all group-hover:w-full" />
             </Link>
 
-            <div className="hidden md:flex items-center space-x-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavigation(link.href)}
-                  className={`px-3 py-2 rounded-lg relative group transition-colors duration-200
-                    ${
-                      isActive(link.href)
-                        ? "text-orange-600 dark:text-orange-400"
-                        : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400"
-                    }`}
-                >
-                  <span className="relative z-10">{link.name}</span>
-                  <span
-                    className={`absolute inset-0 rounded-lg transition-transform duration-200
-                    ${
-                      isActive(link.href)
-                        ? "bg-orange-50 dark:bg-orange-900/30 scale-100"
-                        : "bg-orange-50 dark:bg-orange-900/30 scale-0 group-hover:scale-100"
-                    }`}
-                  />
-                </button>
-              ))}
-
+            {/* Update the spacing in the desktop menu container */}
+            <div className="hidden md:flex items-center space-x-4">
+              {" "}
+              {/* Changed from space-x-1 to space-x-4 */}
+              {/* Navigation Links Group */}
+              <div className="flex items-center space-x-2">
+                {" "}
+                {/* Added a wrapper div with space-x-2 */}
+                {navLinks.map((link) => (
+                  <button
+                    key={link.name}
+                    onClick={() => handleNavigation(link.href)}
+                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200
+          ${
+            isActive(link.href)
+              ? "text-orange-600 dark:text-orange-400"
+              : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400"
+          }`}
+                  >
+                    <span className="relative z-10">{link.name}</span>
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-transform duration-200
+            ${
+              isActive(link.href)
+                ? "bg-orange-50 dark:bg-orange-900/30 scale-100"
+                : "bg-orange-50 dark:bg-orange-900/30 scale-0 group-hover:scale-100"
+            }`}
+                    />
+                  </button>
+                ))}
+              </div>
+              {/* Contact CTA Button - increased left margin */}
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="ml-6 px-4 py-2 flex items-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Contact</span>
+              </button>
+              {/* Theme Toggle Button - increased left margin */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="ml-4 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group"
+                className="ml-6 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group"
+                aria-label="Toggle theme"
               >
                 {darkMode ? (
                   <Sun className="w-5 h-5 text-amber-400 transition-transform duration-500 group-hover:rotate-180" />
@@ -204,6 +230,7 @@ const Header = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
@@ -230,6 +257,15 @@ const Header = () => {
                     {link.name}
                   </button>
                 ))}
+
+                {/* Contact CTA Button for Mobile */}
+                <button
+                  onClick={() => handleNavigation("/contact")}
+                  className="w-full mt-2 px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-colors"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Contact</span>
+                </button>
               </div>
             </div>
           )}
