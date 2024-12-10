@@ -19,6 +19,10 @@ const Header = () => {
   const bannerMessages = [
     {
       icon: <Wrench className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
+      text: "I'm Ayivugwe Kabemba Mukome!",
+    },
+    {
+      icon: <Wrench className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
       text: "Welcome to my portfolio!",
     },
     {
