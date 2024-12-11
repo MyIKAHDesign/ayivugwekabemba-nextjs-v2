@@ -240,28 +240,60 @@ const Header = () => {
             </button>
           </nav>
 
+          {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="absolute top-full left-0 right-0 md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-lg">
-              <div className="p-4 space-y-1">
+              <div className="p-4 space-y-3">
+                {/* Theme Toggle for Mobile - Made more prominent */}
+                <div className="pb-3 mb-3 border-b border-gray-100 dark:border-gray-800">
+                  <button
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="w-full px-4 py-3 flex items-center justify-between rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3">
+                      {darkMode ? (
+                        <Sun className="w-5 h-5 text-amber-400" />
+                      ) : (
+                        <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                      )}
+                      <span className="text-gray-600 dark:text-gray-300 font-medium">
+                        {darkMode
+                          ? "Switch to Light Mode"
+                          : "Switch to Dark Mode"}
+                      </span>
+                    </div>
+                    <div className="w-8 h-4 bg-gray-300 dark:bg-gray-600 rounded-full relative">
+                      <div
+                        className={`absolute top-0.5 left-0.5 w-3 h-3 rounded-full transition-transform duration-200 ${
+                          darkMode
+                            ? "translate-x-4 bg-amber-400"
+                            : "translate-x-0 bg-gray-500"
+                        }`}
+                      />
+                    </div>
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
                 {navLinks.map((link) => (
                   <button
                     key={link.name}
                     onClick={() => handleNavigation(link.href)}
                     className={`w-full px-4 py-2 text-left rounded-lg transition-colors
-                      ${
-                        isActive(link.href)
-                          ? "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30"
-                          : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30"
-                      }`}
+            ${
+              isActive(link.href)
+                ? "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30"
+                : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30"
+            }`}
                   >
                     {link.name}
                   </button>
                 ))}
 
-                {/* Contact CTA Button for Mobile */}
+                {/* Mobile Contact Button */}
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="w-full mt-2 px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-colors"
+                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-colors"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Contact</span>
