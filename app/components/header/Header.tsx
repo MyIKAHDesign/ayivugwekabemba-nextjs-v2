@@ -45,14 +45,14 @@ const Header = () => {
   ];
 
   const navLinks = [
-    { name: "Home", href: "/#home" },
-    { name: "Quotes", href: "/#quotes" },
+    { name: "Home", href: "/" },
     { name: "Projects", href: "/#projects" },
-    { name: "Experiences", href: "/#experience" },
-    { name: "Certificates", href: "/#certificates" },
     { name: "Skills", href: "/#skills" },
-    { name: "About me", href: "/#about-me" },
     { name: "FAQ", href: "/#faq" },
+    { name: "Experiences", href: "/experience" },
+    { name: "About me", href: "/about" },
+    { name: "Certificates", href: "/certificates" },
+    { name: "Quotes", href: "/quotes" },
     { name: "Videos", href: "/videos" },
   ];
 

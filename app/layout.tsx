@@ -26,11 +26,11 @@ export const metadata = {
   description: "This is the personal website of Ayivugwe Kabemba Mukome",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"

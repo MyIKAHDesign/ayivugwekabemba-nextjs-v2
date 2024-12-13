@@ -88,13 +88,14 @@ const FAQ: React.FC = () => {
   return (
     <section
       id="faq"
-      className={`relative py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 
-      ${
-        darkMode
-          ? "bg-gradient-to-b from-slate-900 to-slate-800"
-          : "bg-gradient-to-b from-slate-50 to-white"
-      }`}
+      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+        ${
+          darkMode
+            ? "bg-gradient-to-b from-slate-900 to-slate-800"
+            : "bg-gradient-to-b from-slate-50 to-white"
+        }`}
     >
+      {/* Background Pattern */}
       <div
         className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
         ${
@@ -102,16 +103,20 @@ const FAQ: React.FC = () => {
             ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
             : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
         }`}
-      ></div>
+      />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Main heading - keeping text-4xl */}
-        <h2
-          className={`text-lg text-4xl font-semibold tracking-tight mb-12 
-          ${darkMode ? "text-white" : "text-slate-900"}`}
-        >
-          Frequently Asked Questions
-        </h2>
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <h2
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-white" : "text-slate-900"} 
+            transition-colors duration-300`}
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div
