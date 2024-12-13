@@ -90,14 +90,14 @@ const ExperienceSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Professional Experiences
           </h2>
           <p
-            className={`text-xl leading-relaxed
+            className={`font-inter text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
@@ -110,7 +110,7 @@ const ExperienceSection: React.FC = () => {
         {/* Timeline button */}
         <div className="flex justify-end mb-8">
           <button
-            className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all"
+            className="font-inter bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all"
             onClick={() => setShowTimeline(true)}
             aria-label="Show Timeline"
           >
@@ -143,7 +143,7 @@ const ExperienceSection: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
                   <div className="flex-1">
                     <h3
-                      className={`text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500 group-hover:text-white
+                      className={`font-inter text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500 group-hover:text-white
                       ${darkMode ? "text-white" : "text-slate-900"}`}
                     >
                       {exp.position}
@@ -161,7 +161,7 @@ const ExperienceSection: React.FC = () => {
                 </div>
 
                 <p
-                  className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                  className={`font-inter text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                   ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   {exp.description}
@@ -187,14 +187,14 @@ const ExperienceSection: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`absolute top-4 right-4 text-2xl font-bold
+                className={`font-inter absolute top-4 right-4 text-2xl font-bold
                   ${darkMode ? "text-slate-400" : "text-gray-500"}`}
                 onClick={() => setShowTimeline(false)}
               >
                 &times;
               </button>
               <h3
-                className={`text-xl leading-relaxed font-semibold text-center mb-6
+                className={`font-inter text-xl leading-relaxed font-semibold text-center mb-6
                 ${darkMode ? "text-white" : "text-slate-900"}`}
               >
                 Professional Timeline
@@ -240,20 +240,20 @@ const ExperienceSection: React.FC = () => {
                       <div className="relative p-4 z-10 transition-colors duration-500 group-hover:text-white">
                         <div className="flex items-center mb-2">
                           <span
-                            className={`text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-slate-200
+                            className={`font-inter text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-slate-200
                             ${darkMode ? "text-slate-400" : "text-slate-500"}`}
                           >
                             {exp.period}
                           </span>
                         </div>
                         <h4
-                          className={`text-xl leading-relaxed font-semibold transition-colors duration-500 group-hover:text-white
+                          className={`font-inter text-xl leading-relaxed font-semibold transition-colors duration-500 group-hover:text-white
                           ${darkMode ? "text-white" : "text-slate-900"}`}
                         >
                           {exp.company}
                         </h4>
                         <p
-                          className={`text-lg leading-relaxed mt-2 transition-colors duration-500 group-hover:text-slate-200
+                          className={`font-inter text-lg leading-relaxed mt-2 transition-colors duration-500 group-hover:text-slate-200
                           ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                         >
                           {exp.description}

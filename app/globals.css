@@ -1,21 +1,40 @@
-/* styles/globals.css */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&display=swap");
-
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-inter text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-100;
-}
+@layer base {
+  body {
+    @apply font-inter text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-100;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-montserrat;
+  /* Headings hierarchy */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-montserrat font-semibold;
+  }
+
+  /* Body text variations */
+  .body-large {
+    @apply font-inter text-lg leading-relaxed;
+  }
+
+  .body-regular {
+    @apply font-inter text-base leading-relaxed;
+  }
+
+  /* Special text styles */
+  .display-text {
+    @apply font-montserrat font-semibold tracking-tight;
+  }
+
+  .nav-text {
+    @apply font-inter font-medium;
+  }
 }
 
 @keyframes bounce-subtle {

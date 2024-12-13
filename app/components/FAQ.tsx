@@ -107,7 +107,7 @@ const FAQ: React.FC = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Main heading - keeping text-4xl */}
         <h2
-          className={`text-4xl font-semibold tracking-tight mb-12 
+          className={`text-lg text-4xl font-semibold tracking-tight mb-12 
           ${darkMode ? "text-white" : "text-slate-900"}`}
         >
           Frequently Asked Questions
@@ -140,11 +140,11 @@ const FAQ: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     {/* Question text - Updated to text-xl like quotes */}
-                    <h3 className="text-xl leading-relaxed font-medium">
+                    <h3 className="font-inter text-xl leading-relaxed font-medium">
                       {faq.question}
                     </h3>
                     {/* Toggle indicator */}
-                    <span className="text-2xl transition-colors duration-500 group-hover:text-white">
+                    <span className="font-inter  text-2xl transition-colors duration-500 group-hover:text-white">
                       {openIndex === index ? "-" : "+"}
                     </span>
                   </div>
@@ -153,7 +153,7 @@ const FAQ: React.FC = () => {
                     <div className="mt-4">
                       {/* Answer text - Updated to text-lg like main body text */}
                       <p
-                        className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                        className={`font-inter text-sm leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                           ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                       >
                         {faq.answer}

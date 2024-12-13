@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        inter: ["var(--font-inter)", "system-ui", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
       },
       colors: {
         primary: {
           light: "#4f46e5", // Light mode primary color
           dark: "#3b82f6", // Dark mode primary color
         },
-        // Add any additional colors as needed
       },
     },
   },
-  darkMode: "class", // Enable dark mode using a CSS class
+  darkMode: "class",
   plugins: [],
 };

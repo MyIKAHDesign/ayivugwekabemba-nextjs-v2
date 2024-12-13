@@ -99,14 +99,14 @@ const ProjectsSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Featured Projects
           </h2>
           <p
-            className={`text-lg sm:text-xl 
+            className={`font-inter text-lg sm:text-xl 
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >

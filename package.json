@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
-    "@next/font": "^14.2.15",
     "@next/mdx": "^14.2.7",
     "@types/nodemailer": "^6.4.15",
     "@types/react-pdf": "^5.0.7",

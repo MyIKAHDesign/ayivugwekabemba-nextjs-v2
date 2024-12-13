@@ -83,7 +83,7 @@ export default function Contact() {
 
   return (
     <section
-      className={`relative min-h-screen font-montserrat py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
+      className={`relative min-h-screen font-inter py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
         darkMode
           ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950 text-white"
           : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white text-slate-900"
@@ -100,7 +100,7 @@ export default function Contact() {
           } backdrop-blur-sm rounded-2xl shadow-lg p-8 transition-all duration-300`}
         >
           <h1
-            className={`text-4xl font-montserrat font-bold mb-8 text-center transition-colors duration-300 ${
+            className={`text-4xl font-inter font-bold mb-8 text-center transition-colors duration-300 ${
               darkMode ? "text-white" : "text-orange-600"
             }`}
           >
@@ -124,7 +124,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
                     : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
@@ -149,7 +149,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
                     : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
@@ -173,7 +173,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className={`w-full p-3 border rounded-lg transition-all duration-300 font-montserrat focus:ring-2 focus:outline-none ${
+                className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
                     : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
@@ -191,7 +191,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+              className={`font-inter w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                 darkMode
                   ? "bg-slate-800 text-white hover:bg-slate-700 border border-slate-700"
                   : "bg-orange-600 text-white hover:bg-orange-700"
@@ -203,7 +203,7 @@ export default function Contact() {
 
           {status && (
             <p
-              className={`mt-6 text-center text-sm ${
+              className={`font-inter mt-6 text-center text-sm ${
                 darkMode ? "text-slate-200" : "text-slate-700"
               }`}
             >

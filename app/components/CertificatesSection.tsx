@@ -123,14 +123,14 @@ const CertificatesSection = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Professional Certifications
           </h2>
           <p
-            className={`text-xl leading-relaxed
+            className={`font-inter text-xl leading-relaxed
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
@@ -144,7 +144,7 @@ const CertificatesSection = () => {
           {/* Navigation buttons - hidden on mobile */}
           <button
             onClick={goToPrev}
-            className={`hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+            className={`font-inter hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
               ${
                 darkMode
                   ? "bg-slate-800 hover:bg-slate-700 text-white"
@@ -158,7 +158,7 @@ const CertificatesSection = () => {
 
           <button
             onClick={goToNext}
-            className={`hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+            className={`font-inter  hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
               ${
                 darkMode
                   ? "bg-slate-800 hover:bg-slate-700 text-white"
@@ -204,7 +204,7 @@ const CertificatesSection = () => {
               {/* Certificate Details */}
               <div className="space-y-4">
                 <h3
-                  className={`text-2xl font-semibold transition-colors duration-500
+                  className={`font-inter text-2xl font-semibold transition-colors duration-500
                   ${darkMode ? "text-white" : "text-slate-900"}`}
                 >
                   {certificates[currentIndex].title}
@@ -212,13 +212,13 @@ const CertificatesSection = () => {
 
                 <div className="flex justify-between items-center">
                   <p
-                    className={`text-lg transition-colors duration-500
+                    className={`font-inter text-lg transition-colors duration-500
                     ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                   >
                     {certificates[currentIndex].issuer}
                   </p>
                   <p
-                    className={`text-sm transition-colors duration-500
+                    className={`font-inter text-sm transition-colors duration-500
                     ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                   >
                     {certificates[currentIndex].date}
@@ -226,7 +226,7 @@ const CertificatesSection = () => {
                 </div>
 
                 <p
-                  className={`text-base transition-colors duration-500
+                  className={`font-inter text-base transition-colors duration-500
                   ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   {certificates[currentIndex].description}
