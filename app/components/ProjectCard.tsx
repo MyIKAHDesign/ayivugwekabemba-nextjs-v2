@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+      className={`font-inter group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
         ${
           darkMode
             ? "bg-slate-800 border-slate-700"
@@ -54,14 +54,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         {/* Title - Using text-xl like the quotes */}
         <h3
-          className={`text-xl leading-relaxed font-medium mb-3 transition-colors duration-500 group-hover:text-white
+          className={`font-inter text-xl leading-relaxed font-medium mb-3 transition-colors duration-500 group-hover:text-white
           ${darkMode ? "text-white" : "text-slate-900"}`}
         >
           {title}
         </h3>
         {/* Description - Using text-lg like the main body text in quotes */}
         <p
-          className={`text-lg leading-relaxed mb-6 transition-colors duration-500 group-hover:text-slate-200
+          className={`font-inter text-lg leading-relaxed mb-6 transition-colors duration-500 group-hover:text-slate-200
           ${darkMode ? "text-slate-400" : "text-gray-600"}`}
         >
           {description}

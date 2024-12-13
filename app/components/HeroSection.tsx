@@ -11,12 +11,12 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
-  ${
-    darkMode
-      ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-      : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
-  }`}
+      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 font-inter
+        ${
+          darkMode
+            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+        }`}
     >
       {/* Background Pattern with subtle animation */}
       <div
@@ -34,11 +34,11 @@ const HeroSection: React.FC = () => {
           <div className="order-2 md:order-1 h-full flex flex-col justify-center">
             <div
               className={`group relative rounded-2xl overflow-hidden animate-gentle-bounce hover:scale-[1.02] transition-all duration-500
-  ${
-    darkMode
-      ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-orange-900/30"
-      : "bg-gradient-to-br from-white/80 to-orange-50 border border-orange-200"
-  } p-1`}
+                ${
+                  darkMode
+                    ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-orange-900/30"
+                    : "bg-gradient-to-br from-white/80 to-orange-50 border border-orange-200"
+                } p-1`}
             >
               {/* Glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-orange-500/20 to-orange-600/20 blur-xl" />
@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
 
             {/* Tags with hover effects */}
             <div className="mt-8">
-              <div className="flex flex-wrap gap-4 text-sm">
+              <div className="flex flex-wrap gap-4">
                 {[
                   { text: "Google Certified PM", delay: 0 },
                   { text: "Software Developer", delay: 1 },
@@ -66,34 +66,19 @@ const HeroSection: React.FC = () => {
                 ].map((tag, index) => (
                   <span
                     key={tag.text}
-                    className={`group relative px-4 py-2 rounded-full font-medium overflow-hidden animate-tag-float hover:scale-105 transition-transform duration-300 border
-  ${
-    darkMode
-      ? "bg-slate-800/80 text-orange-200 hover:text-orange-100 border-orange-900/30"
-      : "bg-white/80 text-slate-700 hover:text-slate-900 border-orange-200"
-  }`}
+                    className={`group relative px-4 py-2 rounded-full text-sm font-medium overflow-hidden animate-tag-float hover:scale-105 transition-transform duration-300 border
+                      ${
+                        darkMode
+                          ? "bg-slate-800/80 text-orange-200 hover:text-orange-100 border-orange-900/30"
+                          : "bg-white/80 text-slate-700 hover:text-slate-900 border-orange-200"
+                      }`}
                     style={{ animationDelay: `${tag.delay * 1.2}s` }}
                   >
                     <div
-                      className={`absolute inset-0 animate-gradient-shift
-                        ${
-                          darkMode
-                            ? "bg-gradient-to-r from-slate-800 via-orange-900/30 to-slate-800"
-                            : "bg-gradient-to-r from-white via-orange-100/30 to-white"
-                        }`}
-                      style={{ animationDelay: `${tag.delay * 1.2}s` }}
-                    />
-                    <div
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
-                        ${
-                          darkMode
-                            ? "bg-gradient-to-t from-orange-900/50 to-slate-800/50"
-                            : "bg-gradient-to-t from-orange-100 to-white/50"
-                        }`}
+                        ${darkMode ? "bg-orange-900/30" : "bg-orange-100/50"}`}
                     />
-                    <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                      {tag.text}
-                    </span>
+                    <span className="relative z-10">{tag.text}</span>
                   </span>
                 ))}
               </div>
@@ -104,10 +89,10 @@ const HeroSection: React.FC = () => {
           <div className="order-1 md:order-2 h-full flex flex-col justify-center">
             <div className="space-y-6">
               <h1
-                className={`text-4xl sm:text-5xl font-semibold tracking-tight transition-colors duration-300 animate-text-reveal
+                className={`font-inter text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
                 ${darkMode ? "text-orange-50" : "text-slate-900"}`}
               >
-                Hi. I&apos;m Ayivugwe Kabemba Mukome
+                Welcome. I&apos;m Ayivugwe Kabemba Mukome
               </h1>
 
               <div
@@ -116,14 +101,14 @@ const HeroSection: React.FC = () => {
                 style={{ animationDelay: "200ms" }}
               >
                 <span
-                  className={`group relative inline-block px-4 py-2 rounded-full font-medium overflow-hidden animate-tag-float
+                  className={`group relative inline-block px-4 py-2 rounded-full overflow-hidden animate-tag-float border
                     ${
                       darkMode
-                        ? "bg-slate-800/80 text-orange-200"
-                        : "bg-white/80 text-slate-700"
+                        ? "bg-slate-800/40 text-orange-200 border-orange-900/30"
+                        : "bg-emerald-50/50 text-emerald-800 border-emerald-200"
                     }`}
                 >
-                  <span className="relative z-10">
+                  <span className="relative z-10 text-sm ">
                     Technologist & Kifuliiru Language Advocate
                   </span>
                 </span>
@@ -131,7 +116,7 @@ const HeroSection: React.FC = () => {
 
               <p
                 className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up
-  ${darkMode ? "text-white" : "text-slate-700"}`}
+                ${darkMode ? "text-white" : "text-slate-700"}`}
                 style={{ animationDelay: "400ms" }}
               >
                 A technologist combining software development and project
@@ -150,27 +135,37 @@ const HeroSection: React.FC = () => {
                   <button
                     key={button.text}
                     onClick={() => (window.location.href = button.href)}
-                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2
+                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
                       ${
                         button.primary
                           ? darkMode
                             ? "bg-orange-600 text-white border-orange-500"
                             : "bg-orange-600 text-white border-orange-500"
                           : darkMode
-                          ? "border-orange-600 text-orange-400"
-                          : "border-orange-600 text-orange-600"
+                          ? "border-orange-600 text-orange-400 hover:border-orange-500"
+                          : "border-orange-600 text-orange-600 hover:border-orange-500"
                       }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     <div
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
-                          darkMode
-                            ? "bg-gradient-to-t from-orange-700 to-orange-600"
-                            : "bg-gradient-to-t from-orange-700 to-orange-600"
+                          button.primary
+                            ? "bg-orange-500" // Simplified to solid color for better visibility
+                            : darkMode
+                            ? "bg-orange-900" // Darker background for dark mode
+                            : "bg-orange-100" // Light background for light mode
                         }`}
                     />
-                    <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+                    <span
+                      className={`relative z-10 transition-colors duration-500
+                        ${
+                          button.primary
+                            ? "group-hover:text-white"
+                            : "group-hover:text-orange-600"
+                        }
+                      `}
+                    >
                       {button.text}
                     </span>
                   </button>
@@ -224,7 +219,7 @@ const HeroSection: React.FC = () => {
                       <div
                         className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                           ${
-                            darkMode ? "bg-orange-600/50" : "bg-orange-200/50"
+                            darkMode ? "bg-orange-900/50" : "bg-orange-100/50"
                           }`}
                       />
                       <Icon

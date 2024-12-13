@@ -294,14 +294,14 @@ const SkillsSection: React.FC = () => {
         {/* Header section - Updated text sizes */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-white" : "text-slate-900"}`}
           >
             Technical Expertise
           </h2>
           {/* Updated to text-xl like featured text */}
           <p
-            className={`text-xl leading-relaxed 
+            className={`font-inter text-xl leading-relaxed 
             ${darkMode ? "text-slate-400" : "text-slate-600"} 
             max-w-xl mx-auto`}
           >
@@ -340,7 +340,7 @@ const SkillsSection: React.FC = () => {
                   </div>
                   {/* Category title - text-xl */}
                   <h3
-                    className={`text-xl leading-relaxed font-semibold ml-3 transition-colors duration-500 group-hover:text-white 
+                    className={`font-inter text-xl leading-relaxed font-semibold ml-3 transition-colors duration-500 group-hover:text-white 
                     ${darkMode ? "text-white" : "text-slate-900"}`}
                   >
                     {skillGroup.category}
@@ -351,7 +351,7 @@ const SkillsSection: React.FC = () => {
                   {skillGroup.items.map((item, skillIndex) => (
                     <li
                       key={item.name}
-                      className={`transition-colors duration-500 group-hover:text-slate-200 
+                      className={`font-inter transition-colors duration-500 group-hover:text-slate-200 
                       ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                     >
                       <button
@@ -382,18 +382,18 @@ const SkillsSection: React.FC = () => {
                               <div className="flex items-center">
                                 {getSourceIcon(source.type)}
                                 {/* Source title - text-sm uppercase like metadata */}
-                                <span className="ml-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white">
+                                <span className="font-inter ml-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white">
                                   {source.title}:
                                 </span>
                               </div>
                               {/* Source description - text-lg */}
-                              <p className="ml-6 mt-1 text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200">
+                              <p className="font-inter ml-6 mt-1 text-sm leading-relaxed transition-colors duration-500 group-hover:text-slate-200">
                                 {source.description}
                               </p>
                             </div>
                           ))}
                           {/* Details - text-lg */}
-                          <p className="text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200 ml-6">
+                          <p className="font-inter text-sm leading-relaxed transition-colors duration-500 group-hover:text-slate-200 ml-6">
                             {item.details}
                           </p>
                         </div>

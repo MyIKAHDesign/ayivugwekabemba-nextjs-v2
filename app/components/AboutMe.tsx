@@ -34,7 +34,7 @@ const AboutMe: React.FC = () => {
           <div className="max-w-2xl mx-auto text-center mb-16">
             {/* Main heading remains at text-4xl/5xl */}
             <h2
-              className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+              className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-white" : "text-slate-900"} 
               transition-colors duration-300`}
             >
@@ -42,7 +42,7 @@ const AboutMe: React.FC = () => {
             </h2>
             {/* Subtitle updated to text-xl like featured text */}
             <p
-              className={`text-xl leading-relaxed
+              className={`font-inter text-xl leading-relaxed
               ${darkMode ? "text-slate-400" : "text-slate-600"} 
               transition-colors duration-300 max-w-xl mx-auto`}
             >
@@ -110,7 +110,7 @@ const AboutMe: React.FC = () => {
                 >
                   {/* Gradient Overlay */}
                   <div
-                    className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
+                    className={`font-inter absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                       ${
                         darkMode
                           ? "bg-gradient-to-t from-slate-800 to-slate-700"
@@ -121,14 +121,14 @@ const AboutMe: React.FC = () => {
                   <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
                     {/* Section titles updated to text-xl like quotes */}
                     <h3
-                      className={`text-xl leading-relaxed font-semibold mb-4 transition-colors duration-500 group-hover:text-white
+                      className={`font-inter  text-xl leading-relaxed font-semibold mb-4 transition-colors duration-500 group-hover:text-white
                         ${darkMode ? "text-white" : "text-slate-900"}`}
                     >
                       {section.title}
                     </h3>
                     {/* Content paragraphs updated to text-lg like main body text */}
                     <p
-                      className={`text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
+                      className={`font-inter  text-lg leading-relaxed transition-colors duration-500 group-hover:text-slate-200
                         ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                     >
                       {section.content}

@@ -187,21 +187,21 @@ const QuoteSlider = () => {
         {/* Expanded to max-w-7xl for wider section */}
         <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
         ${darkMode ? "text-white" : "text-slate-900"} 
         transition-colors duration-300`}
           >
             Curiosity: Source of My Inspiration
           </h2>
           <p
-            className={`text-2xl font-semibold text-center my-4 
+            className={`font-inter text-2xl font-semibold text-center my-4 
     ${darkMode ? "text-blue-500" : "text-blue-700"}
     transition-colors duration-300 max-w-xl mx-auto font-serif italic`}
           >
             &quot;I am driven by what I don&apos;t know.&quot;
           </p>
           <p
-            className={`text-xl leading-relaxed 
+            className={`font-inter text-xl leading-relaxed 
           ${darkMode ? "text-slate-400" : "text-slate-600"} 
           transition-colors duration-300 max-w-xl mx-auto`}
           >
@@ -230,7 +230,7 @@ const QuoteSlider = () => {
           </button>
           <button
             onClick={goToNext}
-            className={`hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
+            className={`font-inter hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 p-4 rounded-full transition-all duration-300
           ${
             darkMode
               ? "bg-slate-800 hover:bg-slate-700 text-white"
@@ -262,7 +262,7 @@ const QuoteSlider = () => {
 
             <div className="relative p-4 sm:p-8 transition-colors duration-500 group-hover:text-white z-10">
               <span
-                className={`absolute top-4 left-4 text-4xl sm:text-6xl leading-none font-serif
+                className={`font-inter absolute top-4 left-4 text-4xl sm:text-6xl leading-none font-serif
             ${darkMode ? "text-slate-700" : "text-slate-200"}
             group-hover:text-slate-700`}
               >
@@ -270,7 +270,7 @@ const QuoteSlider = () => {
               </span>
 
               <p
-                className={`relative text-lg sm:text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white
+                className={`font-inter relative text-lg sm:text-2xl leading-relaxed transition-colors duration-500 group-hover:text-white
             ${darkMode ? "text-white" : "text-slate-900"}`}
               >
                 {allQuotes[currentIndex].quote}
@@ -278,13 +278,13 @@ const QuoteSlider = () => {
 
               <div className="mt-6 sm:mt-8 space-y-1">
                 <p
-                  className={`text-base sm:text-xl italic transition-colors duration-500 group-hover:text-white/80
+                  className={`font-inter text-base sm:text-xl italic transition-colors duration-500 group-hover:text-white/80
               ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 >
                   — {allQuotes[currentIndex].author}
                 </p>
                 <p
-                  className={`text-xs sm:text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60
+                  className={`font-inter text-xs sm:text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white/60
               ${darkMode ? "text-slate-500" : "text-slate-500"}`}
                 >
                   {allQuotes[currentIndex].group}

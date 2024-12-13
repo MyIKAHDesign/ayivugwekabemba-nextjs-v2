@@ -188,7 +188,7 @@ const VideoGallery = () => {
           <div className="pt-24">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <h2
-                className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+                className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
                 ${darkMode ? "text-white" : "text-slate-900"} 
                 transition-colors duration-300`}
               >
@@ -196,7 +196,7 @@ const VideoGallery = () => {
               </h2>
 
               <p
-                className={`text-xl leading-relaxed
+                className={`font-inter text-xl leading-relaxed
                 ${darkMode ? "text-slate-400" : "text-slate-600"} 
                 transition-colors duration-300 max-w-xl mx-auto`}
               >
@@ -204,7 +204,7 @@ const VideoGallery = () => {
               </p>
 
               <p
-                className={`mt-6 text-lg leading-relaxed
+                className={`font-inter mt-6 text-lg leading-relaxed
                 ${darkMode ? "text-slate-400" : "text-slate-600"} 
                 transition-colors duration-300 max-w-xl mx-auto`}
               >
@@ -248,7 +248,7 @@ const VideoGallery = () => {
                       <div className="p-4 bg-slate-800/10 backdrop-blur-sm">
                         <div className="space-y-2">
                           <h3
-                            className={`text-lg font-medium ${
+                            className={`font-inter text-lg font-medium ${
                               darkMode ? "text-white" : "text-slate-900"
                             }`}
                           >
@@ -256,7 +256,7 @@ const VideoGallery = () => {
                           </h3>
 
                           <p
-                            className={`text-sm line-clamp-2 ${
+                            className={`font-inter text-sm line-clamp-2 ${
                               darkMode ? "text-slate-400" : "text-slate-600"
                             }`}
                           >
@@ -311,7 +311,9 @@ const VideoGallery = () => {
                               </span>
                               <span
                                 className={
-                                  darkMode ? "text-slate-400" : "text-slate-500"
+                                  darkMode
+                                    ? "font-inter text-slate-400"
+                                    : "font-inter text-slate-500"
                                 }
                               >
                                 {videos[currentVideoIndex].publishedAt}
@@ -325,7 +327,7 @@ const VideoGallery = () => {
 
                   <div className="lg:w-1/3">
                     <h3
-                      className={`text-base font-medium mb-3 ${
+                      className={`font-inter text-base font-medium mb-3 ${
                         darkMode ? "text-white" : "text-slate-900"
                       }`}
                     >
@@ -365,7 +367,7 @@ const VideoGallery = () => {
                           </div>
                           <div className="p-2">
                             <h4
-                              className={`text-xs font-medium line-clamp-2 ${
+                              className={`font-inter text-xs font-medium line-clamp-2 ${
                                 darkMode ? "text-slate-300" : "text-slate-700"
                               }`}
                             >
@@ -373,14 +375,14 @@ const VideoGallery = () => {
                             </h4>
                             <div className="flex justify-between items-center mt-1">
                               <span
-                                className={`text-xs ${
+                                className={`font-inter text-xs ${
                                   darkMode ? "text-slate-400" : "text-slate-500"
                                 }`}
                               >
                                 {video.duration}
                               </span>
                               <span
-                                className={`text-xs ${
+                                className={`font-inter text-xs ${
                                   darkMode ? "text-slate-400" : "text-slate-500"
                                 }`}
                               >
