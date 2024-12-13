@@ -9,12 +9,12 @@ const AboutMe: React.FC = () => {
 
   return (
     <section
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
-        ${
-          darkMode
-            ? "bg-gradient-to-b from-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 to-white"
-        }`}
+      className={`relative min-h-screen mt-20 sm:mt-24 py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+    ${
+      darkMode
+        ? "bg-gradient-to-b from-slate-900 to-slate-800"
+        : "bg-gradient-to-b from-slate-50 to-white"
+    }`}
       id="about-me"
     >
       {/* Background Pattern */}

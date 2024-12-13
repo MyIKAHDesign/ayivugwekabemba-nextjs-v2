@@ -165,7 +165,7 @@ const QuoteSlider = () => {
   return (
     <section
       id="quotes"
-      className={`relative min-h-screen py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen mt-20 sm:mt-24 py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
     ${
       darkMode
         ? "bg-gradient-to-b from-slate-900 to-slate-800"

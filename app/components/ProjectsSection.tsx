@@ -63,13 +63,13 @@ const projects: Project[] = [
     link: "https://radioibufuliiru.substack.com/",
     icon: Radio,
   },
-  {
-    title: "Digital Dictionary",
-    description:
-      "Comprehensive digital dictionary and language resource featuring Kifuliiru words, phrases, and cultural context.",
-    link: "https://ibufuliiru.wixstudio.io/kifuliiru/sobaanura",
-    icon: BookOpen,
-  },
+  // {
+  //   title: "Digital Dictionary",
+  //   description:
+  //     "Comprehensive digital dictionary and language resource featuring Kifuliiru words, phrases, and cultural context.",
+  //   link: "https://ibufuliiru.wixstudio.io/kifuliiru/sobaanura",
+  //   icon: BookOpen,
+  // },
 ];
 
 const ProjectsSection: React.FC = () => {
