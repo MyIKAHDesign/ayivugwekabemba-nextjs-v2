@@ -13,7 +13,7 @@ import {
   Rocket,
   MessageSquare,
 } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 const Header = () => {
   const pathname = usePathname();
@@ -54,6 +54,7 @@ const Header = () => {
     { name: "Certificates", href: "/certificates" },
     { name: "Quotes", href: "/quotes" },
     { name: "Videos", href: "/videos" },
+    { name: "Blog", href: "/blog" },
   ];
 
   useEffect(() => {

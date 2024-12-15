@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3
-              className={`text-lg font-bold mb-4 
+              className={`font-inter text-lg font-bold mb-4 
               ${darkMode ? "text-white" : "text-slate-900"}`}
             >
               Quick Links
@@ -54,6 +54,8 @@ const Footer = () => {
                 "About me",
                 "FAQ",
                 "Contact",
+                "Videos",
+                "Blog",
               ].map((link) => {
                 const href = `/#${link.toLowerCase().replace(" ", "-")}`;
                 return (
@@ -104,7 +106,7 @@ const Footer = () => {
           {/* Connect */}
           <div>
             <h3
-              className={`text-lg font-bold mb-4 
+              className={`font-inter text-lg font-bold mb-4 
               ${darkMode ? "text-white" : "text-slate-900"}`}
             >
               Connect
