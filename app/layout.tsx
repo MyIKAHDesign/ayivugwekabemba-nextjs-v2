@@ -4,7 +4,7 @@ import { Inter, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
-import Header from "./components/header/Header";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const inter = Inter({

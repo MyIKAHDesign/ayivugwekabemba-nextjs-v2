@@ -248,7 +248,7 @@ const SkillsSection: React.FC = () => {
         return (
           <Building2
             className={`w-5 h-5 ${
-              darkMode ? "text-slate-400" : "text-slate-600"
+              darkMode ? "text-orange-400" : "text-orange-600"
             }`}
           />
         );
@@ -256,7 +256,7 @@ const SkillsSection: React.FC = () => {
         return (
           <GraduationCap
             className={`w-5 h-5 ${
-              darkMode ? "text-slate-400" : "text-slate-600"
+              darkMode ? "text-orange-400" : "text-orange-600"
             }`}
           />
         );
@@ -264,7 +264,7 @@ const SkillsSection: React.FC = () => {
         return (
           <Award
             className={`w-5 h-5 ${
-              darkMode ? "text-slate-400" : "text-slate-600"
+              darkMode ? "text-orange-400" : "text-orange-600"
             }`}
           />
         );
@@ -273,75 +273,73 @@ const SkillsSection: React.FC = () => {
 
   return (
     <section
-      className={`relative min-h-90 py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 
-      ${
-        darkMode
-          ? "bg-gradient-to-b from-slate-900 to-slate-800"
-          : "bg-gradient-to-b from-slate-50 to-white"
-      }`}
       id="skills"
-    >
-      <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
+      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
-            : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+            ? "bg-gradient-to-b from-slate-950 via-orange-900/20 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-orange-100 to-white"
         }`}
+    >
+      {/* Background Pattern */}
+      <div
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
+          ${
+            darkMode
+              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
+              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
+          }`}
       />
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header section - Updated text sizes */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
             className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-            ${darkMode ? "text-white" : "text-slate-900"}`}
+              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
           >
             Technical Expertise
           </h2>
-          {/* Updated to text-xl like featured text */}
           <p
             className={`font-inter text-xl leading-relaxed 
-            ${darkMode ? "text-slate-400" : "text-slate-600"} 
-            max-w-xl mx-auto`}
+              ${darkMode ? "text-orange-200" : "text-slate-700"}`}
           >
             Comprehensive skill set in software development and project
-            management.
+            management
           </p>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {skills.map((skillGroup, categoryIndex) => (
             <div
               key={skillGroup.category}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-xl border
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
                 ${
                   darkMode
-                    ? "bg-slate-800 border-slate-700"
-                    : "bg-white border-gray-100"
+                    ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
+                    : "bg-white/50 border-orange-400/30 hover:border-orange-500"
                 }`}
             >
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
-                ${
-                  darkMode
-                    ? "bg-gradient-to-t from-slate-800 to-slate-700"
-                    : "bg-gradient-to-t from-slate-900 to-slate-800"
-                }`}
+                  ${
+                    darkMode
+                      ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
+                      : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                  }`}
               />
 
               <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
                 <div className="flex items-center mb-4">
                   <div
                     className={`transition-colors duration-500 group-hover:text-white 
-                    ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                      ${darkMode ? "text-orange-400" : "text-orange-600"}`}
                   >
                     {skillGroup.icon}
                   </div>
-                  {/* Category title - text-xl */}
                   <h3
                     className={`font-inter text-xl leading-relaxed font-semibold ml-3 transition-colors duration-500 group-hover:text-white 
-                    ${darkMode ? "text-white" : "text-slate-900"}`}
+                      ${darkMode ? "text-orange-50" : "text-slate-900"}`}
                   >
                     {skillGroup.category}
                   </h3>
@@ -351,14 +349,14 @@ const SkillsSection: React.FC = () => {
                   {skillGroup.items.map((item, skillIndex) => (
                     <li
                       key={item.name}
-                      className={`font-inter transition-colors duration-500 group-hover:text-slate-200 
-                      ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                      className={`font-inter transition-colors duration-500 group-hover:text-white
+                        ${darkMode ? "text-orange-200" : "text-slate-600"}`}
                     >
                       <button
                         onClick={() => toggleSkill(categoryIndex, skillIndex)}
                         className="w-full text-left"
                       >
-                        <div className="flex items-center justify-between transition-colors duration-500 group-hover:text-white">
+                        <div className="flex items-center justify-between">
                           <div className="flex items-center">
                             {expandedSkills[
                               `${categoryIndex}-${skillIndex}`
@@ -367,10 +365,7 @@ const SkillsSection: React.FC = () => {
                             ) : (
                               <ChevronRight className="w-4 h-4 mr-2" />
                             )}
-                            {/* Skill name - text-lg */}
-                            <span className="text-lg leading-relaxed">
-                              {item.name}
-                            </span>
+                            <span className="text-lg">{item.name}</span>
                           </div>
                         </div>
                       </button>
@@ -381,19 +376,16 @@ const SkillsSection: React.FC = () => {
                             <div key={sourceIndex} className="flex flex-col">
                               <div className="flex items-center">
                                 {getSourceIcon(source.type)}
-                                {/* Source title - text-sm uppercase like metadata */}
-                                <span className="font-inter ml-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500 group-hover:text-white">
+                                <span className="font-inter ml-2 text-sm font-medium uppercase tracking-wide">
                                   {source.title}:
                                 </span>
                               </div>
-                              {/* Source description - text-lg */}
-                              <p className="font-inter ml-6 mt-1 text-sm leading-relaxed transition-colors duration-500 group-hover:text-slate-200">
+                              <p className="font-inter ml-6 mt-1 text-sm">
                                 {source.description}
                               </p>
                             </div>
                           ))}
-                          {/* Details - text-lg */}
-                          <p className="font-inter text-sm leading-relaxed transition-colors duration-500 group-hover:text-slate-200 ml-6">
+                          <p className="font-inter text-sm ml-6">
                             {item.details}
                           </p>
                         </div>
@@ -405,6 +397,13 @@ const SkillsSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Bottom Gradient Decoration */}
+        <div
+          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
+            ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
+            to-transparent`}
+        />
       </div>
     </section>
   );
