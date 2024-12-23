@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import { useTheme } from "../context/ThemeContext";
@@ -63,13 +61,6 @@ const projects: Project[] = [
     link: "https://radioibufuliiru.substack.com/",
     icon: Radio,
   },
-  // {
-  //   title: "Digital Dictionary",
-  //   description:
-  //     "Comprehensive digital dictionary and language resource featuring Kifuliiru words, phrases, and cultural context.",
-  //   link: "https://ibufuliiru.wixstudio.io/kifuliiru/sobaanura",
-  //   icon: BookOpen,
-  // },
 ];
 
 const ProjectsSection: React.FC = () => {
@@ -81,8 +72,8 @@ const ProjectsSection: React.FC = () => {
       className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -99,20 +90,20 @@ const ProjectsSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter font-montserrat text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-            ${darkMode ? "text-white" : "text-slate-900"} 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-orange-50" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Featured Projects
           </h2>
           <p
             className={`font-inter text-lg sm:text-xl 
-            ${darkMode ? "text-slate-400" : "text-slate-600"} 
+            ${darkMode ? "text-orange-200" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
             Innovative solutions for language and cultural preservation
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
         {/* Projects Grid */}
@@ -131,7 +122,7 @@ const ProjectsSection: React.FC = () => {
         {/* Bottom Gradient Decoration */}
         <div
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-          ${darkMode ? "via-slate-700" : "via-slate-200"} 
+          ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
           to-transparent`}
         ></div>
       </div>
