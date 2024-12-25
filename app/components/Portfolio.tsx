@@ -6,7 +6,7 @@ import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./Experience";
 import SkillsSection from "./SkillsSection";
 import FAQ from "./FAQ";
-import QuoteSlider from "./QuoteSlider";
+import QuoteSlider from "./QuotesSection";
 import CertificatesSection from "./CertificatesSection";
 
 const Portfolio: React.FC = () => {

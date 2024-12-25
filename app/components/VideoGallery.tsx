@@ -34,6 +34,8 @@ const VideoGallery = () => {
 
   const videoIds = ["e19RhhBez4w", "NYyK4sQOoqk", "c5Q2kyom_tI", "O3fZAmsvKAY"];
 
+  // API and formatting functions remain the same...
+
   const formatDuration = (duration: string): string => {
     const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
     if (!match) return "0:00";
@@ -148,266 +150,312 @@ const VideoGallery = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <p className="text-red-500">Error loading videos: {error}</p>
+      <div className="flex items-center justify-center min-h-screen text-orange-500">
+        <p>Error loading videos: {error}</p>
       </div>
     );
   }
 
   return (
-    <div
-      className={`min-h-screen bg-slate-50 dark:bg-slate-900 font-['Instrument_Sans']`}
-    >
-      {/* Hero Section */}
-      <section
-        className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+    <section
+      className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 pb-24 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
         }`}
-      >
-        {/* Background Pattern */}
-        <div
-          className={`absolute inset-0 bg-[url('/grid.svg')] bg-center 
+    >
+      {/* Background Pattern */}
+      <div
+        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
           ${
             darkMode
               ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
               : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
           }`}
-        />
+      />
 
-        <div className="relative max-w-7xl mx-auto">
-          <div className="pt-24">
-            <div className="max-w-2xl mx-auto text-center mb-16">
-              <h2
-                className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-                ${darkMode ? "text-white" : "text-slate-900"} 
-                transition-colors duration-300`}
-              >
-                Kifuliiru Video Collection
-              </h2>
+      <div className="relative max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <h2
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4
+              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+          >
+            Kifuliiru Video Collection
+          </h2>
+          <p
+            className={`font-inter text-xl leading-relaxed
+              ${darkMode ? "text-orange-200" : "text-slate-600"}`}
+          >
+            Preserving our heritage through digital storytelling
+          </p>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+        </div>
 
-              <p
-                className={`font-inter text-xl leading-relaxed
-                ${darkMode ? "text-slate-400" : "text-slate-600"} 
-                transition-colors duration-300 max-w-xl mx-auto`}
-              >
-                Preserving our heritage through digital storytelling
-              </p>
-
-              <p
-                className={`font-inter mt-6 text-lg leading-relaxed
-                ${darkMode ? "text-slate-400" : "text-slate-600"} 
-                transition-colors duration-300 max-w-xl mx-auto`}
-              >
-                Kifuliiru is more than just my mother tongue—it&apos;s the heart
-                of our cultural identity. Through these videos, I&apos;m
-                dedicated to preserving and sharing our beautiful language,
-                making it accessible to future generations while celebrating its
-                rich heritage.
-              </p>
-
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
-            </div>
-
-            {/* Videos Section */}
-            {videos.length > 0 && (
+        {/* Videos Section */}
+        {videos.length > 0 && (
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Main Video */}
+            <div className="lg:w-2/3">
               <div
-                className={`relative backdrop-blur-xl rounded-2xl border
-                ${
-                  darkMode
-                    ? "bg-slate-800/50 border-slate-700"
-                    : "bg-white/50 border-gray-100"
-                }`}
+                ref={videoContainerRef}
+                className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl
+                  ${
+                    darkMode
+                      ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
+                      : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                  }`}
               >
-                <div className="flex flex-col lg:flex-row gap-4 p-6">
-                  <div className="lg:w-2/3">
-                    <div
-                      ref={videoContainerRef}
-                      className="relative rounded-lg overflow-hidden"
-                    >
-                      <div className="relative aspect-video">
-                        <iframe
-                          src={`https://www.youtube.com/embed/${
-                            videos[currentVideoIndex].id
-                          }?autoplay=1&mute=${isMuted ? 1 : 0}`}
-                          className="absolute w-full h-full"
-                          allowFullScreen
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        />
-                      </div>
+                <div
+                  className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                    ${
+                      darkMode
+                        ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
+                        : "bg-gradient-to-t from-orange-400 via-orange-200 to-orange-50"
+                    }`}
+                />
 
-                      <div className="p-4 bg-slate-800/10 backdrop-blur-sm">
-                        <div className="space-y-2">
-                          <h3
-                            className={`font-inter text-lg font-medium ${
-                              darkMode ? "text-white" : "text-slate-900"
-                            }`}
-                          >
-                            {videos[currentVideoIndex].title}
-                          </h3>
-
-                          <p
-                            className={`font-inter text-sm line-clamp-2 ${
-                              darkMode ? "text-slate-400" : "text-slate-600"
-                            }`}
-                          >
-                            {videos[currentVideoIndex].description}
-                          </p>
-
-                          <div className="flex justify-between items-center pt-2">
-                            <div className="flex space-x-2">
-                              <button
-                                onClick={() => setIsMuted(!isMuted)}
-                                className={`p-1.5 rounded-lg transition-colors ${
-                                  darkMode
-                                    ? "hover:bg-slate-700"
-                                    : "hover:bg-slate-100"
-                                }`}
-                              >
-                                {isMuted ? (
-                                  <VolumeX className="w-4 h-4" />
-                                ) : (
-                                  <Volume2 className="w-4 h-4" />
-                                )}
-                              </button>
-                              <button
-                                onClick={toggleFullscreen}
-                                className={`p-1.5 rounded-lg transition-colors ${
-                                  darkMode
-                                    ? "hover:bg-slate-700"
-                                    : "hover:bg-slate-100"
-                                }`}
-                              >
-                                {isFullscreen ? (
-                                  <Minimize2 className="w-4 h-4" />
-                                ) : (
-                                  <Maximize2 className="w-4 h-4" />
-                                )}
-                              </button>
-                            </div>
-                            <div className="flex items-center gap-2 text-xs">
-                              <span
-                                className={
-                                  darkMode ? "text-slate-400" : "text-slate-500"
-                                }
-                              >
-                                {videos[currentVideoIndex].duration}
-                              </span>
-                              <span
-                                className={
-                                  darkMode ? "text-slate-400" : "text-slate-500"
-                                }
-                              >
-                                {videos[currentVideoIndex].viewCount}
-                              </span>
-                              <span
-                                className={
-                                  darkMode
-                                    ? "font-inter text-slate-400"
-                                    : "font-inter text-slate-500"
-                                }
-                              >
-                                {videos[currentVideoIndex].publishedAt}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div className="relative z-10">
+                  <div className="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${
+                        videos[currentVideoIndex].id
+                      }?autoplay=1&mute=${isMuted ? 1 : 0}`}
+                      className="w-full h-full"
+                      allowFullScreen
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
                   </div>
 
-                  <div className="lg:w-1/3">
+                  <div className="p-6">
                     <h3
-                      className={`font-inter text-base font-medium mb-3 ${
-                        darkMode ? "text-white" : "text-slate-900"
-                      }`}
+                      className={`font-inter text-xl font-semibold mb-2 transition-colors duration-500
+                        ${darkMode ? "text-orange-200" : "text-slate-900"}
+                        ${
+                          darkMode
+                            ? "group-hover:text-white"
+                            : "group-hover:text-slate-900"
+                        }`}
                     >
-                      More Videos
+                      {videos[currentVideoIndex].title}
                     </h3>
-                    <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
-                      {videos.map((video, index) => (
+
+                    <p
+                      className={`font-inter text-lg leading-relaxed mb-4 transition-colors duration-500
+                        ${darkMode ? "text-orange-200" : "text-slate-600"}
+                        ${
+                          darkMode
+                            ? "group-hover:text-orange-100"
+                            : "group-hover:text-slate-700"
+                        }`}
+                    >
+                      {videos[currentVideoIndex].description}
+                    </p>
+
+                    <div className="flex justify-between items-center">
+                      <div className="flex space-x-2">
                         <button
-                          key={video.id}
-                          onClick={() => setCurrentVideoIndex(index)}
-                          className={`flex-shrink-0 w-64 lg:w-full group relative rounded-lg overflow-hidden 
-                            transition-transform hover:scale-105 ${
-                              currentVideoIndex === index
-                                ? "ring-2 ring-blue-500"
-                                : ""
+                          onClick={() => setIsMuted(!isMuted)}
+                          className={`p-2 rounded-lg transition-all duration-300 hover:scale-105
+                            ${
+                              darkMode
+                                ? "bg-slate-700/50 text-orange-200 hover:bg-slate-600/50"
+                                : "bg-orange-100/50 text-orange-800 hover:bg-orange-200/50"
                             }`}
                         >
-                          <div className="aspect-video relative">
-                            <img
-                              src={video.thumbnail}
-                              alt={video.title}
-                              className="w-full h-full object-cover"
-                            />
-                            <div
-                              className={`absolute inset-0 flex items-center justify-center 
-                              ${
-                                darkMode ? "bg-slate-900/60" : "bg-slate-100/60"
-                              } 
-                              group-hover:bg-opacity-30 transition-all duration-300`}
-                            >
-                              <Play
-                                className={`w-6 h-6 ${
-                                  darkMode ? "text-white" : "text-slate-900"
-                                }`}
-                              />
-                            </div>
-                          </div>
-                          <div className="p-2">
-                            <h4
-                              className={`font-inter text-xs font-medium line-clamp-2 ${
-                                darkMode ? "text-slate-300" : "text-slate-700"
-                              }`}
-                            >
-                              {video.title}
-                            </h4>
-                            <div className="flex justify-between items-center mt-1">
-                              <span
-                                className={`font-inter text-xs ${
-                                  darkMode ? "text-slate-400" : "text-slate-500"
-                                }`}
-                              >
-                                {video.duration}
-                              </span>
-                              <span
-                                className={`font-inter text-xs ${
-                                  darkMode ? "text-slate-400" : "text-slate-500"
-                                }`}
-                              >
-                                {video.publishedAt}
-                              </span>
-                            </div>
-                          </div>
+                          {isMuted ? (
+                            <VolumeX className="w-5 h-5" />
+                          ) : (
+                            <Volume2 className="w-5 h-5" />
+                          )}
                         </button>
-                      ))}
+                        <button
+                          onClick={toggleFullscreen}
+                          className={`p-2 rounded-lg transition-all duration-300 hover:scale-105
+                            ${
+                              darkMode
+                                ? "bg-slate-700/50 text-orange-200 hover:bg-slate-600/50"
+                                : "bg-orange-100/50 text-orange-800 hover:bg-orange-200/50"
+                            }`}
+                        >
+                          {isFullscreen ? (
+                            <Minimize2 className="w-5 h-5" />
+                          ) : (
+                            <Maximize2 className="w-5 h-5" />
+                          )}
+                        </button>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <span
+                          className={`font-inter text-sm transition-colors duration-500
+                            ${
+                              darkMode ? "text-orange-200/70" : "text-slate-500"
+                            }
+                            ${
+                              darkMode
+                                ? "group-hover:text-orange-100"
+                                : "group-hover:text-white"
+                            }`}
+                        >
+                          {videos[currentVideoIndex].duration}
+                        </span>
+                        <span
+                          className={`font-inter text-sm transition-colors duration-500
+                            ${
+                              darkMode ? "text-orange-200/70" : "text-slate-500"
+                            }
+                            ${
+                              darkMode
+                                ? "group-hover:text-orange-100"
+                                : "group-hover:text-white"
+                            }`}
+                        >
+                          {videos[currentVideoIndex].viewCount}
+                        </span>
+                        <span
+                          className={`font-inter text-sm transition-colors duration-500
+                            ${
+                              darkMode ? "text-orange-200/70" : "text-slate-500"
+                            }
+                            ${
+                              darkMode
+                                ? "group-hover:text-orange-100"
+                                : "group-hover:text-white"
+                            }`}
+                        >
+                          {videos[currentVideoIndex].publishedAt}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            )}
-          </div>
+            </div>
 
-          {/* Bottom Gradient Decoration */}
-          <div
-            className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-            ${darkMode ? "via-slate-700" : "via-slate-200"} 
+            {/* Video List */}
+            <div className="lg:w-1/3">
+              <h3
+                className={`font-inter text-xl font-semibold mb-4
+                  ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+              >
+                More Videos
+              </h3>
+              <div className="flex flex-row lg:flex-col gap-4 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0">
+                {videos.map((video, index) => (
+                  <button
+                    key={video.id}
+                    onClick={() => setCurrentVideoIndex(index)}
+                    className={`group relative flex-shrink-0 w-72 lg:w-full rounded-xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+                      ${
+                        darkMode
+                          ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
+                          : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                      }
+                      ${
+                        currentVideoIndex === index
+                          ? "ring-2 ring-orange-500"
+                          : ""
+                      }`}
+                  >
+                    <div
+                      className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                        ${
+                          darkMode
+                            ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
+                            : "bg-gradient-to-t from-orange-200 via-orange-100 to-orange-50"
+                        }`}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="aspect-video relative">
+                        <img
+                          src={video.thumbnail}
+                          alt={video.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div
+                          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
+                            ${darkMode ? "bg-slate-900/60" : "bg-slate-100/60"}
+                            group-hover:opacity-0`}
+                        >
+                          <Play
+                            className={`w-8 h-8 transition-colors duration-500
+                              ${
+                                darkMode ? "text-orange-200" : "text-orange-600"
+                              }`}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="p-4">
+                        <h4
+                          className={`font-inter text-sm font-medium mb-2 line-clamp-2 transition-colors duration-500
+                            ${darkMode ? "text-orange-50" : "text-slate-900"}
+                            ${
+                              darkMode
+                                ? "group-hover:text-white"
+                                : "group-hover:text-white"
+                            }`}
+                        >
+                          {video.title}
+                        </h4>
+                        <div className="flex justify-between items-center">
+                          <span
+                            className={`font-inter text-xs transition-colors duration-500
+                              ${
+                                darkMode
+                                  ? "text-orange-200/70"
+                                  : "text-slate-500"
+                              }
+                              ${
+                                darkMode
+                                  ? "group-hover:text-orange-100"
+                                  : "group-hover:text-white"
+                              }`}
+                          >
+                            {video.duration}
+                          </span>
+                          <span
+                            className={`font-inter text-xs transition-colors duration-500
+                              ${
+                                darkMode
+                                  ? "text-orange-200/70"
+                                  : "text-slate-500"
+                              }
+                              ${
+                                darkMode
+                                  ? "group-hover:text-orange-100"
+                                  : "group-hover:text-white"
+                              }`}
+                          >
+                            {video.publishedAt}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Bottom Gradient Decoration */}
+        <div
+          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
+            ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
             to-transparent`}
-          />
-        </div>
-      </section>
-    </div>
+        />
+      </div>
+    </section>
   );
 };
 
