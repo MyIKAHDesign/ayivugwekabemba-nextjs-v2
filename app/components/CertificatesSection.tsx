@@ -7,7 +7,7 @@ const certificates = [
   {
     title: "Project Management Professional",
     issuer: "Google",
-    date: "2023",
+    date: "2024",
     description:
       "Professional certification in Project Management methodologies and best practices",
     imgURL: "/certificates/google-pm.jpg",
@@ -19,22 +19,22 @@ const certificates = [
     ],
   },
   {
-    title: "Meta Back-End Developer",
-    issuer: "Meta",
-    date: "2023",
+    title: "GitHub Foundations",
+    issuer: "GitHub",
+    date: "2024",
     description:
-      "Comprehensive back-end development certification covering modern development practices",
-    imgURL: "/certificates/meta-backend.jpg",
-    skills: ["Python", "Django", "APIs", "Database Design"],
+      "Professional certification in foundational GitHub usage and best practices",
+    imgURL: "/certificates/GitHubFoundations_Badge.jpg",
+    skills: ["Version Control", "Collaboration", "Repository Management"],
   },
   {
-    title: "Cloud Practitioner",
-    issuer: "AWS",
-    date: "2023",
+    title: "Slack",
+    issuer: "Coursera",
+    date: "2024",
     description:
-      "Foundation level certification for AWS cloud services and architecture",
-    imgURL: "/certificates/aws-cloud.jpg",
-    skills: ["Cloud Services", "Security", "Architecture", "Cost Management"],
+      "Certification in effective communication and collaboration using Slack",
+    imgURL: "/certificates/Slack.jpg",
+    skills: ["Communication", "Team Collaboration", "Productivity Tools"],
   },
 ];
 
@@ -64,7 +64,7 @@ const CertificatesSection = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-orange-50" : "text-slate-900"}`}
           >
             Professional Certifications
