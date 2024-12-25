@@ -1,6 +1,6 @@
 "use client";
 
-import QuoteSlider from "../components/QuoteSlider";
+import QuoteSlider from "../components/QuotesSection";
 
 const QuotesPage: React.FC = () => {
   return <QuoteSlider />;

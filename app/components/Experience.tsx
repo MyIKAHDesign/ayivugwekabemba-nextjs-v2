@@ -73,7 +73,7 @@ const ExperienceSection: React.FC = () => {
 
   return (
     <section
-      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-950 via-orange-900/20 to-slate-950"
@@ -113,10 +113,14 @@ const ExperienceSection: React.FC = () => {
         <div className="flex justify-center md:justify-end mb-12">
           <button
             onClick={toggleTimeline}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium text-sm transition-all duration-300 overflow-hidden bg-orange-600 hover:bg-orange-700 transform hover:scale-105 shadow-lg"
+            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg text-slate-900 font-medium text-sm transition-all duration-300 overflow-hidden bg-orange-500/80 hover:bg-orange-600 transform hover:scale-105 shadow-lg ring-1 ring-orange-500/50"
           >
-            <Calendar className="w-5 h-5" />
-            <span>{isTimelineVisible ? "Hide Timeline" : "View Timeline"}</span>
+            <div className="relative z-10 flex items-center gap-2">
+              <Calendar className="w-5 h-5" />
+              <span>
+                {isTimelineVisible ? "Hide Timeline" : "View Timeline"}
+              </span>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
@@ -147,7 +151,7 @@ const ExperienceSection: React.FC = () => {
                   ${
                     darkMode
                       ? "group-hover:text-white"
-                      : "group-hover:text-white"
+                      : "group-hover:text-slate-900"
                   }`}
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
@@ -203,11 +207,11 @@ const ExperienceSection: React.FC = () => {
             onClick={() => setIsTimelineVisible(false)}
           >
             <div
-              className={`max-w-7xl w-full h-[90vh] mx-4 p-6 rounded-lg shadow-lg overflow-y-scroll relative
+              className={`max-w-7xl w-full h-[90vh] mx-4 p-6 rounded-lg shadow-lg overflow-y-scroll relative transition-all duration-300
                 ${
                   darkMode
                     ? "bg-slate-900/95 border border-orange-900/30"
-                    : "bg-white/95 border border-orange-200"
+                    : "bg-white/95 border-2 border-orange-400/50 backdrop-blur-xl"
                 }`}
               onClick={(e) => e.stopPropagation()}
             >
@@ -246,11 +250,12 @@ const ExperienceSection: React.FC = () => {
                     </div>
 
                     <div
-                      className={`group relative rounded-xl overflow-hidden w-full transition-all duration-300 border
+                      key={index}
+                      className={`group relative rounded-xl overflow-hidden w-full transition-all duration-300 border hover:shadow-xl hover:border-orange-500
                         ${
                           darkMode
                             ? "bg-slate-800/50 border-orange-900/30"
-                            : "bg-white/50 border-orange-200"
+                            : "bg-white/80 border-orange-300"
                         }`}
                     >
                       <div
@@ -274,7 +279,7 @@ const ExperienceSection: React.FC = () => {
                               ${
                                 darkMode
                                   ? "group-hover:text-orange-100"
-                                  : "group-hover:text-white"
+                                  : "group-hover:text-slate-500"
                               }`}
                           >
                             {exp.period}
@@ -286,7 +291,7 @@ const ExperienceSection: React.FC = () => {
                             ${
                               darkMode
                                 ? "group-hover:text-white"
-                                : "group-hover:text-white"
+                                : "group-hover:text-slate-500"
                             }`}
                         >
                           {exp.company}
@@ -297,7 +302,7 @@ const ExperienceSection: React.FC = () => {
                             ${
                               darkMode
                                 ? "group-hover:text-orange-100"
-                                : "group-hover:text-white"
+                                : "group-hover:text-slate-500"
                             }`}
                         >
                           {exp.description}
