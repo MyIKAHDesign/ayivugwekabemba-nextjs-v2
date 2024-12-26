@@ -83,7 +83,7 @@ export default function Contact() {
 
   return (
     <section
-      className={`relative min-h-screen font-inter py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
+      className={`relative min-h-screen font-inter py-40 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
         darkMode
           ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950 text-white"
           : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white text-slate-900"

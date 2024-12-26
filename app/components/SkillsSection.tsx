@@ -77,6 +77,8 @@ const SkillsSection: React.FC = () => {
       category: "Backend Development",
       icon: Server,
       technologies: [
+        "Java",
+        "Spring Boot",
         "Node.js",
         "Python",
         "Django",
@@ -96,14 +98,7 @@ const SkillsSection: React.FC = () => {
     {
       category: "Database Management",
       icon: Database,
-      technologies: [
-        "PostgreSQL",
-        "MongoDB",
-        "MySQL",
-        "Redis",
-        "Supabase",
-        "Firebase",
-      ],
+      technologies: ["PostgreSQL", "MySQL", "Supabase", "Firebase"],
       details: [
         "Database design and normalization",
         "Query optimization and performance tuning",
@@ -301,7 +296,7 @@ const SkillsSection: React.FC = () => {
                       <div key={tech} className="space-y-2">
                         <button
                           onClick={() => toggleTechnology(tech)}
-                          className={`w-full text-left transition-colors duration-500
+                          className={`font-inter w-full text-left transition-colors duration-500
                             ${darkMode ? "text-orange-200" : "text-slate-700"}
                             group-hover:text-white`}
                         >
@@ -323,10 +318,10 @@ const SkillsSection: React.FC = () => {
                           <div className="pl-6 pt-2 space-y-4">
                             {/* Details */}
                             <div className="space-y-2">
-                              <h4 className="font-medium text-orange-200 group-hover:text-orange-100">
+                              <h4 className="font-inter font-medium text-orange-200 group-hover:text-orange-100">
                                 Details
                               </h4>
-                              <ul className="space-y-1">
+                              <ul className="font-inter space-y-1">
                                 {skill.details.map((detail, i) => (
                                   <li
                                     key={i}
