@@ -4,281 +4,220 @@ import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import {
   Code2,
+  Database,
   GitBranch,
-  Briefcase,
-  ChevronRight,
+  Monitor,
+  Server,
+  Cloud,
+  Settings,
+  Palette,
+  Container,
+  Bot,
   ChevronDown,
-  Award,
-  GraduationCap,
-  Building2,
+  ChevronUp,
 } from "lucide-react";
-
-interface SourceDetail {
-  type: "work" | "education" | "certification";
-  title: string;
-  description: string;
-}
-
-interface Skill {
-  name: string;
-  certifications: string[];
-  sourceDetails: SourceDetail[];
-  details: string;
-}
 
 interface SkillGroup {
   category: string;
-  items: Skill[];
-  icon: React.ReactNode;
-}
-
-interface ExpandedSkills {
-  [key: string]: boolean;
+  icon: React.ElementType;
+  technologies: string[];
+  details: string[];
 }
 
 const SkillsSection: React.FC = () => {
-  const [expandedSkills, setExpandedSkills] = useState<ExpandedSkills>({});
+  const [expandedTech, setExpandedTech] = useState<string | null>(null);
   const { darkMode } = useTheme();
+
+  const toggleTechnology = (techName: string) => {
+    setExpandedTech(expandedTech === techName ? null : techName);
+  };
 
   const skills: SkillGroup[] = [
     {
-      category: "Technical",
-      items: [
-        {
-          name: "Python",
-          certifications: ["Meta Back-End Developer Professional Certificate"],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Work Experience",
-              description: "Used for backend development and data processing",
-            },
-            {
-              type: "certification",
-              title: "Certification",
-              description: "Meta Back-End Developer program certification",
-            },
-          ],
-          details: "Proficient in backend development with Python.",
-        },
-        {
-          name: "Java",
-          certifications: [],
-          sourceDetails: [
-            {
-              type: "education",
-              title: "Academic Background",
-              description: "Studied Java during university",
-            },
-            {
-              type: "work",
-              title: "Work Experience",
-              description: "Developed enterprise-level applications",
-            },
-          ],
-          details: "Experienced in Java development.",
-        },
-        {
-          name: "Django",
-          certifications: ["Meta Back-End Developer Professional Certificate"],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Built and maintained web applications using Django",
-            },
-          ],
-          details: "Experienced with scalable web applications in Django.",
-        },
-        {
-          name: "MySQL",
-          certifications: [
-            "Meta Back-End Developer Professional Certificate (Database Module)",
-          ],
-          sourceDetails: [
-            {
-              type: "education",
-              title: "Academic Background",
-              description: "Studied SQL databases in coursework",
-            },
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Worked extensively with MySQL in data management",
-            },
-          ],
-          details: "Experience with SQL and database management.",
-        },
-        {
-          name: "Git & GitHub",
-          certifications: ["Meta Back-End Developer Certificate"],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Used for version control and code management",
-            },
-          ],
-          details: "Experienced with Git and GitHub for version control.",
-        },
+      category: "Frontend Development",
+      icon: Monitor,
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "JavaScript",
       ],
-      icon: <Code2 className="w-6 h-6" />,
+      details: [
+        "Building responsive and interactive user interfaces",
+        "State management with Redux and Context API",
+        "Server-side rendering and static site generation",
+        "Modern CSS frameworks and styling approaches",
+        "Cross-browser compatibility and optimization",
+        "Progressive Web Applications (PWA)",
+      ],
+    },
+    {
+      category: "Web Design",
+      icon: Palette,
+      technologies: [
+        "Wix Studio",
+        "UI/UX Design",
+        "Responsive Design",
+        "Custom Templates",
+        "Dynamic Pages",
+        "SEO Optimization",
+      ],
+      details: [
+        "Creating professional websites with Wix Studio",
+        "Custom template development and modification",
+        "Responsive design implementation",
+        "Dynamic page layouts and animations",
+        "User interface optimization",
+        "SEO-friendly design practices",
+      ],
+    },
+    {
+      category: "Backend Development",
+      icon: Server,
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "Node.js",
+        "Python",
+        "Django",
+        "FastAPI",
+        "RESTful APIs",
+        "GraphQL",
+      ],
+      details: [
+        "Server architecture and API design",
+        "Authentication and authorization systems",
+        "Database integration and ORM usage",
+        "Microservices architecture",
+        "Performance optimization",
+        "Security best practices",
+      ],
+    },
+    {
+      category: "Database Management",
+      icon: Database,
+      technologies: ["PostgreSQL", "MySQL", "Supabase", "Firebase"],
+      details: [
+        "Database design and normalization",
+        "Query optimization and performance tuning",
+        "Data modeling and schema design",
+        "Caching strategies",
+        "Backup and recovery procedures",
+        "Replication and scaling",
+      ],
+    },
+    {
+      category: "DevOps",
+      icon: Container,
+      technologies: [
+        "Docker",
+        "Kubernetes",
+        "CI/CD Pipelines",
+        "Automated Testing",
+        "Infrastructure Management",
+        "Deployment Strategies",
+      ],
+      details: [
+        "Container orchestration with Kubernetes",
+        "Continuous Integration/Deployment pipelines",
+        "Automated testing and quality assurance",
+        "Infrastructure as Code (IaC)",
+        "Deployment automation",
+        "System monitoring and logging",
+      ],
+    },
+    {
+      category: "Cloud Computing",
+      icon: Cloud,
+      technologies: [
+        "AWS Services",
+        "Vercel",
+        "Netlify",
+        "Heroku",
+        "IaaS/PaaS/SaaS",
+        "Cloud Architecture",
+      ],
+      details: [
+        "AWS cloud services implementation",
+        "Serverless architecture with Vercel",
+        "Static site deployment with Netlify",
+        "Platform as a Service with Heroku",
+        "Cloud infrastructure management",
+        "Cost optimization strategies",
+      ],
+    },
+    {
+      category: "Version Control",
+      icon: GitBranch,
+      technologies: [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "Bitbucket",
+        "Git Flow",
+        "Code Review",
+      ],
+      details: [
+        "Branch management strategies",
+        "Code review processes",
+        "Collaboration workflows",
+        "Version control best practices",
+        "Release management",
+        "Documentation",
+      ],
+    },
+    {
+      category: "AI Tools",
+      icon: Bot,
+      technologies: [
+        "ChatGPT",
+        "Claude.ai",
+        "Google Gemini",
+        "AI Prompting",
+        "AI Integration",
+        "AI Automation",
+      ],
+      details: [
+        "Advanced AI prompt engineering",
+        "AI-assisted development workflows",
+        "Integration of AI tools in applications",
+        "Automated content generation",
+        "AI-powered problem solving",
+        "Process automation with AI",
+      ],
     },
     {
       category: "Project Management",
-      items: [
-        {
-          name: "Project Management",
-          certifications: [
-            "Google Project Management Professional Certificate",
-          ],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Led projects and managed cross-functional teams",
-            },
-            {
-              type: "certification",
-              title: "Certification",
-              description: "Google Project Management Professional Certificate",
-            },
-          ],
-          details: "Skilled in leading and managing projects effectively.",
-        },
-        {
-          name: "Agile Methodologies",
-          certifications: [
-            "Google Project Management Professional Certificate",
-          ],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Experience",
-              description: "Implemented Agile practices like Scrum and Kanban",
-            },
-          ],
-          details: "Experienced in Agile frameworks for team efficiency.",
-        },
-        {
-          name: "Stakeholder Management",
-          certifications: [
-            "Google Project Management Professional Certificate",
-          ],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description:
-                "Managed stakeholder relationships effectively and efficiently",
-            },
-          ],
-          details: "Strong communication and relationship management skills.",
-        },
+      icon: Settings,
+      technologies: [
+        "Agile",
+        "Scrum",
+        "Jira",
+        "Trello",
+        "Confluence",
+        "Documentation",
       ],
-      icon: <Briefcase className="w-6 h-6" />,
-    },
-    {
-      category: "Development Tools",
-      items: [
-        {
-          name: "JIRA",
-          certifications: [],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Used for project tracking and Agile workflows",
-            },
-          ],
-          details: "Proficient in JIRA for task and project management.",
-        },
-        {
-          name: "Confluence",
-          certifications: [],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Documentation and team knowledge management",
-            },
-          ],
-          details: "Skilled in using Confluence for team documentation.",
-        },
-        {
-          name: "GitHub Actions",
-          certifications: [],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Configured CI/CD workflows using GitHub Actions",
-            },
-          ],
-          details: "Experience in CI/CD pipeline setup with GitHub Actions.",
-        },
-        {
-          name: "Slack",
-          certifications: ["Certification"],
-          sourceDetails: [
-            {
-              type: "work",
-              title: "Professional Development",
-              description: "Utilized for team communication and collaboration",
-            },
-          ],
-          details: "Proficient in team communication through Slack.",
-        },
+      details: [
+        "Sprint planning and execution",
+        "Team coordination and leadership",
+        "Risk management",
+        "Resource allocation",
+        "Stakeholder communication",
+        "Process improvement",
       ],
-      icon: <GitBranch className="w-6 h-6" />,
     },
   ];
-
-  const toggleSkill = (categoryIndex: number, skillIndex: number) => {
-    const key = `${categoryIndex}-${skillIndex}`;
-    setExpandedSkills((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const getSourceIcon = (type: SourceDetail["type"]) => {
-    switch (type) {
-      case "work":
-        return (
-          <Building2
-            className={`w-5 h-5 ${
-              darkMode ? "text-orange-400" : "text-orange-600"
-            }`}
-          />
-        );
-      case "education":
-        return (
-          <GraduationCap
-            className={`w-5 h-5 ${
-              darkMode ? "text-orange-400" : "text-orange-600"
-            }`}
-          />
-        );
-      case "certification":
-        return (
-          <Award
-            className={`w-5 h-5 ${
-              darkMode ? "text-orange-400" : "text-orange-600"
-            }`}
-          />
-        );
-    }
-  };
 
   return (
     <section
       id="skills"
-      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-40 pb-24 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-orange-900/20 to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-100 to-white"
+            ? "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"
+            : "bg-gradient-to-b from-slate-50 via-slate-50 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -297,113 +236,113 @@ const SkillsSection: React.FC = () => {
             className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-orange-50" : "text-slate-900"}`}
           >
-            Technical Expertise
+            Technical Skills
           </h2>
           <p
-            className={`font-inter text-xl leading-relaxed 
+            className={`font-inter text-xl leading-relaxed
               ${darkMode ? "text-orange-200" : "text-slate-700"}`}
           >
-            Comprehensive skill set in software development and project
-            management
+            A comprehensive toolkit for building and managing modern
+            applications
           </p>
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {skills.map((skillGroup, categoryIndex) => (
-            <div
-              key={skillGroup.category}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
-                ${
-                  darkMode
-                    ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                    : "bg-white/50 border-orange-400/30 hover:border-orange-500"
-                }`}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((skill, index) => {
+            const Icon = skill.icon;
+
+            return (
               <div
-                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                key={index}
+                className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border
+                  hover:transform hover:-translate-y-2 hover:rotate-1 hover:scale-105
                   ${
                     darkMode
-                      ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                      : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                      ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
+                      : "bg-white/50 border-orange-400/30 hover:border-orange-500"
                   }`}
-              />
+              >
+                {/* Sliding gradient background */}
+                <div
+                  className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
+                    ${
+                      darkMode
+                        ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
+                        : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                    }`}
+                />
 
-              <div className="relative p-6 transition-colors duration-500 group-hover:text-white z-10">
-                <div className="flex items-center mb-4">
-                  <div
-                    className={`transition-colors duration-500 group-hover:text-white 
-                      ${darkMode ? "text-orange-400" : "text-orange-600"}`}
-                  >
-                    {skillGroup.icon}
-                  </div>
-                  <h3
-                    className={`font-inter text-xl leading-relaxed font-semibold ml-3 transition-colors duration-500 group-hover:text-white 
-                      ${darkMode ? "text-orange-50" : "text-slate-900"}`}
-                  >
-                    {skillGroup.category}
-                  </h3>
-                </div>
-
-                <ul className="space-y-3">
-                  {skillGroup.items.map((item, skillIndex) => (
-                    <li
-                      key={item.name}
-                      className={`font-inter transition-colors duration-500 group-hover:text-white
-                        ${darkMode ? "text-orange-200" : "text-slate-600"}`}
+                <div className="relative p-6 sm:p-8 transition-colors duration-500 z-10">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <Icon
+                      className={`w-8 h-8 transition-colors duration-500
+                        ${darkMode ? "text-orange-400" : "text-orange-600"}
+                        group-hover:text-white`}
+                    />
+                    <h3
+                      className={`font-inter text-xl font-semibold transition-colors duration-500
+                        ${darkMode ? "text-orange-50" : "text-slate-900"}
+                        group-hover:text-white`}
                     >
-                      <button
-                        onClick={() => toggleSkill(categoryIndex, skillIndex)}
-                        className="w-full text-left"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            {expandedSkills[
-                              `${categoryIndex}-${skillIndex}`
-                            ] ? (
-                              <ChevronDown className="w-4 h-4 mr-2" />
-                            ) : (
-                              <ChevronRight className="w-4 h-4 mr-2" />
-                            )}
-                            <span className="text-lg">{item.name}</span>
-                          </div>
-                        </div>
-                      </button>
+                      {skill.category}
+                    </h3>
+                  </div>
 
-                      {expandedSkills[`${categoryIndex}-${skillIndex}`] && (
-                        <div className="mt-2 ml-6 space-y-2">
-                          {item.sourceDetails.map((source, sourceIndex) => (
-                            <div key={sourceIndex} className="flex flex-col">
-                              <div className="flex items-center">
-                                {getSourceIcon(source.type)}
-                                <span className="font-inter ml-2 text-sm font-medium uppercase tracking-wide">
-                                  {source.title}:
-                                </span>
-                              </div>
-                              <p className="font-inter ml-6 mt-1 text-sm">
-                                {source.description}
-                              </p>
+                  {/* Technologies List */}
+                  <div className="space-y-4">
+                    {skill.technologies.map((tech) => (
+                      <div key={tech} className="space-y-2">
+                        <button
+                          onClick={() => toggleTechnology(tech)}
+                          className={`font-inter w-full text-left transition-colors duration-500
+                            ${darkMode ? "text-orange-200" : "text-slate-700"}
+                            group-hover:text-white`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Code2 className="w-4 h-4" />
+                              <span className="font-medium">{tech}</span>
                             </div>
-                          ))}
-                          <p className="font-inter text-sm ml-6">
-                            {item.details}
-                          </p>
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+                            {expandedTech === tech ? (
+                              <ChevronUp className="w-4 h-4" />
+                            ) : (
+                              <ChevronDown className="w-4 h-4" />
+                            )}
+                          </div>
+                        </button>
 
-        {/* Bottom Gradient Decoration */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-            ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
-            to-transparent`}
-        />
+                        {/* Expanded Content */}
+                        {expandedTech === tech && (
+                          <div className="pl-6 pt-2 space-y-4">
+                            {/* Details */}
+                            <div className="space-y-2">
+                              <h4 className="font-inter font-medium text-orange-200 group-hover:text-orange-100">
+                                Details
+                              </h4>
+                              <ul className="font-inter space-y-1">
+                                {skill.details.map((detail, i) => (
+                                  <li
+                                    key={i}
+                                    className="flex items-start gap-2 text-sm text-orange-100 group-hover:text-white/90"
+                                  >
+                                    <span className="mt-1">•</span>
+                                    {detail}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
