@@ -169,7 +169,7 @@ export default function BlogPostPage() {
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+            : "bg-gradient-to-b from-slate-50 via-slate-50/80 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -189,7 +189,7 @@ export default function BlogPostPage() {
           className={`inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-lg transition-all duration-300
             ${
               darkMode
-                ? "bg-slate-800 text-orange-200 hover:bg-slate-700"
+                ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
                 : "bg-white text-slate-700 hover:bg-slate-50"
             }
             hover:scale-105`}
@@ -203,7 +203,7 @@ export default function BlogPostPage() {
           <header className="mb-12">
             <h1
               className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-8
-                ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                ${darkMode ? "text-slate-50" : "text-slate-900"}`}
             >
               {BLOG_POST.title}
             </h1>
@@ -212,21 +212,21 @@ export default function BlogPostPage() {
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <span
                 className={`inline-flex items-center gap-2
-                  ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                  ${darkMode ? "text-slate-200" : "text-slate-700"}`}
               >
                 <User className="w-4 h-4" />
                 {BLOG_POST.author}
               </span>
               <span
                 className={`inline-flex items-center gap-2
-                  ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                  ${darkMode ? "text-slate-200" : "text-slate-700"}`}
               >
                 <Calendar className="w-4 h-4" />
                 {new Date(BLOG_POST.date).toLocaleDateString()}
               </span>
               <span
                 className={`inline-flex items-center gap-2
-                  ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                  ${darkMode ? "text-slate-200" : "text-slate-700"}`}
               >
                 {BLOG_POST.readTime}
               </span>
@@ -238,8 +238,8 @@ export default function BlogPostPage() {
                 className={`px-4 py-1.5 rounded-full text-sm font-medium
                   ${
                     darkMode
-                      ? "bg-orange-600/20 text-orange-200"
-                      : "bg-orange-100 text-orange-800"
+                      ? "bg-slate-600/20 text-slate-200"
+                      : "bg-slate-100 text-slate-800"
                   }`}
               >
                 {BLOG_POST.category}
@@ -250,7 +250,7 @@ export default function BlogPostPage() {
                   className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium
                     ${
                       darkMode
-                        ? "bg-slate-700 text-orange-200"
+                        ? "bg-slate-700 text-slate-200"
                         : "bg-slate-100 text-slate-700"
                     }`}
                 >
@@ -279,7 +279,7 @@ export default function BlogPostPage() {
                 className={`p-3 rounded-lg transition-all duration-300 flex items-center gap-2
                   ${
                     darkMode
-                      ? "bg-slate-800 text-orange-200 hover:bg-slate-700"
+                      ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
                       : "bg-white text-slate-700 hover:bg-slate-50"
                   }
                   hover:scale-105`}
@@ -319,7 +319,7 @@ export default function BlogPostPage() {
                         key={option.name}
                         onClick={option.action}
                         className={`w-full px-4 py-3 text-left text-sm hover:bg-slate-700/50 flex items-center gap-3
-                          ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                          ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                       >
                         <option.icon className="w-4 h-4" />
                         {option.name}
@@ -336,9 +336,9 @@ export default function BlogPostPage() {
               className={`p-3 rounded-lg transition-all duration-300 flex items-center gap-2
                 ${
                   isBookmarked
-                    ? "bg-orange-600 text-white"
+                    ? "bg-slate-600 text-white"
                     : darkMode
-                    ? "bg-slate-800 text-orange-200 hover:bg-slate-700"
+                    ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
                     : "bg-white text-slate-700 hover:bg-slate-50"
                 }
                 hover:scale-105`}
@@ -362,7 +362,7 @@ export default function BlogPostPage() {
               className={`p-3 rounded-lg transition-all duration-300 flex items-center gap-2
                 ${
                   darkMode
-                    ? "bg-slate-800 text-orange-200 hover:bg-slate-700"
+                    ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
                     : "bg-white text-slate-700 hover:bg-slate-50"
                 }
                 hover:scale-105`}
@@ -379,8 +379,8 @@ export default function BlogPostPage() {
               prose-headings:font-semibold
               prose-p:text-lg
               prose-p:leading-relaxed
-              prose-a:text-orange-600
-              prose-strong:text-orange-600
+              prose-a:text-slate-600
+              prose-strong:text-slate-600
               prose-ul:list-disc
               prose-ol:list-decimal`}
             dangerouslySetInnerHTML={{ __html: BLOG_POST.content }}
@@ -399,7 +399,7 @@ export default function BlogPostPage() {
               <div className="flex justify-between items-center mb-6">
                 <h3
                   className={`text-xl font-semibold
-                  ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                  ${darkMode ? "text-slate-50" : "text-slate-900"}`}
                 >
                   Leave a Comment
                 </h3>
@@ -416,7 +416,7 @@ export default function BlogPostPage() {
                   <div>
                     <label
                       className={`block text-sm font-medium mb-2
-                     ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                     ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                     >
                       Name
                     </label>
@@ -437,7 +437,7 @@ export default function BlogPostPage() {
                   <div>
                     <label
                       className={`block text-sm font-medium mb-2
-                      ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                      ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                     >
                       Email
                     </label>
@@ -460,7 +460,7 @@ export default function BlogPostPage() {
                 <div>
                   <label
                     className={`block text-sm font-medium mb-2
-                    ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                    ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                   >
                     Comment
                   </label>
@@ -481,7 +481,7 @@ export default function BlogPostPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-4 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 
+                  className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 
                     transition-colors font-medium flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
@@ -492,10 +492,10 @@ export default function BlogPostPage() {
           )}
 
           {/* Related Posts */}
-          <div className="border-t border-orange-900/30 pt-8">
+          <div className="border-t border-slate-900/30 pt-8">
             <h2
               className={`text-2xl font-semibold mb-6
-                ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                ${darkMode ? "text-slate-50" : "text-slate-900"}`}
             >
               Related Posts
             </h2>
@@ -507,8 +507,8 @@ export default function BlogPostPage() {
                   className={`group rounded-xl overflow-hidden transition-all duration-300
         ${
           darkMode
-            ? "bg-slate-800/50 hover:bg-slate-800 border border-orange-900/30"
-            : "bg-white/50 hover:bg-white border border-orange-200"
+            ? "bg-slate-800/50 hover:bg-slate-800 border border-slate-900/30"
+            : "bg-white/50 hover:bg-white border border-slate-200"
         }
         hover:scale-105`}
                 >
@@ -522,19 +522,19 @@ export default function BlogPostPage() {
                   <div className="p-4">
                     <h3
                       className={`text-lg font-medium mb-2
-                        ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                        ${darkMode ? "text-slate-50" : "text-slate-900"}`}
                     >
                       {post.title}
                     </h3>
                     <p
                       className={`text-sm mb-2 line-clamp-2
-                        ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                        ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                     >
                       {post.excerpt}
                     </p>
                     <span
                       className={`text-sm
-                        ${darkMode ? "text-orange-200/70" : "text-slate-500"}`}
+                        ${darkMode ? "text-slate-200/70" : "text-slate-500"}`}
                     >
                       {new Date(post.date).toLocaleDateString()}
                     </span>

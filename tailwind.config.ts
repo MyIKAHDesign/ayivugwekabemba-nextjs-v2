@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "jetbrains-mono": ["var(--font-jetbrains-mono)", "monospace"],
+        "space-grotesk": ["var(--font-space-grotesk)", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

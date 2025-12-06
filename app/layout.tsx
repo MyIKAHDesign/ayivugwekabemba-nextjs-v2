@@ -1,23 +1,23 @@
 // app/layout.tsx
 
-import { Inter, Montserrat } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-jetbrains-mono",
   weight: ["400", "500", "600", "700"],
 });
 
-const montserrat = Montserrat({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat",
+  variable: "--font-space-grotesk",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${montserrat.variable} scroll-smooth`}
+      className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth`}
     >
       <body className="min-h-screen flex flex-col font-sans">
         <ThemeProvider>

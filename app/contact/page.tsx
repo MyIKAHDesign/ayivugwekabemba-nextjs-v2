@@ -86,7 +86,7 @@ export default function Contact() {
       className={`relative min-h-screen font-inter py-40 px-4 sm:px-6 lg:px-8 flex items-center justify-center transition-all duration-300 ${
         darkMode
           ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950 text-white"
-          : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white text-slate-900"
+          : "bg-gradient-to-b from-slate-50 via-slate-100/80 to-white text-slate-900"
       }`}
     >
       {/* Added max width container */}
@@ -96,12 +96,12 @@ export default function Contact() {
           className={`${
             darkMode
               ? "bg-slate-900/50 border border-slate-800"
-              : "bg-white/70 border border-orange-100"
+              : "bg-white/70 border border-slate-200"
           } backdrop-blur-sm rounded-2xl shadow-lg p-8 transition-all duration-300`}
         >
           <h1
             className={`text-4xl font-inter font-bold mb-8 text-center transition-colors duration-300 ${
-              darkMode ? "text-white" : "text-orange-600"
+              darkMode ? "text-white" : "text-slate-700"
             }`}
           >
             Contact Me
@@ -127,7 +127,7 @@ export default function Contact() {
                 className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
-                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                    : "bg-white text-slate-900 border-slate-300 focus:border-slate-400 focus:ring-slate-300/20"
                 }`}
                 placeholder="Enter your name"
               />
@@ -152,7 +152,7 @@ export default function Contact() {
                 className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
-                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                    : "bg-white text-slate-900 border-slate-300 focus:border-slate-400 focus:ring-slate-300/20"
                 }`}
                 placeholder="Enter your email"
               />
@@ -176,7 +176,7 @@ export default function Contact() {
                 className={`w-full p-3 border rounded-lg transition-all duration-300 font-inter focus:ring-2 focus:outline-none ${
                   darkMode
                     ? "bg-slate-800 text-white border-slate-700 focus:border-slate-500 focus:ring-slate-500/20"
-                    : "bg-white text-slate-900 border-orange-200 focus:border-orange-300 focus:ring-orange-200/20"
+                    : "bg-white text-slate-900 border-slate-300 focus:border-slate-400 focus:ring-slate-300/20"
                 }`}
                 rows={4}
                 placeholder="Enter your message"
@@ -194,7 +194,7 @@ export default function Contact() {
               className={`font-inter w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                 darkMode
                   ? "bg-slate-800 text-white hover:bg-slate-700 border border-slate-700"
-                  : "bg-orange-600 text-white hover:bg-orange-700"
+                  : "bg-slate-700 text-white hover:bg-slate-600"
               }`}
             >
               Send Message

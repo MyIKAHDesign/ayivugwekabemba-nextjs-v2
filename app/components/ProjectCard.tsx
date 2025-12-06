@@ -22,19 +22,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`font-inter group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+      className={`font-space-grotesk group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
         ${
           darkMode
-            ? "bg-slate-800/50 border-orange-900/30"
-            : "bg-white/50 border-orange-200"
+            ? "bg-slate-800/50 border-slate-700/50"
+            : "bg-white/50 border-slate-200"
         } border`}
     >
       <div
         className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
         ${
           darkMode
-            ? "bg-gradient-to-r from-orange-900/80 to-orange-800/80"
-            : "bg-gradient-to-r from-orange-100 to-orange-50"
+            ? "bg-gradient-to-r from-slate-800/80 to-slate-700/80"
+            : "bg-gradient-to-r from-slate-100 to-slate-50"
         }`}
       />
 
@@ -45,27 +45,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className={`transition-colors duration-500
               ${
                 darkMode
-                  ? "text-orange-200 group-hover:text-white"
-                  : "text-orange-600 group-hover:text-orange-800"
+                  ? "text-slate-300 group-hover:text-white"
+                  : "text-slate-600 group-hover:text-slate-800"
               }`}
           />
         </div>
         <h3
-          className={`font-inter text-xl leading-relaxed font-medium mb-3 transition-colors duration-500
+          className={`font-jetbrains-mono text-xl leading-relaxed font-medium mb-3 transition-colors duration-500
           ${
             darkMode
-              ? "text-orange-50 group-hover:text-white"
-              : "text-slate-900 group-hover:text-orange-900"
+              ? "text-slate-100 group-hover:text-white"
+              : "text-slate-900 group-hover:text-slate-800"
           }`}
         >
           {title}
         </h3>
         <p
-          className={`font-inter text-lg leading-relaxed mb-6 transition-colors duration-500
+          className={`font-space-grotesk text-lg leading-relaxed mb-6 transition-colors duration-500
           ${
             darkMode
-              ? "text-orange-200 group-hover:text-orange-100"
-              : "text-slate-600 group-hover:text-orange-800"
+              ? "text-slate-300 group-hover:text-slate-100"
+              : "text-slate-600 group-hover:text-slate-800"
           }`}
         >
           {description}
@@ -74,8 +74,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors duration-500
           ${
             darkMode
-              ? "text-orange-200 group-hover:text-white"
-              : "text-orange-600 group-hover:text-orange-900"
+              ? "text-slate-300 group-hover:text-white"
+              : "text-slate-600 group-hover:text-slate-800"
           }`}
         >
           View Project

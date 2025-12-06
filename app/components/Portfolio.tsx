@@ -11,7 +11,7 @@ import CertificatesSection from "./CertificatesSection";
 
 const Portfolio: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-50 font-['Instrument_Sans']">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <HeroSection />
       <ProjectsSection />
       <SkillsSection />

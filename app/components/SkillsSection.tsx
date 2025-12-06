@@ -233,19 +233,19 @@ const SkillsSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+            className={`font-jetbrains-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+              ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Technical Skills
           </h2>
           <p
-            className={`font-inter text-xl leading-relaxed
-              ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+            className={`font-space-grotesk text-xl leading-relaxed
+              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             A comprehensive toolkit for building and managing modern
             applications
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -259,8 +259,8 @@ const SkillsSection: React.FC = () => {
                   hover:transform hover:-translate-y-2 hover:rotate-1 hover:scale-105
                   ${
                     darkMode
-                      ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                      : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                      ? "bg-slate-800/50 border-slate-600/30 hover:border-slate-500/50"
+                      : "bg-white/50 border-slate-300/30 hover:border-slate-400"
                   }`}
               >
                 {/* Sliding gradient background */}
@@ -268,8 +268,8 @@ const SkillsSection: React.FC = () => {
                   className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                     ${
                       darkMode
-                        ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                        : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                        ? "bg-gradient-to-t from-slate-800 via-slate-700 to-slate-600"
+                        : "bg-gradient-to-t from-slate-500 via-slate-400 to-slate-300"
                     }`}
                 />
 
@@ -278,12 +278,12 @@ const SkillsSection: React.FC = () => {
                   <div className="flex items-center gap-4 mb-6">
                     <Icon
                       className={`w-8 h-8 transition-colors duration-500
-                        ${darkMode ? "text-orange-400" : "text-orange-600"}
+                        ${darkMode ? "text-slate-300" : "text-slate-600"}
                         group-hover:text-white`}
                     />
                     <h3
-                      className={`font-inter text-xl font-semibold transition-colors duration-500
-                        ${darkMode ? "text-orange-50" : "text-slate-900"}
+                      className={`font-jetbrains-mono text-xl font-semibold transition-colors duration-500
+                        ${darkMode ? "text-slate-100" : "text-slate-900"}
                         group-hover:text-white`}
                     >
                       {skill.category}
@@ -296,8 +296,8 @@ const SkillsSection: React.FC = () => {
                       <div key={tech} className="space-y-2">
                         <button
                           onClick={() => toggleTechnology(tech)}
-                          className={`font-inter w-full text-left transition-colors duration-500
-                            ${darkMode ? "text-orange-200" : "text-slate-700"}
+                          className={`font-space-grotesk w-full text-left transition-colors duration-500
+                            ${darkMode ? "text-slate-300" : "text-slate-700"}
                             group-hover:text-white`}
                         >
                           <div className="flex items-center justify-between">
@@ -318,14 +318,14 @@ const SkillsSection: React.FC = () => {
                           <div className="pl-6 pt-2 space-y-4">
                             {/* Details */}
                             <div className="space-y-2">
-                              <h4 className="font-inter font-medium text-orange-200 group-hover:text-orange-100">
+                              <h4 className="font-space-grotesk font-medium text-slate-200 group-hover:text-slate-100">
                                 Details
                               </h4>
-                              <ul className="font-inter space-y-1">
+                              <ul className="font-space-grotesk space-y-1">
                                 {skill.details.map((detail, i) => (
                                   <li
                                     key={i}
-                                    className="flex items-start gap-2 text-sm text-orange-100 group-hover:text-white/90"
+                                    className="flex items-start gap-2 text-sm text-slate-100 group-hover:text-white/90"
                                   >
                                     <span className="mt-1">•</span>
                                     {detail}
