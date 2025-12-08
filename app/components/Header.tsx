@@ -193,7 +193,7 @@ const Header = () => {
             : "bg-white dark:bg-gray-900"
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <nav className="relative flex items-center justify-between h-16">
             <Link href="/#home" className="flex items-center gap-2 text-2xl font-bold relative group font-mono">
               <img
