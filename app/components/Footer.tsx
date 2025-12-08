@@ -33,11 +33,13 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { name: "About", href: "/#about-me" },
+    { name: "More about me", href: "/about" },
     { name: "Projects", href: "/#projects" },
+    { name: "Companies", href: "/#companies" },
+    { name: "Experiences", href: "/experience" },
+    { name: "Technical Skills", href: "/skills" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Videos", href: "/videos" },
   ];
 
   return (
@@ -52,14 +54,18 @@ const Footer = () => {
           <div className="space-y-4">
             <Link
               href="/"
-              className="text-2xl font-bold relative inline-block group text-slate-800 dark:text-slate-200 font-mono"
+              className="flex items-center gap-2 text-2xl font-bold relative inline-block group text-slate-800 dark:text-slate-200 font-mono"
             >
-              Ayivugwe
+              <img
+                src="/favicon.ico"
+                alt="Ayivugwe"
+                className="w-8 h-8"
+              />
+              <span>Ayivugwe</span>
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-600 dark:bg-slate-400 transition-all duration-300 group-hover:w-full" />
             </Link>
             <p className="text-sm max-w-md text-slate-700/80 dark:text-slate-300/80 font-mono">
-              Building innovative solutions that bridge technology and cultural
-              preservation through modern development practices.
+              Founder of Wekify LLC and Kifuliiru Lab, dedicated to preserving and promoting the Kifuliiru language through innovative digital platforms and technologies.
             </p>
           </div>
 
