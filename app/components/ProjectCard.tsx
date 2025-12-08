@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`font-space-grotesk group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+      className={`font-inter group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
         ${
           darkMode
             ? "bg-slate-800/50 border-slate-700/50"
@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         </div>
         <h3
-          className={`font-jetbrains-mono text-xl leading-relaxed font-medium mb-3 transition-colors duration-500
+          className={`font-inter text-xl leading-relaxed font-semibold mb-3 transition-colors duration-500
           ${
             darkMode
               ? "text-slate-100 group-hover:text-white"
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {title}
         </h3>
         <p
-          className={`font-space-grotesk text-lg leading-relaxed mb-6 transition-colors duration-500
+          className={`font-inter text-lg leading-relaxed mb-6 transition-colors duration-500
           ${
             darkMode
               ? "text-slate-300 group-hover:text-slate-100"

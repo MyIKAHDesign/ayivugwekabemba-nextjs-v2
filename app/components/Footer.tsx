@@ -52,12 +52,12 @@ const Footer = () => {
           <div className="space-y-4">
             <Link
               href="/"
-              className="text-2xl font-bold relative inline-block group text-slate-800 dark:text-slate-200 font-jetbrains-mono"
+              className="text-2xl font-bold relative inline-block group text-slate-800 dark:text-slate-200 font-inter"
             >
               Ayivugwe
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-600 dark:bg-slate-400 transition-all duration-300 group-hover:w-full" />
             </Link>
-            <p className="text-sm max-w-md text-slate-700/80 dark:text-slate-300/80 font-space-grotesk">
+            <p className="text-sm max-w-md text-slate-700/80 dark:text-slate-300/80 font-inter">
               Building innovative solutions that bridge technology and cultural
               preservation through modern development practices.
             </p>
@@ -65,7 +65,7 @@ const Footer = () => {
 
           {/* Navigation section */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 text-slate-800 dark:text-slate-200 font-jetbrains-mono">
+            <h3 className="text-sm font-semibold mb-4 text-slate-800 dark:text-slate-200 font-inter">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -73,7 +73,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:translate-x-1 transition-all duration-300 inline-block font-space-grotesk
+                    className="text-sm hover:translate-x-1 transition-all duration-300 inline-block font-inter
                       text-slate-600 hover:text-slate-800 dark:text-slate-300/70 dark:hover:text-slate-200"
                   >
                     {link.name}
@@ -85,7 +85,7 @@ const Footer = () => {
 
           {/* Connect section */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 text-slate-800 dark:text-slate-200 font-jetbrains-mono">
+            <h3 className="text-sm font-semibold mb-4 text-slate-800 dark:text-slate-200 font-inter">
               Connect
             </h3>
             <div className="flex space-x-4">
@@ -113,7 +113,7 @@ const Footer = () => {
                     className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded 
                     opacity-0 group-hover:opacity-100 transition-opacity duration-300
                     bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-200
-                    pointer-events-none font-space-grotesk"
+                    pointer-events-none font-inter"
                   >
                     {social.name}
                   </div>
@@ -125,7 +125,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 mt-8 text-sm text-center border-t border-slate-200 dark:border-slate-700/50">
-          <div className="flex items-center justify-center gap-1 font-space-grotesk">
+          <div className="flex items-center justify-center gap-1 font-inter">
             <span className="text-slate-600 dark:text-slate-300/70">
               © {currentYear} Made with
             </span>
