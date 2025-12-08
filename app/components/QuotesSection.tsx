@@ -139,19 +139,19 @@ const QuotesSection = () => {
           {quotes.map((quote, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-slate-600/30 hover:border-slate-500/50"
-                    : "bg-white/50 border-slate-300/30 hover:border-slate-400"
+                    ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                    : "bg-white/50 border-slate-200 hover:border-slate-300"
                 }`}
             >
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                   ${
                     darkMode
-                      ? "bg-gradient-to-t from-slate-800 via-slate-700 to-slate-600"
-                      : "bg-gradient-to-t from-slate-500 via-slate-400 to-slate-300"
+                      ? "bg-gradient-to-r from-slate-800/90 via-slate-700/80 to-slate-600/90"
+                      : "bg-gradient-to-r from-slate-100/90 via-slate-50/80 to-slate-200/90"
                   }`}
               />
 
