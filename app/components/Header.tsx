@@ -227,51 +227,58 @@ const Header = () => {
                         onMouseLeave={() => setOpenDropdown(null)}
                       >
                         <button
-                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1
+                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
                             ${
                               item.items.some((subItem) =>
                                 isActive(subItem.href)
                               )
-                                ? "text-slate-700 dark:text-slate-200"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                                ? "text-slate-800 dark:text-slate-100"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
                             }`}
                         >
-                          <item.icon className="w-4 h-4" />
-                          <span className="relative z-10">{item.name}</span>
+                          <item.icon className="w-4 h-4 relative z-30" />
+                          <span className="relative z-30">{item.name}</span>
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
+                            className={`w-4 h-4 transition-transform duration-200 relative z-30 ${
                               isOpen ? "rotate-180" : ""
                             }`}
                           />
                           <span
-                            className={`absolute inset-0 rounded-lg transition-transform duration-200
+                            className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
                               ${
                                 item.items.some((subItem) =>
                                   isActive(subItem.href)
                                 )
-                                  ? "bg-slate-100 dark:bg-slate-800/50 scale-100"
+                                  ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
                                   : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
                               }`}
                           />
                         </button>
                         {isOpen && (
-                          <div className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
-                            bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700">
-                            {item.items.map((subItem) => (
-                              <button
-                                key={subItem.name}
-                                onClick={() => handleNavigation(subItem.href)}
-                                className={`w-full px-4 py-2 text-left transition-colors duration-200
-                                  ${
-                                    isActive(subItem.href)
-                                      ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
-                                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-700 dark:hover:text-slate-200"
-                                  }`}
-                              >
-                                {subItem.name}
-                              </button>
-                            ))}
-                          </div>
+                          <>
+                            {/* Bridge area to make it easier to move mouse into dropdown */}
+                            <div className="absolute top-full left-0 w-full h-2 z-40" />
+                            <div
+                              className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
+                                bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700"
+                              onMouseEnter={() => setOpenDropdown(item.name)}
+                            >
+                              {item.items.map((subItem) => (
+                                <button
+                                  key={subItem.name}
+                                  onClick={() => handleNavigation(subItem.href)}
+                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-mono
+                                    ${
+                                      isActive(subItem.href)
+                                        ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
+                                        : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-700 dark:hover:text-slate-200"
+                                    }`}
+                                >
+                                  {subItem.name}
+                                </button>
+                              ))}
+                            </div>
+                          </>
                         )}
                       </div>
                     );
@@ -281,20 +288,20 @@ const Header = () => {
                       <button
                         key={item.name}
                         onClick={() => handleNavigation(item.href)}
-                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1
+                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
                           ${
                             isActive(item.href)
-                              ? "text-slate-700 dark:text-slate-200"
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                              ? "text-slate-800 dark:text-slate-100"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
                           }`}
                       >
-                        {item.icon && <item.icon className="w-4 h-4" />}
-                        <span className="relative z-10">{item.name}</span>
+                        {item.icon && <item.icon className="w-4 h-4 relative z-30" />}
+                        <span className="relative z-30">{item.name}</span>
                         <span
-                          className={`absolute inset-0 rounded-lg transition-transform duration-200
+                          className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
                             ${
                               isActive(item.href)
-                                ? "bg-slate-100 dark:bg-slate-800/50 scale-100"
+                                ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
                                 : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
                             }`}
                         />
@@ -385,13 +392,13 @@ const Header = () => {
                               isOpen ? null : item.name
                             )
                           }
-                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between
+                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-mono
                             ${
                               item.items.some((subItem) =>
                                 isActive(subItem.href)
                               )
-                                ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                                ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                             }`}
                         >
                           <span className="flex items-center gap-2">
@@ -410,11 +417,11 @@ const Header = () => {
                               <button
                                 key={subItem.name}
                                 onClick={() => handleNavigation(subItem.href)}
-                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors
+                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-mono
                                   ${
                                     isActive(subItem.href)
-                                      ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
-                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                                      ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                                   }`}
                               >
                                 {subItem.name}
@@ -430,11 +437,11 @@ const Header = () => {
                       <button
                         key={item.name}
                         onClick={() => handleNavigation(item.href)}
-                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2
+                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-mono
                           ${
                             isActive(item.href)
-                              ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                              ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                           }`}
                       >
                         {item.icon && <item.icon className="w-4 h-4" />}
