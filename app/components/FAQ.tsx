@@ -105,8 +105,8 @@ const FAQ: React.FC = () => {
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                 ${
                   darkMode
-                    ? "bg-gradient-to-t from-slate-800/90 via-slate-700/80 to-slate-600/90"
-                    : "bg-gradient-to-t from-slate-200/80 via-slate-100/70 to-slate-50/60"
+                    ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                    : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                 }`}
               />
 

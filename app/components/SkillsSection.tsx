@@ -263,13 +263,13 @@ const SkillsSection: React.FC = () => {
                       : "bg-white/50 border-slate-200 hover:border-slate-300"
                   }`}
               >
-                {/* Sliding gradient background */}
+                {/* Subtle hover background - not too strong */}
                 <div
                   className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                     ${
                       darkMode
-                        ? "bg-gradient-to-r from-slate-800/90 via-slate-700/80 to-slate-600/90"
-                        : "bg-gradient-to-r from-slate-100/90 via-slate-50/80 to-slate-200/90"
+                        ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                        : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                     }`}
                 />
 
@@ -278,13 +278,19 @@ const SkillsSection: React.FC = () => {
                   <div className="flex items-center gap-4 mb-6">
                     <Icon
                       className={`w-8 h-8 transition-colors duration-500
-                        ${darkMode ? "text-slate-300" : "text-slate-600"}
-                        group-hover:text-white`}
+                        ${
+                          darkMode
+                            ? "text-slate-300 group-hover:text-slate-100"
+                            : "text-slate-600 group-hover:text-slate-800"
+                        }`}
                     />
                     <h3
                       className={`font-mono text-xl font-semibold transition-colors duration-500
-                        ${darkMode ? "text-slate-100" : "text-slate-900"}
-                        group-hover:text-white`}
+                        ${
+                          darkMode
+                            ? "text-slate-100 group-hover:text-slate-50"
+                            : "text-slate-900 group-hover:text-slate-800"
+                        }`}
                     >
                       {skill.category}
                     </h3>
@@ -297,8 +303,11 @@ const SkillsSection: React.FC = () => {
                         <button
                           onClick={() => toggleTechnology(tech)}
                           className={`font-mono w-full text-left transition-colors duration-500
-                            ${darkMode ? "text-slate-300" : "text-slate-700"}
-                            group-hover:text-white`}
+                            ${
+                              darkMode
+                                ? "text-slate-300 group-hover:text-slate-100"
+                                : "text-slate-700 group-hover:text-slate-800"
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
@@ -318,14 +327,26 @@ const SkillsSection: React.FC = () => {
                           <div className="pl-6 pt-2 space-y-4">
                             {/* Details */}
                             <div className="space-y-2">
-                              <h4 className="font-mono font-medium text-slate-200 group-hover:text-slate-100">
+                              <h4
+                                className={`font-mono font-medium transition-colors duration-500
+                                  ${
+                                    darkMode
+                                      ? "text-slate-200 group-hover:text-slate-100"
+                                      : "text-slate-600 group-hover:text-slate-700"
+                                  }`}
+                              >
                                 Details
                               </h4>
                               <ul className="font-mono space-y-1">
                                 {skill.details.map((detail, i) => (
                                   <li
                                     key={i}
-                                    className="flex items-start gap-2 text-sm text-slate-100 group-hover:text-white/90"
+                                    className={`flex items-start gap-2 text-sm transition-colors duration-500
+                                      ${
+                                        darkMode
+                                          ? "text-slate-300 group-hover:text-slate-200"
+                                          : "text-slate-600 group-hover:text-slate-700"
+                                      }`}
                                   >
                                     <span className="mt-1">•</span>
                                     {detail}

@@ -150,30 +150,28 @@ const QuotesSection = () => {
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                   ${
                     darkMode
-                      ? "bg-gradient-to-r from-slate-800/90 via-slate-700/80 to-slate-600/90"
-                      : "bg-gradient-to-r from-slate-100/90 via-slate-50/80 to-slate-200/90"
+                      ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                      : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                   }`}
               />
 
               <div className="relative p-6 transition-colors duration-500 z-10">
                 <Quote
                   className={`w-8 h-8 mb-4 transition-colors duration-500
-                    ${darkMode ? "text-slate-300" : "text-slate-600"}
                     ${
                       darkMode
-                        ? "group-hover:text-slate-100"
-                        : "group-hover:text-white"
+                        ? "text-slate-300 group-hover:text-slate-100"
+                        : "text-slate-600 group-hover:text-slate-800"
                     }`}
                 />
 
                 <blockquote className="mb-6">
                   <p
                     className={`text-xl font-medium mb-4 transition-colors duration-500 font-mono
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}
                       ${
                         darkMode
-                          ? "group-hover:text-white"
-                          : "group-hover:text-white"
+                          ? "text-slate-100 group-hover:text-slate-50"
+                          : "text-slate-900 group-hover:text-slate-800"
                       }`}
                   >
                     &ldquo;{quote.quote}&rdquo;
@@ -183,11 +181,10 @@ const QuotesSection = () => {
                 <div className="space-y-2">
                   <p
                     className={`text-lg font-medium transition-colors duration-500 font-mono
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}
                       ${
                         darkMode
-                          ? "group-hover:text-slate-100"
-                          : "group-hover:text-white"
+                          ? "text-slate-300 group-hover:text-slate-200"
+                          : "text-slate-700 group-hover:text-slate-800"
                       }`}
                   >
                     {quote.author}
@@ -198,13 +195,8 @@ const QuotesSection = () => {
                       className={`text-sm px-3 py-1 rounded-full transition-colors duration-500 font-mono
                         ${
                           darkMode
-                            ? "bg-slate-700/50 text-slate-300 group-hover:bg-slate-600/50"
-                            : "bg-slate-100 text-slate-700 group-hover:bg-slate-200/50"
-                        }
-                        ${
-                          darkMode
-                            ? "group-hover:text-white"
-                            : "group-hover:text-white"
+                            ? "bg-slate-700/50 text-slate-300 group-hover:bg-slate-600/60 group-hover:text-slate-200"
+                            : "bg-slate-100 text-slate-700 group-hover:bg-slate-200/70 group-hover:text-slate-800"
                         }`}
                     >
                       {quote.group}
@@ -213,11 +205,10 @@ const QuotesSection = () => {
 
                   <p
                     className={`text-sm italic transition-colors duration-500 font-mono
-                      ${darkMode ? "text-slate-300/70" : "text-slate-500"}
                       ${
                         darkMode
-                          ? "group-hover:text-slate-100"
-                          : "group-hover:text-white"
+                          ? "text-slate-300/70 group-hover:text-slate-200/90"
+                          : "text-slate-500 group-hover:text-slate-600"
                       }`}
                   >
                     {quote.context}
