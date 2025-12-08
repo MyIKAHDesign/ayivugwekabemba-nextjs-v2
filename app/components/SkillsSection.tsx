@@ -65,7 +65,7 @@ const SkillsSection: React.FC = () => {
   return (
     <section
       id="skills"
-      className={`relative min-h-screen pt-40 pb-24 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-40 pb-24 md:pt-32 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"

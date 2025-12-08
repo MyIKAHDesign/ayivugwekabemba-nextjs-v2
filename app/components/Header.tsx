@@ -70,7 +70,6 @@ const Header = () => {
     items: [
       { name: "Experiences", href: "/experience" },
       { name: "Technical Skills", href: "/skills" },
-      { name: "Certificates", href: "/certificates" },
     ],
   };
 
