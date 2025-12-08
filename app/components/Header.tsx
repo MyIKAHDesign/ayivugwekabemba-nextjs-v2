@@ -15,7 +15,6 @@ import {
   ChevronDown,
   Home,
   User,
-  Briefcase,
   FileText,
   Award,
 } from "lucide-react";
@@ -55,16 +54,6 @@ const Header = () => {
     { name: "Home", href: "/", icon: Home },
   ];
 
-  const portfolioDropdown = {
-    name: "Portfolio",
-    icon: Briefcase,
-    items: [
-      { name: "Projects", href: "/#projects" },
-      { name: "Skills", href: "/#skills" },
-      { name: "FAQ", href: "/#faq" },
-    ],
-  };
-
   const contentDropdown = {
     name: "Content",
     icon: FileText,
@@ -88,7 +77,6 @@ const Header = () => {
 
   const allNavLinks = [
     ...mainNavLinks,
-    portfolioDropdown,
     contentDropdown,
     professionalDropdown,
     aboutLink,
@@ -101,7 +89,10 @@ const Header = () => {
       // Only check sections if we're on the home page
       if (pathname === "/") {
         const sectionIds = [
-          ...portfolioDropdown.items.map((item) => item.href.replace("/#", "")),
+          "projects",
+          "companies",
+          "skills",
+          "faq",
         ].filter((id) => id && document.getElementById(id));
 
         for (const id of sectionIds) {
