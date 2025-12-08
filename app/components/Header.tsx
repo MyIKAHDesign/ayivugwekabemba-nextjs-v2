@@ -54,6 +54,8 @@ const Header = () => {
     { name: "Home", href: "/", icon: Home },
   ];
 
+  const aboutLink = { name: "More about me", href: "/about", icon: User };
+
   const contentDropdown = {
     name: "Content",
     icon: FileText,
@@ -73,13 +75,11 @@ const Header = () => {
     ],
   };
 
-  const aboutLink = { name: "About", href: "/about", icon: User };
-
   const allNavLinks = [
     ...mainNavLinks,
+    aboutLink,
     contentDropdown,
     professionalDropdown,
-    aboutLink,
   ];
 
   useEffect(() => {
