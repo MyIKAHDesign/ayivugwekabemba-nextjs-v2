@@ -20,46 +20,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Kifuliiru Dictionary Platform",
+    title: "Kifuliiru.com",
     description:
-      "A digital platform preserving the Kifuliiru language through an interactive dictionary and cultural resources.",
-    link: "https://dictionary.kifuliiru.net/",
-    icon: Rocket,
-  },
-  {
-    title: "Ibufuliiru",
-    description:
-      "My main project focusing on preserving and promoting Kifuliiru language and culture through digital innovation and community engagement.",
-    link: "https://ibufuliiru.wixstudio.io/ibufuliiru",
-    icon: Rocket,
-  },
-  {
-    title: "Kifuliiru",
-    description:
-      "A comprehensive platform dedicated to the documentation, teaching, and preservation of the Kifuliiru language for future generations.",
-    link: "https://ibufuliiru.wixstudio.io/kifuliiru",
-    icon: Languages,
-  },
-  {
-    title: "Kifuliiru.net",
-    description:
-      "Interactive learning platform offering structured courses, resources, and tools for mastering the Kifuliiru language.",
-    link: "https://kifuliiru.net",
+      "The main Kifuliiru language website and comprehensive digital ecosystem for learning, cultural preservation, and community engagement.",
+    link: "https://kifuliiru.com",
     icon: Globe2,
   },
   {
-    title: "Imyazi mu Kifuliiru",
+    title: "Tabula Kifuliiru",
     description:
-      "Digital media agency creating engaging content in Kifuliiru, from educational materials to cultural documentaries.",
-    link: "https://imyazi.substack.com/",
-    icon: Newspaper,
+      "A comprehensive web application platform for creating and managing Kifuliiru language content.",
+    link: "https://tabula.kifuliiru.com",
+    icon: Rocket,
   },
   {
-    title: "Radio Ibufuliiru",
+    title: "Imyazi.com",
     description:
-      "Community radio station broadcasting news, cultural programs, and educational content in the Kifuliiru language.",
-    link: "https://radioibufuliiru.substack.com/",
-    icon: Radio,
+      "News platform providing updates and information relevant to the Kifuliiru community in multiple languages.",
+    link: "https://imyazi.com",
+    icon: Newspaper,
   },
 ];
 
@@ -107,7 +86,7 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {projects.map((project, i) => (
             <ProjectCard
               key={i}
