@@ -130,64 +130,55 @@ const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Experience Cards */}
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+              className={`group relative rounded-xl overflow-hidden transition-all duration-300 border
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
-                    : "bg-white/50 border-slate-200 hover:border-slate-300"
+                    ? "bg-slate-800/30 border-slate-700/30 hover:border-slate-600/50"
+                    : "bg-white/40 border-slate-200/50 hover:border-slate-300/70"
                 }`}
             >
-              <div
-                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
-                  ${
-                    darkMode
-                      ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
-                      : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
-                  }`}
-              />
-
-              <div className="relative p-6 sm:p-8 transition-colors duration-500 z-10">
-                <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
-                  <div className="flex-1">
-                    <h3
-                      className={`font-mono text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500
-                        ${
-                          darkMode
-                            ? "text-slate-100 group-hover:text-slate-50"
-                            : "text-slate-900 group-hover:text-slate-800"
-                        }`}
-                    >
-                      {exp.position}
-                    </h3>
-                    <div
-                      className={`text-lg leading-relaxed font-medium mb-1 transition-colors duration-500
-                        ${
-                          darkMode
-                            ? "text-slate-300 group-hover:text-slate-200"
-                            : "text-slate-700 group-hover:text-slate-800"
-                        }`}
-                    >
-                      {exp.company}
-                    </div>
-                    <div
-                      className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-500
-                        ${
-                          darkMode
-                            ? "text-slate-400 group-hover:text-slate-300"
-                            : "text-slate-500 group-hover:text-slate-600"
-                        }`}
-                    >
-                      {exp.location} • {exp.period}
-                    </div>
+              <div className="p-6">
+                {/* Header */}
+                <div className="mb-5">
+                  <h3
+                    className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
+                      ${
+                        darkMode
+                          ? "text-slate-100 group-hover:text-slate-50"
+                          : "text-slate-900 group-hover:text-slate-800"
+                      }`}
+                  >
+                    {exp.position}
+                  </h3>
+                  <div
+                    className={`text-base font-medium mb-2 transition-colors duration-300
+                      ${
+                        darkMode
+                          ? "text-slate-300 group-hover:text-slate-200"
+                          : "text-slate-700 group-hover:text-slate-800"
+                      }`}
+                  >
+                    {exp.company}
+                  </div>
+                  <div
+                    className={`text-xs font-medium uppercase tracking-wide mb-4 transition-colors duration-300
+                      ${
+                        darkMode
+                          ? "text-slate-400 group-hover:text-slate-300"
+                          : "text-slate-500 group-hover:text-slate-600"
+                      }`}
+                  >
+                    {exp.location} • {exp.period}
                   </div>
                 </div>
 
+                {/* Description */}
                 <p
-                  className={`font-mono text-lg leading-relaxed transition-colors duration-500
+                  className={`font-mono text-sm leading-relaxed transition-colors duration-300
                     ${
                       darkMode
                         ? "text-slate-300 group-hover:text-slate-200"
