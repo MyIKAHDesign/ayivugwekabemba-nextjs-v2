@@ -90,7 +90,7 @@ export default function Contact() {
       }`}
     >
       {/* Added max width container */}
-      <div className="max-w-3xl w-full">
+      <div className="max-w-6xl w-full mx-auto">
         {/* Card Container */}
         <div
           className={`${
