@@ -69,6 +69,7 @@ const Header = () => {
     icon: Award,
     items: [
       { name: "Experiences", href: "/experience" },
+      { name: "Technical Skills", href: "/skills" },
       { name: "Certificates", href: "/certificates" },
     ],
   };
@@ -91,7 +92,6 @@ const Header = () => {
         const sectionIds = [
           "projects",
           "companies",
-          "skills",
           "faq",
         ].filter((id) => id && document.getElementById(id));
 
