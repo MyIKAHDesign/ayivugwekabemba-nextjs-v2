@@ -69,7 +69,7 @@ export default function BlogPage() {
 
   return (
     <section
-      className={`relative min-h-screen pt-48 md:pt-32 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-48 md:pt-32 pb-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
     ${
       darkMode
         ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"

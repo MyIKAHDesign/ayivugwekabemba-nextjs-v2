@@ -73,7 +73,7 @@ const ExperienceSection: React.FC = () => {
 
   return (
     <section
-      className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-60 md:pt-44 pb-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"

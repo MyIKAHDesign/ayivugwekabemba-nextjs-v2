@@ -226,7 +226,6 @@ const Header = () => {
                                 : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
                             }`}
                         >
-                          <item.icon className="w-4 h-4 relative z-30" />
                           <span className="relative z-30">{item.name}</span>
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-200 relative z-30 ${
@@ -285,7 +284,6 @@ const Header = () => {
                               : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
                           }`}
                       >
-                        {item.icon && <item.icon className="w-4 h-4 relative z-30" />}
                         <span className="relative z-30">{item.name}</span>
                         <span
                           className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
@@ -391,10 +389,7 @@ const Header = () => {
                                 : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                             }`}
                         >
-                          <span className="flex items-center gap-2">
-                            <item.icon className="w-4 h-4" />
-                            {item.name}
-                          </span>
+                          <span>{item.name}</span>
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-200 ${
                               isOpen ? "rotate-180" : ""
@@ -434,7 +429,6 @@ const Header = () => {
                               : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                           }`}
                       >
-                        {item.icon && <item.icon className="w-4 h-4" />}
                         {item.name}
                       </button>
                     );
