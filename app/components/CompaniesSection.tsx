@@ -1,34 +1,26 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { useTheme } from "../context/ThemeContext";
 import {
   Building2,
   FlaskConical,
-  ExternalLink,
   Globe,
   Radio,
   BookOpen,
   Newspaper,
   Languages,
   Rocket,
-  Database,
   Smartphone,
-  Code,
   Settings,
+  ChevronRight,
 } from "lucide-react";
-
-interface Item {
-  name: string;
-  description: string;
-  url?: string;
-  type: "company" | "subcompany" | "product";
-  status?: "Active" | "Development";
-  category?: string;
-}
+import { getAllCompanies } from "../data/companies";
 
 const CompaniesSection: React.FC = () => {
   const { darkMode } = useTheme();
+  const items = getAllCompanies();
 
   const getIcon = (type: string, category?: string) => {
     if (type === "company") return Building2;
@@ -43,149 +35,6 @@ const CompaniesSection: React.FC = () => {
     if (category?.toLowerCase().includes("learning") || category?.toLowerCase().includes("educational")) return BookOpen;
     return Rocket;
   };
-
-  const items: Item[] = [
-    // Companies
-    {
-      name: "Wekify LLC",
-      description:
-        "Provides technical development and engineering expertise behind digital platforms, working to promote and provide Kifuliiru with modern and empowering digital tools.",
-      type: "company",
-    },
-    // Subcompanies
-    {
-      name: "Kifuliiru Lab",
-      description:
-        "Part of Wekify LLC, specializing in language-related needs and serving as the dedicated research laboratory for Kifuliiru language preservation and revitalization.",
-      type: "subcompany",
-    },
-    // Products
-    {
-      name: "Tabula Kifuliiru",
-      description:
-        "A comprehensive web application platform for creating and managing Kifuliiru language content. Web app contribution platform for admins and contributors to create and manage Kifuliiru content.",
-      url: "https://tabula.kifuliiru.com",
-      type: "product",
-      status: "Active",
-      category: "Web App",
-    },
-    {
-      name: "Kifuliiru.com",
-      description:
-        "The main Kifuliiru language website and comprehensive digital ecosystem for learning, cultural preservation, and community engagement.",
-      url: "https://kifuliiru.com",
-      type: "product",
-      status: "Active",
-      category: "Website",
-    },
-    {
-      name: "Imyazi.com",
-      description:
-        "News website providing updates and information relevant to the Kifuliiru community (Bufuliiru) in Kifuliiru and other languages. 'Imyazi' means 'The News' in Kifuliiru.",
-      url: "https://imyazi.com",
-      type: "product",
-      status: "Development",
-      category: "News Platform",
-    },
-    {
-      name: "Wempily",
-      description:
-        "Multi-Platform Project Management System for Kifuliiru Lab - Managing all our projects easily with the help of AI agents, tracking feature development and cross-platform parity.",
-      url: "https://wempily.com",
-      type: "product",
-      status: "Active",
-      category: "Internal Tool",
-    },
-    {
-      name: "Kifuliiru.net",
-      description:
-        "Purely in Kifuliiru - our first platform where we started writing numbers one by one. Numbers from here were used to generate formulas. 100% content created by Ayivugwe Kabemba Mukome without AI assistance.",
-      url: "https://kifuliiru.net",
-      type: "product",
-      status: "Active",
-      category: "Learning Platform",
-    },
-    {
-      name: "dictionary.kifuliiru.net",
-      description:
-        "Kifuliiru dictionary and language reference. All content created by Ayivugwe Kabemba Mukome.",
-      url: "https://dictionary.kifuliiru.net",
-      type: "product",
-      status: "Active",
-      category: "Dictionary",
-    },
-    {
-      name: "lola.kifuliiru.com",
-      description:
-        "Social media platform for Kifuliiru community. Created by Ayivugwe Kabemba Mukome with AI assistance for development, including Kifuliiru translations.",
-      url: "https://lola.kifuliiru.com",
-      type: "product",
-      status: "Active",
-      category: "Social Media",
-    },
-    {
-      name: "Radio Ibufuliiru",
-      description:
-        "Audio broadcasting platform available on Imyazi.com, Substack, Spotify, Amazon Music, Audible.com, and more. All content created by Ayivugwe Kabemba Mukome.",
-      url: "https://imyazi.com/radio-ibufuliiru",
-      type: "product",
-      status: "Active",
-      category: "Audio Platform",
-    },
-    {
-      name: "Imyazi mu Kifuliiru",
-      description:
-        "News and content in Kifuliiru on Substack. All content created by Ayivugwe Kabemba Mukome.",
-      url: "https://imyazi.substack.com",
-      type: "product",
-      status: "Active",
-      category: "Newsletter",
-    },
-    {
-      name: "Kifuliiru Ndeto ngale",
-      description:
-        "100% content in Kifuliiru. Designed and content created by Ayivugwe Kabemba Mukome without AI assistance.",
-      url: "https://ibufuliiru.wixstudio.com/kifuliiru",
-      type: "product",
-      status: "Active",
-      category: "Educational Site",
-    },
-    {
-      name: "Ibufuliiru / Tumenye Ibufuliiru",
-      description:
-        "100% content in Kifuliiru. Designed and content created by Ayivugwe Kabemba Mukome without AI assistance. Cultural site focusing on Ibufuliiru, the homeland of the Bafuliiru people.",
-      url: "https://ibufuliiru.wixstudio.com/ibufuliiru",
-      type: "product",
-      status: "Active",
-      category: "Cultural Site",
-    },
-    {
-      name: "Kifuliiru HQ",
-      description:
-        "Mobile application built with Flutter for Android and iOS. Currently in development and testing phase. All content created by Ayivugwe Kabemba Mukome.",
-      url: "https://kifuliiru.com/app",
-      type: "product",
-      status: "Development",
-      category: "Mobile App",
-    },
-    {
-      name: "Fuliiru Hub",
-      description:
-        "Your gateway to Ibufuliiru, our motherland. Discover, learn, and contribute to the preservation of Kifuliiru. Join our mission to document and celebrate the richness of our heritage.",
-      url: "https://fuliiruhub.com",
-      type: "product",
-      status: "Active",
-      category: "Web Platform",
-    },
-    {
-      name: "Kifuliiru Data Generators",
-      description:
-        "Data generation system for creating Kifuliiru language content at scale. Supports systematic content generation for educational materials.",
-      type: "product",
-      status: "Active",
-      category: "Development Tool",
-    },
-  ];
 
   return (
     <section
@@ -229,8 +78,9 @@ const CompaniesSection: React.FC = () => {
             const Icon = getIcon(item.type, item.category);
 
             return (
-              <div
+              <Link
                 key={index}
+                href={`/companies/${item.slug}`}
                 className={`group relative rounded-xl overflow-hidden transition-all duration-300 backdrop-blur-xl border
                   hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                   ${
@@ -321,27 +171,22 @@ const CompaniesSection: React.FC = () => {
                           : "text-slate-700 group-hover:text-slate-800"
                       }`}
                   >
-                    {item.description}
+                    {item.shortDescription}
                   </p>
 
-                  {item.url && (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-1.5 text-sm font-mono transition-colors duration-300
-                        ${
-                          darkMode
-                            ? "text-slate-300 group-hover:text-slate-200"
-                            : "text-slate-600 group-hover:text-slate-700"
-                        }`}
-                    >
-                      Visit Website
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
+                  <div
+                    className={`flex items-center gap-2 text-sm font-mono transition-colors duration-300
+                      ${
+                        darkMode
+                          ? "text-slate-300 group-hover:text-slate-200"
+                          : "text-slate-600 group-hover:text-slate-700"
+                      }`}
+                  >
+                    Learn more
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -358,4 +203,3 @@ const CompaniesSection: React.FC = () => {
 };
 
 export default CompaniesSection;
-
