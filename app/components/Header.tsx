@@ -195,7 +195,12 @@ const Header = () => {
       >
         <div className="container mx-auto px-4">
           <nav className="relative flex items-center justify-between h-16">
-            <Link href="/#home" className="text-2xl font-bold relative group font-mono">
+            <Link href="/#home" className="flex items-center gap-2 text-2xl font-bold relative group font-mono">
+              <img
+                src="/favicon.ico"
+                alt="Ayivugwe"
+                className="w-8 h-8"
+              />
               <span className="bg-gradient-to-r from-slate-700 to-slate-600 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
                 Ayivugwe
               </span>
