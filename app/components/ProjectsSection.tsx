@@ -48,7 +48,7 @@ const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
@@ -67,7 +67,7 @@ const ProjectsSection: React.FC = () => {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-10">
           <h2
             className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
             ${darkMode ? "text-slate-100" : "text-slate-900"} 
