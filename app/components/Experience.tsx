@@ -22,33 +22,30 @@ const ExperienceSection: React.FC = () => {
     setIsTimelineVisible(!isTimelineVisible);
   };
 
-  // Get all companies/products and convert to experiences
+  // Get only companies and subcompanies (not products) and convert to experiences
   const companies = getAllCompanies();
-  const companyExperiences: Experience[] = companies.map((company) => {
-    let position = "Founder";
-    let location = "Remote";
-    let period = "January 2020 - Present";
+  const companyExperiences: Experience[] = companies
+    .filter((company) => company.type === "company" || company.type === "subcompany")
+    .map((company) => {
+      let position = "Founder";
+      let location = "Remote";
+      let period = "January 2020 - Present";
 
-    if (company.type === "company") {
-      position = "Founder & CEO";
-    } else if (company.type === "subcompany") {
-      position = "Founder & Director";
-    } else if (company.type === "product") {
-      position = "Founder & Developer";
-      if (company.status === "Development") {
-        period = "In Development";
+      if (company.type === "company") {
+        position = "Founder & CEO";
+      } else if (company.type === "subcompany") {
+        position = "Founder & Director";
       }
-    }
 
-    return {
-      company: company.name,
-      position: position,
-      location: location,
-      period: period,
-      description: company.shortDescription || company.description,
-      category: company.category || company.type,
-    };
-  });
+      return {
+        company: company.name,
+        position: position,
+        location: location,
+        period: period,
+        description: company.shortDescription || company.description,
+        category: company.type === "company" ? "Company" : "Subcompany",
+      };
+    });
 
   // Traditional work experiences
   const workExperiences: Experience[] = [
