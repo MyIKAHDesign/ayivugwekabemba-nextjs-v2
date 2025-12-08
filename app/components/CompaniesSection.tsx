@@ -65,10 +65,16 @@ const CompaniesSection: React.FC = () => {
             Companies
           </h2>
           <p
-            className={`font-mono text-xl leading-relaxed
+            className={`font-mono text-xl leading-relaxed mb-4
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
-            Organizations driving innovation in language preservation
+            My companies, products, and projects driving innovation in language preservation
+          </p>
+          <p
+            className={`font-mono text-base leading-relaxed
+              ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+          >
+            These are the companies, subcompanies, and digital platforms I&apos;ve created and continue to develop, all dedicated to preserving and promoting the Kifuliiru language and Bafuliiru culture.
           </p>
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
