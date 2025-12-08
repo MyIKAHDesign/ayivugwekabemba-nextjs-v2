@@ -196,13 +196,6 @@ const CompaniesSection: React.FC = () => {
             );
           })}
         </div>
-
-        {/* Bottom Gradient Decoration */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-          ${darkMode ? "via-slate-700/50" : "via-slate-200"} 
-          to-transparent`}
-        />
       </div>
     </section>
   );
