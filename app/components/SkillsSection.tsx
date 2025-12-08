@@ -233,13 +233,13 @@ const SkillsSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Technical Skills
           </h2>
           <p
-            className={`font-inter text-xl leading-relaxed
+            className={`font-mono text-xl leading-relaxed
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             A comprehensive toolkit for building and managing modern
@@ -282,7 +282,7 @@ const SkillsSection: React.FC = () => {
                         group-hover:text-white`}
                     />
                     <h3
-                      className={`font-inter text-xl font-semibold transition-colors duration-500
+                      className={`font-mono text-xl font-semibold transition-colors duration-500
                         ${darkMode ? "text-slate-100" : "text-slate-900"}
                         group-hover:text-white`}
                     >
@@ -296,7 +296,7 @@ const SkillsSection: React.FC = () => {
                       <div key={tech} className="space-y-2">
                         <button
                           onClick={() => toggleTechnology(tech)}
-                          className={`font-inter w-full text-left transition-colors duration-500
+                          className={`font-mono w-full text-left transition-colors duration-500
                             ${darkMode ? "text-slate-300" : "text-slate-700"}
                             group-hover:text-white`}
                         >
@@ -318,10 +318,10 @@ const SkillsSection: React.FC = () => {
                           <div className="pl-6 pt-2 space-y-4">
                             {/* Details */}
                             <div className="space-y-2">
-                              <h4 className="font-inter font-medium text-slate-200 group-hover:text-slate-100">
+                              <h4 className="font-mono font-medium text-slate-200 group-hover:text-slate-100">
                                 Details
                               </h4>
-                              <ul className="font-inter space-y-1">
+                              <ul className="font-mono space-y-1">
                                 {skill.details.map((detail, i) => (
                                   <li
                                     key={i}

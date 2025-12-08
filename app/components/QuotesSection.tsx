@@ -120,13 +120,13 @@ const QuotesSection = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Inspiration
           </h2>
           <p
-            className={`text-xl leading-relaxed font-inter
+            className={`text-xl leading-relaxed font-mono
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             Thoughts that drive innovation and progress
@@ -168,7 +168,7 @@ const QuotesSection = () => {
 
                 <blockquote className="mb-6">
                   <p
-                    className={`text-xl font-medium mb-4 transition-colors duration-500 font-inter
+                    className={`text-xl font-medium mb-4 transition-colors duration-500 font-mono
                       ${darkMode ? "text-slate-100" : "text-slate-900"}
                       ${
                         darkMode
@@ -182,7 +182,7 @@ const QuotesSection = () => {
 
                 <div className="space-y-2">
                   <p
-                    className={`text-lg font-medium transition-colors duration-500 font-inter
+                    className={`text-lg font-medium transition-colors duration-500 font-mono
                       ${darkMode ? "text-slate-300" : "text-slate-700"}
                       ${
                         darkMode
@@ -195,7 +195,7 @@ const QuotesSection = () => {
 
                   <div className="flex flex-wrap gap-2">
                     <span
-                      className={`text-sm px-3 py-1 rounded-full transition-colors duration-500 font-inter
+                      className={`text-sm px-3 py-1 rounded-full transition-colors duration-500 font-mono
                         ${
                           darkMode
                             ? "bg-slate-700/50 text-slate-300 group-hover:bg-slate-600/50"
@@ -212,7 +212,7 @@ const QuotesSection = () => {
                   </div>
 
                   <p
-                    className={`text-sm italic transition-colors duration-500 font-inter
+                    className={`text-sm italic transition-colors duration-500 font-mono
                       ${darkMode ? "text-slate-300/70" : "text-slate-500"}
                       ${
                         darkMode

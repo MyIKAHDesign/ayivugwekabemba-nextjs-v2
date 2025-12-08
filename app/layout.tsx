@@ -1,16 +1,16 @@
 // app/layout.tsx
 
-import { Inter } from "next/font/google";
+import { Source_Code_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const inter = Inter({
+const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-source-code-pro",
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
@@ -27,9 +27,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} scroll-smooth`}
+      className={`${sourceCodePro.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col font-inter">
+      <body className="min-h-screen flex flex-col font-mono">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>
