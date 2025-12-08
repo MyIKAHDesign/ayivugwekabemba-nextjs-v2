@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Calendar } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { getAllCompanies } from "../data/companies";
 
 interface Experience {
   company: string;
@@ -10,6 +11,7 @@ interface Experience {
   location: string;
   period: string;
   description?: string;
+  category?: string;
 }
 
 const ExperienceSection: React.FC = () => {
@@ -20,15 +22,36 @@ const ExperienceSection: React.FC = () => {
     setIsTimelineVisible(!isTimelineVisible);
   };
 
-  const experiences: Experience[] = [
-    {
-      company: "Kifuliiru Platform Project",
-      position: "Founder & CTO",
-      location: "Spokane, WA",
-      period: "January 2020 - Present",
-      description:
-        "Leading the development of a comprehensive digital platform dedicated to preserving and promoting the Kifuliiru language and Bafuliiru cultural heritage. Architecting and building key components including Radio Ibufuliiru, an interactive dictionary platform, and language learning tools using Next.js, TypeScript, and cloud technologies. Coordinating with community elders and cultural experts to digitize Kifuliiru words and phrases, while managing a team of volunteer contributors to ensure authentic content preservation.",
-    },
+  // Get all companies/products and convert to experiences
+  const companies = getAllCompanies();
+  const companyExperiences: Experience[] = companies.map((company) => {
+    let position = "Founder";
+    let location = "Remote";
+    let period = "January 2020 - Present";
+
+    if (company.type === "company") {
+      position = "Founder & CEO";
+    } else if (company.type === "subcompany") {
+      position = "Founder & Director";
+    } else if (company.type === "product") {
+      position = "Founder & Developer";
+      if (company.status === "Development") {
+        period = "In Development";
+      }
+    }
+
+    return {
+      company: company.name,
+      position: position,
+      location: location,
+      period: period,
+      description: company.shortDescription || company.description,
+      category: company.category || company.type,
+    };
+  });
+
+  // Traditional work experiences
+  const workExperiences: Experience[] = [
     {
       company: "Amazon Fulfillment Center",
       position: "Fulfillment Center Associate",
@@ -70,6 +93,8 @@ const ExperienceSection: React.FC = () => {
         "Developed and maintained web applications for government and financial systems.",
     },
   ];
+
+  const experiences: Experience[] = [...companyExperiences, ...workExperiences];
 
   return (
     <section
@@ -130,7 +155,7 @@ const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Experience Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="space-y-6 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <div
               key={index}
@@ -142,51 +167,69 @@ const ExperienceSection: React.FC = () => {
                 }`}
             >
               <div className="p-6">
-                {/* Header */}
-                <div className="mb-5">
-                  <h3
-                    className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
-                      ${
-                        darkMode
-                          ? "text-slate-100 group-hover:text-slate-50"
-                          : "text-slate-900 group-hover:text-slate-800"
-                      }`}
-                  >
-                    {exp.position}
-                  </h3>
-                  <div
-                    className={`text-base font-medium mb-2 transition-colors duration-300
-                      ${
-                        darkMode
-                          ? "text-slate-300 group-hover:text-slate-200"
-                          : "text-slate-700 group-hover:text-slate-800"
-                      }`}
-                  >
-                    {exp.company}
+                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                  {/* Left side - Position and Company */}
+                  <div className="flex-1 md:min-w-[200px]">
+                    <h3
+                      className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
+                        ${
+                          darkMode
+                            ? "text-slate-100 group-hover:text-slate-50"
+                            : "text-slate-900 group-hover:text-slate-800"
+                        }`}
+                    >
+                      {exp.position}
+                    </h3>
+                    <div
+                      className={`text-base font-medium mb-2 transition-colors duration-300
+                        ${
+                          darkMode
+                            ? "text-slate-300 group-hover:text-slate-200"
+                            : "text-slate-700 group-hover:text-slate-800"
+                        }`}
+                    >
+                      {exp.company}
+                    </div>
+                    {exp.category && (
+                      <div
+                        className={`text-xs font-medium uppercase tracking-wide mb-2 transition-colors duration-300
+                          ${
+                            darkMode
+                              ? "text-slate-400 group-hover:text-slate-300"
+                              : "text-slate-500 group-hover:text-slate-600"
+                          }`}
+                      >
+                        {exp.category}
+                      </div>
+                    )}
+                    <div
+                      className={`text-xs font-medium uppercase tracking-wide transition-colors duration-300
+                        ${
+                          darkMode
+                            ? "text-slate-400 group-hover:text-slate-300"
+                            : "text-slate-500 group-hover:text-slate-600"
+                        }`}
+                    >
+                      {exp.location} • {exp.period}
+                    </div>
                   </div>
-                  <div
-                    className={`text-xs font-medium uppercase tracking-wide mb-4 transition-colors duration-300
-                      ${
-                        darkMode
-                          ? "text-slate-400 group-hover:text-slate-300"
-                          : "text-slate-500 group-hover:text-slate-600"
-                      }`}
-                  >
-                    {exp.location} • {exp.period}
+
+                  {/* Right side - Description */}
+                  <div className="flex-1 md:flex-[2]">
+                    {exp.description && (
+                      <p
+                        className={`font-mono text-sm leading-relaxed transition-colors duration-300
+                          ${
+                            darkMode
+                              ? "text-slate-300 group-hover:text-slate-200"
+                              : "text-slate-600 group-hover:text-slate-700"
+                          }`}
+                      >
+                        {exp.description}
+                      </p>
+                    )}
                   </div>
                 </div>
-
-                {/* Description */}
-                <p
-                  className={`font-mono text-sm leading-relaxed transition-colors duration-300
-                    ${
-                      darkMode
-                        ? "text-slate-300 group-hover:text-slate-200"
-                        : "text-slate-600 group-hover:text-slate-700"
-                    }`}
-                >
-                  {exp.description}
-                </p>
               </div>
             </div>
           ))}
