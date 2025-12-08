@@ -3,7 +3,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import ProjectsSection from "./ProjectsSection";
-import ExperienceSection from "./Experience";
+import CompaniesSection from "./CompaniesSection";
 import SkillsSection from "./SkillsSection";
 import FAQ from "./FAQ";
 import QuoteSlider from "./QuotesSection";
@@ -14,6 +14,7 @@ const Portfolio: React.FC = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <HeroSection />
       <ProjectsSection />
+      <CompaniesSection />
       <SkillsSection />
       <FAQ />
     </div>
