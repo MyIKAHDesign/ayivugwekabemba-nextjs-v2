@@ -86,7 +86,7 @@ export default function BlogPage() {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h1

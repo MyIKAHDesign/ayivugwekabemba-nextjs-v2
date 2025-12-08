@@ -70,7 +70,7 @@ const FAQ: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2

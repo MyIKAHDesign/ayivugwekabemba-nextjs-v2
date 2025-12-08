@@ -56,7 +56,7 @@ const CompaniesSection: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
             className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 

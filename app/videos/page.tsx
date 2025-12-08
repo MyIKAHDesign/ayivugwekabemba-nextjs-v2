@@ -25,7 +25,7 @@ export default function VideosPage() {
           }`}
       />
 
-      <div className="relative max-w-4xl mx-auto py-24">
+      <div className="relative max-w-6xl mx-auto py-24">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h1

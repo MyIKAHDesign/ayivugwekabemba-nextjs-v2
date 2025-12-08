@@ -47,7 +47,7 @@ const Footer = () => {
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
 
-      <div className="relative max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand section */}

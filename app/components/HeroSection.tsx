@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start min-h-[calc(100vh-8rem)]">
           {/* Image Column */}
           <div className="order-2 md:order-1 h-full flex flex-col justify-center">

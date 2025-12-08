@@ -82,7 +82,7 @@ const SkillsSection: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
             className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
@@ -100,7 +100,7 @@ const SkillsSection: React.FC = () => {
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
 

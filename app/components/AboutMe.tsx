@@ -70,7 +70,7 @@ const AboutMe: React.FC = () => {
       />
 
       {/* Content Wrapper */}
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* About Me Section */}
         <div className="pt-24">
           <div className="max-w-2xl mx-auto text-center mb-16">

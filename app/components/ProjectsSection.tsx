@@ -65,7 +65,7 @@ const ProjectsSection: React.FC = () => {
           }`}
       ></div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-10">
           <h2
@@ -86,7 +86,7 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projects.map((project, i) => (
             <ProjectCard
               key={i}

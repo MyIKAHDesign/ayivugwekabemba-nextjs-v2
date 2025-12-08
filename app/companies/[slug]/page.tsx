@@ -81,7 +81,7 @@ export default function CompanyDetailPage({
           }`}
       />
 
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Back Button */}
         <Link
           href="/#companies"
