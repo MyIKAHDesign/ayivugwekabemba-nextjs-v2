@@ -12,6 +12,12 @@ import {
   Wrench,
   Rocket,
   MessageSquare,
+  ChevronDown,
+  Home,
+  User,
+  Briefcase,
+  FileText,
+  Award,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -24,6 +30,7 @@ const Header = () => {
   const [isEmojiAnimating, setIsEmojiAnimating] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const bannerMessages = [
     {
@@ -44,17 +51,47 @@ const Header = () => {
     },
   ];
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Skills", href: "/#skills" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Experiences", href: "/experience" },
-    { name: "About me", href: "/about" },
-    { name: "Certificates", href: "/certificates" },
-    { name: "Quotes", href: "/quotes" },
-    { name: "Videos", href: "/videos" },
-    { name: "Blog", href: "/blog" },
+  const mainNavLinks = [
+    { name: "Home", href: "/", icon: Home },
+  ];
+
+  const portfolioDropdown = {
+    name: "Portfolio",
+    icon: Briefcase,
+    items: [
+      { name: "Projects", href: "/#projects" },
+      { name: "Skills", href: "/#skills" },
+      { name: "FAQ", href: "/#faq" },
+    ],
+  };
+
+  const contentDropdown = {
+    name: "Content",
+    icon: FileText,
+    items: [
+      { name: "Blog", href: "/blog" },
+      { name: "Videos", href: "/videos" },
+      { name: "Quotes", href: "/quotes" },
+    ],
+  };
+
+  const professionalDropdown = {
+    name: "Professional",
+    icon: Award,
+    items: [
+      { name: "Experiences", href: "/experience" },
+      { name: "Certificates", href: "/certificates" },
+    ],
+  };
+
+  const aboutLink = { name: "About", href: "/about", icon: User };
+
+  const allNavLinks = [
+    ...mainNavLinks,
+    portfolioDropdown,
+    contentDropdown,
+    professionalDropdown,
+    aboutLink,
   ];
 
   useEffect(() => {
