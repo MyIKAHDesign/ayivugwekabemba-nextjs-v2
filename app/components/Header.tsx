@@ -100,9 +100,9 @@ const Header = () => {
 
       // Only check sections if we're on the home page
       if (pathname === "/") {
-        const sectionIds = navLinks
-          .map((link) => link.href.replace("/#", ""))
-          .filter((id) => id && document.getElementById(id));
+        const sectionIds = [
+          ...portfolioDropdown.items.map((item) => item.href.replace("/#", "")),
+        ].filter((id) => id && document.getElementById(id));
 
         for (const id of sectionIds) {
           const element = document.getElementById(id);
@@ -180,7 +180,7 @@ const Header = () => {
                 >
                   {bannerMessages[currentBannerIndex].icon}
                 </div>
-                <p className="text-sm md:text-base font-medium bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
+                <p className="text-sm md:text-base font-medium font-mono bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
                   {bannerMessages[currentBannerIndex].text}
                 </p>
               </div>
@@ -205,56 +205,116 @@ const Header = () => {
       >
         <div className="container mx-auto px-4">
           <nav className="relative flex items-center justify-between h-16">
-            <Link href="/#home" className="text-2xl font-bold relative group">
+            <Link href="/#home" className="text-2xl font-bold relative group font-mono">
               <span className="bg-gradient-to-r from-slate-700 to-slate-600 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
                 Ayivugwe
               </span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-400 dark:to-slate-300 transition-all group-hover:w-full" />
             </Link>
 
-            {/* Update the spacing in the desktop menu container */}
+            {/* Desktop Navigation Menu */}
             <div className="hidden md:flex items-center space-x-4">
-              {" "}
-              {/* Changed from space-x-1 to space-x-4 */}
-              {/* Navigation Links Group */}
               <div className="flex items-center space-x-2">
-                {" "}
-                {/* Added a wrapper div with space-x-2 */}
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavigation(link.href)}
-                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200
-          ${
-            isActive(link.href)
-              ? "text-slate-700 dark:text-slate-200"
-              : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-          }`}
-                  >
-                    <span className="relative z-10">{link.name}</span>
-                    <span
-                      className={`absolute inset-0 rounded-lg transition-transform duration-200
-            ${
-              isActive(link.href)
-                ? "bg-slate-100 dark:bg-slate-800/50 scale-100"
-                : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
-            }`}
-                    />
-                  </button>
-                ))}
+                {allNavLinks.map((item) => {
+                  if ("items" in item) {
+                    // Dropdown menu
+                    const isOpen = openDropdown === item.name;
+                    return (
+                      <div
+                        key={item.name}
+                        className="relative"
+                        onMouseEnter={() => setOpenDropdown(item.name)}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                      >
+                        <button
+                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1
+                            ${
+                              item.items.some((subItem) =>
+                                isActive(subItem.href)
+                              )
+                                ? "text-slate-700 dark:text-slate-200"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                            }`}
+                        >
+                          <item.icon className="w-4 h-4" />
+                          <span className="relative z-10">{item.name}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                          <span
+                            className={`absolute inset-0 rounded-lg transition-transform duration-200
+                              ${
+                                item.items.some((subItem) =>
+                                  isActive(subItem.href)
+                                )
+                                  ? "bg-slate-100 dark:bg-slate-800/50 scale-100"
+                                  : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                              }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
+                            bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700">
+                            {item.items.map((subItem) => (
+                              <button
+                                key={subItem.name}
+                                onClick={() => handleNavigation(subItem.href)}
+                                className={`w-full px-4 py-2 text-left transition-colors duration-200
+                                  ${
+                                    isActive(subItem.href)
+                                      ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
+                                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-700 dark:hover:text-slate-200"
+                                  }`}
+                              >
+                                {subItem.name}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    // Regular link
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1
+                          ${
+                            isActive(item.href)
+                              ? "text-slate-700 dark:text-slate-200"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                          }`}
+                      >
+                        {item.icon && <item.icon className="w-4 h-4" />}
+                        <span className="relative z-10">{item.name}</span>
+                        <span
+                          className={`absolute inset-0 rounded-lg transition-transform duration-200
+                            ${
+                              isActive(item.href)
+                                ? "bg-slate-100 dark:bg-slate-800/50 scale-100"
+                                : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                            }`}
+                        />
+                      </button>
+                    );
+                  }
+                })}
               </div>
-              {/* Contact CTA Button - increased left margin */}
+              {/* Contact CTA Button */}
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="ml-6 px-4 py-2 flex items-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="ml-2 px-4 py-2 flex items-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Contact</span>
               </button>
-              {/* Theme Toggle Button - increased left margin */}
+              {/* Theme Toggle Button */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="ml-6 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 group"
+                className="ml-2 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 group"
                 aria-label="Toggle theme"
               >
                 {darkMode ? (
@@ -294,7 +354,7 @@ const Header = () => {
                       ) : (
                         <Moon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                       )}
-                      <span className="text-slate-600 dark:text-slate-300 font-medium">
+                      <span className="text-slate-600 dark:text-slate-300 font-medium font-mono">
                         {darkMode
                           ? "Switch to Light Mode"
                           : "Switch to Dark Mode"}
@@ -313,20 +373,76 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Navigation Links */}
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavigation(link.href)}
-                    className={`w-full px-4 py-2 text-left rounded-lg transition-colors
-            ${
-              isActive(link.href)
-                ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-            }`}
-                  >
-                    {link.name}
-                  </button>
-                ))}
+                {allNavLinks.map((item) => {
+                  if ("items" in item) {
+                    // Dropdown for mobile
+                    const isOpen = openDropdown === item.name;
+                    return (
+                      <div key={item.name}>
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(
+                              isOpen ? null : item.name
+                            )
+                          }
+                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between
+                            ${
+                              item.items.some((subItem) =>
+                                isActive(subItem.href)
+                              )
+                                ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                            }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            <item.icon className="w-4 h-4" />
+                            {item.name}
+                          </span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="pl-6 mt-2 space-y-2">
+                            {item.items.map((subItem) => (
+                              <button
+                                key={subItem.name}
+                                onClick={() => handleNavigation(subItem.href)}
+                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors
+                                  ${
+                                    isActive(subItem.href)
+                                      ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
+                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                                  }`}
+                              >
+                                {subItem.name}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    // Regular link
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2
+                          ${
+                            isActive(item.href)
+                              ? "text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/50"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                          }`}
+                      >
+                        {item.icon && <item.icon className="w-4 h-4" />}
+                        {item.name}
+                      </button>
+                    );
+                  }
+                })}
 
                 {/* Mobile Contact Button */}
                 <button
