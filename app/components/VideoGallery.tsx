@@ -149,15 +149,15 @@ const VideoGallery = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
+        <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="w-8 h-8 animate-spin text-slate-600 dark:text-slate-300" />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen text-orange-500">
+      <div className="flex items-center justify-center min-h-screen text-slate-600 dark:text-slate-300">
         <p>Error loading videos: {error}</p>
       </div>
     );
@@ -168,8 +168,8 @@ const VideoGallery = () => {
       className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 pb-24 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-slate-100/80 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -184,20 +184,64 @@ const VideoGallery = () => {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4
-              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-6
+              ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Kifuliiru Video Collection
           </h2>
-          <p
-            className={`font-inter text-xl leading-relaxed
-              ${darkMode ? "text-orange-200" : "text-slate-600"}`}
-          >
-            Preserving our heritage through digital storytelling
-          </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+          <div className="space-y-6 mb-8">
+            <p
+              className={`font-mono text-lg leading-relaxed
+                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
+            >
+              Welcome to our collection of Kifuliiru language videos. These videos are part of our ongoing mission to preserve, document, and promote the Kifuliiru language and Bafuliiru cultural heritage. Through digital storytelling, educational content, and cultural documentation, we aim to ensure that the Kifuliiru language continues to thrive for future generations.
+            </p>
+            <p
+              className={`font-mono text-lg leading-relaxed
+                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
+            >
+              Our videos cover a wide range of topics including language lessons, cultural stories, traditional practices, community events, and educational content designed to help both native speakers and learners engage with the Kifuliiru language in meaningful ways.
+            </p>
+            <div
+              className={`p-6 rounded-xl border
+                ${
+                  darkMode
+                    ? "bg-slate-800/50 border-slate-700/50"
+                    : "bg-slate-100/50 border-slate-200"
+                }`}
+            >
+              <p
+                className={`font-mono text-base leading-relaxed mb-4
+                  ${darkMode ? "text-slate-200" : "text-slate-700"}`}
+              >
+                For more Kifuliiru videos and content, visit our YouTube channel:
+              </p>
+              <a
+                href="https://www.youtube.com/@ibufuliiru"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 font-mono text-lg font-semibold transition-all duration-300 hover:scale-105
+                  ${
+                    darkMode
+                      ? "text-slate-100 hover:text-slate-50"
+                      : "text-slate-800 hover:text-slate-900"
+                  }`}
+              >
+                <span>@ibufuliiru</span>
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         {/* Videos Section */}
@@ -207,19 +251,19 @@ const VideoGallery = () => {
             <div className="lg:w-2/3">
               <div
                 ref={videoContainerRef}
-                className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl
+                className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                   ${
                     darkMode
-                      ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                      : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                      ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                      : "bg-white/50 border-slate-200 hover:border-slate-300"
                   }`}
               >
                 <div
                   className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                     ${
                       darkMode
-                        ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                        : "bg-gradient-to-t from-orange-400 via-orange-200 to-orange-50"
+                        ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                        : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                     }`}
                 />
 
@@ -237,24 +281,22 @@ const VideoGallery = () => {
 
                   <div className="p-6">
                     <h3
-                      className={`font-inter text-xl font-semibold mb-2 transition-colors duration-500
-                        ${darkMode ? "text-orange-200" : "text-slate-900"}
+                      className={`font-mono text-xl font-semibold mb-2 transition-colors duration-500
                         ${
                           darkMode
-                            ? "group-hover:text-white"
-                            : "group-hover:text-slate-900"
+                            ? "text-slate-100 group-hover:text-slate-50"
+                            : "text-slate-900 group-hover:text-slate-800"
                         }`}
                     >
                       {videos[currentVideoIndex].title}
                     </h3>
 
                     <p
-                      className={`font-inter text-lg leading-relaxed mb-4 transition-colors duration-500
-                        ${darkMode ? "text-orange-200" : "text-slate-600"}
+                      className={`font-mono text-lg leading-relaxed mb-4 transition-colors duration-500
                         ${
                           darkMode
-                            ? "group-hover:text-orange-100"
-                            : "group-hover:text-slate-700"
+                            ? "text-slate-300 group-hover:text-slate-200"
+                            : "text-slate-600 group-hover:text-slate-700"
                         }`}
                     >
                       {videos[currentVideoIndex].description}
@@ -267,8 +309,8 @@ const VideoGallery = () => {
                           className={`p-2 rounded-lg transition-all duration-300 hover:scale-105
                             ${
                               darkMode
-                                ? "bg-slate-700/50 text-orange-200 hover:bg-slate-600/50"
-                                : "bg-orange-100/50 text-orange-800 hover:bg-orange-200/50"
+                                ? "bg-slate-700/50 text-slate-300 hover:bg-slate-600/50"
+                                : "bg-slate-100/50 text-slate-700 hover:bg-slate-200/50"
                             }`}
                         >
                           {isMuted ? (
@@ -282,8 +324,8 @@ const VideoGallery = () => {
                           className={`p-2 rounded-lg transition-all duration-300 hover:scale-105
                             ${
                               darkMode
-                                ? "bg-slate-700/50 text-orange-200 hover:bg-slate-600/50"
-                                : "bg-orange-100/50 text-orange-800 hover:bg-orange-200/50"
+                                ? "bg-slate-700/50 text-slate-300 hover:bg-slate-600/50"
+                                : "bg-slate-100/50 text-slate-700 hover:bg-slate-200/50"
                             }`}
                         >
                           {isFullscreen ? (
@@ -295,40 +337,31 @@ const VideoGallery = () => {
                       </div>
                       <div className="flex items-center gap-4">
                         <span
-                          className={`font-inter text-sm transition-colors duration-500
-                            ${
-                              darkMode ? "text-orange-200/70" : "text-slate-500"
-                            }
+                          className={`font-mono text-sm transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-orange-100"
-                                : "group-hover:text-white"
+                                ? "text-slate-300/70 group-hover:text-slate-200"
+                                : "text-slate-500 group-hover:text-slate-600"
                             }`}
                         >
                           {videos[currentVideoIndex].duration}
                         </span>
                         <span
-                          className={`font-inter text-sm transition-colors duration-500
-                            ${
-                              darkMode ? "text-orange-200/70" : "text-slate-500"
-                            }
+                          className={`font-mono text-sm transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-orange-100"
-                                : "group-hover:text-white"
+                                ? "text-slate-300/70 group-hover:text-slate-200"
+                                : "text-slate-500 group-hover:text-slate-600"
                             }`}
                         >
                           {videos[currentVideoIndex].viewCount}
                         </span>
                         <span
-                          className={`font-inter text-sm transition-colors duration-500
-                            ${
-                              darkMode ? "text-orange-200/70" : "text-slate-500"
-                            }
+                          className={`font-mono text-sm transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-orange-100"
-                                : "group-hover:text-white"
+                                ? "text-slate-300/70 group-hover:text-slate-200"
+                                : "text-slate-500 group-hover:text-slate-600"
                             }`}
                         >
                           {videos[currentVideoIndex].publishedAt}
@@ -343,8 +376,8 @@ const VideoGallery = () => {
             {/* Video List */}
             <div className="lg:w-1/3">
               <h3
-                className={`font-inter text-xl font-semibold mb-4
-                  ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                className={`font-mono text-xl font-semibold mb-4
+                  ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 More Videos
               </h3>
@@ -353,15 +386,15 @@ const VideoGallery = () => {
                   <button
                     key={video.id}
                     onClick={() => setCurrentVideoIndex(index)}
-                    className={`group relative flex-shrink-0 w-72 lg:w-full rounded-xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+                    className={`group relative flex-shrink-0 w-72 lg:w-full rounded-xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                       ${
                         darkMode
-                          ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                          : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                          ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                          : "bg-white/50 border-slate-200 hover:border-slate-300"
                       }
                       ${
                         currentVideoIndex === index
-                          ? "ring-2 ring-orange-500"
+                          ? "ring-2 ring-slate-600 dark:ring-slate-400"
                           : ""
                       }`}
                   >
@@ -369,8 +402,8 @@ const VideoGallery = () => {
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                         ${
                           darkMode
-                            ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                            : "bg-gradient-to-t from-orange-200 via-orange-100 to-orange-50"
+                            ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                            : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                         }`}
                     />
 
@@ -389,7 +422,7 @@ const VideoGallery = () => {
                           <Play
                             className={`w-8 h-8 transition-colors duration-500
                               ${
-                                darkMode ? "text-orange-200" : "text-orange-600"
+                                darkMode ? "text-slate-300" : "text-slate-600"
                               }`}
                           />
                         </div>
@@ -397,43 +430,32 @@ const VideoGallery = () => {
 
                       <div className="p-4">
                         <h4
-                          className={`font-inter text-sm font-medium mb-2 line-clamp-2 transition-colors duration-500
-                            ${darkMode ? "text-orange-50" : "text-slate-900"}
+                          className={`font-mono text-sm font-medium mb-2 line-clamp-2 transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-white"
-                                : "group-hover:text-white"
+                                ? "text-slate-100 group-hover:text-slate-50"
+                                : "text-slate-900 group-hover:text-slate-800"
                             }`}
                         >
                           {video.title}
                         </h4>
                         <div className="flex justify-between items-center">
                           <span
-                            className={`font-inter text-xs transition-colors duration-500
+                            className={`font-mono text-xs transition-colors duration-500
                               ${
                                 darkMode
-                                  ? "text-orange-200/70"
-                                  : "text-slate-500"
-                              }
-                              ${
-                                darkMode
-                                  ? "group-hover:text-orange-100"
-                                  : "group-hover:text-white"
+                                  ? "text-slate-300/70 group-hover:text-slate-200"
+                                  : "text-slate-500 group-hover:text-slate-600"
                               }`}
                           >
                             {video.duration}
                           </span>
                           <span
-                            className={`font-inter text-xs transition-colors duration-500
+                            className={`font-mono text-xs transition-colors duration-500
                               ${
                                 darkMode
-                                  ? "text-orange-200/70"
-                                  : "text-slate-500"
-                              }
-                              ${
-                                darkMode
-                                  ? "group-hover:text-orange-100"
-                                  : "group-hover:text-white"
+                                  ? "text-slate-300/70 group-hover:text-slate-200"
+                                  : "text-slate-500 group-hover:text-slate-600"
                               }`}
                           >
                             {video.publishedAt}
@@ -451,7 +473,7 @@ const VideoGallery = () => {
         {/* Bottom Gradient Decoration */}
         <div
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-            ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
+            ${darkMode ? "via-slate-700/50" : "via-slate-200"} 
             to-transparent`}
         />
       </div>

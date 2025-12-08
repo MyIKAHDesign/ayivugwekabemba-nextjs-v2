@@ -69,11 +69,11 @@ export default function BlogPage() {
 
   return (
     <section
-      className={`relative min-h-screen pt-48 md:pt-32 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-48 md:pt-32 pb-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
     ${
       darkMode
         ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-        : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+        : "bg-gradient-to-b from-slate-50 via-slate-50/80 to-white"
     }`}
     >
       {/* Background Pattern */}
@@ -86,18 +86,18 @@ export default function BlogPage() {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h1
             className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+              ${darkMode ? "text-slate-50" : "text-slate-900"}`}
           >
             Blog
           </h1>
           <p
             className={`text-xl leading-relaxed
-              ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+              ${darkMode ? "text-slate-200" : "text-slate-700"}`}
           >
             Thoughts on technology, language preservation, and community
             building
@@ -111,10 +111,10 @@ export default function BlogPage() {
                 ${
                   !selectedCategory
                     ? darkMode
-                      ? "bg-orange-600 text-white"
-                      : "bg-orange-600 text-white"
+                      ? "bg-slate-600 text-white"
+                      : "bg-slate-600 text-white"
                     : darkMode
-                    ? "bg-slate-800 text-orange-200"
+                    ? "bg-slate-800 text-slate-200"
                     : "bg-white text-slate-700"
                 }
                 hover:scale-105`}
@@ -129,10 +129,10 @@ export default function BlogPage() {
                   ${
                     selectedCategory === category
                       ? darkMode
-                        ? "bg-orange-600 text-white"
-                        : "bg-orange-600 text-white"
+                        ? "bg-slate-600 text-white"
+                        : "bg-slate-600 text-white"
                       : darkMode
-                      ? "bg-slate-800 text-orange-200"
+                      ? "bg-slate-800 text-slate-200"
                       : "bg-white text-slate-700"
                   }
                   hover:scale-105`}
@@ -152,8 +152,8 @@ export default function BlogPage() {
               className={`group relative rounded-2xl overflow-hidden transition-all duration-500 
                 ${
                   darkMode
-                    ? "bg-slate-800/50 hover:bg-slate-800 border border-orange-900/30"
-                    : "bg-white/50 hover:bg-white border border-orange-200"
+                    ? "bg-slate-800/50 hover:bg-slate-800 border border-slate-900/30"
+                    : "bg-white/50 hover:bg-white border border-slate-200"
                 }
                 hover:scale-105`}
             >
@@ -173,8 +173,8 @@ export default function BlogPage() {
                   className={`inline-block px-3 py-1 rounded-full text-sm mb-4
                     ${
                       darkMode
-                        ? "bg-orange-600/20 text-orange-200"
-                        : "bg-orange-100 text-orange-800"
+                        ? "bg-slate-600/20 text-slate-200"
+                        : "bg-slate-100 text-slate-800"
                     }`}
                 >
                   {post.category}
@@ -183,7 +183,7 @@ export default function BlogPage() {
                 {/* Title */}
                 <h2
                   className={`text-xl font-semibold mb-3 
-                    ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                    ${darkMode ? "text-slate-50" : "text-slate-900"}`}
                 >
                   {post.title}
                 </h2>
@@ -191,7 +191,7 @@ export default function BlogPage() {
                 {/* Excerpt */}
                 <p
                   className={`mb-4 line-clamp-2
-                    ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                    ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                 >
                   {post.excerpt}
                 </p>
@@ -204,8 +204,8 @@ export default function BlogPage() {
                       className={`text-sm px-2 py-1 rounded-full
                         ${
                           darkMode
-                            ? "bg-slate-700 text-orange-200"
-                            : "bg-orange-50 text-slate-700"
+                            ? "bg-slate-700 text-slate-200"
+                            : "bg-slate-50 text-slate-700"
                         }`}
                     >
                       <Tag className="w-3 h-3 inline mr-1" />
@@ -217,7 +217,7 @@ export default function BlogPage() {
                 {/* Meta Info */}
                 <div
                   className={`flex items-center justify-between text-sm
-                    ${darkMode ? "text-orange-200/70" : "text-slate-500"}`}
+                    ${darkMode ? "text-slate-200/70" : "text-slate-500"}`}
                 >
                   <div className="flex items-center gap-4">
                     <span className="flex items-center">

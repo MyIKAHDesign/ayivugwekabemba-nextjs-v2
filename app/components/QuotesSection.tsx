@@ -102,8 +102,8 @@ const QuotesSection = () => {
       className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 pb-24 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-orange-900/20 to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-100 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-slate-900/20 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-slate-100 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -116,22 +116,22 @@ const QuotesSection = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+              ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Inspiration
           </h2>
           <p
-            className={`text-xl leading-relaxed
-              ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+            className={`text-xl leading-relaxed font-mono
+              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             Thoughts that drive innovation and progress
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         {/* Quotes Grid */}
@@ -139,41 +139,39 @@ const QuotesSection = () => {
           {quotes.map((quote, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                    : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                    ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                    : "bg-white/50 border-slate-200 hover:border-slate-300"
                 }`}
             >
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                   ${
                     darkMode
-                      ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                      : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                      ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                      : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                   }`}
               />
 
               <div className="relative p-6 transition-colors duration-500 z-10">
                 <Quote
                   className={`w-8 h-8 mb-4 transition-colors duration-500
-                    ${darkMode ? "text-orange-400" : "text-orange-600"}
                     ${
                       darkMode
-                        ? "group-hover:text-orange-200"
-                        : "group-hover:text-white"
+                        ? "text-slate-300 group-hover:text-slate-100"
+                        : "text-slate-600 group-hover:text-slate-800"
                     }`}
                 />
 
                 <blockquote className="mb-6">
                   <p
-                    className={`text-xl font-medium mb-4 transition-colors duration-500
-                      ${darkMode ? "text-orange-50" : "text-slate-900"}
+                    className={`text-xl font-medium mb-4 transition-colors duration-500 font-mono
                       ${
                         darkMode
-                          ? "group-hover:text-white"
-                          : "group-hover:text-white"
+                          ? "text-slate-100 group-hover:text-slate-50"
+                          : "text-slate-900 group-hover:text-slate-800"
                       }`}
                   >
                     &ldquo;{quote.quote}&rdquo;
@@ -182,12 +180,11 @@ const QuotesSection = () => {
 
                 <div className="space-y-2">
                   <p
-                    className={`text-lg font-medium transition-colors duration-500
-                      ${darkMode ? "text-orange-200" : "text-slate-700"}
+                    className={`text-lg font-medium transition-colors duration-500 font-mono
                       ${
                         darkMode
-                          ? "group-hover:text-orange-100"
-                          : "group-hover:text-white"
+                          ? "text-slate-300 group-hover:text-slate-200"
+                          : "text-slate-700 group-hover:text-slate-800"
                       }`}
                   >
                     {quote.author}
@@ -195,16 +192,11 @@ const QuotesSection = () => {
 
                   <div className="flex flex-wrap gap-2">
                     <span
-                      className={`text-sm px-3 py-1 rounded-full transition-colors duration-500
+                      className={`text-sm px-3 py-1 rounded-full transition-colors duration-500 font-mono
                         ${
                           darkMode
-                            ? "bg-slate-700/50 text-orange-200 group-hover:bg-orange-800/50"
-                            : "bg-slate-100 text-slate-700 group-hover:bg-orange-100/50"
-                        }
-                        ${
-                          darkMode
-                            ? "group-hover:text-white"
-                            : "group-hover:text-white"
+                            ? "bg-slate-700/50 text-slate-300 group-hover:bg-slate-600/60 group-hover:text-slate-200"
+                            : "bg-slate-100 text-slate-700 group-hover:bg-slate-200/70 group-hover:text-slate-800"
                         }`}
                     >
                       {quote.group}
@@ -212,12 +204,11 @@ const QuotesSection = () => {
                   </div>
 
                   <p
-                    className={`text-sm italic transition-colors duration-500
-                      ${darkMode ? "text-orange-200/70" : "text-slate-500"}
+                    className={`text-sm italic transition-colors duration-500 font-mono
                       ${
                         darkMode
-                          ? "group-hover:text-orange-100"
-                          : "group-hover:text-white"
+                          ? "text-slate-300/70 group-hover:text-slate-200/90"
+                          : "text-slate-500 group-hover:text-slate-600"
                       }`}
                   >
                     {quote.context}

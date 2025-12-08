@@ -11,11 +11,11 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 font-inter
+      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 font-mono
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-slate-100/80 to-white"
         }`}
     >
       {/* Background Pattern with subtle animation */}
@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start min-h-[calc(100vh-8rem)]">
           {/* Image Column */}
           <div className="order-2 md:order-1 h-full flex flex-col justify-center">
@@ -36,12 +36,12 @@ const HeroSection: React.FC = () => {
               className={`group relative rounded-2xl overflow-hidden animate-gentle-bounce hover:scale-[1.02] transition-all duration-500
                 ${
                   darkMode
-                    ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-orange-900/30"
-                    : "bg-gradient-to-br from-white/80 to-orange-50 border border-orange-200"
+                    ? "bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-700/50"
+                    : "bg-gradient-to-br from-white/80 to-slate-100 border border-slate-200"
                 } p-1`}
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-orange-500/20 to-orange-600/20 blur-xl" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-slate-400/20 to-slate-500/20 blur-xl" />
 
               {/* Image container with continuous subtle movement */}
               <div className="relative w-full aspect-[4/3] animate-faster-float hover:scale-105 transition-transform duration-500">
@@ -69,14 +69,14 @@ const HeroSection: React.FC = () => {
                     className={`group relative px-4 py-2 rounded-full text-sm font-medium overflow-hidden animate-tag-float hover:scale-105 transition-transform duration-300 border
                       ${
                         darkMode
-                          ? "bg-slate-800/80 text-orange-200 hover:text-orange-100 border-orange-900/30"
-                          : "bg-white/80 text-slate-700 hover:text-slate-900 border-orange-200"
+                          ? "bg-slate-800/80 text-slate-200 hover:text-slate-100 border-slate-700/50"
+                          : "bg-white/80 text-slate-700 hover:text-slate-900 border-slate-200"
                       }`}
                     style={{ animationDelay: `${tag.delay * 1.2}s` }}
                   >
                     <div
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
-                        ${darkMode ? "bg-orange-900/30" : "bg-orange-100/50"}`}
+                        ${darkMode ? "bg-slate-700/30" : "bg-slate-100/50"}`}
                     />
                     <span className="relative z-10">{tag.text}</span>
                   </span>
@@ -89,23 +89,23 @@ const HeroSection: React.FC = () => {
           <div className="order-1 md:order-2 h-full flex flex-col justify-center">
             <div className="space-y-6">
               <h1
-                className={`font-inter text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
-                ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                className={`font-mono text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
+                ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 Welcome. I&apos;m Ayivugwe Kabemba Mukome
               </h1>
 
               <div
                 className={`text-xl leading-relaxed font-medium transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                 style={{ animationDelay: "200ms" }}
               >
                 <span
                   className={`group relative inline-block px-4 py-2 rounded-full overflow-hidden animate-tag-float border
                     ${
                       darkMode
-                        ? "bg-slate-800/40 text-orange-200 border-orange-900/30"
-                        : "bg-emerald-50/50 text-emerald-800 border-emerald-200"
+                        ? "bg-slate-800/40 text-slate-200 border-slate-700/50"
+                        : "bg-slate-100/50 text-slate-700 border-slate-200"
                     }`}
                 >
                   <span className="relative z-10 text-sm ">
@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
 
               <p
                 className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-white" : "text-slate-700"}`}
+                ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                 style={{ animationDelay: "400ms" }}
               >
                 A technologist combining software development and project
@@ -139,11 +139,11 @@ const HeroSection: React.FC = () => {
                       ${
                         button.primary
                           ? darkMode
-                            ? "bg-orange-600 text-white border-orange-500"
-                            : "bg-orange-600 text-white border-orange-500"
+                            ? "bg-slate-700 text-white border-slate-600"
+                            : "bg-slate-700 text-white border-slate-600"
                           : darkMode
-                          ? "border-orange-600 text-orange-400 hover:border-orange-500"
-                          : "border-orange-600 text-orange-600 hover:border-orange-500"
+                          ? "border-slate-600 text-slate-300 hover:border-slate-500"
+                          : "border-slate-600 text-slate-700 hover:border-slate-500"
                       }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
@@ -151,10 +151,10 @@ const HeroSection: React.FC = () => {
                       className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                         ${
                           button.primary
-                            ? "bg-orange-500" // Simplified to solid color for better visibility
+                            ? "bg-slate-600" // Simplified to solid color for better visibility
                             : darkMode
-                            ? "bg-orange-900" // Darker background for dark mode
-                            : "bg-orange-100" // Light background for light mode
+                            ? "bg-slate-800" // Darker background for dark mode
+                            : "bg-slate-100" // Light background for light mode
                         }`}
                     />
                     <span
@@ -162,7 +162,7 @@ const HeroSection: React.FC = () => {
                         ${
                           button.primary
                             ? "group-hover:text-white"
-                            : "group-hover:text-orange-600"
+                            : "group-hover:text-slate-700"
                         }
                       `}
                     >
@@ -177,13 +177,13 @@ const HeroSection: React.FC = () => {
                 className={`mt-12 pt-12 transition-colors duration-300
                 ${
                   darkMode
-                    ? "border-t border-orange-900/30"
-                    : "border-t border-orange-100"
+                    ? "border-t border-slate-700/50"
+                    : "border-t border-slate-200"
                 }`}
               >
                 <h3
                   className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-300
-                  ${darkMode ? "text-orange-200/70" : "text-slate-500"}`}
+                  ${darkMode ? "text-slate-300/70" : "text-slate-500"}`}
                 >
                   CONNECT WITH ME
                 </h3>
@@ -211,7 +211,7 @@ const HeroSection: React.FC = () => {
                       className={`group relative p-2 rounded-full overflow-hidden transition-all duration-300 hover:scale-110
                         ${
                           darkMode
-                            ? "text-orange-200 hover:text-orange-100"
+                            ? "text-slate-300 hover:text-slate-100"
                             : "text-slate-600 hover:text-slate-900"
                         }`}
                       aria-label={label}
@@ -219,7 +219,7 @@ const HeroSection: React.FC = () => {
                       <div
                         className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
                           ${
-                            darkMode ? "bg-orange-900/50" : "bg-orange-100/50"
+                            darkMode ? "bg-slate-800/50" : "bg-slate-100/50"
                           }`}
                       />
                       <Icon

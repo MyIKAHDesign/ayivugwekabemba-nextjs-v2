@@ -56,8 +56,8 @@ const FAQ: React.FC = () => {
       className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-slate-100/80 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -70,22 +70,22 @@ const FAQ: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-            ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Frequently Asked Questions
           </h2>
           <p
-            className={`font-inter text-xl leading-relaxed
-            ${darkMode ? "text-orange-200" : "text-slate-600"}`}
+            className={`font-mono text-xl leading-relaxed
+            ${darkMode ? "text-slate-300" : "text-slate-600"}`}
           >
             Find answers to common questions about our projects and initiatives
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         {/* FAQ Accordion */}
@@ -96,8 +96,8 @@ const FAQ: React.FC = () => {
               className={`group relative rounded-xl overflow-hidden transition-all duration-500 backdrop-blur-xl border
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-orange-900/30"
-                    : "bg-white/50 border-orange-200"
+                    ? "bg-slate-800/50 border-slate-700/50"
+                    : "bg-white/50 border-slate-200"
                 }`}
             >
               {/* Down-up animation gradient overlay */}
@@ -105,8 +105,8 @@ const FAQ: React.FC = () => {
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                 ${
                   darkMode
-                    ? "bg-gradient-to-t from-orange-950/90 via-orange-900/80 to-orange-800/90"
-                    : "bg-gradient-to-t from-orange-200/80 via-orange-100/70 to-orange-50/60"
+                    ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                    : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                 }`}
               />
 
@@ -116,12 +116,12 @@ const FAQ: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <h3
-                    className={`font-inter text-xl font-medium pr-8 transition-colors duration-500
-                    ${darkMode ? "text-orange-50" : "text-slate-900"}
+                    className={`font-mono text-xl font-semibold pr-8 transition-colors duration-500
+                    ${darkMode ? "text-slate-100" : "text-slate-900"}
                     ${
                       darkMode
                         ? "group-hover:text-white"
-                        : "group-hover:text-orange-900"
+                        : "group-hover:text-slate-800"
                     }`}
                   >
                     {faq.question}
@@ -130,8 +130,8 @@ const FAQ: React.FC = () => {
                     className={`flex-shrink-0 transition-colors duration-500
                     ${
                       darkMode
-                        ? "text-orange-200 group-hover:text-white"
-                        : "text-orange-600 group-hover:text-orange-900"
+                        ? "text-slate-300 group-hover:text-white"
+                        : "text-slate-600 group-hover:text-slate-800"
                     }`}
                   >
                     {activeIndex === index ? (
@@ -148,12 +148,12 @@ const FAQ: React.FC = () => {
                   ${activeIndex === index ? "max-h-96" : "max-h-0"}`}
               >
                 <p
-                  className={`p-6 pt-0 font-inter text-lg leading-relaxed transition-colors duration-500
-                  ${darkMode ? "text-orange-200" : "text-slate-600"}
+                  className={`p-6 pt-0 font-mono text-lg leading-relaxed transition-colors duration-500
+                  ${darkMode ? "text-slate-300" : "text-slate-600"}
                   ${
                     darkMode
-                      ? "group-hover:text-orange-100"
-                      : "group-hover:text-orange-800"
+                      ? "group-hover:text-slate-100"
+                      : "group-hover:text-slate-800"
                   }`}
                 >
                   {faq.answer}
@@ -166,7 +166,7 @@ const FAQ: React.FC = () => {
         {/* Bottom Gradient Decoration */}
         <div
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-          ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
+          ${darkMode ? "via-slate-700/50" : "via-slate-200"} 
           to-transparent`}
         />
       </div>

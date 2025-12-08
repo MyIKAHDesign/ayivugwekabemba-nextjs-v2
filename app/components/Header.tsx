@@ -12,6 +12,11 @@ import {
   Wrench,
   Rocket,
   MessageSquare,
+  ChevronDown,
+  Home,
+  User,
+  FileText,
+  Award,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -24,37 +29,57 @@ const Header = () => {
   const [isEmojiAnimating, setIsEmojiAnimating] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const bannerMessages = [
     {
-      icon: <Wrench className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
+      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
       text: "I'm Ayivugwe Kabemba Mukome!",
     },
     {
-      icon: <Wrench className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
+      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
       text: "Welcome to my portfolio!",
     },
     {
-      icon: <Sparkles className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
+      icon: <Sparkles className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
       text: "Check out my latest projects!",
     },
     {
-      icon: <Rocket className="w-4 h-4 text-amber-800 dark:text-amber-200" />,
+      icon: <Rocket className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
       text: "Let's build something amazing together!",
     },
   ];
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Skills", href: "/#skills" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Experiences", href: "/experience" },
-    { name: "About me", href: "/about" },
-    { name: "Certificates", href: "/certificates" },
-    { name: "Quotes", href: "/quotes" },
-    { name: "Videos", href: "/videos" },
-    { name: "Blog", href: "/blog" },
+  const mainNavLinks = [
+    { name: "Home", href: "/", icon: Home },
+  ];
+
+  const aboutLink = { name: "More about me", href: "/about", icon: User };
+
+  const contentDropdown = {
+    name: "Content",
+    icon: FileText,
+    items: [
+      { name: "Blog", href: "/blog" },
+      { name: "Videos", href: "/videos" },
+      { name: "Quotes", href: "/quotes" },
+    ],
+  };
+
+  const professionalDropdown = {
+    name: "Professional",
+    icon: Award,
+    items: [
+      { name: "Experiences", href: "/experience" },
+      { name: "Technical Skills", href: "/skills" },
+    ],
+  };
+
+  const allNavLinks = [
+    ...mainNavLinks,
+    aboutLink,
+    contentDropdown,
+    professionalDropdown,
   ];
 
   useEffect(() => {
@@ -63,9 +88,11 @@ const Header = () => {
 
       // Only check sections if we're on the home page
       if (pathname === "/") {
-        const sectionIds = navLinks
-          .map((link) => link.href.replace("/#", ""))
-          .filter((id) => id && document.getElementById(id));
+        const sectionIds = [
+          "projects",
+          "companies",
+          "faq",
+        ].filter((id) => id && document.getElementById(id));
 
         for (const id of sectionIds) {
           const element = document.getElementById(id);
@@ -129,7 +156,7 @@ const Header = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       {showBanner && (
-        <div className="relative overflow-hidden bg-gradient-to-r from-amber-50 to-orange-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="relative overflow-hidden bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-900 dark:to-slate-800">
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30" />
           <div className="container mx-auto px-4">
             <div className="relative flex items-center justify-between py-3">
@@ -143,16 +170,16 @@ const Header = () => {
                 >
                   {bannerMessages[currentBannerIndex].icon}
                 </div>
-                <p className="text-sm md:text-base font-medium bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-200 dark:to-orange-200 bg-clip-text text-transparent">
+                <p className="text-sm md:text-base font-medium font-mono bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
                   {bannerMessages[currentBannerIndex].text}
                 </p>
               </div>
               <button
                 onClick={() => setShowBanner(false)}
-                className="ml-4 p-1 rounded-full hover:bg-amber-100 dark:hover:bg-gray-700 transition-all duration-300"
+                className="ml-4 p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
                 aria-label="Close banner"
               >
-                <X className="w-4 h-4 text-amber-600 dark:text-amber-200" />
+                <X className="w-4 h-4 text-slate-600 dark:text-slate-300" />
               </button>
             </div>
           </div>
@@ -166,64 +193,134 @@ const Header = () => {
             : "bg-white dark:bg-gray-900"
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <nav className="relative flex items-center justify-between h-16">
-            <Link href="/#home" className="text-2xl font-bold relative group">
-              <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+            <Link href="/#home" className="flex items-center gap-2 text-2xl font-bold relative group font-mono">
+              <img
+                src="/favicon.ico"
+                alt="Ayivugwe"
+                className="w-8 h-8"
+              />
+              <span className="bg-gradient-to-r from-slate-700 to-slate-600 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
                 Ayivugwe
               </span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-amber-500 transition-all group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-400 dark:to-slate-300 transition-all group-hover:w-full" />
             </Link>
 
-            {/* Update the spacing in the desktop menu container */}
+            {/* Desktop Navigation Menu */}
             <div className="hidden md:flex items-center space-x-4">
-              {" "}
-              {/* Changed from space-x-1 to space-x-4 */}
-              {/* Navigation Links Group */}
               <div className="flex items-center space-x-2">
-                {" "}
-                {/* Added a wrapper div with space-x-2 */}
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavigation(link.href)}
-                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200
-          ${
-            isActive(link.href)
-              ? "text-orange-600 dark:text-orange-400"
-              : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400"
-          }`}
-                  >
-                    <span className="relative z-10">{link.name}</span>
-                    <span
-                      className={`absolute inset-0 rounded-lg transition-transform duration-200
-            ${
-              isActive(link.href)
-                ? "bg-orange-50 dark:bg-orange-900/30 scale-100"
-                : "bg-orange-50 dark:bg-orange-900/30 scale-0 group-hover:scale-100"
-            }`}
-                    />
-                  </button>
-                ))}
+                {allNavLinks.map((item) => {
+                  if ("items" in item) {
+                    // Dropdown menu
+                    const isOpen = openDropdown === item.name;
+                    return (
+                      <div
+                        key={item.name}
+                        className="relative"
+                        onMouseEnter={() => setOpenDropdown(item.name)}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                      >
+                        <button
+                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
+                            ${
+                              item.items.some((subItem) =>
+                                isActive(subItem.href)
+                              )
+                                ? "text-slate-800 dark:text-slate-100"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
+                            }`}
+                        >
+                          <span className="relative z-30">{item.name}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 relative z-30 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                          <span
+                            className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
+                              ${
+                                item.items.some((subItem) =>
+                                  isActive(subItem.href)
+                                )
+                                  ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
+                                  : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                              }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <>
+                            {/* Bridge area to make it easier to move mouse into dropdown */}
+                            <div className="absolute top-full left-0 w-full h-2 z-40" />
+                            <div
+                              className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
+                                bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700"
+                              onMouseEnter={() => setOpenDropdown(item.name)}
+                            >
+                              {item.items.map((subItem) => (
+                                <button
+                                  key={subItem.name}
+                                  onClick={() => handleNavigation(subItem.href)}
+                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-mono
+                                    ${
+                                      isActive(subItem.href)
+                                        ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
+                                        : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-700 dark:hover:text-slate-200"
+                                    }`}
+                                >
+                                  {subItem.name}
+                                </button>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    // Regular link
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
+                          ${
+                            isActive(item.href)
+                              ? "text-slate-800 dark:text-slate-100"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
+                          }`}
+                      >
+                        <span className="relative z-30">{item.name}</span>
+                        <span
+                          className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
+                            ${
+                              isActive(item.href)
+                                ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
+                                : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                            }`}
+                        />
+                      </button>
+                    );
+                  }
+                })}
               </div>
-              {/* Contact CTA Button - increased left margin */}
+              {/* Contact CTA Button */}
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="ml-6 px-4 py-2 flex items-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="ml-2 px-4 py-2 flex items-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Contact</span>
               </button>
-              {/* Theme Toggle Button - increased left margin */}
+              {/* Theme Toggle Button */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="ml-6 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group"
+                className="ml-2 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 group"
                 aria-label="Toggle theme"
               >
                 {darkMode ? (
-                  <Sun className="w-5 h-5 text-amber-400 transition-transform duration-500 group-hover:rotate-180" />
+                  <Sun className="w-5 h-5 text-slate-300 transition-transform duration-500 group-hover:rotate-180" />
                 ) : (
-                  <Moon className="w-5 h-5 text-gray-600 transition-transform duration-500 group-hover:-rotate-90" />
+                  <Moon className="w-5 h-5 text-slate-600 transition-transform duration-500 group-hover:-rotate-90" />
                 )}
               </button>
             </div>
@@ -253,22 +350,22 @@ const Header = () => {
                   >
                     <div className="flex items-center gap-3">
                       {darkMode ? (
-                        <Sun className="w-5 h-5 text-amber-400" />
+                        <Sun className="w-5 h-5 text-slate-300" />
                       ) : (
-                        <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                        <Moon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                       )}
-                      <span className="text-gray-600 dark:text-gray-300 font-medium">
+                      <span className="text-slate-600 dark:text-slate-300 font-medium font-mono">
                         {darkMode
                           ? "Switch to Light Mode"
                           : "Switch to Dark Mode"}
                       </span>
                     </div>
-                    <div className="w-8 h-4 bg-gray-300 dark:bg-gray-600 rounded-full relative">
+                    <div className="w-8 h-4 bg-slate-300 dark:bg-slate-600 rounded-full relative">
                       <div
                         className={`absolute top-0.5 left-0.5 w-3 h-3 rounded-full transition-transform duration-200 ${
                           darkMode
-                            ? "translate-x-4 bg-amber-400"
-                            : "translate-x-0 bg-gray-500"
+                            ? "translate-x-4 bg-slate-300"
+                            : "translate-x-0 bg-slate-500"
                         }`}
                       />
                     </div>
@@ -276,25 +373,77 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Navigation Links */}
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavigation(link.href)}
-                    className={`w-full px-4 py-2 text-left rounded-lg transition-colors
-            ${
-              isActive(link.href)
-                ? "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30"
-                : "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30"
-            }`}
-                  >
-                    {link.name}
-                  </button>
-                ))}
+                {allNavLinks.map((item) => {
+                  if ("items" in item) {
+                    // Dropdown for mobile
+                    const isOpen = openDropdown === item.name;
+                    return (
+                      <div key={item.name}>
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(
+                              isOpen ? null : item.name
+                            )
+                          }
+                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-mono
+                            ${
+                              item.items.some((subItem) =>
+                                isActive(subItem.href)
+                              )
+                                ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                            }`}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="pl-6 mt-2 space-y-2">
+                            {item.items.map((subItem) => (
+                              <button
+                                key={subItem.name}
+                                onClick={() => handleNavigation(subItem.href)}
+                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-mono
+                                  ${
+                                    isActive(subItem.href)
+                                      ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                                  }`}
+                              >
+                                {subItem.name}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    // Regular link
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-mono
+                          ${
+                            isActive(item.href)
+                              ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
+                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                          }`}
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  }
+                })}
 
                 {/* Mobile Contact Button */}
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white transition-colors"
+                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-colors"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Contact</span>

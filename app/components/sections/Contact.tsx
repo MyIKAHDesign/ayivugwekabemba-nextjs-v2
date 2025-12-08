@@ -18,7 +18,7 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-800/50">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12 text-center">Contact</h2>
         <div className="max-w-lg mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">

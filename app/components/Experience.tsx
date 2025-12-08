@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Calendar } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { getAllCompanies } from "../data/companies";
 
 interface Experience {
   company: string;
@@ -10,6 +11,7 @@ interface Experience {
   location: string;
   period: string;
   description?: string;
+  category?: string;
 }
 
 const ExperienceSection: React.FC = () => {
@@ -20,15 +22,33 @@ const ExperienceSection: React.FC = () => {
     setIsTimelineVisible(!isTimelineVisible);
   };
 
-  const experiences: Experience[] = [
-    {
-      company: "Kifuliiru Platform Project",
-      position: "Founder & CTO",
-      location: "Spokane, WA",
-      period: "January 2020 - Present",
-      description:
-        "Leading the development of a comprehensive digital platform dedicated to preserving and promoting the Kifuliiru language and Bafuliiru cultural heritage. Architecting and building key components including Radio Ibufuliiru, an interactive dictionary platform, and language learning tools using Next.js, TypeScript, and cloud technologies. Coordinating with community elders and cultural experts to digitize Kifuliiru words and phrases, while managing a team of volunteer contributors to ensure authentic content preservation.",
-    },
+  // Get only companies and subcompanies (not products) and convert to experiences
+  const companies = getAllCompanies();
+  const companyExperiences: Experience[] = companies
+    .filter((company) => company.type === "company" || company.type === "subcompany")
+    .map((company) => {
+      let position = "Founder";
+      let location = "Remote";
+      let period = "January 2020 - Present";
+
+      if (company.type === "company") {
+        position = "Founder & CEO";
+      } else if (company.type === "subcompany") {
+        position = "Founder & Director";
+      }
+
+      return {
+        company: company.name,
+        position: position,
+        location: location,
+        period: period,
+        description: company.shortDescription || company.description,
+        category: company.type === "company" ? "Company" : "Subcompany",
+      };
+    });
+
+  // Traditional work experiences
+  const workExperiences: Experience[] = [
     {
       company: "Amazon Fulfillment Center",
       position: "Fulfillment Center Associate",
@@ -71,13 +91,15 @@ const ExperienceSection: React.FC = () => {
     },
   ];
 
+  const experiences: Experience[] = [...companyExperiences, ...workExperiences];
+
   return (
     <section
-      className={`relative min-h-screen pt-60 md:pt-44 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative min-h-screen pt-60 md:pt-44 pb-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-orange-900/20 to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-100 to-white"
+            ? "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"
+            : "bg-gradient-to-b from-slate-50 via-slate-50 to-white"
         }`}
       id="experience"
     >
@@ -91,29 +113,34 @@ const ExperienceSection: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-              ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+              ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Professional Experiences
           </h2>
           <p
-            className={`font-inter text-xl leading-relaxed
-              ${darkMode ? "text-orange-200" : "text-slate-700"}`}
+            className={`font-mono text-xl leading-relaxed
+              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             A demonstrated history of software development, project management,
             and operational excellence across various industries.
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
         </div>
 
         {/* Timeline Toggle Button */}
         <div className="flex justify-center md:justify-end mb-12">
           <button
             onClick={toggleTimeline}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg text-slate-900 font-medium text-sm transition-all duration-300 overflow-hidden bg-orange-500/80 hover:bg-orange-600 transform hover:scale-105 shadow-lg ring-1 ring-orange-500/50"
+            className={`group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm transition-all duration-300 overflow-hidden transform hover:scale-105 shadow-lg
+              ${
+                darkMode
+                  ? "bg-slate-700 text-slate-100 hover:bg-slate-600 ring-1 ring-slate-600/50"
+                  : "bg-slate-800 text-white hover:bg-slate-700 ring-1 ring-slate-700/50"
+              }`}
           >
             <div className="relative z-10 flex items-center gap-2">
               <Calendar className="w-5 h-5" />
@@ -121,80 +148,85 @@ const ExperienceSection: React.FC = () => {
                 {isTimelineVisible ? "Hide Timeline" : "View Timeline"}
               </span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
 
         {/* Experience Cards */}
-        <div className="space-y-8">
+        <div className="space-y-6 max-w-6xl mx-auto">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+              className={`group relative rounded-xl overflow-hidden transition-all duration-300 border
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                    : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                    ? "bg-slate-800/30 border-slate-700/30 hover:border-slate-600/50"
+                    : "bg-white/40 border-slate-200/50 hover:border-slate-300/70"
                 }`}
             >
-              <div
-                className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
-                  ${
-                    darkMode
-                      ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                      : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
-                  }`}
-              />
-
-              <div
-                className={`relative p-6 sm:p-8 transition-colors duration-500 z-10
-                  ${
-                    darkMode
-                      ? "group-hover:text-white"
-                      : "group-hover:text-slate-900"
-                  }`}
-              >
-                <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
-                  <div className="flex-1">
+              <div className="p-6">
+                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                  {/* Left side - Position and Company */}
+                  <div className="flex-1 md:min-w-[200px]">
                     <h3
-                      className={`font-inter text-xl leading-relaxed font-semibold mb-1 transition-colors duration-500
-                        ${darkMode ? "text-orange-50" : "text-slate-900"}
+                      className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
                         ${
                           darkMode
-                            ? "group-hover:text-white"
-                            : "group-hover:text-white"
+                            ? "text-slate-100 group-hover:text-slate-50"
+                            : "text-slate-900 group-hover:text-slate-800"
                         }`}
                     >
                       {exp.position}
                     </h3>
-                    <div className="text-lg leading-relaxed text-orange-600 font-medium mb-1 transition-colors duration-500 group-hover:text-orange-200">
-                      {exp.company}
-                    </div>
                     <div
-                      className={`text-sm font-medium uppercase tracking-wide mb-4 transition-colors duration-500
-                        ${darkMode ? "text-orange-200/70" : "text-slate-500"}
+                      className={`text-base font-medium mb-2 transition-colors duration-300
                         ${
                           darkMode
-                            ? "group-hover:text-orange-100"
-                            : "group-hover:text-white"
+                            ? "text-slate-300 group-hover:text-slate-200"
+                            : "text-slate-700 group-hover:text-slate-800"
+                        }`}
+                    >
+                      {exp.company}
+                    </div>
+                    {exp.category && (
+                      <div
+                        className={`text-xs font-medium uppercase tracking-wide mb-2 transition-colors duration-300
+                          ${
+                            darkMode
+                              ? "text-slate-400 group-hover:text-slate-300"
+                              : "text-slate-500 group-hover:text-slate-600"
+                          }`}
+                      >
+                        {exp.category}
+                      </div>
+                    )}
+                    <div
+                      className={`text-xs font-medium uppercase tracking-wide transition-colors duration-300
+                        ${
+                          darkMode
+                            ? "text-slate-400 group-hover:text-slate-300"
+                            : "text-slate-500 group-hover:text-slate-600"
                         }`}
                     >
                       {exp.location} • {exp.period}
                     </div>
                   </div>
-                </div>
 
-                <p
-                  className={`font-inter text-lg leading-relaxed transition-colors duration-500
-                    ${darkMode ? "text-orange-200" : "text-slate-600"}
-                    ${
-                      darkMode
-                        ? "group-hover:text-orange-100"
-                        : "group-hover:text-white"
-                    }`}
-                >
-                  {exp.description}
-                </p>
+                  {/* Right side - Description */}
+                  <div className="flex-1 md:flex-[2]">
+                    {exp.description && (
+                      <p
+                        className={`font-mono text-sm leading-relaxed transition-colors duration-300
+                          ${
+                            darkMode
+                              ? "text-slate-300 group-hover:text-slate-200"
+                              : "text-slate-600 group-hover:text-slate-700"
+                          }`}
+                      >
+                        {exp.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -210,21 +242,21 @@ const ExperienceSection: React.FC = () => {
               className={`max-w-7xl w-full h-[90vh] mx-4 p-6 rounded-lg shadow-lg overflow-y-scroll relative transition-all duration-300
                 ${
                   darkMode
-                    ? "bg-slate-900/95 border border-orange-900/30"
-                    : "bg-white/95 border-2 border-orange-400/50 backdrop-blur-xl"
+                    ? "bg-slate-900/95 border border-slate-700/50"
+                    : "bg-white/95 border-2 border-slate-200/50 backdrop-blur-xl"
                 }`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`font-inter absolute top-4 right-4 text-2xl font-bold
-                  ${darkMode ? "text-orange-200" : "text-orange-600"}`}
+                className={`font-mono absolute top-4 right-4 text-2xl font-bold transition-colors duration-300
+                  ${darkMode ? "text-slate-300 hover:text-slate-100" : "text-slate-600 hover:text-slate-800"}`}
                 onClick={() => setIsTimelineVisible(false)}
               >
                 &times;
               </button>
               <h3
-                className={`font-inter text-xl leading-relaxed font-semibold text-center mb-6
-                  ${darkMode ? "text-orange-50" : "text-slate-900"}`}
+                className={`font-mono text-xl leading-relaxed font-semibold text-center mb-6
+                  ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 Professional Timeline
               </h3>
@@ -241,68 +273,64 @@ const ExperienceSection: React.FC = () => {
                     }}
                   >
                     <div className="flex flex-col items-center">
-                      <div className="w-6 h-6 rounded-full bg-orange-600 flex items-center justify-center text-white">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center
+                        ${darkMode ? "bg-slate-600" : "bg-slate-700"}
+                        ${darkMode ? "text-slate-200" : "text-white"}`}>
                         <Calendar className="w-4 h-4" />
                       </div>
                       {index < experiences.length - 1 && (
-                        <div className="w-0.5 bg-orange-600 h-full mt-1" />
+                        <div className={`w-0.5 h-full mt-1
+                          ${darkMode ? "bg-slate-600" : "bg-slate-300"}`} />
                       )}
                     </div>
 
                     <div
                       key={index}
-                      className={`group relative rounded-xl overflow-hidden w-full transition-all duration-300 border hover:shadow-xl hover:border-orange-500
+                      className={`group relative rounded-xl overflow-hidden w-full transition-all duration-300 border hover:shadow-xl
                         ${
                           darkMode
-                            ? "bg-slate-800/50 border-orange-900/30"
-                            : "bg-white/80 border-orange-300"
+                            ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                            : "bg-white/80 border-slate-200 hover:border-slate-300"
                         }`}
                     >
                       <div
                         className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                           ${
                             darkMode
-                              ? "bg-gradient-to-t from-orange-950/90 via-orange-900/80 to-orange-800/90"
-                              : "bg-gradient-to-t from-orange-200/80 via-orange-100/70 to-orange-50/60"
+                              ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                              : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                           }`}
                       />
 
                       <div className="relative p-4 z-10 transition-colors duration-500">
                         <div className="flex items-center mb-2">
                           <span
-                            className={`font-inter text-sm font-medium uppercase tracking-wide transition-colors duration-500
+                            className={`font-mono text-sm font-medium uppercase tracking-wide transition-colors duration-500
                               ${
                                 darkMode
-                                  ? "text-orange-200/70"
-                                  : "text-slate-500"
-                              }
-                              ${
-                                darkMode
-                                  ? "group-hover:text-orange-100"
-                                  : "group-hover:text-slate-500"
+                                  ? "text-slate-400 group-hover:text-slate-300"
+                                  : "text-slate-500 group-hover:text-slate-600"
                               }`}
                           >
                             {exp.period}
                           </span>
                         </div>
                         <h4
-                          className={`font-inter text-xl leading-relaxed font-semibold transition-colors duration-500
-                            ${darkMode ? "text-orange-50" : "text-slate-900"}
+                          className={`font-mono text-xl leading-relaxed font-semibold transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-white"
-                                : "group-hover:text-slate-500"
+                                ? "text-slate-100 group-hover:text-slate-50"
+                                : "text-slate-900 group-hover:text-slate-800"
                             }`}
                         >
                           {exp.company}
                         </h4>
                         <p
-                          className={`font-inter text-lg leading-relaxed mt-2 transition-colors duration-500
-                            ${darkMode ? "text-orange-200" : "text-slate-600"}
+                          className={`font-mono text-lg leading-relaxed mt-2 transition-colors duration-500
                             ${
                               darkMode
-                                ? "group-hover:text-orange-100"
-                                : "group-hover:text-slate-500"
+                                ? "text-slate-300 group-hover:text-slate-200"
+                                : "text-slate-600 group-hover:text-slate-700"
                             }`}
                         >
                           {exp.description}
@@ -319,7 +347,7 @@ const ExperienceSection: React.FC = () => {
         {/* Bottom Gradient Decoration */}
         <div
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-            ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
+            ${darkMode ? "via-slate-700/50" : "via-slate-200"} 
             to-transparent`}
         />
       </div>

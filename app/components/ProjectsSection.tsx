@@ -20,46 +20,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Kifuliiru Dictionary Platform",
+    title: "Kifuliiru.com",
     description:
-      "A digital platform preserving the Kifuliiru language through an interactive dictionary and cultural resources.",
-    link: "https://dictionary.kifuliiru.net/",
-    icon: Rocket,
-  },
-  {
-    title: "Ibufuliiru",
-    description:
-      "My main project focusing on preserving and promoting Kifuliiru language and culture through digital innovation and community engagement.",
-    link: "https://ibufuliiru.wixstudio.io/ibufuliiru",
-    icon: Rocket,
-  },
-  {
-    title: "Kifuliiru",
-    description:
-      "A comprehensive platform dedicated to the documentation, teaching, and preservation of the Kifuliiru language for future generations.",
-    link: "https://ibufuliiru.wixstudio.io/kifuliiru",
-    icon: Languages,
-  },
-  {
-    title: "Kifuliiru.net",
-    description:
-      "Interactive learning platform offering structured courses, resources, and tools for mastering the Kifuliiru language.",
-    link: "https://kifuliiru.net",
+      "The main Kifuliiru language website and comprehensive digital ecosystem for learning, cultural preservation, and community engagement.",
+    link: "https://kifuliiru.com",
     icon: Globe2,
   },
   {
-    title: "Imyazi mu Kifuliiru",
+    title: "Tabula Kifuliiru",
     description:
-      "Digital media agency creating engaging content in Kifuliiru, from educational materials to cultural documentaries.",
-    link: "https://imyazi.substack.com/",
-    icon: Newspaper,
+      "A comprehensive web application platform for creating and managing Kifuliiru language content.",
+    link: "https://tabula.kifuliiru.com",
+    icon: Rocket,
   },
   {
-    title: "Radio Ibufuliiru",
+    title: "Imyazi.com",
     description:
-      "Community radio station broadcasting news, cultural programs, and educational content in the Kifuliiru language.",
-    link: "https://radioibufuliiru.substack.com/",
-    icon: Radio,
+      "News platform providing updates and information relevant to the Kifuliiru community in multiple languages.",
+    link: "https://imyazi.com",
+    icon: Newspaper,
   },
 ];
 
@@ -69,11 +48,11 @@ const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className={`relative min-h-screen py-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
+      className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-all duration-300
         ${
           darkMode
-            ? "bg-gradient-to-b from-slate-950 via-[#1c1917] to-slate-950"
-            : "bg-gradient-to-b from-slate-50 via-orange-50/80 to-white"
+            ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+            : "bg-gradient-to-b from-slate-50 via-slate-100/80 to-white"
         }`}
     >
       {/* Background Pattern */}
@@ -86,28 +65,28 @@ const ProjectsSection: React.FC = () => {
           }`}
       ></div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-10">
           <h2
-            className={`font-inter text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-            ${darkMode ? "text-orange-50" : "text-slate-900"} 
+            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            ${darkMode ? "text-slate-100" : "text-slate-900"} 
             transition-colors duration-300`}
           >
             Featured Projects
           </h2>
           <p
-            className={`font-inter text-lg sm:text-xl 
-            ${darkMode ? "text-orange-200" : "text-slate-600"} 
+            className={`font-mono text-lg sm:text-xl 
+            ${darkMode ? "text-slate-300" : "text-slate-600"} 
             transition-colors duration-300 max-w-xl mx-auto`}
           >
             Innovative solutions for language and cultural preservation
           </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110"></div>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projects.map((project, i) => (
             <ProjectCard
               key={i}
@@ -118,13 +97,6 @@ const ProjectsSection: React.FC = () => {
             />
           ))}
         </div>
-
-        {/* Bottom Gradient Decoration */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent 
-          ${darkMode ? "via-orange-900/30" : "via-orange-200"} 
-          to-transparent`}
-        ></div>
       </div>
     </section>
   );

@@ -5,7 +5,8 @@
 
 @layer base {
   body {
-    @apply font-inter text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-100;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply text-slate-700 bg-slate-50 dark:bg-slate-950 dark:text-slate-200;
   }
 
   /* Headings hierarchy */
@@ -15,25 +16,30 @@
   h4,
   h5,
   h6 {
-    @apply font-montserrat font-semibold;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply font-semibold tracking-tight;
   }
 
   /* Body text variations */
   .body-large {
-    @apply font-inter text-lg leading-relaxed;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply text-lg leading-relaxed;
   }
 
   .body-regular {
-    @apply font-inter text-base leading-relaxed;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply text-base leading-relaxed;
   }
 
   /* Special text styles */
   .display-text {
-    @apply font-montserrat font-semibold tracking-tight;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply font-bold tracking-tight;
   }
 
   .nav-text {
-    @apply font-inter font-medium;
+    font-family: var(--font-source-code-pro), monospace;
+    @apply font-medium;
   }
 }
 

@@ -83,19 +83,19 @@ const CertificatesSection = () => {
           {certificates.map((cert, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:shadow-xl hover:-translate-y-1
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                 ${
                   darkMode
-                    ? "bg-slate-800/50 border-orange-500/30 hover:border-orange-400/50"
-                    : "bg-white/50 border-orange-400/30 hover:border-orange-500"
+                    ? "bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50"
+                    : "bg-white/50 border-slate-200 hover:border-slate-300"
                 }`}
             >
               <div
                 className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out
                   ${
                     darkMode
-                      ? "bg-gradient-to-t from-orange-950 via-orange-900 to-orange-800"
-                      : "bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400"
+                      ? "bg-gradient-to-br from-slate-700/40 via-slate-600/30 to-slate-700/40"
+                      : "bg-gradient-to-br from-slate-100/60 via-slate-50/50 to-slate-100/60"
                   }`}
               />
 
