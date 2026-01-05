@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { User, Briefcase, Code, Award, Heart, Target } from "lucide-react";
 import SkillsSection from "./SkillsSection";
+import { H1, H2, H3, H4, BodyText, BodyTextLarge, SmallText, MutedText } from "./ui/Typography";
+import { Card, SmallCard } from "./ui/Card";
 
 const AboutMeNew: React.FC = () => {
   const { darkMode } = useTheme();
@@ -92,87 +94,48 @@ const AboutMeNew: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* Story Tab */}
           {activeTab === "story" && (
-            <div
-              className={`rounded-xl p-10 md:p-12 backdrop-blur-xl border transition-all duration-300
-                ${
-                  darkMode
-                    ? "bg-slate-800/30 border-slate-700/50"
-                    : "bg-white/30 border-slate-200"
-                }`}
-            >
+            <Card>
               <div className="space-y-8">
                 <div>
-                  <h2
-                    className={`text-3xl font-bold mb-6
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    From Congo to Code
-                  </h2>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H2 className="mb-6">From Congo to Code</H2>
+                  <BodyText>
                     I&apos;m Ayivugwe Kabemba Mukome, a tech founder and software engineer deeply connected
                     to my roots in the Democratic Republic of Congo and the Bafuliiru community. My journey
                     in technology began in Africa, where I worked with ASYST Resources LTD, gaining valuable
                     experience in software development, DevOps, and project management.
-                  </p>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Professional Growth
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">Professional Growth</H3>
+                  <BodyText>
                     Since moving to the United States, I&apos;ve worked at leading tech companies including
                     Amazon and Walmart, broadening my skills in both technical and operational capacities.
                     These experiences have equipped me with the expertise to build scalable, impactful
                     digital products.
-                  </p>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Entrepreneurial Vision
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">Entrepreneurial Vision</H3>
+                  <BodyText>
                     I founded <strong>Wekify LLC</strong>, a technology company providing technical
                     development and engineering expertise for digital platforms. Under Wekify, I established
                     <strong> Kifuliiru Lab</strong>, a specialized research laboratory dedicated to Kifuliiru
                     language preservation and revitalization through innovative digital solutions.
-                  </p>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Current Location
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">Current Location</H3>
+                  <BodyText>
                     Based in Spokane, Washington, I&apos;m exploring ways to connect my heritage with my
                     local community, bridging the gap between tradition and technology to ensure our
                     cultural legacy thrives in the digital age.
-                  </p>
+                  </BodyText>
                 </div>
               </div>
-            </div>
+            </Card>
           )}
 
           {/* Experience Tab */}
@@ -429,95 +392,55 @@ const AboutMeNew: React.FC = () => {
 
           {/* Mission Tab */}
           {activeTab === "mission" && (
-            <div
-              className={`rounded-xl p-10 md:p-12 backdrop-blur-xl border transition-all duration-300
-                ${
-                  darkMode
-                    ? "bg-slate-800/30 border-slate-700/50"
-                    : "bg-white/30 border-slate-200"
-                }`}
-            >
+            <Card>
               <div className="space-y-8">
                 <div>
-                  <h2
-                    className={`text-3xl font-bold mb-6
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Preserving Kifuliiru Language & Culture
-                  </h2>
-                  <p
-                    className={`text-lg leading-relaxed mb-6
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H2 className="mb-6">Preserving Kifuliiru Language & Culture</H2>
+                  <BodyText className="mb-6">
                     At the core of my work is a mission that combines professional expertise with cultural
                     heritage. Through Wekify LLC and Kifuliiru Lab, I&apos;m building a comprehensive digital
                     ecosystem dedicated to preserving the Kifuliiru language and Bafuliiru culture.
-                  </p>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    The Ibufuliiru Platform
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed mb-4
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">The Ibufuliiru Platform</H3>
+                  <BodyText className="mb-4">
                     I&apos;m creating a community-driven platform that captures our language, traditions,
                     and stories through innovative digital tools including:
-                  </p>
-                  <ul
-                    className={`list-disc list-inside space-y-2 ml-4
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
-                    <li>Kifuliiru.com - Comprehensive language learning platform</li>
-                    <li>Radio Ibufuliiru - Digital radio broadcasting in Kifuliiru</li>
-                    <li>Tabula Kifuliiru - Content management and contribution platform</li>
-                    <li>Imyazi.com - Cultural stories and knowledge sharing</li>
-                    <li>Wempily - Social networking for the Bafuliiru community</li>
-                  </ul>
+                  </BodyText>
+                  <BodyText>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Kifuliiru.com - Comprehensive language learning platform</li>
+                      <li>Radio Ibufuliiru - Digital radio broadcasting in Kifuliiru</li>
+                      <li>Tabula Kifuliiru - Content management and contribution platform</li>
+                      <li>Imyazi.com - Cultural stories and knowledge sharing</li>
+                      <li>Wempily - Social networking for the Bafuliiru community</li>
+                    </ul>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Technology Meets Tradition
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">Technology Meets Tradition</H3>
+                  <BodyText>
                     I leverage modern technologies including Python, NLP, Next.js, and TypeScript to build
                     tools for language learning, transcription, and preservation. This work isn&apos;t just
                     about preservation—it&apos;s about empowering people to be active participants in keeping
                     Kifuliiru alive and thriving for future generations.
-                  </p>
+                  </BodyText>
                 </div>
 
                 <div>
-                  <h3
-                    className={`text-2xl font-semibold mb-4
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    Community Engagement
-                  </h3>
-                  <p
-                    className={`text-lg leading-relaxed
-                      ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                  >
+                  <H3 className="mb-4">Community Engagement</H3>
+                  <BodyText>
                     These platforms allow contributors from all walks of life to share audio recordings,
                     texts, and cultural insights, building a living archive that captures the spirit and
                     voice of the Bafuliiru people—a space where our language and culture are documented,
                     celebrated, and accessible to anyone who wants to learn or be part of our story.
-                  </p>
+                  </BodyText>
                 </div>
               </div>
-            </div>
+            </Card>
           )}
         </div>
       </div>
