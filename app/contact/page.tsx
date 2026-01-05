@@ -2,18 +2,12 @@
 
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
-import { Mail, MapPin, Github, Twitter, Linkedin } from "lucide-react";
+import { MapPin, Github, Twitter, Linkedin, Facebook, AtSign, Instagram } from "lucide-react";
 
 export default function Contact() {
   const { darkMode } = useTheme();
 
   const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "ayivugwekabemba@gmail.com",
-      href: "mailto:ayivugwekabemba@gmail.com",
-    },
     {
       icon: MapPin,
       label: "Location",
@@ -31,18 +25,46 @@ export default function Contact() {
       color: "text-slate-700 dark:text-slate-300",
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      username: "@ayivugwekabemba",
-      href: "https://x.com/ayivugwekabemba",
-      color: "text-blue-500",
-    },
-    {
       icon: Linkedin,
       label: "LinkedIn",
       username: "ayivugwekabemba",
       href: "https://www.linkedin.com/in/ayivugwekabemba/",
       color: "text-blue-600",
+    },
+    {
+      icon: Twitter,
+      label: "Twitter/X",
+      username: "@ayivugwekabemba",
+      href: "https://x.com/ayivugwekabemba",
+      color: "text-slate-900 dark:text-slate-100",
+    },
+    {
+      icon: Facebook,
+      label: "Facebook",
+      username: "ayivugwekabemba",
+      href: "https://facebook.com/ayivugwekabemba",
+      color: "text-blue-500",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      username: "@ayivugwekabemba",
+      href: "https://instagram.com/ayivugwekabemba",
+      color: "text-pink-500",
+    },
+    {
+      icon: AtSign,
+      label: "Threads",
+      username: "@ayivugwekabemba",
+      href: "https://www.threads.net/@ayivugwekabemba",
+      color: "text-slate-800 dark:text-slate-200",
+    },
+    {
+      icon: AtSign,
+      label: "TikTok",
+      username: "@ayivugwekabemba",
+      href: "https://www.tiktok.com/@ayivugwekabemba",
+      color: "text-slate-900 dark:text-slate-100",
     },
   ];
 
@@ -84,7 +106,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
@@ -158,7 +180,7 @@ export default function Contact() {
           >
             Connect on Social Media
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
               return (
