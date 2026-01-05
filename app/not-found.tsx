@@ -55,8 +55,8 @@ export default function NotFound() {
             className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95
               ${
                 darkMode
-                  ? "bg-slate-700 text-slate-100 hover:bg-slate-600"
-                  : "bg-slate-900 text-white hover:bg-slate-800"
+                  ? "bg-blue-600 text-slate-100 hover:bg-blue-500"
+                  : "bg-blue-600 text-white hover:bg-blue-500"
               }`}
           >
             <Home className="w-4 h-4" />
@@ -67,7 +67,7 @@ export default function NotFound() {
             className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 border
               ${
                 darkMode
-                  ? "bg-slate-800/50 text-slate-200 hover:bg-slate-700/50 border-slate-700"
+                  ? "bg-blue-600/50 text-slate-200 hover:bg-blue-500/50 border-blue-500"
                   : "bg-white text-slate-700 hover:bg-slate-50 border-slate-200"
               }`}
           >

@@ -189,7 +189,7 @@ export default function BlogPostPage() {
           className={`inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-lg transition-all duration-300
             ${
               darkMode
-                ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
+                ? "bg-blue-600 text-slate-100 hover:bg-blue-500"
                 : "bg-white text-slate-700 hover:bg-slate-50"
             }
             hover:scale-105`}
@@ -238,8 +238,8 @@ export default function BlogPostPage() {
                 className={`px-4 py-1.5 rounded-full text-sm font-medium
                   ${
                     darkMode
-                      ? "bg-slate-600/20 text-slate-200"
-                      : "bg-slate-100 text-slate-800"
+                          ? "bg-blue-600/20 text-slate-200"
+                          : "bg-slate-100 text-slate-800"
                   }`}
               >
                 {BLOG_POST.category}
@@ -249,9 +249,9 @@ export default function BlogPostPage() {
                   key={tag}
                   className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium
                     ${
-                      darkMode
-                        ? "bg-slate-700 text-slate-200"
-                        : "bg-slate-100 text-slate-700"
+                          darkMode
+                            ? "bg-blue-600 text-slate-200"
+                            : "bg-slate-100 text-slate-700"
                     }`}
                 >
                   <Tag className="w-3 h-3" />
@@ -318,7 +318,7 @@ export default function BlogPostPage() {
                       <button
                         key={option.name}
                         onClick={option.action}
-                        className={`w-full px-4 py-3 text-left text-sm hover:bg-slate-700/50 flex items-center gap-3
+                        className={`w-full px-4 py-3 text-left text-sm hover:bg-blue-500/50 flex items-center gap-3
                           ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                       >
                         <option.icon className="w-4 h-4" />
@@ -336,9 +336,9 @@ export default function BlogPostPage() {
               className={`p-3 rounded-lg transition-all duration-300 flex items-center gap-2
                 ${
                   isBookmarked
-                    ? "bg-slate-600 text-white"
+                    ? "bg-blue-600 text-white"
                     : darkMode
-                    ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
+                    ? "bg-blue-600 text-slate-200 hover:bg-blue-500"
                     : "bg-white text-slate-700 hover:bg-slate-50"
                 }
                 hover:scale-105`}
@@ -362,7 +362,7 @@ export default function BlogPostPage() {
               className={`p-3 rounded-lg transition-all duration-300 flex items-center gap-2
                 ${
                   darkMode
-                    ? "bg-slate-800 text-slate-200 hover:bg-slate-700"
+                    ? "bg-blue-600 text-slate-200 hover:bg-blue-500"
                     : "bg-white text-slate-700 hover:bg-slate-50"
                 }
                 hover:scale-105`}
@@ -481,7 +481,7 @@ export default function BlogPostPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 
+                  className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 
                     transition-colors font-medium flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />

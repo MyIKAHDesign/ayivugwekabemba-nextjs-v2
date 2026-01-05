@@ -110,14 +110,14 @@ const SkillsSection: React.FC = () => {
                 className={`group relative rounded-xl overflow-hidden transition-all duration-300 border
                   ${
                     darkMode
-                      ? "bg-slate-800/30 border-slate-700/30 hover:border-slate-600/50"
+                      ? "bg-slate-800/30 border-blue-700/30 hover:border-blue-600/50"
                       : "bg-white/40 border-slate-200/50 hover:border-slate-300/70"
                   }`}
-              >
-                <div className="p-6">
-                  {/* Header */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <div
+                          {
+                          darkMode
+                            ? "bg-blue-700/50 group-hover:bg-blue-600/50"
+                            : "bg-slate-100/50 group-hover:bg-slate-200/50"
+                        }`
                       className={`p-2 rounded-lg transition-colors duration-300
                         ${
                           darkMode
@@ -154,7 +154,7 @@ const SkillsSection: React.FC = () => {
                         className={`font-sans text-xs px-3 py-1.5 rounded-md transition-all duration-300
                           ${
                             darkMode
-                              ? "bg-slate-700/50 text-slate-200 border border-slate-600/30 group-hover:bg-slate-600/50 group-hover:border-slate-500/50"
+                              ? "bg-blue-700/50 text-slate-200 border border-blue-600/30 group-hover:bg-blue-600/50 group-hover:border-blue-500/50"
                               : "bg-slate-100/70 text-slate-700 border border-slate-200/50 group-hover:bg-slate-200/70 group-hover:border-slate-300/70"
                           }`}
                       >
