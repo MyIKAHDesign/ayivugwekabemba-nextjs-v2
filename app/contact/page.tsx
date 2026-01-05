@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
-import { MapPin, Github, Twitter, Linkedin, Facebook, AtSign, Instagram, Globe } from "lucide-react";
+import { MapPin, Github, Twitter, Linkedin, Facebook, AtSign, Instagram, Globe, Youtube, ExternalLink } from "lucide-react";
 
 export default function Contact() {
   const { darkMode } = useTheme();
@@ -14,11 +14,58 @@ export default function Contact() {
       value: "Spokane, Washington, USA",
       href: null,
     },
+  ];
+
+  const myWorks = [
     {
       icon: Globe,
-      label: "Content Creator",
-      value: "Ibufuliiru Platform",
-      href: "https://ibufuliiru.com",
+      label: "Kifuliiru.com",
+      description: "Language learning platform",
+      href: "https://kifuliiru.com",
+    },
+    {
+      icon: Globe,
+      label: "Kifuliiru.org",
+      description: "Research laboratory",
+      href: "https://kifuliiru.org",
+    },
+  ];
+
+  const ibufuliiruSocial = [
+    {
+      icon: Facebook,
+      label: "Facebook",
+      username: "Ibufuliiru",
+      href: "https://facebook.com/ibufuliiru",
+      color: "text-blue-500",
+    },
+    {
+      icon: Twitter,
+      label: "Twitter/X",
+      username: "@ibufuliiru",
+      href: "https://x.com/ibufuliiru",
+      color: "text-slate-900 dark:text-slate-100",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      username: "@ibufuliiru",
+      href: "https://instagram.com/ibufuliiru",
+      color: "text-pink-500",
+    },
+    {
+      icon: Youtube,
+      label: "YouTube",
+      username: "Ibufuliiru",
+      href: "https://youtube.com/@ibufuliiru",
+      color: "text-red-500",
+    },
+    {
+      icon: AtSign,
+      label: "TikTok",
+      username: "@ibufuliiru",
+      href: "https://www.tiktok.com/@ibufuliiru",
+      color: "text-slate-900 dark:text-slate-100",
     },
   ];
 
@@ -112,7 +159,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
@@ -169,6 +216,124 @@ export default function Contact() {
               </div>
             );
           })}
+        </div>
+
+        {/* Visit My Works Section */}
+        <div
+          className={`${
+            darkMode
+              ? "bg-slate-800/50 border-slate-700/50"
+              : "bg-white/70 border-slate-200"
+          } backdrop-blur-sm rounded-xl border p-8 transition-all duration-300 mb-12`}
+        >
+          <h2
+            className={`text-2xl font-semibold mb-6 text-center ${
+              darkMode ? "text-white" : "text-slate-900"
+            }`}
+          >
+            Visit My Works
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {myWorks.map((work, index) => {
+              const Icon = work.icon;
+              return (
+                <a
+                  key={index}
+                  href={work.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-4 p-6 rounded-lg transition-all duration-300 hover:-translate-y-1 ${
+                    darkMode
+                      ? "bg-slate-700/30 hover:bg-slate-700/50"
+                      : "bg-slate-50/50 hover:bg-slate-100/70"
+                  }`}
+                >
+                  <div
+                    className={`p-3 rounded-full transition-all duration-300 ${
+                      darkMode ? "bg-slate-600/50" : "bg-white"
+                    } group-hover:scale-110`}
+                  >
+                    <Icon className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <div className="flex-1">
+                    <h3
+                      className={`font-semibold ${
+                        darkMode ? "text-slate-200" : "text-slate-700"
+                      }`}
+                    >
+                      {work.label}
+                    </h3>
+                    <p
+                      className={`text-sm ${
+                        darkMode ? "text-slate-400" : "text-slate-600"
+                      }`}
+                    >
+                      {work.description}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Ibufuliiru Social Media Section */}
+        <div
+          className={`${
+            darkMode
+              ? "bg-slate-800/50 border-slate-700/50"
+              : "bg-white/70 border-slate-200"
+          } backdrop-blur-sm rounded-xl border p-8 transition-all duration-300 mb-12`}
+        >
+          <h2
+            className={`text-2xl font-semibold mb-6 text-center ${
+              darkMode ? "text-white" : "text-slate-900"
+            }`}
+          >
+            Ibufuliiru on Social Media
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {ibufuliiruSocial.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex flex-col items-center gap-3 p-6 rounded-lg transition-all duration-300 hover:-translate-y-1 ${
+                    darkMode
+                      ? "bg-slate-700/30 hover:bg-slate-700/50"
+                      : "bg-slate-50/50 hover:bg-slate-100/70"
+                  }`}
+                >
+                  <div
+                    className={`p-4 rounded-full transition-all duration-300 ${
+                      darkMode ? "bg-slate-600/50" : "bg-white"
+                    } group-hover:scale-110`}
+                  >
+                    <Icon className={`w-8 h-8 ${social.color}`} />
+                  </div>
+                  <div className="text-center">
+                    <h3
+                      className={`font-semibold mb-1 ${
+                        darkMode ? "text-slate-200" : "text-slate-700"
+                      }`}
+                    >
+                      {social.label}
+                    </h3>
+                    <p
+                      className={`text-sm ${
+                        darkMode ? "text-slate-400" : "text-slate-600"
+                      }`}
+                    >
+                      {social.username}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
         </div>
 
         {/* Social Media Section */}
