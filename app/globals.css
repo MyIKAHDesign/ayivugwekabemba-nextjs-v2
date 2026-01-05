@@ -12,6 +12,7 @@
 @layer base {
   body {
     font-family: var(--font-inter);
+    font-weight: 400;
     @apply text-slate-700 bg-slate-50 dark:bg-slate-950 dark:text-slate-200;
   }
 
@@ -23,7 +24,8 @@
   h5,
   h6 {
     font-family: var(--font-inter);
-    @apply font-semibold tracking-tight;
+    font-weight: 500;
+    @apply tracking-tight;
   }
 
   /* Body text variations */
@@ -40,7 +42,8 @@
   /* Special text styles */
   .display-text {
     font-family: var(--font-inter);
-    @apply font-bold tracking-tight;
+    font-weight: 600;
+    @apply tracking-tight;
   }
 
   .nav-text {

@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         mono: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
+      fontWeight: {
+        semibold: "500",
+        bold: "600",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
