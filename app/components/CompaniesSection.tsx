@@ -59,16 +59,16 @@ const CompaniesSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
-            Companies
+            Companies & Products
           </h2>
           <p
             className={`font-sans text-xl leading-relaxed mb-4
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
-            My companies, products, and projects driving innovation in language preservation
+            My companies, products, and projects from language preservation to community building
           </p>
           <p
             className={`font-sans text-base leading-relaxed
