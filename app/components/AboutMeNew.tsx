@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { User, Briefcase, Code, Award, Heart, Target, Book } from "lucide-react";
+import { User, Briefcase, Code, Award, Target, Book } from "lucide-react";
 import SkillsSection from "./SkillsSection";
 import { H1, H2, H3, H4, BodyText, BodyTextLarge, SmallText, MutedText } from "./ui/Typography";
 import { Card, SmallCard } from "./ui/Card";
@@ -180,106 +180,6 @@ const AboutMeNew: React.FC = () => {
                 }`}
             >
               <div className="space-y-8">
-                {/* Founder Experience */}
-                <div>
-                  <h2
-                    className={`text-2xl font-semibold mb-6 flex items-center gap-2
-                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                  >
-                    <Heart className="w-6 h-6 text-blue-500" />
-                    Founder
-                  </h2>
-                  <div className="space-y-6">
-                    <div
-                      className={`p-6 rounded-lg border-l-4 border-blue-500
-                        ${
-                          darkMode
-                            ? "bg-slate-700/30"
-                            : "bg-slate-50/50"
-                        }`}
-                    >
-                      <div className="flex justify-between items-start mb-2">
-                        <h3
-                          className={`text-xl font-semibold
-                            ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                        >
-                          Wekify LLC
-                        </h3>
-                        <span
-                          className={`text-sm font-medium
-                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                        >
-                          Jan 2020 - Present
-                        </span>
-                      </div>
-                      <p
-                        className={`text-base mb-2
-                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                      >
-                        Founder & CEO
-                      </p>
-                      <p
-                        className={`text-sm mb-3
-                          ${darkMode ? "text-slate-500" : "text-slate-500"}`}
-                      >
-                        Remote
-                      </p>
-                      <p
-                        className={`text-base leading-relaxed
-                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                      >
-                        Leading technical development and engineering for digital platforms focused on
-                        language preservation and cultural heritage. Managing multiple product initiatives
-                        including Kifuliiru.com, Radio Ibufuliiru, Tabula Kifuliiru, and Imyazi.com.
-                      </p>
-                    </div>
-
-                    <div
-                      className={`p-6 rounded-lg border-l-4 border-blue-500
-                        ${
-                          darkMode
-                            ? "bg-slate-700/30"
-                            : "bg-slate-50/50"
-                        }`}
-                    >
-                      <div className="flex justify-between items-start mb-2">
-                        <h3
-                          className={`text-xl font-semibold
-                            ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-                        >
-                          Kifuliiru Lab
-                        </h3>
-                        <span
-                          className={`text-sm font-medium
-                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
-                        >
-                          Jan 2020 - Present
-                        </span>
-                      </div>
-                      <p
-                        className={`text-base mb-2
-                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                      >
-                        Founder & Director
-                      </p>
-                      <p
-                        className={`text-sm mb-3
-                          ${darkMode ? "text-slate-500" : "text-slate-500"}`}
-                      >
-                        Remote
-                      </p>
-                      <p
-                        className={`text-base leading-relaxed
-                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                      >
-                        Research laboratory specializing in Kifuliiru language preservation and
-                        revitalization. Developing NLP tools, language learning resources, and digital
-                        archives in collaboration with community members and language experts.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Professional Experience */}
                 <div>
                   <h2
@@ -291,6 +191,18 @@ const AboutMeNew: React.FC = () => {
                   </h2>
                   <div className="space-y-4">
                     {[
+                      {
+                        company: "Wekify LLC",
+                        role: "Founder & CEO",
+                        period: "Jan 2020 - Present",
+                        location: "Remote",
+                      },
+                      {
+                        company: "Kifuliiru Lab",
+                        role: "Founder & Director",
+                        period: "Jan 2020 - Present",
+                        location: "Remote",
+                      },
                       {
                         company: "Amazon Fulfillment Center",
                         role: "Fulfillment Center Associate",

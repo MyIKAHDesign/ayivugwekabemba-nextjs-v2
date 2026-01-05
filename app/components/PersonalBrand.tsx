@@ -8,10 +8,10 @@ const PersonalBrand: React.FC = () => {
   const { darkMode } = useTheme();
 
   const stats = [
-    { icon: Building2, number: "15+", label: "Products & Projects" },
+    { icon: Building2, number: "Multiple", label: "Products & Projects" },
     { icon: Globe, number: "3+", label: "Countries Reached" },
     { icon: Users, number: "1000+", label: "Community Members" },
-    { icon: Award, number: "3", label: "Professional Certifications" },
+    { icon: Award, number: "2", label: "Professional Certifications" },
   ];
 
   return (
