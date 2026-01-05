@@ -115,7 +115,7 @@ const HeroSection: React.FC = () => {
               </div>
 
               <p
-                className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up
+                className={`text-lg leading-relaxed font-light transition-colors duration-300 animate-slide-up
                 ${darkMode ? "text-slate-200" : "text-slate-700"}`}
                 style={{ animationDelay: "400ms" }}
               >
