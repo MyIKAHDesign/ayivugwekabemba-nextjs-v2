@@ -192,7 +192,7 @@ const FeaturedCompanies: React.FC = () => {
                   : "bg-blue-600 text-white border-blue-500 hover:bg-blue-500"
               }`}
           >
-            View All 17 Companies
+            View All Products
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>

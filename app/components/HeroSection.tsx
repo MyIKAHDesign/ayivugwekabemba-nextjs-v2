@@ -121,14 +121,14 @@ const HeroSection: React.FC = () => {
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "400ms" }}
               >
-                Founder of 17+ companies and products focused on language preservation technology.
+                Founder of Wekify LLC and Kifuliiru Lab, building 15+ products focused on language preservation.
                 Former Amazon & Walmart engineer. Google-certified Project Manager.
               </p>
 
               {/* CTA Buttons */}
               <div className="flex gap-4 mt-8">
                 {[
-                  { text: "View Companies", href: "/companies", primary: true },
+                  { text: "View Products", href: "/companies", primary: true },
                   { text: "Contact Me", href: "/contact", primary: false },
                 ].map((button, index) => (
                   <button
