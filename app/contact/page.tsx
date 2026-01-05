@@ -14,6 +14,12 @@ export default function Contact() {
       value: "Spokane, Washington, USA",
       href: null,
     },
+    {
+      icon: Globe,
+      label: "Kifuliiru.com",
+      value: "Explore all Kifuliiru-related works",
+      href: "https://kifuliiru.com",
+    },
   ];
 
   const myWorks = [
@@ -159,7 +165,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="grid grid-cols-1 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
