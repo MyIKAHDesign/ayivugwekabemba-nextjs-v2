@@ -120,9 +120,9 @@ const PersonalBrand: React.FC = () => {
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             I&apos;m a software engineer and tech entrepreneur passionate about using technology
-            to preserve cultural heritage. From the Democratic Republic of Congo to the United States,
+            to empower communities and preserve cultural heritage. From the Democratic Republic of Congo to the United States,
             my journey has been driven by a mission to bridge the gap between innovation and tradition,
-            creating digital solutions that empower communities and preserve the Kifuliiru language for future generations.
+            creating digital solutions that serve diverse needs—from language preservation to social networking and community building.
           </p>
         </div>
       </div>

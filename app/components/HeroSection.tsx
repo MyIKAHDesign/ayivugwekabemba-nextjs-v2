@@ -113,7 +113,7 @@ const HeroSection: React.FC = () => {
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                 style={{ animationDelay: "200ms" }}
               >
-                Building Digital Products for Cultural Impact
+                Building Digital Products for Community & Culture
               </p>
 
               <p
@@ -121,7 +121,7 @@ const HeroSection: React.FC = () => {
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "400ms" }}
               >
-                Founder of Wekify LLC and Kifuliiru Lab, building digital products focused on language preservation.
+                Founder of Wekify LLC and Kifuliiru Lab, building digital products from language preservation to social networking.
                 Experience at Amazon & Walmart. Google-certified Project Manager.
               </p>
 
