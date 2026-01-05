@@ -125,8 +125,8 @@ const HeroSection: React.FC = () => {
                 Experience at Amazon & Walmart. Google-certified Project Manager.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex gap-6 items-center mt-8">
+              {/* CTA Button */}
+              <div className="flex mt-8">
                 <button
                   onClick={() => (window.location.href = "/companies")}
                   className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
@@ -141,18 +141,6 @@ const HeroSection: React.FC = () => {
                     View Products
                   </span>
                 </button>
-
-                <a
-                  href="/contact"
-                  className={`font-medium text-lg underline decoration-2 underline-offset-4 transition-all duration-300 hover:scale-105
-                    ${
-                      darkMode
-                        ? "text-blue-400 hover:text-blue-300 decoration-blue-400/50 hover:decoration-blue-300"
-                        : "text-blue-600 hover:text-blue-700 decoration-blue-600/50 hover:decoration-blue-700"
-                    }`}
-                >
-                  Contact Me
-                </a>
               </div>
 
               {/* Social links section */}
