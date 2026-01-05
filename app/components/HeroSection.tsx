@@ -88,48 +88,47 @@ const HeroSection: React.FC = () => {
           {/* Content Column */}
           <div className="order-1 md:order-2 h-full flex flex-col justify-center">
             <div className="space-y-6">
-              <h1
-                className={`font-sans text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
-                ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-              >
-                Welcome. I&apos;m Ayivugwe Kabemba Mukome
-              </h1>
-
-              <div
-                className={`text-xl leading-relaxed font-medium transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                style={{ animationDelay: "200ms" }}
-              >
+              <div className="mb-4">
                 <span
-                  className={`group relative inline-block px-4 py-2 rounded-full overflow-hidden animate-tag-float border
+                  className={`inline-block px-4 py-2 rounded-full text-sm font-semibold border transition-colors duration-300
                       ${
                         darkMode
-                          ? "bg-slate-800/40 text-slate-200 border-slate-700/50"
-                          : "bg-slate-100/50 text-slate-700 border-slate-200"
+                          ? "bg-blue-600/20 text-blue-400 border-blue-600/30"
+                          : "bg-blue-100/70 text-blue-700 border-blue-200/50"
                       }`}
                 >
-                  <span className="relative z-10 text-sm ">
-                    Technologist & Kifuliiru Language Advocate
-                  </span>
+                  Tech Founder & Software Engineer
                 </span>
               </div>
 
+              <h1
+                className={`font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal leading-tight
+                ${darkMode ? "text-slate-100" : "text-slate-900"}`}
+              >
+                Ayivugwe Kabemba
+              </h1>
+
               <p
-                className={`text-lg leading-relaxed font-light transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-slate-200" : "text-slate-700"}`}
+                className={`text-2xl sm:text-3xl font-semibold leading-snug transition-colors duration-300 animate-slide-up mt-4
+                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
+                style={{ animationDelay: "200ms" }}
+              >
+                Building Digital Products for Cultural Impact
+              </p>
+
+              <p
+                className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up mt-6
+                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "400ms" }}
               >
-                A technologist combining software development and project
-                management expertise with cultural preservation. Creating
-                innovative solutions that bridge technology and community
-                empowerment through Google-certified project management and
-                modern development practices.
+                Founder of 17+ companies and products focused on language preservation technology.
+                Former Amazon & Walmart engineer. Google-certified Project Manager.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex gap-4">
+              <div className="flex gap-4 mt-8">
                 {[
-                  { text: "View Projects", href: "/#projects", primary: true },
+                  { text: "View Companies", href: "/companies", primary: true },
                   { text: "Contact Me", href: "/contact", primary: false },
                 ].map((button, index) => (
                   <button

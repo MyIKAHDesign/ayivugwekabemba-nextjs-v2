@@ -12,11 +12,9 @@ import {
   Wrench,
   Rocket,
   MessageSquare,
-  ChevronDown,
   Home,
   User,
   FileText,
-  Award,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -24,63 +22,17 @@ const Header = () => {
   const pathname = usePathname();
   const { darkMode, setDarkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
-  const [showBanner, setShowBanner] = useState(true);
-  const [isEmojiAnimating, setIsEmojiAnimating] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  const bannerMessages = [
-    {
-      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "I'm Ayivugwe Kabemba Mukome!",
-    },
-    {
-      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Welcome to my portfolio!",
-    },
-    {
-      icon: <Sparkles className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Check out my latest projects!",
-    },
-    {
-      icon: <Rocket className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Let's build something amazing together!",
-    },
-  ];
 
   const mainNavLinks = [
     { name: "Home", href: "/", icon: Home },
+    { name: "About", href: "/about", icon: User },
+    { name: "Companies", href: "/companies", icon: Rocket },
+    { name: "Blog", href: "/blog", icon: FileText },
   ];
 
-  const aboutLink = { name: "More about me", href: "/about", icon: User };
-
-  const contentDropdown = {
-    name: "Content",
-    icon: FileText,
-    items: [
-      { name: "Blog", href: "/blog" },
-      { name: "Videos", href: "/videos" },
-      { name: "Quotes", href: "/quotes" },
-    ],
-  };
-
-  const professionalDropdown = {
-    name: "Professional",
-    icon: Award,
-    items: [
-      { name: "Experiences", href: "/experience" },
-      { name: "Technical Skills", href: "/skills" },
-    ],
-  };
-
-  const allNavLinks = [
-    ...mainNavLinks,
-    aboutLink,
-    contentDropdown,
-    professionalDropdown,
-  ];
+  const allNavLinks = mainNavLinks;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -181,98 +133,28 @@ const Header = () => {
             {/* Desktop Navigation Menu */}
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                {allNavLinks.map((item) => {
-                  if ("items" in item) {
-                    // Dropdown menu
-                    const isOpen = openDropdown === item.name;
-                    return (
-                      <div
-                        key={item.name}
-                        className="relative"
-                        onMouseEnter={() => setOpenDropdown(item.name)}
-                        onMouseLeave={() => setOpenDropdown(null)}
-                      >
-                        <button
-                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
-                              ${
-                                item.items.some((subItem) =>
-                                  isActive(subItem.href)
-                                )
-                                  ? "text-blue-700 dark:text-blue-200"
-                                  : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200"
-                              }`}
-                        >
-                          <span className="relative z-30">{item.name}</span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 relative z-30 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                          <span
-                            className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
-                              ${
-                                item.items.some((subItem) =>
-                                  isActive(subItem.href)
-                                )
-                                  ? "bg-blue-50 dark:bg-blue-900/50 scale-100"
-                                  : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
-                              }`}
-                          />
-                        </button>
-                        {isOpen && (
-                          <>
-                            {/* Bridge area to make it easier to move mouse into dropdown */}
-                            <div className="absolute top-full left-0 w-full h-2 z-40" />
-                            <div
-                              className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
-                                bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700"
-                              onMouseEnter={() => setOpenDropdown(item.name)}
-                            >
-                              {item.items.map((subItem) => (
-                                <button
-                                  key={subItem.name}
-                                  onClick={() => handleNavigation(subItem.href)}
-                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-sans
-                                      ${
-                                        isActive(subItem.href)
-                                          ? "bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200"
-                                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-blue-700 dark:hover:text-blue-200"
-                                      }`}
-                                >
-                                  {subItem.name}
-                                </button>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    );
-                  } else {
-                    // Regular link
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => handleNavigation(item.href)}
-                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
-                          ${
-                            isActive(item.href)
-                              ? "text-blue-700 dark:text-blue-200"
-                              : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200"
-                          }`}
-                      >
-                        <span className="relative z-30">{item.name}</span>
-                        <span
-                          className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
-                            ${
-                              isActive(item.href)
-                                ? "bg-blue-50 dark:bg-blue-900/50 scale-100"
-                                : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
-                            }`}
-                        />
-                      </button>
-                    );
-                  }
-                })}
+                {allNavLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
+                      ${
+                        isActive(item.href)
+                          ? "text-blue-700 dark:text-blue-200"
+                          : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200"
+                      }`}
+                  >
+                    <span className="relative z-30">{item.name}</span>
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
+                        ${
+                          isActive(item.href)
+                            ? "bg-blue-50 dark:bg-blue-900/50 scale-100"
+                            : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                        }`}
+                    />
+                  </button>
+                ))}
               </div>
               {/* Contact CTA Button */}
               <button
@@ -344,72 +226,20 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Navigation Links */}
-                {allNavLinks.map((item) => {
-                  if ("items" in item) {
-                    // Dropdown for mobile
-                    const isOpen = openDropdown === item.name;
-                    return (
-                      <div key={item.name}>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              isOpen ? null : item.name
-                            )
-                          }
-                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-sans
-                            ${
-                              item.items.some((subItem) =>
-                                isActive(subItem.href)
-                              )
-                                ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                            }`}
-                        >
-                          <span>{item.name}</span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                        {isOpen && (
-                          <div className="pl-6 mt-2 space-y-2">
-                            {item.items.map((subItem) => (
-                              <button
-                                key={subItem.name}
-                                onClick={() => handleNavigation(subItem.href)}
-                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-sans
-                                  ${
-                                    isActive(subItem.href)
-                                      ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
-                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                                  }`}
-                              >
-                                {subItem.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  } else {
-                    // Regular link
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => handleNavigation(item.href)}
-                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
-                          ${
-                            isActive(item.href)
-                              ? "text-blue-700 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/50"
-                              : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                          }`}
-                      >
-                        {item.name}
-                      </button>
-                    );
-                  }
-                })}
+                {allNavLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
+                      ${
+                        isActive(item.href)
+                          ? "text-blue-700 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/50"
+                          : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                      }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
 
                 {/* Mobile Contact Button */}
                 <button
