@@ -59,19 +59,19 @@ const CompaniesSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Companies
           </h2>
           <p
-            className={`font-mono text-xl leading-relaxed mb-4
+            className={`font-sans text-xl leading-relaxed mb-4
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             My companies, products, and projects driving innovation in language preservation
           </p>
           <p
-            className={`font-mono text-base leading-relaxed
+            className={`font-sans text-base leading-relaxed
               ${darkMode ? "text-slate-400" : "text-slate-600"}`}
           >
             These are the companies, subcompanies, and digital platforms I&apos;ve created and continue to develop, all dedicated to preserving and promoting the Kifuliiru language and Bafuliiru culture.
@@ -128,7 +128,7 @@ const CompaniesSection: React.FC = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
                         <h3
-                          className={`font-mono text-lg font-semibold transition-colors duration-300
+                          className={`font-sans text-lg font-semibold transition-colors duration-300
                             ${
                               darkMode
                                 ? "text-slate-100 group-hover:text-slate-50"
@@ -139,7 +139,7 @@ const CompaniesSection: React.FC = () => {
                         </h3>
                         {item.status && (
                           <span
-                            className={`text-xs font-mono px-2 py-0.5 rounded-md flex-shrink-0 transition-colors duration-300
+                            className={`text-xs font-sans px-2 py-0.5 rounded-md flex-shrink-0 transition-colors duration-300
                               ${
                                 item.status === "Active"
                                   ? darkMode
@@ -156,7 +156,7 @@ const CompaniesSection: React.FC = () => {
                       </div>
                       {item.category && (
                         <p
-                          className={`font-mono text-xs mb-2 transition-colors duration-300
+                          className={`font-sans text-xs mb-2 transition-colors duration-300
                             ${
                               darkMode
                                 ? "text-slate-400 group-hover:text-slate-300"
@@ -170,7 +170,7 @@ const CompaniesSection: React.FC = () => {
                   </div>
 
                   <p
-                    className={`font-mono text-sm leading-relaxed mb-4 transition-colors duration-300
+                    className={`font-sans text-sm leading-relaxed mb-4 transition-colors duration-300
                       ${
                         darkMode
                           ? "text-slate-300 group-hover:text-slate-200"
@@ -181,7 +181,7 @@ const CompaniesSection: React.FC = () => {
                   </p>
 
                   <div
-                    className={`flex items-center gap-2 text-sm font-mono transition-colors duration-300
+                    className={`flex items-center gap-2 text-sm font-sans transition-colors duration-300
                       ${
                         darkMode
                           ? "text-slate-300 group-hover:text-slate-200"

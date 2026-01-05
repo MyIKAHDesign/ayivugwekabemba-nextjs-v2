@@ -74,7 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Content */}
         <h3
-          className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
+          className={`font-sans text-lg font-semibold mb-2 transition-colors duration-300
             ${
               darkMode
                 ? "text-slate-100 group-hover:text-slate-50"
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {title}
         </h3>
         <p
-          className={`font-mono text-sm leading-relaxed transition-colors duration-300
+          className={`font-sans text-sm leading-relaxed transition-colors duration-300
             ${
               darkMode
                 ? "text-slate-300 group-hover:text-slate-200"

@@ -35,7 +35,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("darkMode", darkMode.toString());
+    try {
+      localStorage.setItem("darkMode", darkMode.toString());
+      // also set a cookie so the server can read the preference during SSR
+      document.cookie = `darkMode=${darkMode}; path=/; max-age=${60 * 60 * 24 * 365}`;
+    } catch (e) {
+      // ignore
+    }
   }, [darkMode]);
 
   return (
