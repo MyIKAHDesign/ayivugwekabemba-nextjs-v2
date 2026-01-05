@@ -126,49 +126,33 @@ const HeroSection: React.FC = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex gap-4 mt-8">
-                {[
-                  { text: "View Products", href: "/companies", primary: true },
-                  { text: "Contact Me", href: "/contact", primary: false },
-                ].map((button, index) => (
-                  <button
-                    key={button.text}
-                    onClick={() => (window.location.href = button.href)}
-                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
-                      ${
-                        button.primary
-                          ? darkMode
-                                  ? "bg-blue-600 text-white border-blue-500"
-                                  : "bg-blue-600 text-white border-blue-500"
-                          : darkMode
-                                ? "border-blue-500 text-slate-300 hover:border-blue-400"
-                                : "border-blue-500 text-slate-700 hover:border-blue-400"
-                      }`}
-                    style={{ animationDelay: `${index * 200}ms` }}
-                  >
-                    <div
-                      className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
-                        ${
-                          button.primary
-                            ? "bg-slate-600" // Simplified to solid color for better visibility
-                            : darkMode
-                            ? "bg-slate-800" // Darker background for dark mode
-                            : "bg-slate-100" // Light background for light mode
-                        }`}
-                    />
-                    <span
-                      className={`relative z-10 transition-colors duration-500
-                        ${
-                          button.primary
-                            ? "group-hover:text-white"
-                            : "group-hover:text-slate-700"
-                        }
-                      `}
-                    >
-                      {button.text}
-                    </span>
-                  </button>
-                ))}
+              <div className="flex gap-6 items-center mt-8">
+                <button
+                  onClick={() => (window.location.href = "/companies")}
+                  className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
+                    ${
+                      darkMode
+                        ? "bg-blue-600 text-white border-blue-500"
+                        : "bg-blue-600 text-white border-blue-500"
+                    }`}
+                >
+                  <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-slate-600" />
+                  <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                    View Products
+                  </span>
+                </button>
+
+                <a
+                  href="/contact"
+                  className={`font-medium text-lg underline decoration-2 underline-offset-4 transition-all duration-300 hover:scale-105
+                    ${
+                      darkMode
+                        ? "text-blue-400 hover:text-blue-300 decoration-blue-400/50 hover:decoration-blue-300"
+                        : "text-blue-600 hover:text-blue-700 decoration-blue-600/50 hover:decoration-blue-700"
+                    }`}
+                >
+                  Contact Me
+                </a>
               </div>
 
               {/* Social links section */}
