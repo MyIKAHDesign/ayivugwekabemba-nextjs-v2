@@ -102,11 +102,11 @@ const HeroSection: React.FC = () => {
               >
                 <span
                   className={`group relative inline-block px-4 py-2 rounded-full overflow-hidden animate-tag-float border
-                    ${
-                      darkMode
-                        ? "bg-slate-800/40 text-slate-200 border-slate-700/50"
-                        : "bg-slate-100/50 text-slate-700 border-slate-200"
-                    }`}
+                      ${
+                        darkMode
+                          ? "bg-slate-800/40 text-slate-200 border-slate-700/50"
+                          : "bg-slate-100/50 text-slate-700 border-slate-200"
+                      }`}
                 >
                   <span className="relative z-10 text-sm ">
                     Technologist & Kifuliiru Language Advocate
@@ -139,11 +139,11 @@ const HeroSection: React.FC = () => {
                       ${
                         button.primary
                           ? darkMode
-                            ? "bg-slate-700 text-white border-slate-600"
-                            : "bg-slate-700 text-white border-slate-600"
+                                  ? "bg-blue-600 text-white border-blue-500"
+                                  : "bg-blue-600 text-white border-blue-500"
                           : darkMode
-                          ? "border-slate-600 text-slate-300 hover:border-slate-500"
-                          : "border-slate-600 text-slate-700 hover:border-slate-500"
+                                ? "border-blue-500 text-slate-300 hover:border-blue-400"
+                                : "border-blue-500 text-slate-700 hover:border-blue-400"
                       }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >

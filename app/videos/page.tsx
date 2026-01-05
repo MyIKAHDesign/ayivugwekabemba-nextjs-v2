@@ -95,8 +95,8 @@ export default function VideosPage() {
               className={`inline-flex items-center gap-3 px-6 py-4 rounded-lg font-sans text-lg font-semibold transition-all duration-300 hover:scale-105 border-2
                 ${
                   darkMode
-                    ? "bg-slate-700 text-slate-100 border-slate-600 hover:bg-slate-600 hover:border-slate-500"
-                    : "bg-slate-700 text-white border-slate-600 hover:bg-slate-600 hover:border-slate-500"
+                    ? "bg-blue-600 text-slate-100 border-blue-500 hover:bg-blue-500 hover:border-blue-400"
+                    : "bg-blue-600 text-white border-blue-500 hover:bg-blue-500 hover:border-blue-400"
                 }`}
             >
               <svg

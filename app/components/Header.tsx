@@ -201,7 +201,7 @@ const Header = () => {
                 alt="Ayivugwe"
                 className="w-8 h-8"
               />
-              <span className="bg-gradient-to-r from-slate-700 to-slate-600 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-500 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
                 Ayivugwe
               </span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-400 dark:to-slate-300 transition-all group-hover:w-full" />
@@ -306,7 +306,7 @@ const Header = () => {
               {/* Contact CTA Button */}
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="ml-2 px-4 py-2 flex items-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="ml-2 px-4 py-2 flex items-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Contact</span>
@@ -443,7 +443,7 @@ const Header = () => {
                 {/* Mobile Contact Button */}
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-colors"
+                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white transition-colors"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Contact</span>
