@@ -35,9 +35,9 @@ const AboutMeNew: React.FC = () => {
           }`}
       />
 
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <h1
             className={`text-4xl sm:text-5xl font-bold tracking-tight mb-4
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
@@ -89,21 +89,21 @@ const AboutMeNew: React.FC = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Story Tab */}
           {activeTab === "story" && (
             <div
-              className={`rounded-xl p-8 backdrop-blur-xl border transition-all duration-300
+              className={`rounded-xl p-10 md:p-12 backdrop-blur-xl border transition-all duration-300
                 ${
                   darkMode
                     ? "bg-slate-800/30 border-slate-700/50"
                     : "bg-white/30 border-slate-200"
                 }`}
             >
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
                   <h2
-                    className={`text-2xl font-semibold mb-4
+                    className={`text-3xl font-bold mb-6
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     From Congo to Code
@@ -121,7 +121,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Professional Growth
@@ -139,7 +139,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Entrepreneurial Vision
@@ -157,7 +157,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Current Location
@@ -178,7 +178,7 @@ const AboutMeNew: React.FC = () => {
           {/* Experience Tab */}
           {activeTab === "experience" && (
             <div
-              className={`rounded-xl p-8 backdrop-blur-xl border transition-all duration-300
+              className={`rounded-xl p-10 md:p-12 backdrop-blur-xl border transition-all duration-300
                 ${
                   darkMode
                     ? "bg-slate-800/30 border-slate-700/50"
@@ -288,17 +288,17 @@ const AboutMeNew: React.FC = () => {
                       {
                         company: "Amazon",
                         role: "Software Engineer",
-                        period: "2022 - 2023",
+                        period: "2023 - 2024",
                       },
                       {
                         company: "Walmart",
                         role: "Software Engineer",
-                        period: "2021 - 2022",
+                        period: "2022 - 2023",
                       },
                       {
                         company: "ASYST Resources LTD",
                         role: "Software Developer",
-                        period: "2019 - 2021",
+                        period: "2020 - 2022",
                       },
                     ].map((job, index) => (
                       <div
@@ -403,7 +403,7 @@ const AboutMeNew: React.FC = () => {
           {/* Mission Tab */}
           {activeTab === "mission" && (
             <div
-              className={`rounded-xl p-8 backdrop-blur-xl border transition-all duration-300
+              className={`rounded-xl p-10 md:p-12 backdrop-blur-xl border transition-all duration-300
                 ${
                   darkMode
                     ? "bg-slate-800/30 border-slate-700/50"
@@ -413,7 +413,7 @@ const AboutMeNew: React.FC = () => {
               <div className="space-y-8">
                 <div>
                   <h2
-                    className={`text-2xl font-semibold mb-4
+                    className={`text-3xl font-bold mb-6
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Preserving Kifuliiru Language & Culture
@@ -430,7 +430,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     The Ibufuliiru Platform
@@ -456,7 +456,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Technology Meets Tradition
@@ -474,7 +474,7 @@ const AboutMeNew: React.FC = () => {
 
                 <div>
                   <h3
-                    className={`text-xl font-semibold mb-3
+                    className={`text-2xl font-semibold mb-4
                       ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                   >
                     Community Engagement
