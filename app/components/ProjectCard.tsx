@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         hover:-translate-y-1 hover:shadow-lg
         ${
           darkMode
-            ? "bg-slate-800/40 border-slate-700/40 hover:border-slate-600/60"
+              ? "bg-slate-800/40 border-blue-700/40 hover:border-blue-600/60"
             : "bg-white/60 border-slate-200/60 hover:border-slate-300/80"
         }`}
     >
@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out
           ${
             darkMode
-              ? "bg-gradient-to-br from-slate-700/30 via-slate-600/20 to-slate-700/30"
+              ? "bg-gradient-to-br from-blue-700/30 via-blue-600/20 to-blue-700/30"
               : "bg-gradient-to-br from-slate-100/40 via-slate-50/30 to-slate-100/40"
           }`}
       />
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className={`p-3 rounded-xl transition-colors duration-300
               ${
                 darkMode
-                  ? "bg-slate-700/50 group-hover:bg-slate-600/50"
+                  ? "bg-blue-700/50 group-hover:bg-blue-600/50"
                   : "bg-slate-100/70 group-hover:bg-slate-200/70"
               }`}
           >

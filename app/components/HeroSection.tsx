@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
             <div className="mt-8">
               <div className="flex flex-wrap gap-4">
                 {[
-                  { text: "Google Certified PM", delay: 0 },
+                  { text: "Certified PM", delay: 0 },
                   { text: "Software Developer", delay: 1 },
                   { text: "Kifuliiru Language Advocate", delay: 2 },
                 ].map((tag, index) => (
@@ -88,88 +88,59 @@ const HeroSection: React.FC = () => {
           {/* Content Column */}
           <div className="order-1 md:order-2 h-full flex flex-col justify-center">
             <div className="space-y-6">
-              <h1
-                className={`font-sans text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
-                ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-              >
-                Welcome. I&apos;m Ayivugwe Kabemba Mukome
-              </h1>
-
-              <div
-                className={`text-xl leading-relaxed font-medium transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-                style={{ animationDelay: "200ms" }}
-              >
+              <div className="mb-4">
                 <span
-                  className={`group relative inline-block px-4 py-2 rounded-full overflow-hidden animate-tag-float border
-                    ${
-                      darkMode
-                        ? "bg-slate-800/40 text-slate-200 border-slate-700/50"
-                        : "bg-slate-100/50 text-slate-700 border-slate-200"
-                    }`}
+                  className={`inline-block px-4 py-2 rounded-full text-sm font-semibold border transition-colors duration-300
+                      ${
+                        darkMode
+                          ? "bg-blue-600/20 text-blue-400 border-blue-600/30"
+                          : "bg-blue-100/70 text-blue-700 border-blue-200/50"
+                      }`}
                 >
-                  <span className="relative z-10 text-sm ">
-                    Technologist & Kifuliiru Language Advocate
-                  </span>
+                  Tech Founder & Software Engineer
                 </span>
               </div>
 
-              <p
-                className={`text-lg leading-relaxed font-light transition-colors duration-300 animate-slide-up
-                ${darkMode ? "text-slate-200" : "text-slate-700"}`}
-                style={{ animationDelay: "400ms" }}
+              <h1
+                className={`font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal leading-tight
+                ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
-                A technologist combining software development and project
-                management expertise with cultural preservation. Creating
-                innovative solutions that bridge technology and community
-                empowerment through Google-certified project management and
-                modern development practices.
+                Ayivugwe Kabemba Mukome
+              </h1>
+
+              <p
+                className={`text-2xl sm:text-3xl font-semibold leading-snug transition-colors duration-300 animate-slide-up mt-4
+                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
+                style={{ animationDelay: "200ms" }}
+              >
+                Building Digital Products for Community & Culture
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex gap-4">
-                {[
-                  { text: "View Projects", href: "/#projects", primary: true },
-                  { text: "Contact Me", href: "/contact", primary: false },
-                ].map((button, index) => (
-                  <button
-                    key={button.text}
-                    onClick={() => (window.location.href = button.href)}
-                    className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
-                      ${
-                        button.primary
-                          ? darkMode
-                            ? "bg-slate-700 text-white border-slate-600"
-                            : "bg-slate-700 text-white border-slate-600"
-                          : darkMode
-                          ? "border-slate-600 text-slate-300 hover:border-slate-500"
-                          : "border-slate-600 text-slate-700 hover:border-slate-500"
-                      }`}
-                    style={{ animationDelay: `${index * 200}ms` }}
-                  >
-                    <div
-                      className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500
-                        ${
-                          button.primary
-                            ? "bg-slate-600" // Simplified to solid color for better visibility
-                            : darkMode
-                            ? "bg-slate-800" // Darker background for dark mode
-                            : "bg-slate-100" // Light background for light mode
-                        }`}
-                    />
-                    <span
-                      className={`relative z-10 transition-colors duration-500
-                        ${
-                          button.primary
-                            ? "group-hover:text-white"
-                            : "group-hover:text-slate-700"
-                        }
-                      `}
-                    >
-                      {button.text}
-                    </span>
-                  </button>
-                ))}
+              <p
+                className={`text-lg leading-relaxed transition-colors duration-300 animate-slide-up mt-6
+                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                style={{ animationDelay: "400ms" }}
+              >
+                Founder of Wekify LLC and Kifuliiru Lab, building digital products from language preservation to social networking.
+                Experience at Amazon & Walmart. Google-certified Project Manager.
+              </p>
+
+              {/* CTA Button */}
+              <div className="flex mt-8">
+                <button
+                  onClick={() => (window.location.href = "/companies")}
+                  className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium text-sm
+                    ${
+                      darkMode
+                        ? "bg-blue-600 text-white border-blue-500"
+                        : "bg-blue-600 text-white border-blue-500"
+                    }`}
+                >
+                  <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-slate-600" />
+                  <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                    Companies & Products
+                  </span>
+                </button>
               </div>
 
               {/* Social links section */}

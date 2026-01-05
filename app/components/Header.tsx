@@ -8,15 +8,11 @@ import {
   Moon,
   Sun,
   X,
-  Sparkles,
-  Wrench,
   Rocket,
   MessageSquare,
-  ChevronDown,
   Home,
   User,
   FileText,
-  Award,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -24,63 +20,18 @@ const Header = () => {
   const pathname = usePathname();
   const { darkMode, setDarkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
-  const [showBanner, setShowBanner] = useState(true);
-  const [isEmojiAnimating, setIsEmojiAnimating] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  const bannerMessages = [
-    {
-      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "I'm Ayivugwe Kabemba Mukome!",
-    },
-    {
-      icon: <Wrench className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Welcome to my portfolio!",
-    },
-    {
-      icon: <Sparkles className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Check out my latest projects!",
-    },
-    {
-      icon: <Rocket className="w-4 h-4 text-slate-600 dark:text-slate-300" />,
-      text: "Let's build something amazing together!",
-    },
-  ];
 
   const mainNavLinks = [
     { name: "Home", href: "/", icon: Home },
+    { name: "About", href: "/about", icon: User },
+    { name: "Companies & Products", href: "/companies", icon: Rocket },
+    { name: "Blog", href: "/blog", icon: FileText },
+    { name: "Contact", href: "/contact", icon: MessageSquare },
   ];
 
-  const aboutLink = { name: "More about me", href: "/about", icon: User };
-
-  const contentDropdown = {
-    name: "Content",
-    icon: FileText,
-    items: [
-      { name: "Blog", href: "/blog" },
-      { name: "Videos", href: "/videos" },
-      { name: "Quotes", href: "/quotes" },
-    ],
-  };
-
-  const professionalDropdown = {
-    name: "Professional",
-    icon: Award,
-    items: [
-      { name: "Experiences", href: "/experience" },
-      { name: "Technical Skills", href: "/skills" },
-    ],
-  };
-
-  const allNavLinks = [
-    ...mainNavLinks,
-    aboutLink,
-    contentDropdown,
-    professionalDropdown,
-  ];
+  const allNavLinks = mainNavLinks;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,18 +63,6 @@ const Header = () => {
   }, [pathname]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsEmojiAnimating(true);
-      setTimeout(() => {
-        setCurrentBannerIndex((prev) => (prev + 1) % bannerMessages.length);
-        setIsEmojiAnimating(false);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     // Set active section based on pathname for non-home pages
     if (pathname !== "/") {
       const section = pathname.slice(1);
@@ -136,7 +75,6 @@ const Header = () => {
       const sectionId = href.slice(2);
       const element = document.getElementById(sectionId);
       if (element) {
-        const offset = showBanner ? 120 : 80;
         element.scrollIntoView({ behavior: "smooth" });
         setActiveSection(sectionId);
       }
@@ -155,36 +93,7 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      {showBanner && (
-        <div className="relative overflow-hidden bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-900 dark:to-slate-800">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30" />
-          <div className="container mx-auto px-4">
-            <div className="relative flex items-center justify-between py-3">
-              <div className="flex-1 flex justify-center items-center space-x-4">
-                <div
-                  className={`transform transition-all duration-500 ${
-                    isEmojiAnimating
-                      ? "scale-150 rotate-180 opacity-0"
-                      : "scale-100 rotate-0 opacity-100"
-                  }`}
-                >
-                  {bannerMessages[currentBannerIndex].icon}
-                </div>
-                <p className="text-sm md:text-base font-medium font-sans bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
-                  {bannerMessages[currentBannerIndex].text}
-                </p>
-              </div>
-              <button
-                onClick={() => setShowBanner(false)}
-                className="ml-4 p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
-                aria-label="Close banner"
-              >
-                <X className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Banner removed */}
 
       <header
         className={`transition-all duration-300 ${
@@ -201,7 +110,7 @@ const Header = () => {
                 alt="Ayivugwe"
                 className="w-8 h-8"
               />
-              <span className="bg-gradient-to-r from-slate-700 to-slate-600 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-500 dark:from-slate-200 dark:to-slate-300 bg-clip-text text-transparent">
                 Ayivugwe
               </span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-400 dark:to-slate-300 transition-all group-hover:w-full" />
@@ -210,107 +119,29 @@ const Header = () => {
             {/* Desktop Navigation Menu */}
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                {allNavLinks.map((item) => {
-                  if ("items" in item) {
-                    // Dropdown menu
-                    const isOpen = openDropdown === item.name;
-                    return (
-                      <div
-                        key={item.name}
-                        className="relative"
-                        onMouseEnter={() => setOpenDropdown(item.name)}
-                        onMouseLeave={() => setOpenDropdown(null)}
-                      >
-                        <button
-                          className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
-                            ${
-                              item.items.some((subItem) =>
-                                isActive(subItem.href)
-                              )
-                                ? "text-slate-800 dark:text-slate-100"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
-                            }`}
-                        >
-                          <span className="relative z-30">{item.name}</span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 relative z-30 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                          <span
-                            className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
-                              ${
-                                item.items.some((subItem) =>
-                                  isActive(subItem.href)
-                                )
-                                  ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
-                                  : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
-                              }`}
-                          />
-                        </button>
-                        {isOpen && (
-                          <>
-                            {/* Bridge area to make it easier to move mouse into dropdown */}
-                            <div className="absolute top-full left-0 w-full h-2 z-40" />
-                            <div
-                              className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border backdrop-blur-xl z-50 overflow-hidden
-                                bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-700"
-                              onMouseEnter={() => setOpenDropdown(item.name)}
-                            >
-                              {item.items.map((subItem) => (
-                                <button
-                                  key={subItem.name}
-                                  onClick={() => handleNavigation(subItem.href)}
-                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-sans
-                                    ${
-                                      isActive(subItem.href)
-                                        ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
-                                        : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-700 dark:hover:text-slate-200"
-                                    }`}
-                                >
-                                  {subItem.name}
-                                </button>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    );
-                  } else {
-                    // Regular link
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => handleNavigation(item.href)}
-                        className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
-                          ${
-                            isActive(item.href)
-                              ? "text-slate-800 dark:text-slate-100"
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100"
-                          }`}
-                      >
-                        <span className="relative z-30">{item.name}</span>
-                        <span
-                          className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
-                            ${
-                              isActive(item.href)
-                                ? "bg-slate-200 dark:bg-slate-700/70 scale-100"
-                                : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
-                            }`}
-                        />
-                      </button>
-                    );
-                  }
-                })}
+                {allNavLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
+                      ${
+                        isActive(item.href)
+                          ? "text-blue-700 dark:text-blue-200"
+                          : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200"
+                      }`}
+                  >
+                    <span className="relative z-30">{item.name}</span>
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
+                        ${
+                          isActive(item.href)
+                            ? "bg-blue-50 dark:bg-blue-900/50 scale-100"
+                            : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                        }`}
+                    />
+                  </button>
+                ))}
               </div>
-              {/* Contact CTA Button */}
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="ml-2 px-4 py-2 flex items-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Contact</span>
-              </button>
               {/* Theme Toggle Button */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
@@ -373,81 +204,20 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Navigation Links */}
-                {allNavLinks.map((item) => {
-                  if ("items" in item) {
-                    // Dropdown for mobile
-                    const isOpen = openDropdown === item.name;
-                    return (
-                      <div key={item.name}>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              isOpen ? null : item.name
-                            )
-                          }
-                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-sans
-                            ${
-                              item.items.some((subItem) =>
-                                isActive(subItem.href)
-                              )
-                                ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                            }`}
-                        >
-                          <span>{item.name}</span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                        {isOpen && (
-                          <div className="pl-6 mt-2 space-y-2">
-                            {item.items.map((subItem) => (
-                              <button
-                                key={subItem.name}
-                                onClick={() => handleNavigation(subItem.href)}
-                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-sans
-                                  ${
-                                    isActive(subItem.href)
-                                      ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
-                                      : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                                  }`}
-                              >
-                                {subItem.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  } else {
-                    // Regular link
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => handleNavigation(item.href)}
-                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
-                          ${
-                            isActive(item.href)
-                              ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                          }`}
-                      >
-                        {item.name}
-                      </button>
-                    );
-                  }
-                })}
-
-                {/* Mobile Contact Button */}
-                <button
-                  onClick={() => handleNavigation("/contact")}
-                  className="w-full px-4 py-2 flex items-center justify-center gap-2 rounded-lg bg-slate-700 hover:bg-slate-600 dark:bg-slate-600 dark:hover:bg-slate-500 text-white transition-colors"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Contact</span>
-                </button>
+                {allNavLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
+                      ${
+                        isActive(item.href)
+                          ? "text-blue-700 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/50"
+                          : "text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-200 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                      }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
               </div>
             </div>
           )}

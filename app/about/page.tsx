@@ -1,9 +1,9 @@
 "use client";
 
-import AboutMe from "../components/AboutMe";
+import AboutMeNew from "../components/AboutMeNew";
 
 const AboutMePage: React.FC = () => {
-  return <AboutMe />;
+  return <AboutMeNew />;
 };
 
 export default AboutMePage;
