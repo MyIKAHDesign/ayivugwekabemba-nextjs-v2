@@ -113,11 +113,10 @@ const SkillsSection: React.FC = () => {
                       ? "bg-slate-800/30 border-blue-700/30 hover:border-blue-600/50"
                       : "bg-white/40 border-slate-200/50 hover:border-slate-300/70"
                   }`}
-                          {
-                          darkMode
-                            ? "bg-blue-700/50 group-hover:bg-blue-600/50"
-                            : "bg-slate-100/50 group-hover:bg-slate-200/50"
-                        }`
+              >
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
                       className={`p-2 rounded-lg transition-colors duration-300
                         ${
                           darkMode

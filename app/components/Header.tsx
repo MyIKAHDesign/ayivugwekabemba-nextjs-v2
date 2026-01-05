@@ -8,8 +8,6 @@ import {
   Moon,
   Sun,
   X,
-  Sparkles,
-  Wrench,
   Rocket,
   MessageSquare,
   Home,
@@ -64,18 +62,6 @@ const Header = () => {
   }, [pathname]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsEmojiAnimating(true);
-      setTimeout(() => {
-        setCurrentBannerIndex((prev) => (prev + 1) % bannerMessages.length);
-        setIsEmojiAnimating(false);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     // Set active section based on pathname for non-home pages
     if (pathname !== "/") {
       const section = pathname.slice(1);
@@ -88,7 +74,6 @@ const Header = () => {
       const sectionId = href.slice(2);
       const element = document.getElementById(sectionId);
       if (element) {
-        const offset = showBanner ? 120 : 80;
         element.scrollIntoView({ behavior: "smooth" });
         setActiveSection(sectionId);
       }
