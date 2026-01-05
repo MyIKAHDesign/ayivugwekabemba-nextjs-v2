@@ -3,6 +3,7 @@
 // Removed Source Code Pro import to allow global Inter font
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import Header from "./components/Header";
@@ -20,8 +21,12 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  // Read the cookie on the server to know whether to include `dark` on the initial HTML
+  const cookieStore = cookies();
+  const darkCookie = cookieStore.get("darkMode")?.value === "true";
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${darkCookie ? "dark" : ""}`}>
       <body className="min-h-screen flex flex-col font-sans">
         {/* Ensure saved theme is applied before React hydrates to avoid flashes */}
         <Script
