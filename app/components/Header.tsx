@@ -155,36 +155,7 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      {showBanner && (
-        <div className="relative overflow-hidden bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-900 dark:to-slate-800">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30" />
-          <div className="container mx-auto px-4">
-            <div className="relative flex items-center justify-between py-3">
-              <div className="flex-1 flex justify-center items-center space-x-4">
-                <div
-                  className={`transform transition-all duration-500 ${
-                    isEmojiAnimating
-                      ? "scale-150 rotate-180 opacity-0"
-                      : "scale-100 rotate-0 opacity-100"
-                  }`}
-                >
-                  {bannerMessages[currentBannerIndex].icon}
-                </div>
-                <p className="text-sm md:text-base font-medium font-sans bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
-                  {bannerMessages[currentBannerIndex].text}
-                </p>
-              </div>
-              <button
-                onClick={() => setShowBanner(false)}
-                className="ml-4 p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
-                aria-label="Close banner"
-              >
-                <X className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Banner removed */}
 
       <header
         className={`transition-all duration-300 ${
