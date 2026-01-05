@@ -7,6 +7,7 @@ import React, {
   useState,
   useEffect,
 } from "react";
+import { usePathname } from "next/navigation";
 
 interface ThemeContextType {
   darkMode: boolean;
@@ -18,15 +19,36 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // ThemeProvider Component
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  // Initialize from localStorage on first client render so we don't briefly render the wrong theme
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    try {
+      if (typeof window !== "undefined") {
+        return localStorage.getItem("darkMode") === "true";
+      }
+    } catch (e) {
+      // ignore and fall through
+    }
+    return false;
+  });
 
-  // Load theme preference from localStorage on mount
+  const pathname = usePathname();
+
+  // Re-apply the saved class on client-side route changes without forcing state flips
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("darkMode") === "true";
-      setDarkMode(savedTheme);
+      try {
+        const saved = localStorage.getItem("darkMode") === "true";
+        if (saved) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {
+        // ignore
+      }
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
   // Apply theme and save preference to localStorage
   useEffect(() => {
