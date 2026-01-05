@@ -121,7 +121,7 @@ const HeroSection: React.FC = () => {
                 ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                 style={{ animationDelay: "400ms" }}
               >
-                Founder of Wekify LLC and Kifuliiru Lab, building 15+ products focused on language preservation.
+                Founder of Wekify LLC and Kifuliiru Lab, building digital products focused on language preservation.
                 Experience at Amazon & Walmart. Google-certified Project Manager.
               </p>
 

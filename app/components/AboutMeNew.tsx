@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { User, Briefcase, Code, Award, Heart, Target } from "lucide-react";
+import { User, Briefcase, Code, Award, Heart, Target, Book } from "lucide-react";
 import SkillsSection from "./SkillsSection";
 import { H1, H2, H3, H4, BodyText, BodyTextLarge, SmallText, MutedText } from "./ui/Typography";
 import { Card, SmallCard } from "./ui/Card";
@@ -358,6 +358,50 @@ const AboutMeNew: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Ministry Experience */}
+                <div>
+                  <h2
+                    className={`text-2xl font-semibold mb-6 flex items-center gap-2
+                      ${darkMode ? "text-slate-100" : "text-slate-900"}`}
+                  >
+                    <Book className="w-6 h-6 text-amber-500" />
+                    Ministry
+                  </h2>
+                  <div className="space-y-4">
+                    <div
+                      className={`p-6 rounded-lg border-l-4 border-amber-500
+                        ${
+                          darkMode
+                            ? "bg-slate-700/30"
+                            : "bg-slate-50/50"
+                        }`}
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <h3
+                          className={`text-xl font-semibold
+                            ${darkMode ? "text-slate-100" : "text-slate-900"}`}
+                        >
+                          Gospel Preacher
+                        </h3>
+                        <span
+                          className={`text-sm font-medium
+                            ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                        >
+                          2011 - Present
+                        </span>
+                      </div>
+                      <p
+                        className={`text-base leading-relaxed
+                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
+                      >
+                        Serving as a Gospel preacher since 2011, beginning with Sunday school teaching
+                        and progressing to adult ministry. Dedicated to sharing faith and building community
+                        through biblical teaching and spiritual guidance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Certifications */}
                 <div>
                   <h2
@@ -370,7 +414,6 @@ const AboutMeNew: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
                       { name: "Google Project Management Professional", issuer: "Google", year: "2024" },
-                      { name: "Meta Back-End Developer", issuer: "Meta", year: "2024" },
                       { name: "GitHub Foundations", issuer: "GitHub", year: "2024" },
                     ].map((cert, index) => (
                       <div
