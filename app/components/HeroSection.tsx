@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
             <div className="mt-8">
               <div className="flex flex-wrap gap-4">
                 {[
-                  { text: "Google Certified PM", delay: 0 },
+                  { text: "Certified PM", delay: 0 },
                   { text: "Software Developer", delay: 1 },
                   { text: "Kifuliiru Language Advocate", delay: 2 },
                 ].map((tag, index) => (

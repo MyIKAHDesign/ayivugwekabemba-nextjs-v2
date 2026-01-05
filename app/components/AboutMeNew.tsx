@@ -41,17 +41,48 @@ const AboutMeNew: React.FC = () => {
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1
-            className={`text-4xl sm:text-5xl font-bold tracking-tight mb-4
+            className={`text-4xl sm:text-5xl font-bold tracking-tight mb-6
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             About Me
           </h1>
-          <p
-            className={`text-xl leading-relaxed
-              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-          >
-            Tech Founder & Software Engineer passionate about cultural preservation
-          </p>
+
+          {/* Profile & Credentials Row */}
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <img
+              src="/favicon.ico"
+              alt="Ayivugwe"
+              className="w-10 h-10 rounded-full"
+            />
+            <span
+              className={`text-sm font-medium
+                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+            >
+              Google Certified PM
+            </span>
+            <span
+              className={`text-slate-400 dark:text-slate-600`}
+            >
+              •
+            </span>
+            <span
+              className={`text-sm font-medium
+                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+            >
+              Software Developer
+            </span>
+            <span
+              className={`text-slate-400 dark:text-slate-600`}
+            >
+              •
+            </span>
+            <span
+              className={`text-sm font-medium
+                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+            >
+              Kifuliiru Language Advocate
+            </span>
+          </div>
         </div>
 
         {/* Tab Navigation */}
@@ -411,11 +442,56 @@ const AboutMeNew: React.FC = () => {
                   </BodyText>
                   <BodyText>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li>Kifuliiru.com - Comprehensive language learning platform</li>
-                      <li>Radio Ibufuliiru - Digital radio broadcasting in Kifuliiru</li>
-                      <li>Tabula Kifuliiru - Content management and contribution platform</li>
-                      <li>Imyazi.com - Cultural stories and knowledge sharing</li>
-                      <li>Wempily - Social networking for the Bafuliiru community</li>
+                      <li>
+                        <a
+                          href="https://kifuliiru.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 underline"
+                        >
+                          Kifuliiru.com
+                        </a> - Comprehensive language learning platform
+                      </li>
+                      <li>
+                        <a
+                          href="https://radio.ibufuliiru.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 underline"
+                        >
+                          Radio Ibufuliiru
+                        </a> - Digital radio broadcasting in Kifuliiru
+                      </li>
+                      <li>
+                        <a
+                          href="https://tabula.kifuliiru.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 underline"
+                        >
+                          Tabula Kifuliiru
+                        </a> - Content management and contribution platform
+                      </li>
+                      <li>
+                        <a
+                          href="https://imyazi.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 underline"
+                        >
+                          Imyazi.com
+                        </a> - Cultural stories and knowledge sharing
+                      </li>
+                      <li>
+                        <a
+                          href="https://wempily.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 underline"
+                        >
+                          Wempily
+                        </a> - Social networking for the Bafuliiru community
+                      </li>
                     </ul>
                   </BodyText>
                 </div>
