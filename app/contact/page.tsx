@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
-import { MapPin, Github, Twitter, Linkedin, Facebook, AtSign, Instagram } from "lucide-react";
+import { MapPin, Github, Twitter, Linkedin, Facebook, AtSign, Instagram, Globe } from "lucide-react";
 
 export default function Contact() {
   const { darkMode } = useTheme();
@@ -13,6 +13,12 @@ export default function Contact() {
       label: "Location",
       value: "Spokane, Washington, USA",
       href: null,
+    },
+    {
+      icon: Globe,
+      label: "Content Creator",
+      value: "Ibufuliiru Platform",
+      href: "https://ibufuliiru.com",
     },
   ];
 
@@ -106,7 +112,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="grid grid-cols-1 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
