@@ -116,13 +116,13 @@ const ExperienceSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Professional Experiences
           </h2>
           <p
-            className={`font-mono text-xl leading-relaxed
+            className={`font-sans text-xl leading-relaxed
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             A demonstrated history of software development, project management,
@@ -168,7 +168,7 @@ const ExperienceSection: React.FC = () => {
                   {/* Left side - Position and Company */}
                   <div className="flex-1 md:min-w-[200px]">
                     <h3
-                      className={`font-mono text-lg font-semibold mb-2 transition-colors duration-300
+                      className={`font-sans text-lg font-semibold mb-2 transition-colors duration-300
                         ${
                           darkMode
                             ? "text-slate-100 group-hover:text-slate-50"
@@ -215,7 +215,7 @@ const ExperienceSection: React.FC = () => {
                   <div className="flex-1 md:flex-[2]">
                     {exp.description && (
                       <p
-                        className={`font-mono text-sm leading-relaxed transition-colors duration-300
+                        className={`font-sans text-sm leading-relaxed transition-colors duration-300
                           ${
                             darkMode
                               ? "text-slate-300 group-hover:text-slate-200"
@@ -248,14 +248,14 @@ const ExperienceSection: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`font-mono absolute top-4 right-4 text-2xl font-bold transition-colors duration-300
+                className={`font-sans absolute top-4 right-4 text-2xl font-bold transition-colors duration-300
                   ${darkMode ? "text-slate-300 hover:text-slate-100" : "text-slate-600 hover:text-slate-800"}`}
                 onClick={() => setIsTimelineVisible(false)}
               >
                 &times;
               </button>
               <h3
-                className={`font-mono text-xl leading-relaxed font-semibold text-center mb-6
+                className={`font-sans text-xl leading-relaxed font-semibold text-center mb-6
                   ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 Professional Timeline
@@ -305,7 +305,7 @@ const ExperienceSection: React.FC = () => {
                       <div className="relative p-4 z-10 transition-colors duration-500">
                         <div className="flex items-center mb-2">
                           <span
-                            className={`font-mono text-sm font-medium uppercase tracking-wide transition-colors duration-500
+                            className={`font-sans text-sm font-medium uppercase tracking-wide transition-colors duration-500
                               ${
                                 darkMode
                                   ? "text-slate-400 group-hover:text-slate-300"
@@ -316,7 +316,7 @@ const ExperienceSection: React.FC = () => {
                           </span>
                         </div>
                         <h4
-                          className={`font-mono text-xl leading-relaxed font-semibold transition-colors duration-500
+                          className={`font-sans text-xl leading-relaxed font-semibold transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-100 group-hover:text-slate-50"
@@ -326,7 +326,7 @@ const ExperienceSection: React.FC = () => {
                           {exp.company}
                         </h4>
                         <p
-                          className={`font-mono text-lg leading-relaxed mt-2 transition-colors duration-500
+                          className={`font-sans text-lg leading-relaxed mt-2 transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-300 group-hover:text-slate-200"

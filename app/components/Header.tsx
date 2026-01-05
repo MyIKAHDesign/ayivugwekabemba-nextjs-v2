@@ -170,7 +170,7 @@ const Header = () => {
                 >
                   {bannerMessages[currentBannerIndex].icon}
                 </div>
-                <p className="text-sm md:text-base font-medium font-mono bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
+                <p className="text-sm md:text-base font-medium font-sans bg-gradient-to-r from-slate-600 to-slate-500 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent">
                   {bannerMessages[currentBannerIndex].text}
                 </p>
               </div>
@@ -195,7 +195,7 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 max-w-6xl">
           <nav className="relative flex items-center justify-between h-16">
-            <Link href="/#home" className="flex items-center gap-2 text-2xl font-bold relative group font-mono">
+            <Link href="/#home" className="flex items-center gap-2 text-2xl font-bold relative group font-sans">
               <img
                 src="/favicon.ico"
                 alt="Ayivugwe"
@@ -261,7 +261,7 @@ const Header = () => {
                                 <button
                                   key={subItem.name}
                                   onClick={() => handleNavigation(subItem.href)}
-                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-mono
+                                  className={`w-full px-4 py-2 text-left transition-colors duration-200 font-sans
                                     ${
                                       isActive(subItem.href)
                                         ? "bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200"
@@ -354,7 +354,7 @@ const Header = () => {
                       ) : (
                         <Moon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                       )}
-                      <span className="text-slate-600 dark:text-slate-300 font-medium font-mono">
+                      <span className="text-slate-600 dark:text-slate-300 font-medium font-sans">
                         {darkMode
                           ? "Switch to Light Mode"
                           : "Switch to Dark Mode"}
@@ -385,7 +385,7 @@ const Header = () => {
                               isOpen ? null : item.name
                             )
                           }
-                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-mono
+                          className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center justify-between font-sans
                             ${
                               item.items.some((subItem) =>
                                 isActive(subItem.href)
@@ -407,7 +407,7 @@ const Header = () => {
                               <button
                                 key={subItem.name}
                                 onClick={() => handleNavigation(subItem.href)}
-                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-mono
+                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors font-sans
                                   ${
                                     isActive(subItem.href)
                                       ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"
@@ -427,7 +427,7 @@ const Header = () => {
                       <button
                         key={item.name}
                         onClick={() => handleNavigation(item.href)}
-                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-mono
+                        className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
                           ${
                             isActive(item.href)
                               ? "text-slate-800 dark:text-slate-100 bg-slate-200 dark:bg-slate-700/70"

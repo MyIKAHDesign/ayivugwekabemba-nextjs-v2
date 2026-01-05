@@ -29,7 +29,7 @@ export default function VideosPage() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h1
-            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-6
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-6
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Kifuliiru Video Collection
@@ -48,19 +48,19 @@ export default function VideosPage() {
               }`}
           >
             <p
-              className={`font-mono text-lg leading-relaxed mb-6
+              className={`font-sans text-lg leading-relaxed mb-6
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               Welcome to our collection of Kifuliiru language videos. These videos are part of our ongoing mission to preserve, document, and promote the Kifuliiru language and Bafuliiru cultural heritage. Through digital storytelling, educational content, and cultural documentation, we aim to ensure that the Kifuliiru language continues to thrive for future generations.
             </p>
             <p
-              className={`font-mono text-lg leading-relaxed mb-6
+              className={`font-sans text-lg leading-relaxed mb-6
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               Our videos cover a wide range of topics including language lessons, cultural stories, traditional practices, community events, and educational content designed to help both native speakers and learners engage with the Kifuliiru language in meaningful ways.
             </p>
             <p
-              className={`font-mono text-lg leading-relaxed
+              className={`font-sans text-lg leading-relaxed
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               Each video is carefully crafted to showcase the beauty and richness of the Kifuliiru language while providing valuable learning resources for those interested in understanding and preserving this important cultural heritage.
@@ -77,13 +77,13 @@ export default function VideosPage() {
               }`}
           >
             <h2
-              className={`font-mono text-2xl font-semibold mb-4
+              className={`font-sans text-2xl font-semibold mb-4
                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
             >
               Visit Our YouTube Channel
             </h2>
             <p
-              className={`font-mono text-base leading-relaxed mb-6
+              className={`font-sans text-base leading-relaxed mb-6
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               For more Kifuliiru videos and content, visit our YouTube channel:
@@ -92,7 +92,7 @@ export default function VideosPage() {
               href="https://www.youtube.com/@ibufuliiru"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-3 px-6 py-4 rounded-lg font-mono text-lg font-semibold transition-all duration-300 hover:scale-105 border-2
+              className={`inline-flex items-center gap-3 px-6 py-4 rounded-lg font-sans text-lg font-semibold transition-all duration-300 hover:scale-105 border-2
                 ${
                   darkMode
                     ? "bg-slate-700 text-slate-100 border-slate-600 hover:bg-slate-600 hover:border-slate-500"

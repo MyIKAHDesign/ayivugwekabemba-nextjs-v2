@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 font-mono
+      className={`relative min-h-screen pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 transition-all duration-300 font-sans
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
@@ -89,7 +89,7 @@ const HeroSection: React.FC = () => {
           <div className="order-1 md:order-2 h-full flex flex-col justify-center">
             <div className="space-y-6">
               <h1
-                className={`font-mono text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
+                className={`font-sans text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal
                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 Welcome. I&apos;m Ayivugwe Kabemba Mukome

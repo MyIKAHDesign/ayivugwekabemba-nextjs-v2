@@ -85,13 +85,13 @@ const SkillsSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Technical Skills
           </h2>
           <p
-            className={`font-mono text-xl leading-relaxed
+            className={`font-sans text-xl leading-relaxed
               ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
             A comprehensive toolkit for building and managing modern
@@ -135,7 +135,7 @@ const SkillsSection: React.FC = () => {
                       />
                     </div>
                     <h3
-                      className={`font-mono text-lg font-semibold transition-colors duration-300
+                      className={`font-sans text-lg font-semibold transition-colors duration-300
                         ${
                           darkMode
                             ? "text-slate-100 group-hover:text-slate-50"
@@ -151,7 +151,7 @@ const SkillsSection: React.FC = () => {
                     {skill.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`font-mono text-xs px-3 py-1.5 rounded-md transition-all duration-300
+                        className={`font-sans text-xs px-3 py-1.5 rounded-md transition-all duration-300
                           ${
                             darkMode
                               ? "bg-slate-700/50 text-slate-200 border border-slate-600/30 group-hover:bg-slate-600/50 group-hover:border-slate-500/50"
@@ -165,7 +165,7 @@ const SkillsSection: React.FC = () => {
 
                   {/* Details - Always Visible */}
                   <div className="space-y-2">
-                    <ul className="font-mono space-y-1.5">
+                    <ul className="font-sans space-y-1.5">
                       {skill.details.map((detail, i) => (
                         <li
                           key={i}

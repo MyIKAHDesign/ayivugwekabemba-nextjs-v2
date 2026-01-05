@@ -186,20 +186,20 @@ const VideoGallery = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2
-            className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight mb-6
+            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-6
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Kifuliiru Video Collection
           </h2>
           <div className="space-y-6 mb-8">
             <p
-              className={`font-mono text-lg leading-relaxed
+              className={`font-sans text-lg leading-relaxed
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               Welcome to our collection of Kifuliiru language videos. These videos are part of our ongoing mission to preserve, document, and promote the Kifuliiru language and Bafuliiru cultural heritage. Through digital storytelling, educational content, and cultural documentation, we aim to ensure that the Kifuliiru language continues to thrive for future generations.
             </p>
             <p
-              className={`font-mono text-lg leading-relaxed
+              className={`font-sans text-lg leading-relaxed
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
             >
               Our videos cover a wide range of topics including language lessons, cultural stories, traditional practices, community events, and educational content designed to help both native speakers and learners engage with the Kifuliiru language in meaningful ways.
@@ -213,7 +213,7 @@ const VideoGallery = () => {
                 }`}
             >
               <p
-                className={`font-mono text-base leading-relaxed mb-4
+                className={`font-sans text-base leading-relaxed mb-4
                   ${darkMode ? "text-slate-200" : "text-slate-700"}`}
               >
                 For more Kifuliiru videos and content, visit our YouTube channel:
@@ -222,7 +222,7 @@ const VideoGallery = () => {
                 href="https://www.youtube.com/@ibufuliiru"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 font-mono text-lg font-semibold transition-all duration-300 hover:scale-105
+                className={`inline-flex items-center gap-2 font-sans text-lg font-semibold transition-all duration-300 hover:scale-105
                   ${
                     darkMode
                       ? "text-slate-100 hover:text-slate-50"
@@ -281,7 +281,7 @@ const VideoGallery = () => {
 
                   <div className="p-6">
                     <h3
-                      className={`font-mono text-xl font-semibold mb-2 transition-colors duration-500
+                      className={`font-sans text-xl font-semibold mb-2 transition-colors duration-500
                         ${
                           darkMode
                             ? "text-slate-100 group-hover:text-slate-50"
@@ -292,7 +292,7 @@ const VideoGallery = () => {
                     </h3>
 
                     <p
-                      className={`font-mono text-lg leading-relaxed mb-4 transition-colors duration-500
+                      className={`font-sans text-lg leading-relaxed mb-4 transition-colors duration-500
                         ${
                           darkMode
                             ? "text-slate-300 group-hover:text-slate-200"
@@ -337,7 +337,7 @@ const VideoGallery = () => {
                       </div>
                       <div className="flex items-center gap-4">
                         <span
-                          className={`font-mono text-sm transition-colors duration-500
+                          className={`font-sans text-sm transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-300/70 group-hover:text-slate-200"
@@ -347,7 +347,7 @@ const VideoGallery = () => {
                           {videos[currentVideoIndex].duration}
                         </span>
                         <span
-                          className={`font-mono text-sm transition-colors duration-500
+                          className={`font-sans text-sm transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-300/70 group-hover:text-slate-200"
@@ -357,7 +357,7 @@ const VideoGallery = () => {
                           {videos[currentVideoIndex].viewCount}
                         </span>
                         <span
-                          className={`font-mono text-sm transition-colors duration-500
+                          className={`font-sans text-sm transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-300/70 group-hover:text-slate-200"
@@ -376,7 +376,7 @@ const VideoGallery = () => {
             {/* Video List */}
             <div className="lg:w-1/3">
               <h3
-                className={`font-mono text-xl font-semibold mb-4
+                className={`font-sans text-xl font-semibold mb-4
                   ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 More Videos
@@ -430,7 +430,7 @@ const VideoGallery = () => {
 
                       <div className="p-4">
                         <h4
-                          className={`font-mono text-sm font-medium mb-2 line-clamp-2 transition-colors duration-500
+                          className={`font-sans text-sm font-medium mb-2 line-clamp-2 transition-colors duration-500
                             ${
                               darkMode
                                 ? "text-slate-100 group-hover:text-slate-50"
@@ -441,7 +441,7 @@ const VideoGallery = () => {
                         </h4>
                         <div className="flex justify-between items-center">
                           <span
-                            className={`font-mono text-xs transition-colors duration-500
+                            className={`font-sans text-xs transition-colors duration-500
                               ${
                                 darkMode
                                   ? "text-slate-300/70 group-hover:text-slate-200"
@@ -451,7 +451,7 @@ const VideoGallery = () => {
                             {video.duration}
                           </span>
                           <span
-                            className={`font-mono text-xs transition-colors duration-500
+                            className={`font-sans text-xs transition-colors duration-500
                               ${
                                 darkMode
                                   ? "text-slate-300/70 group-hover:text-slate-200"

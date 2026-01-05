@@ -40,7 +40,7 @@ export default function CompanyDetailPage({
       >
         <div className="relative max-w-4xl mx-auto text-center">
           <h1
-            className={`font-mono text-4xl font-semibold mb-4
+            className={`font-sans text-4xl font-semibold mb-4
               ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Company Not Found
@@ -64,7 +64,7 @@ export default function CompanyDetailPage({
 
   return (
     <section
-      className={`relative min-h-screen pt-40 md:pt-48 lg:pt-52 px-4 sm:px-6 lg:px-8 pb-24 transition-all duration-300 font-mono
+      className={`relative min-h-screen pt-40 md:pt-48 lg:pt-52 px-4 sm:px-6 lg:px-8 pb-24 transition-all duration-300 font-sans
         ${
           darkMode
             ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
@@ -101,14 +101,14 @@ export default function CompanyDetailPage({
         <div className="mb-12">
           <div className="flex items-start justify-between gap-4 mb-6">
             <h1
-              className={`font-mono text-4xl sm:text-5xl font-semibold tracking-tight
+              className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight
                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
             >
               {company.name}
             </h1>
             {company.status && (
               <span
-                className={`text-sm font-mono px-3 py-1.5 rounded-md flex-shrink-0
+                className={`text-sm font-sans px-3 py-1.5 rounded-md flex-shrink-0
                   ${
                     company.status === "Active"
                       ? darkMode
