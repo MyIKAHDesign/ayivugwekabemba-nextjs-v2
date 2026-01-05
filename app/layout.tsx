@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             __html: `(function(){try{var t=localStorage.getItem('darkMode');if(t==='true'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){} })();`,
           }}
         />
-        <ThemeProvider>
+        <ThemeProvider initialDark={darkCookie}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

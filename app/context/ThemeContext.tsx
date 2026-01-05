@@ -18,9 +18,16 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // ThemeProvider Component
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // Initialize from localStorage on first client render so we don't briefly render the wrong theme
+export const ThemeProvider = ({
+  children,
+  initialDark,
+}: {
+  children: ReactNode;
+  initialDark?: boolean;
+}) => {
+  // Initialize from the server-provided prop when available to avoid hydration mismatch.
   const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof initialDark !== "undefined") return initialDark;
     try {
       if (typeof window !== "undefined") {
         return localStorage.getItem("darkMode") === "true";
