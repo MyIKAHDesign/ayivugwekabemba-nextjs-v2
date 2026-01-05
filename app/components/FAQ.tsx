@@ -148,7 +148,7 @@ const FAQ: React.FC = () => {
                   ${activeIndex === index ? "max-h-96" : "max-h-0"}`}
               >
                 <p
-                  className={`p-6 pt-0 font-sans font-normal text-base leading-relaxed transition-colors duration-500
+                  className={`p-6 pt-0 font-sans font-light text-sm leading-relaxed transition-colors duration-500
                   ${darkMode ? "text-slate-300" : "text-slate-600"}
                   ${
                     darkMode
