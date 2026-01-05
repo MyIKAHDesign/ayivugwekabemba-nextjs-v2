@@ -74,7 +74,7 @@ const FAQ: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2
-            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
+            className={`font-sans text-4xl sm:text-5xl font-medium tracking-tight mb-4 
             ${darkMode ? "text-slate-100" : "text-slate-900"}`}
           >
             Frequently Asked Questions
@@ -116,7 +116,7 @@ const FAQ: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <h3
-                    className={`font-sans text-xl font-semibold pr-8 transition-colors duration-500
+                    className={`font-sans text-xl font-medium pr-8 transition-colors duration-500
                     ${darkMode ? "text-slate-100" : "text-slate-900"}
                     ${
                       darkMode
@@ -148,7 +148,7 @@ const FAQ: React.FC = () => {
                   ${activeIndex === index ? "max-h-96" : "max-h-0"}`}
               >
                 <p
-                  className={`p-6 pt-0 font-sans text-lg leading-relaxed transition-colors duration-500
+                  className={`p-6 pt-0 font-sans font-normal text-lg leading-relaxed transition-colors duration-500
                   ${darkMode ? "text-slate-300" : "text-slate-600"}
                   ${
                     darkMode
