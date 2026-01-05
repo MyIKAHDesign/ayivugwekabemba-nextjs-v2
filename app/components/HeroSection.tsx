@@ -129,7 +129,7 @@ const HeroSection: React.FC = () => {
               <div className="flex mt-8">
                 <button
                   onClick={() => (window.location.href = "/companies")}
-                  className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium
+                  className={`group relative px-8 py-3 rounded-lg overflow-hidden transition-all duration-500 animate-subtle-pulse hover:scale-105 border-2 font-medium text-sm
                     ${
                       darkMode
                         ? "bg-blue-600 text-white border-blue-500"
@@ -138,7 +138,7 @@ const HeroSection: React.FC = () => {
                 >
                   <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-slate-600" />
                   <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
-                    View Products
+                    Companies & Products
                   </span>
                 </button>
               </div>

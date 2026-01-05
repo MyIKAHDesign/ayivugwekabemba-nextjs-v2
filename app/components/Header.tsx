@@ -26,7 +26,7 @@ const Header = () => {
   const mainNavLinks = [
     { name: "Home", href: "/", icon: Home },
     { name: "About", href: "/about", icon: User },
-    { name: "Companies", href: "/companies", icon: Rocket },
+    { name: "Companies & Products", href: "/companies", icon: Rocket },
     { name: "Blog", href: "/blog", icon: FileText },
     { name: "Contact", href: "/contact", icon: MessageSquare },
   ];
