@@ -212,17 +212,23 @@ const AboutMeNew: React.FC = () => {
                           Wekify LLC
                         </h3>
                         <span
-                          className={`text-sm
+                          className={`text-sm font-medium
                             ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                         >
-                          2020 - Present
+                          Jan 2020 - Present
                         </span>
                       </div>
                       <p
                         className={`text-base mb-2
-                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                       >
                         Founder & CEO
+                      </p>
+                      <p
+                        className={`text-sm mb-3
+                          ${darkMode ? "text-slate-500" : "text-slate-500"}`}
+                      >
+                        Remote
                       </p>
                       <p
                         className={`text-base leading-relaxed
@@ -250,17 +256,23 @@ const AboutMeNew: React.FC = () => {
                           Kifuliiru Lab
                         </h3>
                         <span
-                          className={`text-sm
+                          className={`text-sm font-medium
                             ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                         >
-                          2021 - Present
+                          Jan 2020 - Present
                         </span>
                       </div>
                       <p
                         className={`text-base mb-2
-                          ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                          ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                       >
                         Founder & Director
+                      </p>
+                      <p
+                        className={`text-sm mb-3
+                          ${darkMode ? "text-slate-500" : "text-slate-500"}`}
+                      >
+                        Remote
                       </p>
                       <p
                         className={`text-base leading-relaxed
@@ -286,48 +298,63 @@ const AboutMeNew: React.FC = () => {
                   <div className="space-y-4">
                     {[
                       {
-                        company: "Amazon",
-                        role: "Software Engineer",
-                        period: "2023 - 2024",
+                        company: "Amazon Fulfillment Center",
+                        role: "Fulfillment Center Associate",
+                        period: "Sep 2024 - Present",
+                        location: "Spokane, WA",
                       },
                       {
                         company: "Walmart",
-                        role: "Software Engineer",
-                        period: "2022 - 2023",
+                        role: "Field Associate",
+                        period: "Nov 2023 - Sep 2024",
+                        location: "Spokane Valley, WA",
+                      },
+                      {
+                        company: "ASYST Resources LTD",
+                        role: "Project Manager & DevOps Engineer",
+                        period: "Feb 2022 - Aug 2023",
+                        location: "Bujumbura, Burundi",
                       },
                       {
                         company: "ASYST Resources LTD",
                         role: "Software Developer",
-                        period: "2020 - 2022",
+                        period: "Jan 2017 - Feb 2022",
+                        location: "Bujumbura, Burundi",
                       },
                     ].map((job, index) => (
                       <div
                         key={index}
-                        className={`p-4 rounded-lg transition-all duration-300 hover:-translate-y-0.5
+                        className={`p-5 rounded-lg transition-all duration-300 hover:-translate-y-0.5
                           ${
                             darkMode
                               ? "bg-slate-700/30 hover:bg-slate-700/50"
                               : "bg-slate-50/50 hover:bg-slate-100/70"
                           }`}
                       >
-                        <div className="flex justify-between items-start">
-                          <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div className="flex-1">
                             <h3
-                              className={`text-lg font-semibold
+                              className={`text-lg font-semibold mb-1
                                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
                             >
                               {job.company}
                             </h3>
                             <p
-                              className={`text-base
-                                ${darkMode ? "text-slate-400" : "text-slate-600"}`}
+                              className={`text-base mb-1
+                                ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                             >
                               {job.role}
                             </p>
+                            <p
+                              className={`text-sm
+                                ${darkMode ? "text-slate-500" : "text-slate-500"}`}
+                            >
+                              {job.location}
+                            </p>
                           </div>
                           <span
-                            className={`text-sm
-                              ${darkMode ? "text-slate-500" : "text-slate-500"}`}
+                            className={`text-sm font-medium whitespace-nowrap ml-4
+                              ${darkMode ? "text-slate-400" : "text-slate-600"}`}
                           >
                             {job.period}
                           </span>

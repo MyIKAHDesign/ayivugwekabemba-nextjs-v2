@@ -8,9 +8,9 @@ const CredibilitySignals: React.FC = () => {
   const { darkMode } = useTheme();
 
   const workHistory = [
-    { company: "Amazon", role: "Software Engineer", logo: "💼" },
-    { company: "Walmart", role: "Software Engineer", logo: "💼" },
-    { company: "ASYST", role: "Software Engineer", logo: "💼" },
+    { company: "Amazon", role: "Fulfillment Center Associate", logo: "💼" },
+    { company: "Walmart", role: "Field Associate", logo: "💼" },
+    { company: "ASYST Resources LTD", role: "Project Manager & DevOps Engineer", logo: "💼" },
   ];
 
   const certifications = [

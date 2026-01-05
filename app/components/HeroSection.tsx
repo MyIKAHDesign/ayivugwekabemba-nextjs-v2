@@ -122,7 +122,7 @@ const HeroSection: React.FC = () => {
                 style={{ animationDelay: "400ms" }}
               >
                 Founder of Wekify LLC and Kifuliiru Lab, building 15+ products focused on language preservation.
-                Former Amazon & Walmart engineer. Google-certified Project Manager.
+                Experience at Amazon & Walmart. Google-certified Project Manager.
               </p>
 
               {/* CTA Buttons */}
