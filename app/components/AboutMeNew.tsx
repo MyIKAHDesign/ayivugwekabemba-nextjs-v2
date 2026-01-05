@@ -416,9 +416,9 @@ const AboutMeNew: React.FC = () => {
 
           {/* Skills Tab */}
           {activeTab === "skills" && (
-            <div>
+            <Card>
               <SkillsSection />
-            </div>
+            </Card>
           )}
 
           {/* Mission Tab */}

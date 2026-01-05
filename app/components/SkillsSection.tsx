@@ -63,44 +63,7 @@ const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section
-      id="skills"
-      className={`relative min-h-screen pt-60 md:pt-44 pb-24 px-4 sm:px-6 lg:px-8 transition-all duration-300
-        ${
-          darkMode
-            ? "bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"
-            : "bg-gradient-to-b from-slate-50 via-slate-50 to-white"
-        }`}
-    >
-      {/* Background Pattern */}
-      <div
-        className={`absolute inset-0 bg-[url('/grid.svg')] bg-center
-          ${
-            darkMode
-              ? "bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,black,transparent)]"
-              : "bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,transparent)]"
-          }`}
-      />
-
-      <div className="relative max-w-6xl mx-auto">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <h2
-            className={`font-sans text-4xl sm:text-5xl font-semibold tracking-tight mb-4 
-              ${darkMode ? "text-slate-100" : "text-slate-900"}`}
-          >
-            Technical Skills
-          </h2>
-          <p
-            className={`font-sans text-xl leading-relaxed
-              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
-          >
-            A comprehensive toolkit for building and managing modern
-            applications
-          </p>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full transform transition-transform duration-300 hover:scale-110" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
 
@@ -194,9 +157,7 @@ const SkillsSection: React.FC = () => {
               </div>
             );
           })}
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 
