@@ -105,7 +105,7 @@ const HeroSection: React.FC = () => {
                 className={`font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal leading-tight
                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
-                Ayivugwe Kabemba
+                Ayivugwe Kabemba Mukome
               </h1>
 
               <p
