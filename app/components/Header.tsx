@@ -31,6 +31,12 @@ const Header = () => {
     { name: "Contact", href: "/contact", icon: MessageSquare },
   ];
 
+  const cultureNavLinks = [
+    { name: "Kifuliiru", href: "/kifuliiru" },
+    { name: "Ibufuliiru", href: "/ibufuliiru" },
+    { name: "Abafuliiru", href: "/abafuliiru" },
+  ];
+
   const allNavLinks = mainNavLinks;
 
   useEffect(() => {
@@ -141,6 +147,33 @@ const Header = () => {
                     />
                   </button>
                 ))}
+
+                {/* Culture Section Divider */}
+                <div className={`h-6 w-px mx-2 ${darkMode ? "bg-slate-700" : "bg-slate-300"}`} />
+
+                {/* Culture Links */}
+                {cultureNavLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`px-3 py-2 rounded-lg relative group transition-colors duration-200 flex items-center gap-1 z-20
+                      ${
+                        isActive(item.href)
+                          ? "text-purple-700 dark:text-purple-300"
+                          : "text-slate-600 dark:text-slate-400 hover:text-purple-700 dark:hover:text-purple-300"
+                      }`}
+                  >
+                    <span className="relative z-30">{item.name}</span>
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-all duration-200 z-10
+                        ${
+                          isActive(item.href)
+                            ? "bg-purple-50 dark:bg-purple-900/30 scale-100"
+                            : "bg-slate-100 dark:bg-slate-800/50 scale-0 group-hover:scale-100"
+                        }`}
+                    />
+                  </button>
+                ))}
               </div>
               {/* Theme Toggle Button */}
               <button
@@ -218,6 +251,27 @@ const Header = () => {
                     {item.name}
                   </button>
                 ))}
+
+                {/* Culture Section */}
+                <div className={`border-t pt-3 mt-3 ${darkMode ? "border-slate-700" : "border-slate-200"}`}>
+                  <div className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${darkMode ? "text-slate-500" : "text-slate-400"}`}>
+                    Culture & Heritage
+                  </div>
+                  {cultureNavLinks.map((item) => (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavigation(item.href)}
+                      className={`w-full px-4 py-2 text-left rounded-lg transition-colors flex items-center gap-2 font-sans
+                        ${
+                          isActive(item.href)
+                            ? "text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-900/30"
+                            : "text-slate-600 dark:text-slate-400 hover:text-purple-700 dark:hover:text-purple-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        }`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           )}
