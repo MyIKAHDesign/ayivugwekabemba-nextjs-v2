@@ -102,14 +102,14 @@ const HeroSection: React.FC = () => {
               </div>
 
               <h1
-                className={`font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal leading-tight
+                className={`font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight transition-colors duration-300 animate-text-reveal leading-tight
                 ${darkMode ? "text-slate-100" : "text-slate-900"}`}
               >
                 Ayivugwe Kabemba Mukome
               </h1>
 
               <p
-                className={`text-2xl sm:text-3xl font-semibold leading-snug transition-colors duration-300 animate-slide-up mt-4
+                className={`text-xl sm:text-2xl font-semibold leading-snug transition-colors duration-300 animate-slide-up mt-4
                 ${darkMode ? "text-slate-300" : "text-slate-700"}`}
                 style={{ animationDelay: "200ms" }}
               >
